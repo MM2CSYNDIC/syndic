@@ -1,13 +1,13 @@
-/target$
-/logs$
+*/target
+*/logs
 /bin$
-/tmp
+*/tmp
 .metadata
 .settings/
 *~
 
 # Eclipse Core
-.project
+*.project
 
 # Locally stored "Eclipse launch configurations"
 *.launch
