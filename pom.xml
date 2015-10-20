@@ -114,5 +114,6 @@
     </build>
     <modules>
     	<module>syndic-security-core</module>
+    	<module>syndic-core</module>
     </modules>
 </project>
