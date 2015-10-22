@@ -5,6 +5,9 @@
 .metadata
 .settings/
 *~
+*.idea
+*.iml
+*/*.iml
 
 # Eclipse Core
 *.project
