@@ -55,6 +55,16 @@
            <role>Developer</role>
           </roles>
         </developer>
+        <developer>
+            <id>balaasri</id>
+            <name>Brahim Alaasri</name>
+            <email>brahim.px@gmail.com</email>
+            <name>1</name>
+            <organization>MIAGE</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
     </developers>  
     <properties>
         <app.log.root.level>WARN</app.log.root.level>
