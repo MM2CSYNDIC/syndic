@@ -37,6 +37,11 @@
             </comments>
         </license>
     </licenses>
+    <issueManagement>
+       <system>GitHub</system>
+       <url>https://github.com/MM2CSYNDIC/syndic.git</url>
+    </issueManagement>
+    
     <developers>
         <developer>
           <id>lyes.kherbiche</id>
@@ -47,7 +52,7 @@
           <organizationUrl>http://kherbichelyesbiblio.appspot.com/</organizationUrl>
           <roles>
            <role>Designer</role>
-           <role>Devloppeur</role>
+           <role>Developer</role>
           </roles>
         </developer>
     </developers>  
