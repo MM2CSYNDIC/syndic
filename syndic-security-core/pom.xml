@@ -6,16 +6,13 @@
   <parent>
     <artifactId>syndic-parent</artifactId>
     <groupId>fr.upond.syndic</groupId>
-    <version>0.0.1</version>
+    <version>${parent.version}</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 
   
   <artifactId>syndic-security-core</artifactId>
   <packaging>war</packaging>
-  
-  <properties>
-     <org.springframework.security.version>4.0.2.RELEASE</org.springframework.security.version>
-  </properties>
   
 
   <name>syndic-security-core</name>
@@ -37,12 +34,10 @@
     <dependency>
        <groupId>org.springframework.security</groupId>
        <artifactId>spring-security-core</artifactId>
-       <version>${org.springframework.security.version}</version>
     </dependency>
     <dependency>
        <groupId>org.springframework.security</groupId>
        <artifactId>spring-security-web</artifactId>
-       <version>${org.springframework.security.version}</version>
     </dependency>
   </dependencies>
 

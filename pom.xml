@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.upond.syndic</groupId>
     <artifactId>syndic-parent</artifactId>
-    <version>0.0.1</version>
+    <version>${parent.version}</version>
     <packaging>pom</packaging>
     <name>syndic</name>
     <description>Syndic Parent Project</description>
@@ -45,6 +45,10 @@
           <timezone>1</timezone>
           <organization>MIAGE</organization>
           <organizationUrl>http://kherbichelyesbiblio.appspot.com/</organizationUrl>
+          <roles>
+           <role>Designer</role>
+           <role>Devloppeur</role>
+          </roles>
         </developer>
     </developers>  
     <properties>
@@ -52,8 +56,40 @@
         <env>local</env>
         <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
         <sonar.language>java</sonar.language>
+        <org.springframework.security.version>4.0.2.RELEASE</org.springframework.security.version>
+        <org.springframework.version>4.0.2.RELEASE</org.springframework.version>
+        <parent.version>0.0.1.RELEASE</parent.version>
     </properties>
-    <dependencyManagement></dependencyManagement>
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+           <groupId>org.springframework.security</groupId>
+           <artifactId>spring-security-core</artifactId>
+           <version>${org.springframework.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${org.springframework.security.version}</version>
+        </dependency>
+        <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-core</artifactId>
+           <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-context</artifactId>
+           <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-beans</artifactId>
+           <version>${org.springframework.version}</version>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+    
     <build>
        <pluginManagement>
           <plugins>
@@ -112,6 +148,7 @@
           </plugin>
        </plugins>
     </build>
+    
     <modules>
     	<module>syndic-security-core</module>
     	<module>syndic-core</module>

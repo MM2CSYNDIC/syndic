@@ -4,33 +4,29 @@
   <parent>
     <groupId>fr.upond.syndic</groupId>
     <artifactId>syndic-parent</artifactId>
-    <version>0.0.1</version>
+    <version>${parent.version}</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
   <artifactId>syndic-core</artifactId>
   <packaging>jar</packaging>
   <name>syndic Core</name>
-  
-  <properties>
-     <org.springframework.version>4.0.2.RELEASE</org.springframework.version>
-  </properties>
-  
+
   <dependencies>
      <dependency>
          <groupId>org.springframework</groupId>
          <artifactId>spring-core</artifactId>
-         <version>${org.springframework.version}</version>
      </dependency>
      <dependency>
          <groupId>org.springframework</groupId>
          <artifactId>spring-context</artifactId>
-         <version>${org.springframework.version}</version>
      </dependency>
      <dependency>
          <groupId>org.springframework</groupId>
          <artifactId>spring-beans</artifactId>
-         <version>${org.springframework.version}</version>
      </dependency>
   </dependencies>
+  
+  
 </project>
