@@ -74,6 +74,7 @@
         <org.springframework.security.version>4.0.2.RELEASE</org.springframework.security.version>
         <org.springframework.version>4.0.2.RELEASE</org.springframework.version>
         <parent.version>0.0.1.RELEASE</parent.version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
     <dependencyManagement>
       <dependencies>
@@ -101,6 +102,11 @@
            <groupId>org.springframework</groupId>
            <artifactId>spring-beans</artifactId>
            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+           <groupId>log4j</groupId>
+	       <artifactId>log4j</artifactId>
+	       <version>${log4j.version}</version>
         </dependency>
       </dependencies>
     </dependencyManagement>
