@@ -41,6 +41,9 @@
        <system>GitHub</system>
        <url>https://github.com/MM2CSYNDIC/syndic.git</url>
     </issueManagement>
+    <scm>
+       <connection>scm:git:git://github.com/MM2CSYNDIC/syndic.git</connection>
+    </scm>
     
     <developers>
         <developer>
@@ -171,7 +174,6 @@
     </build>
     
     <modules>
-    	<module>syndic-security-core</module>
     	<module>syndic-core</module>
     </modules>
 </project>
