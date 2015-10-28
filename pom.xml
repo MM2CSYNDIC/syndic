@@ -175,5 +175,6 @@
     
     <modules>
     	<module>syndic-core</module>
+    	<module>syndic-secur-core</module>
     </modules>
 </project>
