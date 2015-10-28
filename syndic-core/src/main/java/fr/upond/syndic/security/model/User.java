@@ -18,12 +18,11 @@ public class User {
 	@SuppressWarnings("unused")
 	private User() {}
 	
-	public User(String userName, String passWord, boolean enabled, Set<UserRole> userRole) {
+	public User(String userName, String passWord, boolean enabled) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
 		this.enabled = enabled;
-		this.userRole = userRole;
 	}
 
 	public String getUserName() {

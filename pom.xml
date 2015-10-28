@@ -176,5 +176,8 @@
     <modules>
     	<module>syndic-core</module>
     	<module>syndic-secur-core</module>
+    	<module>syndic-repository-core</module>
+    	<module>syndic-service-core</module>
+    	<module>syndic-client-web</module>
     </modules>
 </project>

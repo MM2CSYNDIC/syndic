@@ -20,6 +20,17 @@ public class UserRole {
 		this.user = user;
 		this.role = role;
 	}
+	
+	public UserRole(String role) {
+		super();
+		this.role = role;
+	}
+	
+	public UserRole(User user, String role) {
+		super();
+		this.user = user;
+		this.role = role;
+	}
 
 	public Integer getUserRoleId() {
 		return userRoleId;

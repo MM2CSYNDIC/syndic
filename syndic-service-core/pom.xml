@@ -7,29 +7,13 @@
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>syndic-secur-core</artifactId>
-  <packaging>jar</packaging>
-  <name>syndic-security-core</name>
+  <artifactId>syndic-service-core</artifactId>
   
   <dependencies>
-     <dependency>
-          <groupId>fr.upond.syndic</groupId>
-          <artifactId>syndic-core</artifactId>
-          <version>${parent.version}</version>
-          <type>jar</type>
-     </dependency>
-     <dependency>
-         <groupId>org.springframework.security</groupId>
-	     <artifactId>spring-security-core</artifactId>
-     </dependency>
-     
      <dependency>
            <groupId>log4j</groupId>
 	       <artifactId>log4j</artifactId>
      </dependency>
   </dependencies>
-  
-  
-  
   
 </project>
