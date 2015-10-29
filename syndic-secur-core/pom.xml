@@ -19,6 +19,12 @@
           <type>jar</type>
      </dependency>
      <dependency>
+          <groupId>fr.upond.syndic</groupId>
+          <artifactId>syndic-repository-core</artifactId>
+          <version>${parent.version}</version>
+          <type>jar</type>
+     </dependency>
+     <dependency>
          <groupId>org.springframework.security</groupId>
 	     <artifactId>spring-security-core</artifactId>
      </dependency>
