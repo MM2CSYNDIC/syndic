@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- @author LYES KHERBICHE -->
+<hibernate-mapping>
+	<class name="fr.upond.syndic.security.model.UserRole" table="USERROLE">
+		
+		<id name="userRoleId" type="java.lang.Integer">
+            <column name="USERROLEID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="fr.upond.syndic.security.model.User" fetch="select">
+            <column name="USERNAME" not-null="true" />
+        </many-to-one>
+        <property name="role" column="ROLE" not-null="true"/>
+		
+	</class>
+</hibernate-mapping>

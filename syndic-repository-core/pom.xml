@@ -8,14 +8,28 @@
     <version>${parent.version}</version>
   </parent>
   
+  <properties>
+     <hibernate.version>4.3.11.Final</hibernate.version>
+  </properties>
+  
   <modelVersion>4.0.0</modelVersion>
   <artifactId>syndic-repository-core</artifactId>
   
   <dependencies>
      <dependency>
-           <groupId>log4j</groupId>
-	       <artifactId>log4j</artifactId>
+         <groupId>fr.upond.syndic</groupId>
+         <artifactId>syndic-core</artifactId>
+         <version>${parent.version}</version>
      </dependency>
+     <dependency>
+         <groupId>log4j</groupId>
+	     <artifactId>log4j</artifactId>
+     </dependency>
+     <dependency>
+		 <groupId>org.hibernate</groupId>
+		 <artifactId>hibernate-core</artifactId>
+		 <version>${hibernate.version}</version>
+	 </dependency>
   </dependencies>
   
 </project>
