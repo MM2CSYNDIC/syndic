@@ -68,6 +68,16 @@
                 <role>Developer</role>
             </roles>
         </developer>
+        <developer>
+            <id>GharbiManel</id>
+            <name>Manel Gharbi</name>
+            <email>gharbi.manel@ymail.com</email>
+            <timezone>1</timezone>
+            <organization>MIAGE</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
     </developers>  
     <properties>
         <app.log.root.level>WARN</app.log.root.level>
