@@ -8,7 +8,7 @@
 		</property>
 	</bean>
     
-    <bean id="homePage" class="org.springframework.web.servlet.view.JstlView">
+    <bean id="welcomePage" class="org.springframework.web.servlet.view.JstlView">
 		<property name="url">
 			<value>/WEB-INF/index.jsp</value>
 		</property>
