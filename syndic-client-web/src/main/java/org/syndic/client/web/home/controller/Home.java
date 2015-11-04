@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class Home {
 	
+	
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String welcome() {
 		return "welcomePage";
