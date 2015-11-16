@@ -18,18 +18,27 @@ import fr.upond.syndic.repository.user.UserDaoImpl;
 public class Home {
 	
 	private static final Log logger = LogFactory.getLog(Home.class);
+	
 	@Autowired
 	private UserDaoImpl userDao;
+	
+	
 	
 	public void setUserDao(UserDaoImpl userDao) {
 		this.userDao = userDao;
 	}
+
 	
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String welcome() {
 		logger.info("=========== In Home controoler ==========");
 		userDao.delete(null);
 		return "welcomePage";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "loginPage";
 	}
 	
 }
