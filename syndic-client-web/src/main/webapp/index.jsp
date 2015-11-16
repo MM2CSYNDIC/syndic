@@ -9,5 +9,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href='welcome.ldz'>Cliquez ici pour acceder a l accueil</a>
     </body>
 </html>

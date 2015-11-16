@@ -5,9 +5,9 @@
   xmlns:tx="http://www.springframework.org/schema/tx"
   xmlns:p="http://www.springframework.org/schema/p"
   xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+    http://www.springframework.org/schema/context/spring-context.xsd 
     http://www.springframework.org/schema/tx 
     http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
@@ -15,21 +15,28 @@
 	
     <tx:annotation-driven />
   
-    <context:component-scan base-package="fr.upond.syndic.repository.user" />
+    <context:component-scan base-package="fr.upond.syndic.repository.*" />
     
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <context:annotation-config />
+    
+    <import resource="classpath:hibern/hibernate.cfg.xml" />
+    
+    <!--bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
        <property name="configLocation">
           <value>hibern/hibernate.cfg.xml</value>
        </property>
-    </bean>
-    <!--bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/syndic"/>
+       <property name="configurationClass">
+            <value>org.hibernate.cfg.AnnotationConfiguration</value>
+       </property>
     </bean-->
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/syndicat"/>
+    </bean>
   
 	<!--  ORM HIBERNATE PART -->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="configLocation">
-			<value>hibern/hibernate.cfg.xml</value>
+			<value>classpath:hibern/hibernate.cfg.xml</value>
 		</property>	
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
@@ -39,6 +46,12 @@
     </bean>
 	
 	 <!-- Declaration of DOA beans Hibernate -->
-	<bean id="userDao" class="fr.upond.syndic.repository.user.UserDaoImpl"/>
+	<bean id="userDao" class="fr.upond.syndic.repository.user.UserDaoImpl">
+	    <property name="sessionFactory">
+	       <ref bean="sessionFactory"/>
+	    </property>
+	</bean>
+	
+	
 	
 </beans>

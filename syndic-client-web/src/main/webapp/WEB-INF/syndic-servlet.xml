@@ -11,20 +11,20 @@
 		http://www.springframework.org/schema/context/spring-context.xsd">
 		
 	
-	<context:component-scan base-package="org.syndic.client.web.home.controller.*" />
+	<context:component-scan base-package="org.syndic.client.web.home.*" />
 	
 	<context:annotation-config />
 	
 	<mvc:annotation-driven />
 	
-	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<!-- bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" /-->
 	
-	<bean id="tilesConfigurer"
+	<!--bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 		<property name="definitions">
 			<value>/WEB-INF/tiles/conf/tiles.xml</value>
 		</property>
-	</bean>
+	</bean-->
 
 	<!-- INFO : Resolution de la vue -->
 	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
@@ -35,5 +35,7 @@
 	
 	<!-- INFO: Validator -->
 	<!--bean id = "userValidator" class = ""></bean-->
+	
+	<import resource="classpath:beans/syndic-data.xml" />
 	
 </beans>

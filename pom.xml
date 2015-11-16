@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.upond.syndic</groupId>
     <artifactId>syndic-parent</artifactId>
-    <version>${parent.version}</version>
+    <version>0.0.1.RELEASE</version>
     <packaging>pom</packaging>
     <name>syndic</name>
     <description>Syndic Parent Project</description>
@@ -88,6 +88,7 @@
         <org.springframework.version>4.0.2.RELEASE</org.springframework.version>
         <parent.version>0.0.1.RELEASE</parent.version>
         <log4j.version>1.2.17</log4j.version>
+        <org.slf4j.version>1.5.6</org.slf4j.version>
         <org.apache.tiles.version>2.2.2</org.apache.tiles.version>
     </properties>
     <dependencyManagement>

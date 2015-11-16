@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.upond.syndic.repository.IDao;
+import fr.upond.syndic.repository.user.UserDaoImpl;
 import fr.upond.syndic.security.ISecurityManager;
 import fr.upond.syndic.security.model.UserRole;
 
@@ -26,9 +27,14 @@ import fr.upond.syndic.security.model.UserRole;
 @Service
 public class SecurityManager implements ISecurityManager {
 	
-	@Autowired
-	private IDao<fr.upond.syndic.security.model.User> userDao;
-
+	//@Autowired
+	private UserDaoImpl userDao;
+	//private IDao<fr.upond.syndic.security.model.User> userDao;
+    
+	public void setUserDao(UserDaoImpl userDao) {
+		this.userDao = userDao;
+	}
+	
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

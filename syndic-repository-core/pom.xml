@@ -5,7 +5,7 @@
   <parent>
     <groupId>fr.upond.syndic</groupId>
     <artifactId>syndic-parent</artifactId>
-    <version>${parent.version}</version>
+    <version>0.0.1.RELEASE</version>
   </parent>
   
   <properties>
@@ -35,6 +35,16 @@
          <artifactId>commons-dbcp</artifactId>
          <version>1.2.2</version>
      </dependency>
+     <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-ehcache</artifactId>
+        <version>${hibernate.version}</version>
+     </dependency>
+     <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.20</version>
+    </dependency>
 	 <dependency>
          <groupId>org.springframework</groupId>
          <artifactId>spring-core</artifactId>
@@ -43,6 +53,16 @@
        <groupId>org.springframework</groupId>
        <artifactId>spring-orm</artifactId>
        <version>${org.springframework.version}</version>
+    </dependency>
+    <dependency>
+	   <groupId>cglib</groupId>
+	   <artifactId>cglib</artifactId>
+	   <version>3.2.0</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.commons</groupId>
+       <artifactId>commons-lang3</artifactId>
+       <version>3.4</version>
     </dependency>
   </dependencies>
   

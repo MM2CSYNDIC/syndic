@@ -6,21 +6,12 @@
   <hibernate-configuration>
 
     <session-factory>
-
-        <property name="dataSource">java:comp/env/jdbc/syndic</property>
-        <!-- mysql dialect -->
+        <property name="dataSource">java:comp/env/jdbc/syndicat</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        
-        <!-- Montrer toutes les réquêtes générées -->
         <property name="show_sql">true</property>
-        
-		<!-- Formater toutes les réquêtes générées -->
         <property name="format_sql">true</property>
-        
-        <!-- fichiers de mapping -->
         <mapping resource="mapping/user.hbm.xml"/>
         <mapping resource="mapping/userRole.hbm.xml"/>
-
     </session-factory>
 
 </hibernate-configuration>
