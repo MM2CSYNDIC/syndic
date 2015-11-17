@@ -11,9 +11,20 @@
   
   <dependencies>
      <dependency>
-           <groupId>log4j</groupId>
-	       <artifactId>log4j</artifactId>
+       <groupId>log4j</groupId>
+	   <artifactId>log4j</artifactId>
      </dependency>
+     <dependency>
+       <groupId>fr.upond.syndic</groupId>
+       <artifactId>syndic-core</artifactId>
+       <version>${parent.version}</version>
+    </dependency>
+    <dependency>
+       <groupId>fr.upond.syndic</groupId>
+       <artifactId>syndic-repository-core</artifactId>
+       <version>${parent.version}</version>
+    </dependency>
   </dependencies>
+  
   
 </project>

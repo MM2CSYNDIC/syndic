@@ -12,7 +12,7 @@
 		
 	
 	<context:component-scan base-package="org.syndic.client.web.home.*" />
-	
+	<context:component-scan base-package="org.syndic.client.web.users.*" />
 	<context:annotation-config />
 	
 	<mvc:annotation-driven />
@@ -37,5 +37,6 @@
 	<!--bean id = "userValidator" class = ""></bean-->
 	
 	<import resource="classpath:beans/syndic-data.xml" />
+	<import resource="classpath:contexte/syndic-service.xml" />
 	
 </beans>

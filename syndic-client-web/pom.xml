@@ -58,6 +58,11 @@
        <artifactId>syndic-repository-core</artifactId>
        <version>${parent.version}</version>
     </dependency>
+    <dependency>
+       <groupId>fr.upond.syndic</groupId>
+       <artifactId>syndic-service-core</artifactId>
+       <version>${parent.version}</version>
+    </dependency>
     <!-- SLF4J -->
 	<dependency>
 		<groupId>org.slf4j</groupId>
