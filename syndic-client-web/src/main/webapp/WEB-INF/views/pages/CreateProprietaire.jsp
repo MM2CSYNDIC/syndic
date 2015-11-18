@@ -63,7 +63,7 @@
             <br />
 
             <label for="">Membre du syndicat : <span class="requis">*</span></label>
-            <input type="checkbox" name="choix1"
+            <input type="checkbox" name="choix1"/>
             <span class="erreur"></span>
             <br />
 
