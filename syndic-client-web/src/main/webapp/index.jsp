@@ -8,6 +8,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>SYNDIC SYNDIC SYNDYC !</h1>
+        <a href='welcome.ldz'>Cliquez ici pour acceder a l accueil</a>
+        <a href='user/getformadduser.ldz'>Cliquez ici pour acceder a l accueil aussi</a>
     </body>
 </html>
