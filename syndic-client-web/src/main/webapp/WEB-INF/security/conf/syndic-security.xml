@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  @author LYES KHERBICHE -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:security="http://www.springframework.org/schema/security"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation=
+          "http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context
+		  http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security.xsd">	
+	
+	<import resource="classpath:security/beans/syndic-service-security.xml" />
+    
+	<security:http auto-config="true">
+		<security:intercept-url pattern="/kherbiche/*.ldz" access="ROLE_USER" />
+		<security:form-login login-page="/login.ldz" default-target-url="/home"
+			authentication-failure-url="/login?error" username-parameter="username"
+			password-parameter="password" />
+		<security:logout logout-success-url="/login?logout" />
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="securityManager"></security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>

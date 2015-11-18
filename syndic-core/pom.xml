@@ -4,7 +4,7 @@
   <parent>
     <groupId>fr.upond.syndic</groupId>
     <artifactId>syndic-parent</artifactId>
-    <version>${parent.version}</version>
+    <version>0.0.1.RELEASE</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   

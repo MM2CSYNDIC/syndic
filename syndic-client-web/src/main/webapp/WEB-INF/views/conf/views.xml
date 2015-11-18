@@ -2,22 +2,12 @@
 <!DOCTYPE beans SYSTEM "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 
-	<bean id="homePagezzz" class="org.springframework.web.servlet.view.tiles2.TilesView">
-		<property name="url">
-			<value>HHHHHH</value>
-		</property>
-	</bean>
     
     <bean id="welcomePage" class="org.springframework.web.servlet.view.JstlView">
 		<property name="url">
-			<value>/WEB-INF/index.jsp</value>
+			<value>/index.jsp</value>
 		</property>
 	</bean>
     
-	<bean id="loginPage" class="org.springframework.web.servlet.view.JstlView">
-		<property name="url">
-			<value>/WEB-INF/views/pages/login.jsp</value>
-		</property>
-	</bean>
 
 </beans>
