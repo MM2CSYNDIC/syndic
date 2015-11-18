@@ -19,3 +19,10 @@ CREATE TABLE USERROLE (
   UNIQUE KEY uni_username_role (ROLE,USERNAME),
   KEY fk_username_idx (USERNAME),
   CONSTRAINT fk_username FOREIGN KEY (USERNAME) REFERENCES USERS (USERNAME));
+  
+  
+INSERT INTO USERS(username,password,enabled)
+VALUES ('alex','123456', true);
+
+INSERT INTO USERROLE (username, role)
+VALUES ('alex', 'ROLE_USER');
