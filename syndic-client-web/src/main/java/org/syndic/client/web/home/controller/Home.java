@@ -17,7 +17,7 @@ public class Home {
 	public String welcome() {
 		return "welcomePage";
 	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
 		return "loginPage";
