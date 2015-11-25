@@ -10,6 +10,8 @@ import java.util.List;
  */
 public interface IManager<T> {
 	
-	List<T> get(T t);
+	List<T> get(T obj);
+	
+	void add(T obj);
 
 }

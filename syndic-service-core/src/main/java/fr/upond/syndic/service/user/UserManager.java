@@ -34,4 +34,11 @@ public class UserManager implements IManager<User> {
 		return this.userDao.get(user);
 	}
 
+	@Override
+	public void add(User obj) {
+		logger.info("===== IN UserManager add =====");
+		this.userDao.put(obj);
+		
+	}
+
 }
