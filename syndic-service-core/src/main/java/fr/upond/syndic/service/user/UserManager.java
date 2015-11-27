@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.upond.syndic.repository.IDao;
 import fr.upond.syndic.security.model.User;
+import fr.upond.syndic.security.model.UserRole;
 import fr.upond.syndic.service.IManager;
 
 /**
@@ -22,6 +23,8 @@ public class UserManager implements IManager<User> {
 	private static final Log logger = LogFactory.getLog(UserManager.class);
 	@Autowired
 	private IDao<User> userDao;
+	@Autowired
+	private IDao<UserRole> userRoleDao;
 	
 	public void setUserDao(IDao<User> userDao) {
 		this.userDao = userDao;
@@ -35,9 +38,13 @@ public class UserManager implements IManager<User> {
 	}
 
 	@Override
-	public void add(User obj) {
-		logger.info("===== IN UserManager add =====");
-		this.userDao.put(obj);
+	public void add(User user) {
+		logger.info("===== Insert User & UserRole =====");
+		this.userDao.put(user);
+		for (UserRole ur : user.getUserRole()) {
+			this.userRoleDao.put(ur);
+		}
+		
 		
 	}
 

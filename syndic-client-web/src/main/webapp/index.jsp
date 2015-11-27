@@ -10,6 +10,7 @@
     <body>
         <h1>SYNDIC SYNDIC SYNDYC !</h1>
         <a href='welcome.ldz'>Cliquez ici pour acceder a l accueil</a>
-        <a href='user/getformadduser.ldz'>Cliquez ici pour acceder a l accueil aussi</a>
+        <a href='getformadduser.ldz'>Cliquez ici pour acceder a l accueil aussi</a>
+        <a href='adduser.ldz'>Cliquez ici pour acceder a l accueil aussi</a>
     </body>
 </html>

@@ -15,7 +15,7 @@
 	<import resource="classpath:security/beans/syndic-service-security.xml" />
     
 	<security:http auto-config="true">
-		<security:intercept-url pattern="/kherbiche/*.ldz" access="ROLE_USER" />
+		<security:intercept-url pattern="/kherbiche/*.ldz" access="hasRole('ROLE_USER')"/>
 		<security:form-login login-page="/login.ldz" default-target-url="/home"
 			authentication-failure-url="/login?error" username-parameter="username"
 			password-parameter="password" />

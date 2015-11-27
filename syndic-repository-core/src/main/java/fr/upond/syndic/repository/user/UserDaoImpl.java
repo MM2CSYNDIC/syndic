@@ -42,6 +42,7 @@ public class UserDaoImpl implements IDao<User> {
 	@Override
 	public void put(User obj) {
 		//this.dataSource.getConnection()
+		logger.info("===== Insert User =====");
 		this.sessionFactory.getCurrentSession().save(obj);
 	}
 

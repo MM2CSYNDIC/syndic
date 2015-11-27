@@ -1,4 +1,4 @@
-package fr.upond.syndic.repository.userRole;
+package fr.upond.syndic.repository.event;
 
 import java.util.List;
 
@@ -8,16 +8,14 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.upond.syndic.repository.IDao;
-import fr.upond.syndic.security.model.UserRole;
-
 /**
  * 
  * @author LYES KHERBICHE
  *
  */
-public class UserRoleDaoImpl implements IDao<UserRole> {
+public class EventDaoImpl implements IDao<Object> {
 	
-	private static final Log logger = LogFactory.getLog(UserRoleDaoImpl.class);
+	private static final Log logger = LogFactory.getLog(EventDaoImpl.class);
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -27,26 +25,23 @@ public class UserRoleDaoImpl implements IDao<UserRole> {
 	}
 
 	@Override
-	public List<UserRole> get(UserRole obj) {
-		
+	public List<Object> get(Object obj) {
 		return null;
 	}
 
 	@Override
-	public void put(UserRole obj) {
-		logger.info("===== Insert UserRole =====");
+	public void put(Object obj) {
+		logger.info("===== Insert Event =====");
 		this.sessionFactory.getCurrentSession().save(obj);
 	}
 
 	@Override
-	public void delete(UserRole obj) {
-		
+	public void delete(Object obj) {
 		
 	}
 
 	@Override
-	public void upDate(UserRole obj) {
-		
+	public void upDate(Object obj) {
 		
 	}
 

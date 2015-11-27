@@ -50,6 +50,11 @@
 	       <ref bean="sessionFactory"/>
 	    </property>
 	</bean>
+	<bean id="userRoleDao" class="fr.upond.syndic.repository.userRole.UserRoleDaoImpl">
+	    <property name="sessionFactory">
+	       <ref bean="sessionFactory"/>
+	    </property>
+	</bean>
 	
 	
 	
