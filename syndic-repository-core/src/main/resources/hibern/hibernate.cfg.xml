@@ -12,6 +12,7 @@
         <property name="format_sql">true</property>
         <mapping resource="mapping/user.hbm.xml"/>
         <mapping resource="mapping/userRole.hbm.xml"/>
+        <mapping resource="mapping/event.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

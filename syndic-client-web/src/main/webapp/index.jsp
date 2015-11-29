@@ -9,8 +9,8 @@
     </head>
     <body>
         <h1>SYNDIC SYNDIC SYNDYC !</h1>
-        <a href='welcome.ldz'>Cliquez ici pour acceder a l accueil</a>
-        <a href='getformadduser.ldz'>Cliquez ici pour acceder a l accueil aussi</a>
-        <a href='adduser.ldz'>Cliquez ici pour acceder a l accueil aussi</a>
-    </body>
+        <a href='welcome.ldz'>accueil==  </a>
+        <a href='getformadduser.ldz'>Cliquez Add USER==  </a>
+        <a href='getformaddevent.ldz'>Cliquez Add Event  </a>
+    </body>      
 </html>

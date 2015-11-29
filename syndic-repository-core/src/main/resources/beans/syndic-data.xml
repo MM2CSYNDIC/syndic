@@ -55,7 +55,16 @@
 	       <ref bean="sessionFactory"/>
 	    </property>
 	</bean>
-	
+	<bean id="eventDao" class="fr.upond.syndic.repository.event.EventDaoImpl">
+	    <property name="sessionFactory">
+	       <ref bean="sessionFactory"/>
+	    </property>
+	</bean>
+	<bean id="dao" class="fr.upond.syndic.repository.common.Dao">
+	    <property name="sessionFactory">
+	       <ref bean="sessionFactory"/>
+	    </property>
+	</bean>
 	
 	
 </beans>

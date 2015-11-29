@@ -50,6 +50,7 @@
       <param-value>
          /WEB-INF/syndic-servlet.xml
          /WEB-INF/views/conf/views.xml
+         /WEB-INF/tiles/conf/tiles.xml
          /WEB-INF/security/conf/syndic-security.xml
          /WEB-INF/security/conf/module-context.xml
       </param-value>

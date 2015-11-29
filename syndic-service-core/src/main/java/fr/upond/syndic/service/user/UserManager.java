@@ -18,6 +18,7 @@ import fr.upond.syndic.service.IManager;
  *
  */
 @Transactional
+@Deprecated
 public class UserManager implements IManager<User> {
 	
 	private static final Log logger = LogFactory.getLog(UserManager.class);

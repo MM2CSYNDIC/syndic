@@ -29,10 +29,10 @@ public class UserController {
 	private static final Log logger = LogFactory.getLog(UserController.class);
 	
 	@Autowired
-	private IManager<User> userManager;
+	private IManager<Object> manager;
 	
-	public void setUserManager(IManager<User> userManager) {
-		this.userManager = userManager;
+	public void setUserManager(IManager<Object> userManager) {
+		this.manager = userManager;
 	}
 	
 	
@@ -57,7 +57,7 @@ public class UserController {
 		Set<UserRole> set = new HashSet<UserRole>();
 		set.add(lyesRole);
 		lyes.setUserRole(set);
-		this.userManager.add(lyes);
+		this.manager.add(lyes);
 		return "welcomePage";
 	}
 

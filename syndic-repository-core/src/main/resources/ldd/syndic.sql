@@ -20,6 +20,14 @@ CREATE TABLE USERROLE (
   KEY fk_username_idx (USERNAME),
   CONSTRAINT fk_username FOREIGN KEY (USERNAME) REFERENCES USERS (USERNAME));
   
+CREATE TABLE EVENT (
+     eventName CHAR(45) NOT NULL,
+     typeEvent CHAR(45) NOT NULL,
+     dateEvent CHAR(10) NOT NULL,
+     descEvent CHAR(45) NOT NULL,
+     PRIMARY KEY (eventName)
+);
+  
   
 INSERT INTO USERS(username,password,enabled)
 VALUES ('alex','123456', true);

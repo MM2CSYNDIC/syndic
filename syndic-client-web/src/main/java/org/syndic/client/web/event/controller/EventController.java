@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.syndic.client.web.command.EventCommand;
 
+import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.service.IManager;
 
 /**
@@ -24,10 +25,10 @@ public class EventController {
 	private static final Log logger = LogFactory.getLog(EventController.class);
 	
 	@Autowired
-	private IManager<EventCommand> eventManager;
+	private IManager<Object> manager;
 	
-	public void setUserManager(IManager<EventCommand> eventManager) {
-		this.eventManager = eventManager;
+	public void setManager(IManager<Object> manager) {
+		this.manager = manager;
 	}
 	
 	@RequestMapping(value = "/getformaddevent", method = RequestMethod.GET)
@@ -38,10 +39,11 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "/addevent", method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("eventCommand") EventCommand eventCommand) {
+	public String addEvent(@ModelAttribute("eventCommand") EventCommand eventCommand) {
 		logger.info("==== Insert Event =====");
-		
-		this.eventManager.add(eventCommand);
+		logger.info("******** "+eventCommand.getEventName());
+		Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent());
+		this.manager.add(event);
 		return "welcomePage";
 	}
 
