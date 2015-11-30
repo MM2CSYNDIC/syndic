@@ -13,10 +13,24 @@
         <put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
     </definition>
     
-    <definition name="ADDUSERPAGE" extends="defaultTemplate">
-      <put-attribute name="title"  value="WELCOME SYNDIC"/> 
-      <put-attribute name="page_description" value="syndic add user"/>
-      <put-attribute name="content" value="/WEB-INF/views/pages/addUser.jsp"/>     
+    <definition name="defaultTemplate2"
+      template="/WEB-INF/tiles/template/tepmlate2.jsp">
+        <put-attribute name="title"     value="Template2" />
+        <put-attribute name="header"     value="/WEB-INF/tiles/template/header2.jsp" />
+        <put-attribute name="menu"         value="/WEB-INF/tiles/template/menu2.jsp" />
+        <put-attribute name="body"         value="" />
+        <put-attribute name="footer"     value="/WEB-INF/tiles/template/footer2.jsp" />
+    </definition>
+    
+    <definition name="ADDUSERPAGE" extends="defaultTemplate2">
+      <put-attribute name="title"  value="Add Syndic User"/> 
+      <!--put-attribute name="page_description" value="syndic add user"/-->
+      <put-attribute name="body" value="/WEB-INF/views/pages/addUser.jsp"/>     
+    </definition>
+    
+    <definition name="ADDEVENTPAGE" extends="defaultTemplate2">
+      <put-attribute name="title"  value="Event Syndic"/> 
+      <put-attribute name="body" value="/WEB-INF/views/pages/addEvent.jsp"/>     
     </definition>
     
     <definition name="startPage_def" extends="defaultTemplate">

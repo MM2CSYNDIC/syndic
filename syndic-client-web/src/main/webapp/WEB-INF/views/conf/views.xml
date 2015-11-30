@@ -13,14 +13,9 @@
 			<value>ADDUSERPAGE</value>
 		</property>
 	</bean>
-	<!--bean id="addUserPage" class="org.springframework.web.servlet.view.JstlView">
+	<bean id="addEventPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
 		<property name="url">
-			<value>/WEB-INF/views/pages/addUser.jsp</value>
-		</property>
-	</bean-->
-	<bean id="addEventPage" class="org.springframework.web.servlet.view.JstlView">
-		<property name="url">
-			<value>/WEB-INF/views/pages/addEvent.jsp</value>
+			<value>ADDEVENTPAGE</value>
 		</property>
 	</bean>
     
