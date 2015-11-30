@@ -78,6 +78,16 @@
                 <role>Developer</role>
             </roles>
         </developer>
+        <developer>
+            <id>driss.kaaouas</id>
+            <name>Driss Kaaouas</name>
+            <email>kaaouasdriss@yahoo.fr</email>
+            <timezone>1</timezone>
+            <organization>>MIAGE</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
     </developers>  
     <properties>
         <app.log.root.level>WARN</app.log.root.level>
