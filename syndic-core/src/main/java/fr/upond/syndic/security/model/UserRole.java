@@ -1,11 +1,14 @@
 package fr.upond.syndic.security.model;
 
+import fr.upond.syndic.repo.model.BaseObject;
+
 /**
  * 
  * @author LYES KHERBICHE
  *
  */
-public class UserRole {
+@SuppressWarnings("serial")
+public class UserRole extends BaseObject {
 	
 	private Integer userRoleId;
 	private User user;
@@ -54,6 +57,21 @@ public class UserRole {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		return null;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return 0;
 	}
 	
 	

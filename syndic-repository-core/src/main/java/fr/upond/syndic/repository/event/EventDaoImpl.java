@@ -7,7 +7,6 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.repository.IDao;
 /**
  * 

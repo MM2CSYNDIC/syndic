@@ -3,12 +3,15 @@ package fr.upond.syndic.security.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import fr.upond.syndic.repo.model.BaseObject;
+
 /**
  * 
  * @author LYES KHERBICHE
  *
  */
-public class User {
+@SuppressWarnings("serial")
+public class User extends BaseObject {
 	
 	private String userName;
 	private String passWord;
@@ -55,6 +58,21 @@ public class User {
 
 	public void setUserRole(Set<UserRole> userRole) {
 		this.userRole = userRole;
+	}
+
+	@Override
+	public String toString() {
+		return null;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return 0;
 	}
 	
 	

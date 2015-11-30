@@ -1,6 +1,10 @@
 package fr.upond.syndic.repo.model.event;
 
-public class Event {
+import fr.upond.syndic.repo.model.BaseObject;
+
+@SuppressWarnings("serial")
+public class Event extends BaseObject {
+	
 	private String eventName;
 	private String typeEvent;
 	private String dateEvent;
@@ -48,6 +52,22 @@ public class Event {
 
 	public void setDescEvent(String descEvent) {
 		this.descEvent = descEvent;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return 0;
 	}
 	
 
