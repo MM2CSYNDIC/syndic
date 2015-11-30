@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--  @author LYES KHERBICHE -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:tx="http://www.springframework.org/schema/tx"
-  xmlns:p="http://www.springframework.org/schema/p"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd 
     http://www.springframework.org/schema/tx 
     http://www.springframework.org/schema/tx/spring-tx.xsd">
-	
-	
-    <tx:annotation-driven />
-    <context:component-scan base-package="fr.upond.syndic.repository.*" />
-    <context:annotation-config />
-    
-    <import resource="classpath:hibern/hibernate.cfg.xml" />
-    
-    <!--bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+
+
+	<tx:annotation-driven />
+	<context:component-scan base-package="fr.upond.syndic.repository.*" />
+	<context:annotation-config />
+
+	<import resource="classpath:hibern/hibernate.cfg.xml" />
+
+	<!--bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
        <property name="configLocation">
           <value>classpath:hibern/hibernate.cfg.xml</value>
        </property>
@@ -27,44 +27,44 @@
             <value>org.hibernate.cfg.AnnotationConfiguration</value>
        </property>
     </bean-->
-    
-    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/syndicat"/>
-    </bean>
-  
+
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/syndicat"/>
+	</bean>
+
 	<!--  ORM HIBERNATE PART -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="configLocation">
 			<value>classpath:hibern/hibernate.cfg.xml</value>
-		</property>	
+		</property>
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
-	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager" 
-        p:sessionFactory-ref="sessionFactory">
-    </bean>
-	
-	 <!-- Declaration of DOA beans Hibernate -->
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+		  p:sessionFactory-ref="sessionFactory">
+	</bean>
+
+	<!-- Declaration of DOA beans Hibernate -->
 	<bean id="userDao" class="fr.upond.syndic.repository.user.UserDaoImpl">
-	    <property name="sessionFactory">
-	       <ref bean="sessionFactory"/>
-	    </property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
 	</bean>
 	<bean id="userRoleDao" class="fr.upond.syndic.repository.userRole.UserRoleDaoImpl">
-	    <property name="sessionFactory">
-	       <ref bean="sessionFactory"/>
-	    </property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
 	</bean>
 	<bean id="eventDao" class="fr.upond.syndic.repository.event.EventDaoImpl">
-	    <property name="sessionFactory">
-	       <ref bean="sessionFactory"/>
-	    </property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
 	</bean>
 	<bean id="dao" class="fr.upond.syndic.repository.common.Dao">
-	    <property name="sessionFactory">
-	       <ref bean="sessionFactory"/>
-	    </property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
 	</bean>
-	
-	
+
+
 </beans>
