@@ -8,9 +8,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>SYNDIC SYNDIC SYNDYC !</h1>
-        <a href='welcome.ldz'>accueil==  </a>
-        <a href='getformadduser.ldz'>Cliquez Add USER==  </a>
-        <a href='getformaddevent.ldz'>Cliquez Add Event  </a>
+        <h1>SYNDIC App  !</h1>
+        <ul>
+          <li><a href='welcome.ldz'>Accueil </a></li>
+          <li><a href='getformadduser.ldz'>Add USER  </a></li>
+          <li><a href='getformaddevent.ldz'>Add Event  </a></li>
+        </ul>
     </body>      
 </html>
