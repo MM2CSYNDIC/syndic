@@ -86,6 +86,7 @@
         <sonar.language>java</sonar.language>
         <org.springframework.security.version>4.0.2.RELEASE</org.springframework.security.version>
         <org.springframework.version>4.0.2.RELEASE</org.springframework.version>
+          <!-- 4.0.2.RELEASE  -->
         <parent.version>0.0.1.RELEASE</parent.version>
         <log4j.version>1.2.17</log4j.version>
         <org.slf4j.version>1.7.6</org.slf4j.version>

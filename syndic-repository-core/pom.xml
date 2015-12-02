@@ -10,6 +10,7 @@
   
   <properties>
      <hibernate.version>4.3.11.Final</hibernate.version>
+     <!--hibernate.version>3.3.2.GA</hibernate.version-->
   </properties>
   
   <modelVersion>4.0.0</modelVersion>
@@ -69,6 +70,11 @@
 	   <artifactId>cglib</artifactId>
 	   <version>3.2.0</version>
     </dependency>
+    <dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
+	</dependency>
     <dependency>
        <groupId>org.apache.commons</groupId>
        <artifactId>commons-lang3</artifactId>

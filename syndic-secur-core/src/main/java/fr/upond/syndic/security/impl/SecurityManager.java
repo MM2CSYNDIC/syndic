@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -22,20 +25,24 @@ import fr.upond.syndic.security.model.UserRole;
  * @author Lyes Kherbiche
  *
  */
-@Service
+@Transactional
 public class SecurityManager implements ISecurityManager {
 	
-	//@Autowired
+	private static final Log logger = LogFactory.getLog(SecurityManager.class);
+	
+	@Autowired
 	private UserDaoImpl userDao;
 	//private IDao<fr.upond.syndic.security.model.User> userDao;
     
 	public void setUserDao(UserDaoImpl userDao) {
+		logger.debug("=== sec ===");
 		this.userDao = userDao;
 	}
 	
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		logger.info("======> sec "+username);
 		fr.upond.syndic.security.model.User user = new fr.upond.syndic.security.model.User(username,null,false);
 		List<fr.upond.syndic.security.model.User> listUser = userDao.get(user);
 		user = listUser.get(0);
