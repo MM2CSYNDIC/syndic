@@ -11,14 +11,6 @@
           http://www.springframework.org/schema/security/spring-security.xsd">	
 	
 	<import resource="classpath:security/beans/syndic-service-security.xml" />
-    
-	<!--security:http auto-config="true">
-		<security:intercept-url pattern="/kherbiche/*.ldz" access="hasRole('ROLE_USER')"/>
-		<security:form-login login-page="/login.ldz" default-target-url="/welcome.ldz"
-			authentication-failure-url="/login.ldz" username-parameter="username"
-			password-parameter="password" />
-		<security:logout logout-success-url="/login.ldz" />
-	</security:http-->
 	
 	<security:http use-expressions="true">
 		<security:intercept-url pattern="/admin.ldz" access="hasRole('ROLE_USER')"/>
@@ -37,12 +29,5 @@
 	<security:authentication-manager>
 		<security:authentication-provider user-service-ref="securityManager"></security:authentication-provider>
 	</security:authentication-manager>
-	<!--security:authentication-manager>
-		<security:authentication-provider>
-		  <security:user-service>
-			<security:user name="lyes" password="lyes" authorities="ROLE_USER" />
-		  </security:user-service>
-		</security:authentication-provider>
-	</security:authentication-manager-->
 
 </beans>
