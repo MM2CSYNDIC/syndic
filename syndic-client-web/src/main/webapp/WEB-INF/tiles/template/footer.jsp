@@ -1,12 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
-</head>
-<body>
- footer
-</body>
-</html>
+<hr />
+<div class="span-1 prepend-3">&nbsp;</div>
+<div class="span-16 last">
+	<p>
+		<b>MM2C15 - MIAGE Nanterre</b> 
+		( All rights Reserved)
+	</p>
+</div>
