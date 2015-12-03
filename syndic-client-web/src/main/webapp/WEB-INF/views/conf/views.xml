@@ -6,7 +6,7 @@
     <bean id="welcomePage" class="org.springframework.web.servlet.view.JstlView">
 		<property name="url">
 			<value>/index.jsp</value>
-		</property>
+	</property>
 	</bean>
 	<bean id="adminPage" class="org.springframework.web.servlet.view.JstlView">
 		<property name="url">

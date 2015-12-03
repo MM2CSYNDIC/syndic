@@ -19,28 +19,43 @@
 }
 
 </style>
-<title>Lyes</title>
 </head>
 <body>
- <h3>Page Nante sur Mér</h3>
- <form:form method="POST" commandName="userCommand" action="adduser.ldz">
- <form:errors path="*" cssClass="errorblock" element="div"/>
- <table bgcolor="Silver">
-  <tr>
-   <td>Email/UserName : </td>
-   <td><form:input path="userName"/></td>
-   <td><form:errors path="userName" cssClass="error"/></td>
-   </tr>
-   <tr>
-   <td>Password :</td>
-   <td><form:password path="passWord"/></td>
-   <td><form:errors path="passWord" cssClass="error"/></td>
-   </tr>
-   <tr>
-   <td colspan="3"><input type="submit" value="Add"/></td>
-   </tr>
- </table>
+ <div class="container">
+ 
+ <h3>Create Count</h3>
+ 
+ <form:form  method="POST" commandName="userCommand" action="adduser.ldz">
+  <form:errors path="*" cssClass="errorblock" element="div"/>
+  <div class="form-group row">
+    <div class="col-xs-6">
+     <form:input type="text" class="form-control" path="userName" id="userName" placeholder="Login"/>
+     <form:errors path="userName" cssClass="error"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-6">
+     <form:input type="password" class="form-control" path="passWord" id="passWord" placeholder="Password"/>
+     <form:errors path="passWord" cssClass="error"/>
+    </div>
+  </div>
+    
+  <div class="form-group row">
+    <div class="col-xs-6">
+     <form:input type="password" class="form-control" path="" id="" placeholder="Confirmation" />
+     <form:errors path="" cssClass="error"/>
+    </div>      
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-xs-12">
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
  </form:form>
+ 
+ </div>
 
 </body>
 </html>
