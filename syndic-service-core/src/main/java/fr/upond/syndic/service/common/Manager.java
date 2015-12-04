@@ -32,7 +32,7 @@ public class Manager implements IManager<Object> {
 
 	@Override
 	public List<Object> get(Object obj) {
-		return null;
+		return dao.get(obj);
 	}
 
 	@Override

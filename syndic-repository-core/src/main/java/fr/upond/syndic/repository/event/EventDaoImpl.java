@@ -13,6 +13,7 @@ import fr.upond.syndic.repository.IDao;
  * @author LYES KHERBICHE
  *
  */
+@Deprecated
 public class EventDaoImpl implements IDao<Object> {
 	
 	private static final Log logger = LogFactory.getLog(EventDaoImpl.class);

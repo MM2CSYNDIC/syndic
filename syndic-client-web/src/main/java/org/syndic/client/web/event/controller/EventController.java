@@ -46,5 +46,10 @@ public class EventController {
 		this.manager.add(event);
 		return "welcomePage";
 	}
+	
+	@RequestMapping(value = "/listevent", method = RequestMethod.GET)
+	public String listEvent() {
+		return "";
+	}
 
 }
