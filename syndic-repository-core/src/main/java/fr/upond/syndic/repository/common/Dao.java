@@ -27,8 +27,7 @@ public class Dao implements IDao<Object> {
 
 	@Override
 	public List<Object> get(Object obj) {
-		//this.sessionFactory.getCurrentSession()
-		return null;
+    	return	this.sessionFactory.getCurrentSession().createCriteria(obj.getClass()).list();
 	}
 
 	@Override
