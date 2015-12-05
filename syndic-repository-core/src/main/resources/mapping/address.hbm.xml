@@ -6,11 +6,12 @@
 <hibernate-mapping>
     <class name="fr.upond.syndic.repo.model.common.Address" table="ADDRESS">
         <composite-id>
-            <key-property name="numAddress"     column="NUMADRESS"/>
-            <key-property name="typeAddress"    column="TYPEADDRESS"/>
-            <key-property name="city"           column="CITY"/>
-            <key-property name="zipCode"        column="ZIPCODE"/>
-            <key-property name="country"        column="COUNTRY"/>
+            <key-property name="numAdress"       column="NUMADRESS"/>
+            <key-property name="typeAddress"     column="TYPEADDRESS"/>
+            <key-property name="street"          column="STREET"/>
+            <key-property name="city"            column="CITY"/>
+            <key-property name="zipCode"         column="ZIPCODE"/>
+            <key-property name="country"         column="COUNTRY"/>
         </composite-id >
         <property name="placeName" column="PLACENAME" />
     </class>
