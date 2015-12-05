@@ -4,7 +4,7 @@
 
 <!-- @author LYES KHERBICHE -->
 <hibernate-mapping>
-    <class name="" table="ADDRESS">
+    <class name="fr.upond.syndic.repo.model.common.Address" table="ADDRESS">
         <composite-id>
             <key-property name="numAddress"     column="NUMADRESS"/>
             <key-property name="typeAddress"    column="TYPEADDRESS"/>
