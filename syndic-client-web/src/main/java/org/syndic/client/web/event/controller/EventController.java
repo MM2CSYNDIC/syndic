@@ -50,6 +50,10 @@ public class EventController {
 	
 	@RequestMapping(value = "/listevent", method = RequestMethod.GET)
 	public String listEvent(ModelMap model) {
+		for (Object event : this.manager.get(new Event()) ) {
+			logger.info("event (name) "+((Event)event).getEventName());
+		}
+		
 		model.addAttribute("listevent",this.manager.get(new Event()));
 		return "listEventPage";
 	}
