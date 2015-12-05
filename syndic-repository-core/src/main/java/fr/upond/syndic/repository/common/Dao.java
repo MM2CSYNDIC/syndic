@@ -28,7 +28,8 @@ public class Dao implements IDao<Object> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object> get(Object obj) {
-		return null;
+
+    	return	this.sessionFactory.getCurrentSession().createCriteria(obj.getClass()).list();
 	}
 
 	@Override
