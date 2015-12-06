@@ -6,8 +6,14 @@
 <hibernate-mapping>
     <class name="" table="USERDATA">
         <composite-id>
-           
+            <key-property name="firstName" column="FIRSTNAME"/>
+            <key-property name="lastName"  column="LASTNAME"/>
+            <key-property name="birthDay"  column="BIRTHDAY"/>
         </composite-id >
-        <property name="placeName" column="PLACENAME" />
+        <property name="placeName" column="PHONE" />
+        <property name="placeName" column="MOBILE" />
+        <property name="placeName" column="EMAIL" />
+        <many-to-one name="address"  column="ADDRESS" class="fr.upond.syndic.repo.model.common.Address" unique="true" not-null="true"/>
+        <many-to-one name="users"  column="USERS" class="fr.upond.syndic.security.model.User" unique="true" not-null="true"/>
     </class>
 </hibernate-mapping>
