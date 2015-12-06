@@ -16,11 +16,18 @@
           <tr>
             <th>Nom event</th><th>Type event</th><th>Date event</th><th>Description event</th>
           </tr>
-          <c:forEach var="entry" items="${listevent}">
-           <tr>
-             <td>${entry.getEventName()}</td><td>${entry.getTypeEvent()}</td><td>${entry.getDateEvent()}</td><td>${entry.getDescEvent()}</td>
-          </c:forEach>
-           </tr>
+          <c:if test="${listevent != null}">
+           <c:forEach var="entry" items="${listevent}">
+            <c:if test="${entry != null}">
+             <tr>
+              <td>${entry.getEventName()}</td>
+              <td>${entry.getTypeEvent()}</td>
+              <td>${entry.getDateEvent()}</td>
+              <td>${entry.getDescEvent()}</td>
+             </tr>
+            </c:if>
+           </c:forEach>
+          </c:if>
         </table>
       </div>
     </div>
