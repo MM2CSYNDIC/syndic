@@ -23,6 +23,7 @@
 <body>
 
 <div class="container">
+Language: <a href="?language=en">English</a> | <a href="?language=fr">French</a>
 
  <h3>Add Event Page</h3> 
  
@@ -30,6 +31,7 @@
   <form:errors path="*" cssClass="errorblock" element="div"/>
   <div class="form-group row">
     <div class="col-xs-6">
+     <label for="exampleInputEmail1"><spring:message code="event.Name"/></label>
      <form:input type="text" class="form-control" path="eventName" id="eventName" placeholder="Event Name"/>
      <form:errors path="eventName" cssClass="error"/>
     </div>
