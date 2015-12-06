@@ -9,6 +9,7 @@ import fr.upond.syndic.repo.model.BaseObject;
 @SuppressWarnings("serial")
 public class Address extends BaseObject {
 	
+	private int id;
 	private String numAdress;
 	private String typeAddress;
 	private String street;
@@ -17,6 +18,14 @@ public class Address extends BaseObject {
 	private String country;
 	private String placeName;
 
+	public int getId() {
+	    return id;
+	}
+	
+	public void setId( int id ) {
+	    this.id = id;
+	}
+	
 	public String getNumAdress() {
 		return numAdress;
 	}

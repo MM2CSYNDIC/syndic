@@ -5,14 +5,15 @@
 <!-- @author LYES KHERBICHE -->
 <hibernate-mapping>
     <class name="fr.upond.syndic.repo.model.common.Address" table="ADDRESS">
-        <composite-id>
-            <key-property name="numAdress"       column="NUMADRESS"/>
-            <key-property name="typeAddress"     column="TYPEADDRESS"/>
-            <key-property name="street"          column="STREET"/>
-            <key-property name="city"            column="CITY"/>
-            <key-property name="zipCode"         column="ZIPCODE"/>
-            <key-property name="country"         column="COUNTRY"/>
-        </composite-id >
-        <property name="placeName" column="PLACENAME" />
+        <id name="id" type="int" column="ID">
+         <generator class="native"/>
+        </id>
+        <property name="numAdress"       column="NUMADRESS"/>
+        <property name="typeAddress"     column="TYPEADDRESS"/>
+        <property name="street"          column="STREET"/>
+        <property name="city"            column="CITY"/>
+        <property name="zipCode"         column="ZIPCODE"/>
+        <property name="country"         column="COUNTRY"/>
+        <property name="placeName"       column="PLACENAME" />
     </class>
 </hibernate-mapping>
