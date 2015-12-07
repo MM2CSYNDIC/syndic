@@ -27,7 +27,6 @@
 	<mvc:annotation-driven />
 	
 	<!-- bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" /-->
-
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <property name="definitions">
             <list>
@@ -43,30 +42,26 @@
 		</property>
 	</bean>
 	
-	<!-- Spring Internationalizations -->
+	
 	
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:lang/messages" />
 		<property name="defaultEncoding" value="UTF-8" />
+		<property name="cacheSeconds" value="60" />
 	</bean>
-	
 	<bean id="localeResolver"
 		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
 		<property name="defaultLocale" value="fr" />
+		<property name="cookieName" value="syndicCookie"></property>
+        <property name="cookieMaxAge" value="3600"></property>
 	</bean>
+	<mvc:interceptors>
+       <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+         <property name="paramName" value="lang" />
+       </bean>
+    </mvc:interceptors>
 	
-	<bean id="localeChangeInterceptor"
-		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-		<property name="paramName" value="language" />
-	</bean>
-	
-	<bean id="handlerMapping"
-    	class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-	    <property name="interceptors">
-	        <ref bean="localeChangeInterceptor" />
-	    </property>    
-	</bean>	
 	
 	<!-- INFO: Validator -->
 	<!--bean id = "userValidator" class = ""></bean-->

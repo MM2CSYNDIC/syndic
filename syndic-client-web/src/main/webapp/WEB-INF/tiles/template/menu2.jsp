@@ -21,8 +21,10 @@
 <spring:url value="welcome.ldz" var="homeUrl" htmlEscape="true" />
 <spring:url value="getformadduser.ldz" var="userUrl" htmlEscape="true" />
 <spring:url value="getformaddevent.ldz" var="eventUrl" htmlEscape="true" />
+<spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
 <ul class="nav nav-pills nav-stacked">
-  <li class="active"><a href="${homeUrl}">Home</a></li>
-  <li class="active"><a href="${userUrl}">Add User</a></li>
-  <li class="active"><a href="${eventUrl}">Add Event</a></li>
+  <li class="active"><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
+  <li class="active"><a href="${userUrl}"><spring:message code="header.add.user"/></a></li>
+  <li class="active"><a href="${eventUrl}"><spring:message code="header.add.event"/></a></li>
+  <li class="active"><a href="${listeventUrl}"><spring:message code="header.list.event"/></a></li>
 </ul>

@@ -29,7 +29,7 @@
     </definition>
     
     <definition name="ADDEVENTPAGE" extends="defaultTemplate2">
-      <put-attribute name="title"  value="Event Syndic"/> 
+      <put-attribute name="title"  value="Syndic Event"/> 
       <put-attribute name="body" value="/WEB-INF/views/pages/addEvent.jsp"/>     
     </definition>
 
