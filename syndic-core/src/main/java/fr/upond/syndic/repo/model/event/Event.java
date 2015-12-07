@@ -1,6 +1,9 @@
 package fr.upond.syndic.repo.model.event;
 
+import java.util.Set;
+
 import fr.upond.syndic.repo.model.BaseObject;
+import fr.upond.syndic.repo.model.common.Building;
 
 @SuppressWarnings("serial")
 public class Event extends BaseObject {
@@ -9,17 +12,19 @@ public class Event extends BaseObject {
 	private String typeEvent;
 	private String dateEvent;
 	private String descEvent;
+	private Set<Building> building;
 	
 	public Event() {
 		super();
 	}
 
-	public Event(String eventName, String typeEvent, String dateEvent, String descEvent) {
+	public Event(String eventName, String typeEvent, String dateEvent, String descEvent, Set<Building> building) {
 		super();
 		this.eventName = eventName;
 		this.typeEvent = typeEvent;
 		this.dateEvent = dateEvent;
 		this.descEvent = descEvent;
+		this.building = building;
 	}
 
 	public String getEventName() {
@@ -54,9 +59,16 @@ public class Event extends BaseObject {
 		this.descEvent = descEvent;
 	}
 
+	public Set<Building> getBuilding() {
+		return building;
+	}
+
+	public void setBuilding(Set<Building> building) {
+		this.building = building;
+	}
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

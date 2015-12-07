@@ -13,6 +13,8 @@
         <mapping resource="mapping/user.hbm.xml"/>
         <mapping resource="mapping/userRole.hbm.xml"/>
         <mapping resource="mapping/event.hbm.xml"/>
+        <mapping resource="mapping/address.hbm.xml"/>
+        <mapping resource="mapping/building.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

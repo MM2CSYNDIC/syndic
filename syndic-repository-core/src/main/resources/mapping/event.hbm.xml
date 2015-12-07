@@ -10,5 +10,11 @@
 		<property name="typeEvent" column="typeEvent" />
 		<property name="dateEvent" column="dateEvent" />
 		<property name="descEvent" column="descEvent" />
+		<set name="building" table="BUILDING" lazy="true" fetch="select">
+            <key>
+                <column name="BUILDING" not-null="false" />
+            </key>
+            <one-to-many class="fr.upond.syndic.repo.model.common.Building" />
+        </set>
 	</class>
 </hibernate-mapping>
