@@ -43,7 +43,7 @@ public class EventController {
 	public String addEvent(@ModelAttribute("eventCommand") EventCommand eventCommand) {
 		logger.info("==== Insert Event =====");
 		logger.info("******** "+eventCommand.getEventName());
-		Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent());
+		Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null);
 		this.manager.add(event);
 		return "welcomePage";
 	}
