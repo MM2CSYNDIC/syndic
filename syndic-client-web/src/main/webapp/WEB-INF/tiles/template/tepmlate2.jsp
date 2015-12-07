@@ -18,10 +18,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="author" content="Lyes Kherbiche" />
         <meta name="company" content="UPOND" />
+        
+        <style type="text/css">
+         .borderless tbody tr td, .borderless tbody tr, .borderless tbody td {
+             border: none;
+         }
+        </style>
+        
         <title><tiles:insertAttribute name="title" ignore="true" /></title>
     </head>
     <body>
-        <table border="0.5"  align="center">
+     <!--div class="table-responsive"--> 
+	    <table class="table borderless" border="0.0"  align="center">
+	     <tbody>
             <tr>
                 <td height="1%" width="100%" colspan="2">
                     <tiles:insertAttribute name="header" />
@@ -36,10 +45,12 @@
                 </td>
             </tr>
             <tr>
-                <td height="30" width="100%" colspan="2">
+                <td height="1%" width="100%" colspan="2">
                     <tiles:insertAttribute name="footer" />
                 </td>
             </tr>
-        </table>
+         </tbody>
+        </table>  
+     <!--/div-->
     </body>
 </html>
