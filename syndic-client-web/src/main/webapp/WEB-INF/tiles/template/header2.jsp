@@ -3,7 +3,15 @@
 <spring:url value="getformadduser.ldz" var="adduserUrl" htmlEscape="true" />
 <spring:url value="getformaddevent.ldz" var="addeventUrl" htmlEscape="true" />
 <spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
- <nav class="navbar navbar-default">
+
+<STYLE>
+  #bou {
+    background-color: #92bf43;
+    border-color: #92bf43;
+  }
+</STYLE>
+
+ <nav class="navbar navbar-default" id="bou">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

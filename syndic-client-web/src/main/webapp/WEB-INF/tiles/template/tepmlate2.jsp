@@ -20,7 +20,7 @@
         <meta name="company" content="UPOND" />
         
         <style type="text/css">
-         .borderless tbody tr td, .borderless tbody tr, .borderless tbody td {
+         #id1 {
              border: none;
          }
         </style>
@@ -29,23 +29,23 @@
     </head>
     <body>
      <!--div class="table-responsive"--> 
-	    <table class="table borderless" border="0.0"  align="center">
-	     <tbody>
-            <tr>
-                <td height="1%" width="100%" colspan="2">
+	    <table class="table borderless" border="0.0"  align="center" id="id1">
+	     <tbody id="id1">
+            <tr id="id1">
+                <td height="1%" width="100%" colspan="2" id="id1">
                     <tiles:insertAttribute name="header" />
                 </td>
             </tr>
-            <tr>
-                <td width="9%" height="100%">
+            <tr id="id1">
+                <td width="9%" height="100%" id="id1">
                     <tiles:insertAttribute name="menu" />
                 </td>
-                <td width="100%" height="100%" align="center">
+                <td width="100%" height="100%" align="center" id="id1">
                     <tiles:insertAttribute name="body" />
                 </td>
             </tr>
-            <tr>
-                <td height="1%" width="100%" colspan="2">
+            <tr id="id1">
+                <td height="1%" width="100%" colspan="2" id="id1">
                     <tiles:insertAttribute name="footer" />
                 </td>
             </tr>

@@ -43,15 +43,17 @@
 
 	<div class="container">
 
-		<h3>
-			<fmt:message key="event.H3" />
-		</h3>
+        <div class="row">
+            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+                <h3><fmt:message key="event.H3" /></h3>
+            </div>
+        </div>
 
 		<form:form method="POST" commandName="eventCommand"
 			action="addevent.ldz">
 			<form:errors path="*" cssClass="errorblock" element="div" />
 			<div class="form-group row">
-				<div class="col-xs-6">
+				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.Name" var="eventName" />
 					<form:input type="text" class="form-control" path="eventName"
 						id="eventName" placeholder="${eventName}" />
@@ -60,7 +62,7 @@
 			</div>
 
 			<div class="form-group row">
-				<div class="col-xs-6">
+				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.Type" var="typeEvent" />
 					<form:input type="text" class="form-control" path="typeEvent"
 						id="typeEvent" placeholder="${typeEvent}" />
@@ -69,7 +71,7 @@
 			</div>
 
 			<div class="form-group row">
-				<div class="col-xs-6">
+				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.Date" var="dateEvent" />
 					<form:input type="text" class="form-control" path="dateEvent"
 						id="dateEvent" placeholder="${dateEvent}" />
@@ -78,7 +80,7 @@
 			</div>
 
 			<div class="form-group row">
-				<div class="col-xs-8">
+				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.Descr" var="descrEvent" />
 					<form:input type="text" class="form-control" path="descEvent"
 						id="descEvent" placeholder="${descrEvent}" />
@@ -87,7 +89,7 @@
 			</div>
 
 			<div class="form-group row">
-				<div class="col-xs-12">
+				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
 				</div>
 			</div>

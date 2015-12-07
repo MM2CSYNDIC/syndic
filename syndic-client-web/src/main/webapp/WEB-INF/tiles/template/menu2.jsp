@@ -24,7 +24,7 @@
 <spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
 <ul class="nav nav-pills nav-stacked">
   <li class="active"><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
-  <li class="active"><a href="${userUrl}"><spring:message code="header.add.user"/></a></li>
-  <li class="active"><a href="${eventUrl}"><spring:message code="header.add.event"/></a></li>
-  <li class="active"><a href="${listeventUrl}"><spring:message code="header.list.event"/></a></li>
+  <li class=""><a href="${userUrl}"><spring:message code="header.add.user"/></a></li>
+  <li class=""><a href="${eventUrl}"><spring:message code="header.add.event"/></a></li>
+  <li class=""><a href="${listeventUrl}"><spring:message code="header.list.event"/></a></li>
 </ul>

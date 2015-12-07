@@ -32,6 +32,11 @@
 
 <body>
   <div class="container">
+      <div class="row">
+          <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+              <h3><fmt:message key="listevent.H3" /></h3>
+          </div>
+      </div>
     <div class="form-group row">
       <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
         <table class="table1">
@@ -46,7 +51,7 @@
               <td>${entry.getTypeEvent()}</td>
               <td>${entry.getDateEvent()}</td>
               <td>${entry.getDescEvent()}</td>
-              <td><a href="#"><img src="<c:url value="/images/crayon.png" />">M</a></td>
+              <td><a href="#"><img src="<c:url value="images/crayon.png" />">M</a></td>
               <td><a href="#"><img src="/WEB-INF/views/pages/images/erreur.png"/>S</a></td>
              </tr>
             </c:if>

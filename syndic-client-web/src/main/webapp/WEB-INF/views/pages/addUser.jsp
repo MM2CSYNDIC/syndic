@@ -21,13 +21,17 @@
 </head>
 <body>
  <div class="container">
- 
- <h3><fmt:message key="user.H3" /></h3>
+    <div class="row">
+        <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+            <h3><fmt:message key="user.H3" /></h3>
+        </div>
+    </div>
+
  
  <form:form  method="POST" commandName="userCommand" action="adduser.ldz">
   <form:errors path="*" cssClass="errorblock" element="div"/>
   <div class="form-group row">
-    <div class="col-xs-6">
+    <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
      <spring:message code="user.Name" var="userName" />
      <form:input type="text" class="form-control" path="userName" id="userName" placeholder="${userName}"/>
      <form:errors path="userName" cssClass="error"/>
@@ -35,7 +39,7 @@
   </div>
 
   <div class="form-group row">
-    <div class="col-xs-6">
+    <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
      <spring:message code="user.Password" var="userPwd" />
      <form:input type="password" class="form-control" path="passWord" id="passWord" placeholder="${userPwd}"/>
      <form:errors path="passWord" cssClass="error"/>
@@ -43,20 +47,25 @@
   </div>
     
   <div class="form-group row">
-    <div class="col-xs-6">
+    <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
      <spring:message code="user.Confirmation" var="userConfirmation" />
      <form:input type="password" class="form-control" path="" id="" placeholder="${userConfirmation}" />
      <form:errors path="" cssClass="error"/>
     </div>      
   </div>
   
-  <div class="form-group row">
+  <!--div class="form-group row">
     <div class="col-xs-12">
         <button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
     </div>
+  </div-->
+  <div class="form-group row">
+         <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+             <button type="submit" class="btn btn-secondary"><spring:message code="button.submit"/></button>
+         </div>
   </div>
  </form:form>
- 
+
  </div>
 
 </body>
