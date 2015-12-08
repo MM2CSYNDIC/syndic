@@ -10,8 +10,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.EventCommand;
 
+import fr.upond.syndic.repo.model.common.Building;
 import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.service.IManager;
 
@@ -56,6 +58,17 @@ public class EventController {
 		
 		model.addAttribute("listevent",this.manager.get(new Event()));
 		return "listEventPage";
+	}
+	
+	@RequestMapping(value = "/eventbuilding", method = RequestMethod.GET)
+	public String affectEvent (@RequestParam String eventId, ModelMap model) {
+		Event event = new Event();
+		event.setEventName(eventId);
+		for (Object ev : this.manager.get(event) ) {
+			model.addAttribute("event", ev);
+		}
+		model.addAttribute("listBuilding",this.manager.get(new Building()));
+		return "affectEventPage";
 	}
 
 }

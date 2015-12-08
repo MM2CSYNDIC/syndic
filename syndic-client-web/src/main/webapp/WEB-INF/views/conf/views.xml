@@ -33,6 +33,10 @@
 			<value>LISTEVENTPAGE</value>
 		</property>
 	</bean>
-    
+    <bean id="affectEventPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+		<property name="url">
+			<value>AFFECTEVENTPAGE</value>
+		</property>
+	</bean>
 
 </beans>

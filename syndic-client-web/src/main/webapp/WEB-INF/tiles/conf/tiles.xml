@@ -37,6 +37,10 @@
         <put-attribute name="title"  value="Event Syndic"/>
         <put-attribute name="body" value="/WEB-INF/views/pages/listEvent.jsp"/>
     </definition>
+    <definition name="AFFECTEVENTPAGE" extends="defaultTemplate2">
+        <put-attribute name="title"  value="Event Syndic"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/affectEvent.jsp"/>
+    </definition>
     
     <definition name="startPage_def" extends="defaultTemplate">
 		<put-attribute name="title" value="Syndic" />

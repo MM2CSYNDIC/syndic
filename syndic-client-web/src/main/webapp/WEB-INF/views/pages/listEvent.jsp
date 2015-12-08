@@ -1,4 +1,4 @@
-<%@ page import="fr.upond.syndic.repo.model.event.Event" %>
+
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -53,6 +53,7 @@
               <td>${entry.getDescEvent()}</td>
               <td><a href="#"><img src="<c:url value="images/crayon.png" />">M</a></td>
               <td><a href="#"><img src="/WEB-INF/views/pages/images/erreur.png"/>S</a></td>
+              <td><a href="eventbuilding.ldz?eventId=${entry.getEventName()}">Affect</a></td>
              </tr>
             </c:if>
            </c:forEach>
@@ -62,9 +63,6 @@
       </div>
     </div>
   </div>
-
-
-
 
 </body>
 
