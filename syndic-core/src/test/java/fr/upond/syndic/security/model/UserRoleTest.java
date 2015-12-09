@@ -1,11 +1,6 @@
 package fr.upond.syndic.security.model;
+import static org.junit.Assert.assertEquals;
 
-import fr.upond.syndic.security.model.UserRole;
-import fr.upond.syndic.security.model.User;
-
-import static org.junit.Assert.*;
-
-import fr.upond.syndic.security.model.User;
 import org.junit.Test;
 
 public class UserRoleTest {
