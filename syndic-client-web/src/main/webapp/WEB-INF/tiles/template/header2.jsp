@@ -11,7 +11,7 @@
   }
 </STYLE>
 
- <nav class="navbar navbar-default" id="bou">
+ <nav onload="change_class()" class="navbar navbar-default" id="bou">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -24,10 +24,10 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
-              <li><a href="${adduserUrl}"><spring:message code="header.add.user"/></a></li>
-              <li><a href="${addeventUrl}"><spring:message code="header.add.event"/></a></li>
-              <li class="dropdown">
+              <li id="acc" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
+              <li id="adduser"><a href="${adduserUrl}"><spring:message code="header.add.user"/></a></li>
+              <li id="addevent"><a href="${addeventUrl}"><spring:message code="header.add.event"/></a></li>
+              <li id="listevent" class="dropdown">
                 <a href="${listeventUrl}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">List <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">actions</a></li>

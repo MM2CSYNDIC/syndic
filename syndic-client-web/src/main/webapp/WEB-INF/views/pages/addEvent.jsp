@@ -103,21 +103,21 @@
 			</div>
 			
 			<!-- The specific input -->
-			<div class="form-group row">
+			<div id="eventform" class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.sp1" var="Sp1Event" />
 					<form:input type="text" class="form-control" path="descEvent" id="descEvent" placeholder="${Sp1Event}" />
 					<form:errors path="descEvent" cssClass="error" />
 				</div>
 			</div>
-			<div class="form-group row">
+			<div id="eventform2" class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.sp2" var="Sp2Event" />
 					<form:input type="text" class="form-control" path="descEvent" id="descEvent" placeholder="${Sp2Event}" />
 					<form:errors path="descEvent" cssClass="error" />
 				</div>
 			</div>
-			<div class="form-group row">
+			<div id="AGform" class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.sp3" var="Sp3Event" />
 					<form:input type="text" class="form-control" path="descEvent" id="descEvent" placeholder="${Sp3Event}" />
@@ -137,3 +137,26 @@
 
 </body>
 </html>
+
+<script>
+	jQuery(document).ready(function(){
+
+		$('#AGform').hide();
+		$('#eventform').hide();
+		$('#eventform2').hide();
+		
+		$('#typeEvent').click(function()
+		{
+			if (document.getElementById("typeEvent").value == 'AG') {
+
+				$('#AGform').toggle(400);
+			}
+			else if (document.getElementById("typeEvent").value == 'Event') {
+
+				$('#eventform').toggle(400);
+				$('#eventform2').toggle(400);
+			}
+		});
+	});
+
+</script>

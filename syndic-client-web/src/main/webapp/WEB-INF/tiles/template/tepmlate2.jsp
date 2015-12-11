@@ -27,7 +27,7 @@
         
         <title><tiles:insertAttribute name="title" ignore="true" /></title>
     </head>
-    <body>
+    <body onload="change_class()">
      <!--div class="table-responsive"--> 
 	    <table class="table borderless" border="0.0"  align="center" id="id1">
 	     <tbody id="id1">
