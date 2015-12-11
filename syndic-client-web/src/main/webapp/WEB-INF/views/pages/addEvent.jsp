@@ -52,6 +52,20 @@
 		<form:form method="POST" commandName="eventCommand"
 			action="addevent.ldz">
 			<form:errors path="*" cssClass="errorblock" element="div" />
+			
+			<!-- W add list (select) -->
+			<div class="form-group row">
+				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+					<form:select class="form-control" path="typeEvent" id="typeEvent" >
+		              <option selected><spring:message code="event.Type"/></option>
+		              <option value="AG">AG</option>
+		              <option value="Event">Event</option>
+		            </form:select>
+		            <form:errors path="typeEvent" cssClass="error" />
+		        </div>
+		    </div>
+			<!-- End W-->
+			
 			<div class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.Name" var="eventName" />
@@ -60,16 +74,16 @@
 					<form:errors path="eventName" cssClass="error" />
 				</div>
 			</div>
-
-			<div class="form-group row">
+            <!-- TODO 1 to delete -->
+			<!-- div class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.Type" var="typeEvent" />
-					<form:input type="text" class="form-control" path="typeEvent"
-						id="typeEvent" placeholder="${typeEvent}" />
+					<form:input type="text" class="form-control" path="typeEvent" id="typeEvent" placeholder="${typeEvent}" />
 					<form:errors path="typeEvent" cssClass="error" />
 				</div>
-			</div>
-
+			</div-->
+			<!-- End TODO 1 -->
+			
 			<div class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.Date" var="dateEvent" />
@@ -87,6 +101,30 @@
 					<form:errors path="descEvent" cssClass="error" />
 				</div>
 			</div>
+			
+			<!-- The specific input -->
+			<div class="form-group row">
+				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+					<spring:message code="event.sp1" var="Sp1Event" />
+					<form:input type="text" class="form-control" path="descEvent" id="descEvent" placeholder="${Sp1Event}" />
+					<form:errors path="descEvent" cssClass="error" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+					<spring:message code="event.sp2" var="Sp2Event" />
+					<form:input type="text" class="form-control" path="descEvent" id="descEvent" placeholder="${Sp2Event}" />
+					<form:errors path="descEvent" cssClass="error" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+					<spring:message code="event.sp3" var="Sp3Event" />
+					<form:input type="text" class="form-control" path="descEvent" id="descEvent" placeholder="${Sp3Event}" />
+					<form:errors path="descEvent" cssClass="error" />
+				</div>
+			</div>
+			<!-- End specific input -->
 
 			<div class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
