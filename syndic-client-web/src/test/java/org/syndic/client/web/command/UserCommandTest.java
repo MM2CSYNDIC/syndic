@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class UserCommandTest {
-
+/*
     @Test
     public void test() {
         UserCommand  uc = new UserCommand ("pseudoTest","pwdTest");
@@ -22,4 +22,5 @@ public class UserCommandTest {
         assertEquals(uc2.getUserName(),"bob");
         assertEquals(uc2.getPassWord(),"sponge");
     }
+    */
 }

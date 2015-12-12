@@ -26,7 +26,7 @@ import fr.upond.syndic.service.IManager;
 public class EventController {
 	
 	private static final Log logger = LogFactory.getLog(EventController.class);
-	
+
 	@Autowired
 	private IManager<Object> manager;
 	

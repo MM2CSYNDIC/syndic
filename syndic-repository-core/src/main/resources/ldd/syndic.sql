@@ -66,7 +66,6 @@ CREATE TABLE USERDATA (
 );
 
 
-  
 INSERT INTO USERS(username,password,enabled)
 VALUES ('alex','123456', true);
 

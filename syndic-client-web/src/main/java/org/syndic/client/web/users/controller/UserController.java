@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.syndic.client.web.command.UserCommand;
+import org.syndic.client.web.command.PropertyManagerCommand;
+
 
 import fr.upond.syndic.security.model.User;
 import fr.upond.syndic.security.model.UserRole;
 import fr.upond.syndic.service.IManager;
+
 
 /**
  * 
@@ -51,14 +54,50 @@ public class UserController {
 	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
 	public String addUser(@ModelAttribute("userCommand") UserCommand userCommand) {
 		logger.info("==== Insert User =====");
-		User lyes = new User(userCommand.getUserName(), userCommand.getPassWord(), true);
+		/*User lyes = new User(userCommand.getUserName(), userCommand.getPassWord(), true);
 		UserRole lyesRole = new UserRole("ROLE_USER");
 		lyesRole.setUser(lyes);
 		Set<UserRole> set = new HashSet<UserRole>();
 		set.add(lyesRole);
 		lyes.setUserRole(set);
-		this.manager.add(lyes);
+		this.manager.add(lyes);*/
+		logger.info("Login " + userCommand.getUserName());
+		logger.info("PWD "+userCommand.getPassWord());
+
+		logger.info("type utiisateur " + userCommand.getTypeUser());
+		logger.info("nom " + userCommand.getFirstName());
+		logger.info("prenom "+userCommand.getLastName());
+		logger.info("tel "+userCommand.getPhone());
+		logger.info("mobile " + userCommand.getMobile());
+		logger.info("email "+userCommand.getEmail());
+
+		logger.info("num " + userCommand.getNumAddress());
+		logger.info("typeAdr "+userCommand.getTypeAddress());
+		logger.info("nom  " + userCommand.getStreet());
+		logger.info("prenom "+userCommand.getCity());
+		logger.info("nom " + userCommand.getZipCode());
+		logger.info("prenom "+userCommand.getCountry());
+		logger.info("nom " + userCommand.getPlaceName());
+
 		return "welcomePage";
 	}
 
+	@RequestMapping(value = "/getformaddpropertyManager", method = RequestMethod.GET)
+	public String getFormAddPorpertyManager(Map<String,Object> model) {
+		logger.info("==== IN /getformaddpropertyManager =====");
+
+		model.put("propertyManagerCommand", new PropertyManagerCommand());
+		return "addPropertyManagerPage";
+	}
+
+	@RequestMapping(value = "/addpropertyManager", method = RequestMethod.POST)
+	public String addPropertyManager(@ModelAttribute("propertyManagerCommand") PropertyManagerCommand propertyManagerCommand) {
+		logger.info("==== Insert Property Manager =====");
+		/* 1ère
+		logger.info("nom "+propertyManagerCommand.getFnamePMC());
+		logger.info("prenom "+propertyManagerCommand.getLnamePMC());
+		*/
+		//this.manager.add();
+		return "welcomePage";
+	}
 }

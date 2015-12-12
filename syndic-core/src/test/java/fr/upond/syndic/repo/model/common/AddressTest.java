@@ -1,4 +1,4 @@
-package fr.upond.syndic.repo.model.common;
+ package fr.upond.syndic.repo.model.common;
 
 import static org.junit.Assert.*;
 
