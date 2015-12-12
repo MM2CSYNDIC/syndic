@@ -144,17 +144,26 @@
 		$('#AGform').hide();
 		$('#eventform').hide();
 		$('#eventform2').hide();
-		
-		$('#typeEvent').click(function()
+
+		$('#typeEvent').change(function()
 		{
 			if (document.getElementById("typeEvent").value == 'AG') {
 
 				$('#AGform').toggle(400);
+				$('#eventform').hide();
+				$('#eventform2').hide();
 			}
 			else if (document.getElementById("typeEvent").value == 'Event') {
 
 				$('#eventform').toggle(400);
 				$('#eventform2').toggle(400);
+				$('#AGform').hide();
+			}
+			else
+			{
+				$('#AGform').hide();
+				$('#eventform').hide();
+				$('#eventform2').hide();
 			}
 		});
 	});
