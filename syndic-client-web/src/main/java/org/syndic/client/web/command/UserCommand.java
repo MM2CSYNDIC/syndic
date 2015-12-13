@@ -8,17 +8,18 @@ import java.lang.String;
  *
  */
 public class UserCommand {
-	/*identifiants*/
+	/* identifiants */
 	private String userName;
 	private String passWord;
-	/*info utilisateur*/
+	private String confirmation;
+	/* info utilisateur */
 	private String typeUser;
 	private String firstName;
 	private String lastName;
 	private String phone;
 	private String mobile;
 	private String email;
-	/*Adresse*/
+	/* Adresse */
 	private String numAddress;
 	private String typeAddress;
 	private String street;
@@ -27,17 +28,16 @@ public class UserCommand {
 	private String country;
 	private String placeName;
 
-
 	public UserCommand() {
 		super();
 	}
 
-	public UserCommand(String userName, String passWord, String typeUser,
-					   String firstName, String lastName, String phone, String mobile,
-					   String email, String numAddress, String typeAddress, String street,
-					   String city, String zipCode, String country, String placeName) {
+	public UserCommand(String userName, String passWord, String confirmation, String typeUser, String firstName, String lastName,
+			String phone, String mobile, String email, String numAddress, String typeAddress, String street,
+			String city, String zipCode, String country, String placeName) {
 		this.userName = userName;
 		this.passWord = passWord;
+		this.confirmation = confirmation;
 		this.typeUser = typeUser;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -67,6 +67,14 @@ public class UserCommand {
 
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
+	}
+
+	public String getConfirmation() {
+		return confirmation;
+	}
+
+	public void setConfirmation(String confirmation) {
+		this.confirmation = confirmation;
 	}
 
 	public String getTypeUser() {

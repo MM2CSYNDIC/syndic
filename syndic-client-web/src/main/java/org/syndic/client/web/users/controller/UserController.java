@@ -1,22 +1,19 @@
 package org.syndic.client.web.users.controller;
 
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 import org.syndic.client.web.command.UserCommand;
-import org.syndic.client.web.command.PropertyManagerCommand;
+import org.syndic.client.web.validator.UserValidator;
 
-
-import fr.upond.syndic.security.model.User;
-import fr.upond.syndic.security.model.UserRole;
 import fr.upond.syndic.service.IManager;
 
 
@@ -33,27 +30,20 @@ public class UserController {
 	
 	@Autowired
 	private IManager<Object> manager;
-	
-	public void setUserManager(IManager<Object> userManager) {
-		this.manager = userManager;
-	}
+	@Autowired
+	private UserValidator userValidator;
 	
 	
 	@RequestMapping(value = "/getformadduser", method = RequestMethod.GET)
 	public String getFormAddUser(Map<String,Object> model) {
 		logger.info("==== IN UserController =====");
-		/*User user = new User("alex", "", false);
-		for(User u : this.userManager.get(user)) {
-			logger.info("userName: "+u.getUserName());
-			logger.info("password: "+u.getPassWord());
-		}*/
 		model.put("userCommand", new UserCommand());
 		return "addUserPage";
 	}
 	
 	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("userCommand") UserCommand userCommand) {
-		logger.info("==== Insert User =====");
+	public String addUser(@ModelAttribute("userCommand") UserCommand userCommand, BindingResult result) {
+		logger.info("== uri: /adduser ==");
 		/*User lyes = new User(userCommand.getUserName(), userCommand.getPassWord(), true);
 		UserRole lyesRole = new UserRole("ROLE_USER");
 		lyesRole.setUser(lyes);
@@ -78,26 +68,13 @@ public class UserController {
 		logger.info("nom " + userCommand.getZipCode());
 		logger.info("prenom "+userCommand.getCountry());
 		logger.info("nom " + userCommand.getPlaceName());
-
-		return "welcomePage";
+		
+		this.userValidator.validate(userCommand, result);
+		if(result.hasErrors()) {
+			return "addUserPage";
+		} else {
+			return "welcomePage";
+		}
 	}
 
-	@RequestMapping(value = "/getformaddpropertyManager", method = RequestMethod.GET)
-	public String getFormAddPorpertyManager(Map<String,Object> model) {
-		logger.info("==== IN /getformaddpropertyManager =====");
-
-		model.put("propertyManagerCommand", new PropertyManagerCommand());
-		return "addPropertyManagerPage";
-	}
-
-	@RequestMapping(value = "/addpropertyManager", method = RequestMethod.POST)
-	public String addPropertyManager(@ModelAttribute("propertyManagerCommand") PropertyManagerCommand propertyManagerCommand) {
-		logger.info("==== Insert Property Manager =====");
-		/* 1ère
-		logger.info("nom "+propertyManagerCommand.getFnamePMC());
-		logger.info("prenom "+propertyManagerCommand.getLnamePMC());
-		*/
-		//this.manager.add();
-		return "welcomePage";
-	}
 }
