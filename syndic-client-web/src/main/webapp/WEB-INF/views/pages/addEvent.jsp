@@ -58,8 +58,9 @@
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<form:select class="form-control" path="typeEvent" id="typeEvent" >
 		              <option selected><spring:message code="event.Type"/></option>
-		              <option value="AG">AG</option>
-		              <option value="Event">Event</option>
+		              <option value="AG"><spring:message code="event.Type.AG"/></option>
+		              <option value="Intervention"><spring:message code="event.Type.Intervention"/></option>
+		              <option value="Incident"><spring:message code="event.Type.Incident"/></option>
 		            </form:select>
 		            <form:errors path="typeEvent" cssClass="error" />
 		        </div>
@@ -74,16 +75,6 @@
 					<form:errors path="eventName" cssClass="error" />
 				</div>
 			</div>
-            <!-- TODO 1 to delete -->
-			<!-- div class="form-group row">
-				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-					<spring:message code="event.Type" var="typeEvent" />
-					<form:input type="text" class="form-control" path="typeEvent" id="typeEvent" placeholder="${typeEvent}" />
-					<form:errors path="typeEvent" cssClass="error" />
-				</div>
-			</div-->
-			<!-- End TODO 1 -->
-			
 			<div class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<spring:message code="event.Date" var="dateEvent" />
@@ -153,7 +144,7 @@
 				$('#eventform').hide();
 				$('#eventform2').hide();
 			}
-			else if (document.getElementById("typeEvent").value == 'Event') {
+			else if (document.getElementById("typeEvent").value == 'Intervention') {
 
 				$('#eventform').toggle(400);
 				$('#eventform2').toggle(400);
