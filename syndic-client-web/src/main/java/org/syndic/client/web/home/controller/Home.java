@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.upond.syndic.repository.user.UserDaoImpl;
+import org.syndic.client.web.command.CondoCommand;
+
+
+
+import java.util.Map;
 
 /**
  * 
@@ -59,6 +64,14 @@ public class Home {
 		}
 		return "loginPage";
 	}
+
+    @RequestMapping(value = "/getformaddcondo", method = RequestMethod.GET)
+    public String getFormAddCondo(Map<String,Object> model) {
+        logger.info("==== Get Form Condo =====");
+        model.put("condoCommand", new CondoCommand());
+        return "addCondoPage";
+    }
+
 
 
 }
