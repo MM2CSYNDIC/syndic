@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.syndic.client.web.command.UserCommand;
-import org.syndic.client.web.command.PropertyManagerCommand;
+
 
 
 import fr.upond.syndic.security.model.User;
@@ -61,16 +61,24 @@ public class UserController {
 		set.add(lyesRole);
 		lyes.setUserRole(set);
 		this.manager.add(lyes);*/
+
+		/*
+		* Identifians de connexion
+		* */
 		logger.info("Login " + userCommand.getUserName());
 		logger.info("PWD "+userCommand.getPassWord());
-
+		/*
+		* Informations utilisateur
+		* */
 		logger.info("type utiisateur " + userCommand.getTypeUser());
 		logger.info("nom " + userCommand.getFirstName());
 		logger.info("prenom "+userCommand.getLastName());
 		logger.info("tel "+userCommand.getPhone());
 		logger.info("mobile " + userCommand.getMobile());
 		logger.info("email "+userCommand.getEmail());
-
+		/*
+		* Adresse
+		* */
 		logger.info("num " + userCommand.getNumAddress());
 		logger.info("typeAdr "+userCommand.getTypeAddress());
 		logger.info("nom  " + userCommand.getStreet());
@@ -81,7 +89,7 @@ public class UserController {
 
 		return "welcomePage";
 	}
-
+/*
 	@RequestMapping(value = "/getformaddpropertyManager", method = RequestMethod.GET)
 	public String getFormAddPorpertyManager(Map<String,Object> model) {
 		logger.info("==== IN /getformaddpropertyManager =====");
@@ -93,11 +101,12 @@ public class UserController {
 	@RequestMapping(value = "/addpropertyManager", method = RequestMethod.POST)
 	public String addPropertyManager(@ModelAttribute("propertyManagerCommand") PropertyManagerCommand propertyManagerCommand) {
 		logger.info("==== Insert Property Manager =====");
-		/* 1ère
+
 		logger.info("nom "+propertyManagerCommand.getFnamePMC());
 		logger.info("prenom "+propertyManagerCommand.getLnamePMC());
-		*/
+
 		//this.manager.add();
 		return "welcomePage";
 	}
+*/
 }
