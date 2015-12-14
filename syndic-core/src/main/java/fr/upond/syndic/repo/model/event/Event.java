@@ -3,7 +3,7 @@ package fr.upond.syndic.repo.model.event;
 import java.util.Set;
 
 import fr.upond.syndic.repo.model.BaseObject;
-import fr.upond.syndic.repo.model.common.Building;
+import fr.upond.syndic.repo.model.common.Condo;
 
 @SuppressWarnings("serial")
 public class Event extends BaseObject {
@@ -12,19 +12,19 @@ public class Event extends BaseObject {
 	private String typeEvent;
 	private String dateEvent;
 	private String descEvent;
-	private Set<Building> building;
+	private Set<Condo> condo;
 	
 	public Event() {
 		super();
 	}
 
-	public Event(String eventName, String typeEvent, String dateEvent, String descEvent, Set<Building> building) {
+	public Event(String eventName, String typeEvent, String dateEvent, String descEvent, Set<Condo> condo) {
 		super();
 		this.eventName = eventName;
 		this.typeEvent = typeEvent;
 		this.dateEvent = dateEvent;
 		this.descEvent = descEvent;
-		this.building = building;
+		this.condo = condo;
 	}
 
 	public String getEventName() {
@@ -59,12 +59,12 @@ public class Event extends BaseObject {
 		this.descEvent = descEvent;
 	}
 
-	public Set<Building> getBuilding() {
-		return building;
+	public Set<Condo> getCondo() {
+		return condo;
 	}
 
-	public void setBuilding(Set<Building> building) {
-		this.building = building;
+	public void setCondo(Set<Condo> condo) {
+		this.condo = condo;
 	}
 
 	@Override

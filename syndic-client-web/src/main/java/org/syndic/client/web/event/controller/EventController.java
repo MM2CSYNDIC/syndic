@@ -2,6 +2,7 @@ package org.syndic.client.web.event.controller;
 
 import java.util.Map;
 
+import fr.upond.syndic.repo.model.common.Condo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.EventCommand;
 
-import fr.upond.syndic.repo.model.common.Building;
 import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.service.IManager;
 
@@ -67,7 +67,7 @@ public class EventController {
 		for (Object ev : this.manager.get(event) ) {
 			model.addAttribute("event", ev);
 		}
-		model.addAttribute("listBuilding",this.manager.get(new Building()));
+		model.addAttribute("listBuilding",this.manager.get(new Condo()));
 		return "affectEventPage";
 	}
 

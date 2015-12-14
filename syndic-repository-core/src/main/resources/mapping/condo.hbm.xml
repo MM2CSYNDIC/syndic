@@ -4,7 +4,7 @@
 
 <!-- @author LYES KHERBICHE -->
 <hibernate-mapping>
-   <class name="fr.upond.syndic.repo.model.common.Building" table="BUILDING">
+   <class name="fr.upond.syndic.repo.model.common.Condo" table="CONDO">
 		<id name="id" type="int" column="ID">
          <generator class="native"/>
         </id>

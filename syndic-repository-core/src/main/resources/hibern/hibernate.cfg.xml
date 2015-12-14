@@ -14,7 +14,7 @@
         <mapping resource="mapping/userRole.hbm.xml"/>
         <mapping resource="mapping/event.hbm.xml"/>
         <mapping resource="mapping/address.hbm.xml"/>
-        <mapping resource="mapping/building.hbm.xml"/>
+        <mapping resource="mapping/condo.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>
