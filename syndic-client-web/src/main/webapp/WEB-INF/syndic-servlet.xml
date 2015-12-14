@@ -64,7 +64,7 @@
 	
 	
 	<!-- INFO: Validator -->
-	<!--bean id = "userValidator" class = ""></bean-->
+	<bean id = "userValidator" class = "org.syndic.client.web.validator.UserValidator"></bean>
 	
 	<import resource="classpath:beans/syndic-data.xml" />
 	<import resource="classpath:contexte/syndic-service.xml" />

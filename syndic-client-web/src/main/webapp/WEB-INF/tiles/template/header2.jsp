@@ -3,6 +3,8 @@
 <spring:url value="getformadduser.ldz" var="adduserUrl" htmlEscape="true" />
 <spring:url value="getformaddevent.ldz" var="addeventUrl" htmlEscape="true" />
 <spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
+<spring:url value="/j_spring_security_logout.ldz" var="logoutUrl" />
+<spring:url value="/sign.ldz" var="loginUrl" />
 
 <STYLE>
   #bou {
@@ -39,7 +41,13 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="#"><spring:message code="header.login"/><span class="sr-only">(current)</span></a></li>
+              <li>
+	            <c:choose>
+                 <c:when test="${pageContext.request.userPrincipal.name != null}"><a href="#">${pageContext.request.userPrincipal.name}</a><li><a href="${logoutUrl}"><spring:message code="header.logout"/></a></li></c:when>    
+                 <c:otherwise><a href="${loginUrl}"><spring:message code="header.login"/></a></c:otherwise>
+                </c:choose>
+                <span class="sr-only">(current)</span>
+              </li>
               <li><a href="#">UPOND</a></li>
               <li><a href="#"><spring:message code="header.about"/></a></li>
               <li><a href="?lang=en">En</a></li>
