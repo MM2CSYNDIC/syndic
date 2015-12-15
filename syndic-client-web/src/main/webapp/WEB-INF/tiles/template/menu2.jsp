@@ -29,6 +29,7 @@
   <li id="adduse" class=""><a href="${userUrl}"><spring:message code="header.add.user"/></a></li>
   <li id="addeven" class=""><a href="${eventUrl}"><spring:message code="header.add.event"/></a></li>
   <li id="listeven" class=""><a href="${listeventUrl}"><spring:message code="header.list.event"/></a></li>
+	<li id="listprovider" class=""><a href="${listproviderUrl}">Liste des fournisseurs</a></li>
 </ul>
 
 <script language="javascript">

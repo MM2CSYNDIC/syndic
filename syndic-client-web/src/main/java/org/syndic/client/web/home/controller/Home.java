@@ -73,7 +73,7 @@ public class Home {
 	@RequestMapping(value = "/listprovider", method = RequestMethod.GET)
 	public String listProvider(ModelMap model) {
 		for (Object provider : this.manager.get(new Provider()) ) {
-			logger.info("provider (name) "+((Provider)provider).getName());
+			logger.info("provider (name) "+((Provider)provider).getNameProvider());
 		}
 
 		model.addAttribute("listprovider",this.manager.get(new Provider()));

@@ -37,7 +37,7 @@
       <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
         <h3>Liste des fournisseurs</h3>
       </div>
-    </div> n,
+    </div> 
     <div class="form-group row">
       <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
         <table class="table1">
@@ -48,7 +48,7 @@
             <c:forEach var="entry" items="${listprovider}">
               <c:if test="${entry != null}">
                 <tr>
-                  <td>${entry.getIntitule()}</td>
+                  <td>${entry.getNameProvider()}</td>
                   <td>${entry.getDescription()}</td>
                   <td>${entry.getDateCreation()}</td>
                   <td><a href="#"><img src="<c:url value="images/crayon.png" />">M</a></td>

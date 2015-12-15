@@ -16,13 +16,13 @@ public class Provider extends BaseObject {
     }
 
     private int id;
-    private String name;
+    private String nameProvider;
     private String description;
     private String dateCreation;
 
     public Provider(String name, String description, String dateCreation) {
         super();
-        this.name = name;
+        this.nameProvider = name;
         this.description = description;
         this.dateCreation = dateCreation;
     }
@@ -35,7 +35,7 @@ public class Provider extends BaseObject {
     public String toString() {
         return "Provider{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + nameProvider + '\'' +
                 ", description='" + description + '\'' +
                 ", dateCreation='" + dateCreation + '\'' +
                 '}';
@@ -49,7 +49,7 @@ public class Provider extends BaseObject {
         Provider provider = (Provider) o;
 
         if (id != provider.id) return false;
-        if (name != null ? !name.equals(provider.name) : provider.name != null) return false;
+        if (nameProvider != null ? !nameProvider.equals(provider.nameProvider) : provider.nameProvider != null) return false;
         if (description != null ? !description.equals(provider.description) : provider.description != null)
             return false;
         return !(dateCreation != null ? !dateCreation.equals(provider.dateCreation) : provider.dateCreation != null);
@@ -59,19 +59,18 @@ public class Provider extends BaseObject {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (nameProvider != null ? nameProvider.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (dateCreation != null ? dateCreation.hashCode() : 0);
         return result;
     }
 
-    public String getName() {
-
-        return name;
+    public String getNameProvider() {
+        return nameProvider;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameProvider(String name) {
+        this.nameProvider = name;
     }
 
     public String getDescription() {

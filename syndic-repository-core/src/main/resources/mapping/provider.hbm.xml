@@ -8,7 +8,7 @@
         <id name="id" type="int" column="ID">
             <generator class="native"/>
         </id>
-        <property name="name" column="NAMEPROVIDER" ></property>
+        <property name="nameProvider" column="NAMEPROVIDER" ></property>
         <property name="description" column="DESCRIPTION" />
         <property name="dateCreation" column="DATECREATION" />
     </class>
