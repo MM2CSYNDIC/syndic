@@ -22,6 +22,8 @@
 <spring:url value="getformadduser.ldz" var="userUrl" htmlEscape="true" />
 <spring:url value="getformaddevent.ldz" var="eventUrl" htmlEscape="true" />
 <spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
+<spring:url value="listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
+
 <ul onload="change_class()" class="nav nav-pills nav-stacked">
   <li id="ac" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
   <li id="adduse" class=""><a href="${userUrl}"><spring:message code="header.add.user"/></a></li>
@@ -77,6 +79,12 @@
 				var btn = document.getElementById("listeven");
 				btn.className= "active";
 				var btn1 = document.getElementById("listevent");
+				btn1.className= "active";
+				break;
+			case 'listprovider':
+				var btn = document.getElementById("listprovider");
+				btn.className= "active";
+				var btn1 = document.getElementById("listprovider");
 				btn1.className= "active";
 				break;
 /*
