@@ -1,35 +1,21 @@
-Skip to content
-		Sign up Sign in
-		This repository
-		Search
-		Explore
-		Features
-		Enterprise
-		Pricing
-		Watch 5  Star 0  Fork 0 MM2CSYNDIC/syndic
-		Code  Issues 0  Pull requests 0  Pulse  Graphs
-		Branch: master Find file Copy pathsyndic/syndic-client-web/src/main/java/org/syndic/client/web/users/controller/UserController.java
-		28690ee  a day ago
-@LHommeDuLOuest LHommeDuLOuest MVC Validation Server Side
-		2 contributors @LHommeDuLOuest @BAlaasri
-RawBlameHistory     81 lines (66 sloc)  2.62 KB
-		package org.syndic.client.web.users.controller;
 
-		import java.util.Map;
+package org.syndic.client.web.users.controller;
 
-		import org.apache.commons.logging.Log;
-		import org.apache.commons.logging.LogFactory;
-		import org.springframework.beans.factory.annotation.Autowired;
-		import org.springframework.stereotype.Controller;
-		import org.springframework.validation.BindingResult;
-		import org.springframework.web.bind.annotation.ModelAttribute;
-		import org.springframework.web.bind.annotation.RequestMapping;
-		import org.springframework.web.bind.annotation.RequestMethod;
-		import org.springframework.web.bind.support.SessionStatus;
-		import org.syndic.client.web.command.UserCommand;
-		import org.syndic.client.web.validator.UserValidator;
+import java.util.Map;
 
-		import fr.upond.syndic.service.IManager;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
+import org.syndic.client.web.command.UserCommand;
+import org.syndic.client.web.validator.UserValidator;
+
+import fr.upond.syndic.service.IManager;
 
 
 /**
@@ -93,5 +79,3 @@ public class UserController {
 	}
 
 }
-Status API Training Shop Blog About Pricing
-		© 2015 GitHub, Inc. Terms Privacy Security Contact Help
