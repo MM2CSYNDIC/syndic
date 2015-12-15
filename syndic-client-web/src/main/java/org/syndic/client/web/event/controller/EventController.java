@@ -2,6 +2,7 @@ package org.syndic.client.web.event.controller;
 
 import java.util.Map;
 
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.EventCommand;
 
-import fr.upond.syndic.repo.model.common.Building;
 import fr.upond.syndic.repo.model.event.Event;
+import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.service.IManager;
 
 /**
@@ -60,14 +61,14 @@ public class EventController {
 		return "listEventPage";
 	}
 	
-	@RequestMapping(value = "/eventbuilding", method = RequestMethod.GET)
+	@RequestMapping(value = "/eventcondo", method = RequestMethod.GET)
 	public String affectEvent (@RequestParam String eventId, ModelMap model) {
 		Event event = new Event();
 		event.setEventName(eventId);
 		for (Object ev : this.manager.get(event) ) {
 			model.addAttribute("event", ev);
 		}
-		model.addAttribute("listBuilding",this.manager.get(new Building()));
+		model.addAttribute("listcondo",this.manager.get(new Condo()));
 		return "affectEventPage";
 	}
 

@@ -1,5 +1,7 @@
 package org.syndic.client.web.home.controller;
 
+import fr.upond.syndic.repo.model.common.Provider;
+import fr.upond.syndic.service.IManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.upond.syndic.repository.user.UserDaoImpl;
+import org.syndic.client.web.command.CondoCommand;
+
+
+
+import java.util.Map;
 
 /**
  * 
@@ -22,18 +29,21 @@ import fr.upond.syndic.repository.user.UserDaoImpl;
 public class Home {
 
 	private static final Log logger = LogFactory.getLog(Home.class);
-	
+
+	@Autowired
+	private IManager<Object> manager;
 	@Autowired
 	private UserDaoImpl userDao;
-	
-	
-	
+
+	public void setManager(IManager<Object> manager) {
+		this.manager = manager;
+	}
 	public void setUserDao(UserDaoImpl userDao) {
 		this.userDao = userDao;
 	}
 
 
-	
+
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String welcome() {
 		logger.info("=========== URI: /welcome ==========");
@@ -58,6 +68,23 @@ public class Home {
 			model.addAttribute("msg", "You've been logged out successfully.");
 		}
 		return "loginPage";
+	}
+
+	@RequestMapping(value = "/listprovider", method = RequestMethod.GET)
+	public String listProvider(ModelMap model) {
+		for (Object provider : this.manager.get(new Provider()) ) {
+			logger.info("provider (name) "+((Provider)provider).getNameProvider());
+		}
+
+		model.addAttribute("listprovider",this.manager.get(new Provider()));
+		return "listProviderPage";
+	}
+
+	@RequestMapping(value = "/getformaddcondo", method = RequestMethod.GET)
+	public String getFormAddCondo(Map<String,Object> model) {
+		logger.info("==== Get Form Condo =====");
+		model.put("condoCommand", new CondoCommand());
+		return "addCondoPage";
 	}
 
 

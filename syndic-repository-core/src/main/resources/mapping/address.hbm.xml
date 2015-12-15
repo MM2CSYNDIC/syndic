@@ -8,6 +8,7 @@
         <id name="id" type="int" column="ID">
          <generator class="native"/>
         </id>
+
         <property name="numAdress"       column="NUMADRESS"/>
         <property name="typeAddress"     column="TYPEADDRESS"/>
         <property name="street"          column="STREET"/>
@@ -15,5 +16,6 @@
         <property name="zipCode"         column="ZIPCODE"/>
         <property name="country"         column="COUNTRY"/>
         <property name="placeName"       column="PLACENAME" />
+
     </class>
 </hibernate-mapping>

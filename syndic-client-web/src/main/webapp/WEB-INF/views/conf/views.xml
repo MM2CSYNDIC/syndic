@@ -28,6 +28,11 @@
 			<value>ADDEVENTPAGE</value>
 		</property>
 	</bean>
+    <bean id="addCondoPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+        <property name="url">
+            <value>ADDCONDOPAGE</value>
+        </property>
+    </bean>
 	<bean id="listEventPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
 		<property name="url">
 			<value>LISTEVENTPAGE</value>
@@ -38,5 +43,9 @@
 			<value>AFFECTEVENTPAGE</value>
 		</property>
 	</bean>
-
+	<bean id="listProviderPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+		<property name="url">
+			<value>LISTPROVIDERPAGE</value>
+		</property>
+	</bean>
 </beans>

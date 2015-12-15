@@ -6,6 +6,13 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <spring:url value="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.js" var="fullCalendarCss1" />
+    <spring:url value="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.css" var="fullCalendarCss2" />
+    <spring:url value="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.print.css" var="fullCalendarJs" />
+
+    <link href="${fullCalendarCss1}" rel="stylesheet" />
+    <link href="${fullCalendarCss2}" rel="stylesheet" />
+    <script src="${fullCalendarJs}"></script>
 </head>
 
 <style>
@@ -43,6 +50,29 @@
           <tr>
             <th>Nom event</th><th>Type event</th><th>Date event</th><th>Description event</th><th>Modifier</th><th>Supprimer</th>
           </tr>
+            <div id="calendar"></div>
+          <script>
+              $('#calendar').fullCalendar({
+                  events: [
+                      {
+                          title  : 'event1',
+                          start  : '2010-01-01'
+                      },
+                      {
+                          title  : 'event2',
+                          start  : '2010-01-05',
+                          end    : '2010-01-07'
+                      },
+                      {
+                          title  : 'event3',
+                          start  : '2010-01-09T12:30:00',
+                          allDay : false // will make the time show
+                      }
+                  ]
+              });
+          </script>
+
+
           <c:if test="${listevent != null}">
            <c:forEach var="entry" items="${listevent}">
             <c:if test="${entry != null}">

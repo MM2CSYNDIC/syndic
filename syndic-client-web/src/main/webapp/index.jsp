@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -221,4 +222,24 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     </body>
 
+=======
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>SYNDIC App  !</h1>
+        <ul>
+          <li><a href='welcome.ldz'>Accueil </a></li>
+          <li><a href='getformadduser.ldz'>Add USER  </a></li>
+          <li><a href='getformaddevent.ldz'>Add Event  </a></li>
+           <li><a href='getformaddcondo.ldz'>Ajouter une copropriete  </a></li>
+        </ul>
+    </body>      
+>>>>>>> 5c3c69011a840965b0ee16b0d3f2070b3b9eedff
 </html>
