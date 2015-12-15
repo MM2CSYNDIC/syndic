@@ -32,6 +32,11 @@
       <put-attribute name="body" value="/WEB-INF/views/pages/addEvent.jsp"/>     
     </definition>
 
+    <definition name="ADDCONDOPAGE" extends="defaultTemplate2">
+        <put-attribute name="title"  value="Add Condo"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/addCondo.jsp"/>
+    </definition>
+
     <definition name="LISTEVENTPAGE" extends="defaultTemplate2">
         <put-attribute name="title"  value="Event Syndic"/>
         <put-attribute name="body" value="/WEB-INF/views/pages/listEvent.jsp"/>

@@ -13,6 +13,7 @@
           <li><a href='welcome.ldz'>Accueil </a></li>
           <li><a href='getformadduser.ldz'>Add USER  </a></li>
           <li><a href='getformaddevent.ldz'>Add Event  </a></li>
+           <li><a href='getformaddcondo.ldz'>Ajouter une copropriete  </a></li>
         </ul>
     </body>      
 </html>
