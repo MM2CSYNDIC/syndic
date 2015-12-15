@@ -10,27 +10,31 @@ import fr.upond.syndic.security.model.User;
  */
 @SuppressWarnings("serial")
 public class UserData extends BaseObject {
-	
+
+
+    private String type;
 	private String firstName;
 	private String lastName;
 	private String phone;
-	private String birthDay;
 	private String mobile;
 	private String email;
 	private Address address;
 	private User users;
+    private int id;
 
-	public UserData(String firstName, String lastName, String phone, String birthDay, String mobile, String email,
-			Address address, User users) {
+
+
+    public UserData(String firstName, String lastName, String phone, String mobile, String email,
+			Address address, User users, String type) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phone = phone;
-		this.birthDay = birthDay;
 		this.mobile = mobile;
 		this.email = email;
 		this.address = address;
 		this.users = users;
+        this.type=type;
 	}
 
 	public UserData() {
@@ -59,14 +63,6 @@ public class UserData extends BaseObject {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public String getBirthDay() {
-		return birthDay;
-	}
-
-	public void setBirthDay(String birthDay) {
-		this.birthDay = birthDay;
 	}
 
 	public String getMobile() {
@@ -101,7 +97,23 @@ public class UserData extends BaseObject {
 		this.users = users;
 	}
 
-	@Override
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    @Override
 	public String toString() {
 		return null;
 	}

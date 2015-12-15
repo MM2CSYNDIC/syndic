@@ -4,9 +4,10 @@
         
 <!-- @author LYES KHERBICHE -->
 <hibernate-mapping>
-    <class name="" table="USERDATA">
+    <class name="fr.upond.syndic.repo.model.user.UserData" table="USERDATA">
+        <!--
         <composite-id>
-            <key-property name="firstName" column="FIRSTNAME"/>
+            <key-property name="username" column="USERS"/>
             <key-property name="lastName"  column="LASTNAME"/>
             <key-property name="birthDay"  column="BIRTHDAY"/>
         </composite-id >
@@ -15,5 +16,28 @@
         <property name="placeName" column="EMAIL" />
         <many-to-one name="address"  column="ADDRESS" class="fr.upond.syndic.repo.model.common.Address" unique="true" not-null="true"/>
         <many-to-one name="users"  column="USERS" class="fr.upond.syndic.security.model.User" unique="true" not-null="true"/>
+        -->
+        <id name="id" type="int" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="type" column="TYPE" />
+        <property name="firstName" column="FIRSTNAME" />
+        <property name="lastName" column="LASTNAME" />
+        <property name="phone" column="PHONE" />
+        <property name="mobile" column="MOBILE" />
+        <property name="email" column="EMAIL" />
+        <property name="address" column="ADDRESS" />
+
+        <joined-subclass name="fr.upond.syndic.repo.model.user.PartOwner" table="PARTOWNER">
+            <key column="id"/>
+            <property name="nombreLot" column="NOMBRELOT"/>
+        </joined-subclass>
+
+        <joined-subclass name="fr.upond.syndic.repo.model.user.Gardien" table="GARDIEN">
+            <key column="id"/>
+            <property name="journees" column="JOURNEES"/>
+            <property name="horaires" column="HORAIRES"/>
+            <property name="taches" column="TACHES"/>
+        </joined-subclass>
     </class>
 </hibernate-mapping>

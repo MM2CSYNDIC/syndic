@@ -15,5 +15,8 @@
             </key>
             <one-to-many class="fr.upond.syndic.security.model.UserRole" />
         </set>
+<!--
+        <many-to-one name="userName" class="fr.upond.syndic.repo.model.user.UserData" column="USERDATA" not-null="true" cascade="all" unique="true" />
+        -->
 	</class>
 </hibernate-mapping>
