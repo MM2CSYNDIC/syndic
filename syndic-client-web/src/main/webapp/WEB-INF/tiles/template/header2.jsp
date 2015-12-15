@@ -7,7 +7,6 @@
 <spring:url value="listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
 <spring:url value="/j_spring_security_logout.ldz" var="logoutUrl" />
 <spring:url value="/sign.ldz" var="loginUrl" />
-<link rel="stylesheet" src="http://syndicapp.alwaysdata.net/css/styles.css"/>
 <STYLE>
   #bou {
     background-color: #92bf43;
