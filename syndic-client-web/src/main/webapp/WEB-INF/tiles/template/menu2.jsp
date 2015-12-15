@@ -60,6 +60,12 @@
 				var btn1 = document.getElementById("adduser");
 				btn1.className= "active";
 				break;
+			case 'getformaddprovider':
+				var btn = document.getElementById("adduse");
+				btn.className= "active";
+				var btn1 = document.getElementById("adduser");
+				btn1.className= "active";
+				break;
 
 			/*
 			 case 'altead':

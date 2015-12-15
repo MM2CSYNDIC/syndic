@@ -22,19 +22,24 @@
     </definition>
     
     <definition name="ADDUSERPAGE" extends="defaultTemplate2">
-      <put-attribute name="title"  value="Add Syndic User"/> 
+      <put-attribute name="title"  value="Add Syndic User"/>
       <!--put-attribute name="page_description" value="syndic add user"/-->
-      <put-attribute name="body" value="/WEB-INF/views/pages/addUser.jsp"/>     
+      <put-attribute name="body" value="/WEB-INF/views/pages/addUser.jsp"/>
     </definition>
     
     <definition name="ADDEVENTPAGE" extends="defaultTemplate2">
-      <put-attribute name="title"  value="Syndic Event"/> 
-      <put-attribute name="body" value="/WEB-INF/views/pages/addEvent.jsp"/>     
+      <put-attribute name="title"  value="Syndic Event"/>
+      <put-attribute name="body" value="/WEB-INF/views/pages/addEvent.jsp"/>
     </definition>
 
     <definition name="ADDCONDOPAGE" extends="defaultTemplate2">
         <put-attribute name="title"  value="Add Condo"/>
         <put-attribute name="body" value="/WEB-INF/views/pages/addCondo.jsp"/>
+    </definition>
+
+    <definition name="ADDPROVIDERPAGE" extends="defaultTemplate2">
+        <put-attribute name="title"  value="Add Provider"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/addProvider.jsp"/>
     </definition>
 
     <definition name="LISTEVENTPAGE" extends="defaultTemplate2">

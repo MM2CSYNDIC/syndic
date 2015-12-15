@@ -2,6 +2,7 @@ package fr.upond.syndic.service.common;
 
 import java.util.List;
 
+import fr.upond.syndic.repo.model.common.Provider;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,9 @@ public class Manager implements IManager<Object> {
 		}
 		
 		if(obj.getClass().equals(Event.class)) {
+			this.dao.put(obj);
+		}
+		if(obj.getClass().equals(Provider.class)) {
 			this.dao.put(obj);
 		}
 	}

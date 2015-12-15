@@ -8,13 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.upond.syndic.repository.user.UserDaoImpl;
 import org.syndic.client.web.command.CondoCommand;
-
+import org.syndic.client.web.command.ProviderCommand;
 
 
 import java.util.Map;
@@ -79,6 +80,23 @@ public class Home {
 		model.addAttribute("listprovider",this.manager.get(new Provider()));
 		return "listProviderPage";
 	}
+
+	@RequestMapping(value = "/getformaddprovider", method = RequestMethod.GET)
+	public String getFormAddProvider(Map<String,Object> model) {
+		logger.info("==== Get Form Provider =====");
+		model.put("providerCommand", new ProviderCommand());
+		return "addProviderPage";
+	}
+
+	@RequestMapping(value = "/addprovider", method = RequestMethod.POST)
+	public String addProvider(@ModelAttribute("providerCommand") ProviderCommand providerCommand) {
+		logger.info("==== Insert Provider =====");
+		logger.info("******** "+providerCommand.getNameProvider());
+		Provider provider = new Provider(providerCommand.getNameProvider(),providerCommand.getDescription(),"");
+		this.manager.add(provider);
+		return "welcomePage";
+	}
+
 
 	@RequestMapping(value = "/getformaddcondo", method = RequestMethod.GET)
 	public String getFormAddCondo(Map<String,Object> model) {

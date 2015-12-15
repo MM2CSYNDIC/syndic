@@ -28,11 +28,11 @@ public class ProviderCommand
         this.id = id;
     }
 
-    public String getName() {
+    public String getNameProvider() {
         return nameProvider;
     }
 
-    public void setName(String name) {
+    public void setNameProvider(String name) {
         this.nameProvider = name;
     }
 

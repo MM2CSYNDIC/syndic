@@ -33,6 +33,11 @@
             <value>ADDCONDOPAGE</value>
         </property>
     </bean>
+	<bean id="addProviderPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+		<property name="url">
+			<value>ADDPROVIDERPAGE</value>
+		</property>
+	</bean>
 	<bean id="listEventPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
 		<property name="url">
 			<value>LISTEVENTPAGE</value>
