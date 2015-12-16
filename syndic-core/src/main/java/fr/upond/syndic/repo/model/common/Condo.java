@@ -24,12 +24,12 @@ public class Condo extends BaseObject {
 		super();
 	}
 
-	public Condo(String name, Address address, double area,Set<Lot> lot) {
+	public Condo(String name, Address address, double area) {
 		super();
 		this.name = name;
 		this.address = address;
         this.area=area;
-        this.lot=lot;	}
+    }
 
 	public int getId() {
 		return id;

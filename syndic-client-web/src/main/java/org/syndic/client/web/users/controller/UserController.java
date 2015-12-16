@@ -56,34 +56,6 @@ public class UserController {
 		set.add(lyesRole);
 		lyes.setUserRole(set);
 		this.manager.add(lyes);*/
-		logger.info("Login " + userCommand.getUserName());
-		logger.info("PWD "+userCommand.getPassWord());
-
-		logger.info("type utiisateur " + userCommand.getTypeUser());
-		logger.info("nom " + userCommand.getFirstName());
-		logger.info("prenom "+userCommand.getLastName());
-		logger.info("tel "+userCommand.getPhone());
-		logger.info("mobile " + userCommand.getMobile());
-		logger.info("email "+userCommand.getEmail());
-
-		logger.info("num " + userCommand.getNumAddress());
-		logger.info("typeAdr "+userCommand.getTypeAddress());
-		logger.info("nom  " + userCommand.getStreet());
-		logger.info("prenom "+userCommand.getCity());
-		logger.info("nom " + userCommand.getZipCode());
-		logger.info("prenom "+userCommand.getCountry());
-		logger.info("nom " + userCommand.getPlaceName());
-		
-	    Condo condo = new Condo();
-	    Address address = new Address("1","rue","volraire","nanterre","92","fr","hi");
-	    Lot lot = new Lot();/*new Lot(1,"studio",2,20,10);*/
-	    Set<Lot> set = new HashSet<Lot>();
-	    set.add(lot);
-	    condo.setName("Copro 1");
-	    condo.setAddress(address);
-	    condo.setLot(set);
-	    condo.setArea(30);
-	    manager.add(condo);
 
 		this.userValidator.validate(userCommand, result);
 		if(result.hasErrors()) {
