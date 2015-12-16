@@ -1,3 +1,4 @@
+
 package org.syndic.client.web.users.controller;
 
 import java.util.Map;
@@ -18,29 +19,29 @@ import fr.upond.syndic.service.IManager;
 
 
 /**
- * 
+ *
  * @author LYES KHERBICHE
  *
  */
 @Controller
 //@RequestMapping("/user")
 public class UserController {
-	
+
 	private static final Log logger = LogFactory.getLog(UserController.class);
-	
+
 	@Autowired
 	private IManager<Object> manager;
 	@Autowired
 	private UserValidator userValidator;
-	
-	
+
+
 	@RequestMapping(value = "/getformadduser", method = RequestMethod.GET)
 	public String getFormAddUser(Map<String,Object> model) {
 		logger.info("==== IN UserController =====");
 		model.put("userCommand", new UserCommand());
 		return "addUserPage";
 	}
-	
+
 	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
 	public String addUser(@ModelAttribute("userCommand") UserCommand userCommand, BindingResult result) {
 		logger.info("== uri: /adduser ==");
@@ -68,7 +69,7 @@ public class UserController {
 		logger.info("nom " + userCommand.getZipCode());
 		logger.info("prenom "+userCommand.getCountry());
 		logger.info("nom " + userCommand.getPlaceName());
-		
+
 		this.userValidator.validate(userCommand, result);
 		if(result.hasErrors()) {
 			return "addUserPage";

@@ -17,16 +17,25 @@
 		<a href="${eventUrl}">add event</a>
 	</li>
 
+<li>
+<spring:url value="getformaddprovider.ldz" var="providerUrl" htmlEscape="true" />
+<a href="${eventUrl}">add event</a>
+</li>
+
 </ul-->
 <spring:url value="welcome.ldz" var="homeUrl" htmlEscape="true" />
 <spring:url value="getformadduser.ldz" var="userUrl" htmlEscape="true" />
 <spring:url value="getformaddevent.ldz" var="eventUrl" htmlEscape="true" />
+<spring:url value="getformaddprovider.ldz" var="providerUrl" htmlEscape="true" />
 <spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
+<spring:url value="listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
+
 <ul onload="change_class()" class="nav nav-pills nav-stacked">
   <li id="ac" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
   <li id="adduse" class=""><a href="${userUrl}"><spring:message code="header.add.user"/></a></li>
   <li id="addeven" class=""><a href="${eventUrl}"><spring:message code="header.add.event"/></a></li>
   <li id="listeven" class=""><a href="${listeventUrl}"><spring:message code="header.list.event"/></a></li>
+	<li id="listprovider" class=""><a href="${listproviderUrl}">Fournissaurs</a></li>
 </ul>
 
 <script language="javascript">
@@ -37,7 +46,6 @@
 	nom = nom.substr(0, nom.lastIndexOf("."));
 	nom = nom.replace(new RegExp("(%20|_|-)", "g"), "");
 	//alert(nom);
-
 
 
 	function change_class() {
@@ -57,7 +65,12 @@
 				var btn1 = document.getElementById("adduser");
 				btn1.className= "active";
 				break;
-
+			case 'getformaddprovider':
+				var btn = document.getElementById("addprovider");
+				btn.className= "active";
+				var btn1 = document.getElementById("addprovider");
+				btn1.className= "active";
+				break;
 			/*
 			 case 'altead':
 			 var btn = document.getElementById("grou");
@@ -77,6 +90,12 @@
 				var btn = document.getElementById("listeven");
 				btn.className= "active";
 				var btn1 = document.getElementById("listevent");
+				btn1.className= "active";
+				break;
+			case 'listprovider':
+				var btn = document.getElementById("listprovider");
+				btn.className= "active";
+				var btn1 = document.getElementById("listprovider");
 				btn1.className= "active";
 				break;
 /*
