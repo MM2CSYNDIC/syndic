@@ -62,8 +62,8 @@
               <td>${entry.getTypeEvent()}</td>
               <td>${entry.getDateEvent()}</td>
               <td>${entry.getDescEvent()}</td>
-              <td><a href="#"><img src="<c:url value="images/crayon.png" />">M</a></td>
-              <td><a href="#"><img src="/WEB-INF/views/pages/images/erreur.png"/>S</a></td>
+              <td><a href="#" ><img width= 40" height="40" src="<c:url value="http://syndicapp.alwaysdata.net/images/crayon.png" />"></a></td>
+              <td><a href="#" ><img width="40" height="40" src="http://syndicapp.alwaysdata.net/images/erreur.png"/></a></td>
               <td><a href="eventbuilding.ldz?eventId=${entry.getEventName()}">Affect</a></td>
              </tr>
             </c:if>

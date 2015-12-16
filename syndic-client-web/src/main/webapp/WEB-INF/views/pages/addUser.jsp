@@ -65,7 +65,6 @@
             </div>
         </div>
 
-        //Il faut mettre une liste de type utilisateurs
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
                 <spring:message code="user.typeUser" var="usertypeUser" />

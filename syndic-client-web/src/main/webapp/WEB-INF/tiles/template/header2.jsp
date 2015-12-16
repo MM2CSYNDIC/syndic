@@ -9,8 +9,9 @@
 <spring:url value="/sign.ldz" var="loginUrl" />
 <STYLE>
   #bou {
-    background-color: #92bf43;
-    border-color: #92bf43;
+    background-color: #101010;
+    border-color: #101010;
+    color: #fff;
   }
 </STYLE>
 

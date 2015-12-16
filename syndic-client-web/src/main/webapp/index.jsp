@@ -17,8 +17,8 @@
 
     <STYLE>
         #bou {
-            background-color: #35BF03;
-            border-color: #35BF03;
+            background-color: #101010;
+            border-color: #101010;
         }
         #blanc{
             background-color:#FBFCFA ;
@@ -79,9 +79,10 @@
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
+                        <li><a href="sign.ldz">Connexion</a></li>
+                        <!--li class="dropdown">
                             <!--p class="pull-right" dropdown-toggle><a href="#">Back to top</a></p-->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion <span class="caret"></span></a>
+                            <!--a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Se Connecter</a></li>
                                 <li><a href="#">S'inscrire</a></li>
@@ -90,7 +91,7 @@
                                 <li><a href="#">Separated link</a></li>
                                 <li><a href="#">One more separated link</a></li>
                             </ul>
-                        </li>
+                        </li-->
                     </ul>
                 </div>
             </div>
