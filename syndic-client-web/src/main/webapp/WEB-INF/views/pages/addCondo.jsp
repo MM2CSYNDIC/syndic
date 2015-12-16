@@ -173,9 +173,9 @@
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 
-                <form:input type="text" class="form-control" path="area"
+                <form:input type="text" class="form-control" path="areaCondo"
                             id="area" placeholder="Surface de la copropriete" />
-                <form:errors path="area" cssClass="error" />
+                <form:errors path="areaCondo" cssClass="error" />
             </div>
         </div>
 

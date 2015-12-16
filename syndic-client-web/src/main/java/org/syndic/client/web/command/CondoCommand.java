@@ -19,7 +19,7 @@ public class CondoCommand {
     private String floorLot;
     private String areaLot;
     private String part;
-    private String area;
+    private String areaCondo;
 
     public CondoCommand(){
         super();
@@ -43,7 +43,7 @@ public class CondoCommand {
 		this.floorLot = floorLot;
 		this.areaLot = areaLot;
 		this.part = part;
-		this.area = area;
+		this.areaCondo = area;
 	}
 
 	public String getName() {
@@ -70,12 +70,12 @@ public class CondoCommand {
 		this.numAddressEnd = numAddressEnd;
 	}
 
-	public String getArea() {
-        return area;
+	public String getAreaCondo() {
+        return areaCondo;
     }
 
-    public void setArea(String area) {
-        this.area = area;
+    public void setAreaCondo(String area) {
+        this.areaCondo = area;
     }
 
     public String getTypeAddress() {

@@ -1,9 +1,7 @@
 
 package org.syndic.client.web.users.controller;
 
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.syndic.client.web.command.UserCommand;
 import org.syndic.client.web.validator.UserValidator;
 
-import fr.upond.syndic.repo.model.common.Address;
-import fr.upond.syndic.repo.model.common.Condo;
-import fr.upond.syndic.repo.model.common.Lot;
 import fr.upond.syndic.service.IManager;
 
 
