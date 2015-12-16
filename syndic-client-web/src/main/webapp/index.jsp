@@ -1,9 +1,6 @@
-<<<<<<< HEAD
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-=======
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
->>>>>>> a38f3b66b0cd1d150dae4e60e8e5e1fdfc317db8
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page session="true"%>
 <%@ include file="/WEB-INF/tiles/template/includes.jsp"%>
@@ -33,8 +30,9 @@
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
           crossorigin="anonymous">
     <link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/logo-nav.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!--link href="css/logo-nav.css" rel="stylesheet"-->
 
     <link rel="icon" href="https://getbootstrap/favicon.ico">
 
@@ -78,16 +76,9 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-<<<<<<< HEAD
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
-=======
-                        <li class="active"><a href='welcome.ldz'>Acceuil</a></li>
-                        <li><a href="getformadduser.ldz">Add User</a></li>
-                        <li><a href="getformaddevent.ldz">Add Event</a></li>
-                        <li><a href="getformaddprovider.ldz">Fournisseur</a></li>
->>>>>>> a38f3b66b0cd1d150dae4e60e8e5e1fdfc317db8
                         <li class="dropdown">
                             <!--p class="pull-right" dropdown-toggle><a href="#">Back to top</a></p-->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion <span class="caret"></span></a>
@@ -121,10 +112,10 @@
     </ol>
     <div id="blanc" class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+            <img width="100%" height="100%" class="first-slide" src="http://leclosjardin.fr/wp-content/uploads/2015/10/groupe-2-1024x768.jpg" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Example headline.</h1>
+                    <h1>Organisation des assemblées générales</h1>
                     <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                 </div>
@@ -134,7 +125,7 @@
             <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
+                    <h1>Création des événements.</h1>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
                 </div>
@@ -144,7 +135,7 @@
             <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
+                    <h1>Gestion de copropriétés</h1>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
                 </div>
@@ -171,20 +162,20 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="" width="140" height="140">
+            <img id="bou" class="img-circle"
+                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Add_user_icon_(blue).svg/895px-Add_user_icon_(blue).svg.png" alt="" width="140" height="140">
             <h2>Add User</h2>
-            <p width="240" height="340">Le lien ci-dessous vous permet d'ajouter des utilisateurs (copropriétatire, gardien, locataire)...
-            </p>
-            <p><a class="btn btn-default" href="getformadduser.ldz" role="button">Créer un nouvel utilisateur &raquo;</a></p>
+            <p width="240" height="340">Le lien ci-dessous vous permet d'ajouter des utilisateurs (copropriétatire, gardien, locataire)...</p>
+            <p><a class="btn btn-default" href="getformaddevent.ldz" role="button">Créer un nouvel événement &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="" width="140" height="140">
+            <img id="bou" class="img-circle" src="https://software.intel.com/sites/all/modules/custom/intel_events/images/icon_add_event.png" alt="" width="140" height="140">
             <h2>Add Event</h2>
             <p width="240" height="340">Le lien ci-dessous vous permet de créer de nouveaux événements (dont les assemblées géérales)...</p>
             <p><a class="btn btn-default" href="getformaddevent.ldz" role="button">Créer un nouvel événement &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="" width="140" height="140">
+        <div class="col-lg-4"><!--http://kingportfoliostrategies.ca/wp-content/uploads/2013/06/loginButton.jpg-->
+            <img id="bou" class="img-circle" src="http://www.dsmclub.com/repair/images/password-icon.png.gif?1449705600034" alt="" width="140" height="140">
             <h2>Connexion</h2>
             <p width="240" height="340">Vous êtes déjà inscrit ?...cliquer sur le lien ci-dessous pour vous connecter à votre profil...
             </p>
@@ -205,7 +196,8 @@
             </p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="">
+            <img class="featurette-image img-responsive center-block" src="https://drive.google.com/open?id=0B1ujWn2fS51aVjQtU0MtZ1hQZDQ"
+                 data-src="holder.js/500x500/auto" alt="">
         </div>
     </div>
 
@@ -213,19 +205,18 @@
 
     <div id="contact" class="row featurette">
         <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading">Syndic'APP vous intéresse ?... <span class="text-muted">Contactez nous au :</span></h2>
+            <h2 class="featurette-heading" >Syndic'APP vous intéresse ?... <span class="text-muted">Contactez nous au :</span></h2>
             <p class="lead">
                 <a href="mailto:psisiasyndic@googlegroups.com">par mail</a>
             </p>
         </div>
+
         <div class="col-md-5 col-md-pull-7">
-            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="">
+            <img class="featurette-image img-responsive center-block" src="http://www.ce11.fr/wp-content/uploads/2015/08/contact.jpg"
+                 data-src="holder.js/500x500/auto" alt="">
         </div>
     </div>
 
-    <hr class="featurette-divider">
-
-    <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
 
@@ -239,8 +230,6 @@
 
 </div><!-- /.container -->
 
-<<<<<<< HEAD
-
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -252,27 +241,5 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="https://getbootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
-=======
-        <div class="container">
-            <ul>
-              <li><a href='welcome.ldz'>Accueil </a></li>
-              <li><a href='getformadduser.ldz'>Add USER  </a></li>
-              <li><a href='getformaddevent.ldz'>Add Event  </a></li>
-            </ul>
-        </div>
-</div-->
-    <!-- Bootstrap core JavaScript
-   ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
 
-    </div></body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
->>>>>>> a38f3b66b0cd1d150dae4e60e8e5e1fdfc317db8
 </html>
