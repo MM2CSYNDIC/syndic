@@ -2,11 +2,11 @@
 <spring:url value="welcome.ldz" var="homeUrl" htmlEscape="true" />
 <spring:url value="getformadduser.ldz" var="adduserUrl" htmlEscape="true" />
 <spring:url value="getformaddevent.ldz" var="addeventUrl" htmlEscape="true" />
+<spring:url value="getformaddprovider.ldz" var="addproviderUrl" htmlEscape="true" />
 <spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
 <spring:url value="listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
 <spring:url value="/j_spring_security_logout.ldz" var="logoutUrl" />
 <spring:url value="/sign.ldz" var="loginUrl" />
-
 <STYLE>
   #bou {
     background-color: #92bf43;
@@ -30,6 +30,7 @@
               <li id="acc" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
               <li id="adduser"><a href="${adduserUrl}"><spring:message code="header.add.user"/></a></li>
               <li id="addevent"><a href="${addeventUrl}"><spring:message code="header.add.event"/></a></li>
+              <li id="addprovider"><a href="${addproviderUrl}"><spring:message code="header.add.provider"/></a></li>
               <li id="listevent" class="dropdown">
                 <a href="${listeventUrl}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evènement <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -54,7 +55,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li>
 	            <c:choose>
-                 <c:when test="${pageContext.request.userPrincipal.name != null}"><a href="#">${pageContext.request.userPrincipal.name}</a><li><a href="${logoutUrl}"><spring:message code="header.logout"/></a></li></c:when>    
+                 <c:when test="${pageContext.request.userPrincipal.name != null}"><a href="#">${pageContext.request.userPrincipal.name}</a><li><a href="${logoutUrl}"><spring:message code="header.logout"/></a></li></c:when>
                  <c:otherwise><a href="${loginUrl}"><spring:message code="header.login"/></a></c:otherwise>
                 </c:choose>
                 <span class="sr-only">(current)</span>

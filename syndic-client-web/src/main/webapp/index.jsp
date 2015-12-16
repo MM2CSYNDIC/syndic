@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+>>>>>>> a38f3b66b0cd1d150dae4e60e8e5e1fdfc317db8
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page session="true"%>
 <%@ include file="/WEB-INF/tiles/template/includes.jsp"%>
@@ -73,9 +78,16 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
+<<<<<<< HEAD
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
+=======
+                        <li class="active"><a href='welcome.ldz'>Acceuil</a></li>
+                        <li><a href="getformadduser.ldz">Add User</a></li>
+                        <li><a href="getformaddevent.ldz">Add Event</a></li>
+                        <li><a href="getformaddprovider.ldz">Fournisseur</a></li>
+>>>>>>> a38f3b66b0cd1d150dae4e60e8e5e1fdfc317db8
                         <li class="dropdown">
                             <!--p class="pull-right" dropdown-toggle><a href="#">Back to top</a></p-->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion <span class="caret"></span></a>
@@ -227,6 +239,7 @@
 
 </div><!-- /.container -->
 
+<<<<<<< HEAD
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -239,4 +252,27 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="https://getbootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
+=======
+        <div class="container">
+            <ul>
+              <li><a href='welcome.ldz'>Accueil </a></li>
+              <li><a href='getformadduser.ldz'>Add USER  </a></li>
+              <li><a href='getformaddevent.ldz'>Add Event  </a></li>
+            </ul>
+        </div>
+</div-->
+    <!-- Bootstrap core JavaScript
+   ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    </div></body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+>>>>>>> a38f3b66b0cd1d150dae4e60e8e5e1fdfc317db8
 </html>
