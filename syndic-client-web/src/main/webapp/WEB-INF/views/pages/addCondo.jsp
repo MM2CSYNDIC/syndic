@@ -51,10 +51,8 @@
         </div>
     </div>
 
-    <form:form method="POST" commandName="condoCommand"
-               action="addcondo.ldz">
+    <form:form method="POST" commandName="condoCommand" action="addcondo.ldz">
         <form:errors path="*" cssClass="errorblock" element="div" />
-
 
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
@@ -64,22 +62,33 @@
                 <form:errors path="name" cssClass="error" />
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="numeroRue"
-                            id="numeroRue" placeholder="Numero de voie" />
-                <form:errors path="numeroRue" cssClass="error" />
+        <div class="form-group">
+          <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <form:input type="text" class="form-control" path="numAddressStart" id="numAddressStart" placeholder="Début Numero de voie"/>
+                    <form:errors path="numAddressStart" cssClass="error" />
+                </div>
+                <div class="col-md-6">
+                    <form:input type="text" class="form-control" path="numAddressEnd"  id="numAddressEnd" placeholder="Fin Numero de voie"/>
+                    <form:errors path="numAddressEnd" cssClass="error" />
+                </div>
             </div>
-        </div>
+          </div>
+        </div>        
         <div class="form-group row">
-            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+		  <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+			<form:select class="form-control" path="typeAddress" id="typeAddress" >
+		        <option value="none" selected><spring:message code="user.typeAddress"/></option>
+		        <option value="street"><spring:message code="user.typeAddress.street"/></option>
+		        <option value="avenue"><spring:message code="user.typeAddress.avenue"/></option>
+		        <option value="boulvard"><spring:message code="user.typeAddress.boulvard"/></option>
+		    </form:select>
+		    <form:errors path="typeAddress" cssClass="error" />
+		  </div>
+		</div>
 
-                <form:input type="text" class="form-control" path="typeAddress"
-                            id="typeAddress" placeholder="Type de voie" />
-                <form:errors path="typeAddress" cssClass="error" />
-            </div>
-        </div>
+        
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 
@@ -183,6 +192,8 @@
 </div>
 
 </body>
+
 </html>
+
 
 

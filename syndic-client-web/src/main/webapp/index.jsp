@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -47,9 +46,10 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href='welcome.ldz'>Home</a></li>
+                        <li class="active"><a href='welcome.ldz'>Acceuil</a></li>
                         <li><a href="getformadduser.ldz">Add User</a></li>
                         <li><a href="getformaddevent.ldz">Add Event</a></li>
+                        <li><a href="getformaddprovider.ldz">Fournisseur</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -153,9 +153,7 @@
 
 
     <!-- START THE FEATURETTES >
-
     <hr class="featurette-divider">
-
     <div class="row featurette">
         <div class="col-md-7">
             <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
@@ -165,9 +163,7 @@
             <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
     </div>
-
     <hr class="featurette-divider">
-
     <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
             <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
@@ -177,9 +173,7 @@
             <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
     </div>
-
     <hr class="featurette-divider">
-
     <div class="row featurette">
         <div class="col-md-7">
             <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
@@ -189,9 +183,7 @@
             <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
     </div>
-
     <hr class="featurette-divider">
-
     <!-- /END THE FEATURETTES -->
 
 
@@ -201,7 +193,6 @@
     </footer>
 
 <!--div class="container">
-
         <div class="container">
             <ul>
               <li><a href='welcome.ldz'>Accueil </a></li>
@@ -213,6 +204,8 @@
     <!-- Bootstrap core JavaScript
    ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+
+    </div></body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../../dist/js/bootstrap.min.js"></script>
@@ -220,26 +213,5 @@
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-    </body>
 
-=======
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>SYNDIC App  !</h1>
-        <ul>
-          <li><a href='welcome.ldz'>Accueil </a></li>
-          <li><a href='getformadduser.ldz'>Add USER  </a></li>
-          <li><a href='getformaddevent.ldz'>Add Event  </a></li>
-           <li><a href='getformaddcondo.ldz'>Ajouter une copropriete  </a></li>
-        </ul>
-    </body>      
->>>>>>> 5c3c69011a840965b0ee16b0d3f2070b3b9eedff
 </html>

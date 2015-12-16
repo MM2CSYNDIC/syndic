@@ -1,24 +1,21 @@
 package org.syndic.client.web.home.controller;
 
-import fr.upond.syndic.repo.model.common.Provider;
-import fr.upond.syndic.service.IManager;
+import java.util.Map;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import fr.upond.syndic.repository.user.UserDaoImpl;
 import org.syndic.client.web.command.CondoCommand;
 import org.syndic.client.web.command.ProviderCommand;
 
-
-import java.util.Map;
+import fr.upond.syndic.repo.model.common.Provider;
+import fr.upond.syndic.service.IManager;
 
 /**
  * 
@@ -26,29 +23,22 @@ import java.util.Map;
  *
  */
 @Controller
-@Transactional
 public class Home {
 
 	private static final Log logger = LogFactory.getLog(Home.class);
 
 	@Autowired
 	private IManager<Object> manager;
-	@Autowired
-	private UserDaoImpl userDao;
+	
 
 	public void setManager(IManager<Object> manager) {
 		this.manager = manager;
 	}
-	public void setUserDao(UserDaoImpl userDao) {
-		this.userDao = userDao;
-	}
-
-
+	
 
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String welcome() {
 		logger.info("=========== URI: /welcome ==========");
-		userDao.delete(null);
 		return "welcomePage";
 	}
 	
@@ -102,6 +92,18 @@ public class Home {
 	public String getFormAddCondo(Map<String,Object> model) {
 		logger.info("==== Get Form Condo =====");
 		model.put("condoCommand", new CondoCommand());
+		return "addCondoPage";
+	}
+	
+	@RequestMapping(value = "/addcondo", method = RequestMethod.POST)
+	public String addCondo(@ModelAttribute("condoCommand") CondoCommand condoCommand) {
+		logger.info("== uri: /addcondo ==");
+		logger.info("******** "+condoCommand.getName());
+		logger.info("******** "+condoCommand.getNumAddressStart());
+		logger.info("******** "+condoCommand.getNumAddressEnd());
+		
+		
+		
 		return "addCondoPage";
 	}
 

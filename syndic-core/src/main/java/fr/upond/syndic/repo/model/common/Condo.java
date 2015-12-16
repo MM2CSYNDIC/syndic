@@ -15,7 +15,7 @@ public class Condo extends BaseObject {
 	
 	private int id;
 	private String name;
-    private Set<Address> address;
+    private Address address;
     private double area;
     private Set<Lot> lot;
 
@@ -24,7 +24,7 @@ public class Condo extends BaseObject {
 		super();
 	}
 
-	public Condo(String name, Set<Address> address, double area,Set<Lot> lot) {
+	public Condo(String name, Address address, double area,Set<Lot> lot) {
 		super();
 		this.name = name;
 		this.address = address;
@@ -62,11 +62,11 @@ public class Condo extends BaseObject {
     public void setLot(Set<Lot> lot) {
         this.lot = lot;
     }
-    public Set<Address> getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(Set<Address> address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

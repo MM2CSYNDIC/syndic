@@ -103,14 +103,14 @@
  <div class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 					<form:select class="form-control" path="typeAddress" id="UserTypeAddress" >
-		              <option selected><spring:message code="user.typeAddress"/></option>
+		              <option value="none" selected><spring:message code="user.typeAddress"/></option>
 		              <option value="street"><spring:message code="user.typeAddress.street"/></option>
 		              <option value="avenue"><spring:message code="user.typeAddress.avenue"/></option>
 		              <option value="boulvard"><spring:message code="user.typeAddress.boulvard"/></option>
 		            </form:select>
 		            <form:errors path="typeAddress" cssClass="error" />
 		        </div>
-		    </div>
+ </div>
  <div class="form-group row">
          <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
              <spring:message code="user.street" var="userstreet" />

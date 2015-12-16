@@ -1,7 +1,9 @@
 
 package org.syndic.client.web.users.controller;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -11,10 +13,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.support.SessionStatus;
 import org.syndic.client.web.command.UserCommand;
 import org.syndic.client.web.validator.UserValidator;
 
+import fr.upond.syndic.repo.model.common.Address;
+import fr.upond.syndic.repo.model.common.Condo;
+import fr.upond.syndic.repo.model.common.Lot;
 import fr.upond.syndic.service.IManager;
 
 
@@ -69,6 +73,17 @@ public class UserController {
 		logger.info("nom " + userCommand.getZipCode());
 		logger.info("prenom "+userCommand.getCountry());
 		logger.info("nom " + userCommand.getPlaceName());
+		
+	    Condo condo = new Condo();
+	    Address address = new Address("1","rue","volraire","nanterre","92","fr","hi");
+	    Lot lot = new Lot();/*new Lot(1,"studio",2,20,10);*/
+	    Set<Lot> set = new HashSet<Lot>();
+	    set.add(lot);
+	    condo.setName("Copro 1");
+	    condo.setAddress(address);
+	    condo.setLot(set);
+	    condo.setArea(30);
+	    manager.add(condo);
 
 		this.userValidator.validate(userCommand, result);
 		if(result.hasErrors()) {

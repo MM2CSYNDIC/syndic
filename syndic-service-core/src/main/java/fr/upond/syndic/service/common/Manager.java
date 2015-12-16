@@ -2,6 +2,7 @@ package fr.upond.syndic.service.common;
 
 import java.util.List;
 
+import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Provider;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -47,13 +48,19 @@ public class Manager implements IManager<Object> {
 				this.dao.put(ur);
 			}
 		}
-		
+		if(obj.getClass().equals(UserRole.class)) {
+			this.dao.put(obj);
+		}
 		if(obj.getClass().equals(Event.class)) {
+			this.dao.put(obj);
+		}
+		if(obj.getClass().equals(Condo.class)) {
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(Provider.class)) {
 			this.dao.put(obj);
 		}
+		
 	}
 
 }

@@ -16,10 +16,11 @@ public class Lot extends BaseObject {
     private String type;
     private int floor;
     private double area;
+    private double part;
+    private int idC;
 
 
-
-    public Lot(int id,int num,String type,int floor,double area,double part) {
+    public Lot(int id, int num,String type,int floor,double area,double part, int idC) {
         super();
         this.id = id;
         this.num = num;
@@ -27,6 +28,7 @@ public class Lot extends BaseObject {
         this.floor = floor;
         this.area = area;
         this.part = part;
+        this.idC = idC;
     }
 
     public double getPart() {
@@ -77,9 +79,15 @@ public class Lot extends BaseObject {
         this.area = area;
     }
 
-    private double part;
+    public int getIdC() {
+		return idC;
+	}
 
-    public Lot() {
+	public void setIdC(int idC) {
+		this.idC = idC;
+	}
+
+	public Lot() {
         super();
     }
 
