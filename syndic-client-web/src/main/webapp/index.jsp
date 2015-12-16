@@ -63,7 +63,7 @@
 <div class="navbar-wrapper">
     <div class="container">
 
-        <nav id="bou" class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -112,34 +112,35 @@
     </ol>
     <div id="blanc" class="carousel-inner" role="listbox">
         <div class="item active">
-            <img width="100%" height="100%" class="first-slide" src="http://leclosjardin.fr/wp-content/uploads/2015/10/groupe-2-1024x768.jpg" alt="First slide">
-            <div class="container">
+            <img width="100%" height="100%" class="first-slide"
+                 src="http://syndicapp.alwaysdata.net/images/banner.png" alt="First slide">
+            <!--div class="container">
                 <div class="carousel-caption">
                     <h1>Organisation des assemblées générales</h1>
                     <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                 </div>
-            </div>
+            </div-->
         </div>
         <div id="blanc" class="item">
             <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-            <div class="container">
+            <!--div class="container">
                 <div class="carousel-caption">
                     <h1>Création des événements.</h1>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
                 </div>
-            </div>
+            </div-->
         </div>
         <div id="blanc" class="item">
             <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-            <div class="container">
+            <!--div class="container">
                 <div class="carousel-caption">
                     <h1>Gestion de copropriétés</h1>
                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
                 </div>
-            </div>
+            </div-->
         </div>
     </div>
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -166,7 +167,7 @@
                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Add_user_icon_(blue).svg/895px-Add_user_icon_(blue).svg.png" alt="" width="140" height="140">
             <h2>Add User</h2>
             <p width="240" height="340">Le lien ci-dessous vous permet d'ajouter des utilisateurs (copropriétatire, gardien, locataire)...</p>
-            <p><a class="btn btn-default" href="getformaddevent.ldz" role="button">Créer un nouvel événement &raquo;</a></p>
+            <p><a class="btn btn-default" href="getformadduser.ldz" role="button">Créer un nouvel utilisateur &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
             <img id="bou" class="img-circle" src="https://software.intel.com/sites/all/modules/custom/intel_events/images/icon_add_event.png" alt="" width="140" height="140">
@@ -196,9 +197,10 @@
             </p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="https://drive.google.com/open?id=0B1ujWn2fS51aVjQtU0MtZ1hQZDQ"
+            <img class="featurette-image img-responsive center-block" src="http://syndicapp.alwaysdata.net/images/logo.png"
                  data-src="holder.js/500x500/auto" alt="">
         </div>
+        <p class="pull-right"><a href="#"><img src="http://www.cmbfradio.cu/img/back-to-top.png" width="40" height="40"></a></p>
     </div>
 
     <hr class="featurette-divider">
@@ -215,6 +217,7 @@
             <img class="featurette-image img-responsive center-block" src="http://www.ce11.fr/wp-content/uploads/2015/08/contact.jpg"
                  data-src="holder.js/500x500/auto" alt="">
         </div>
+        <p class="pull-right"><a href="#"><img src="http://www.cmbfradio.cu/img/back-to-top.png" width="40" height="40"></a></p>
     </div>
 
 
@@ -224,7 +227,6 @@
     <!-- FOOTER -->
 
     <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
         <%@ include file="/WEB-INF/tiles/template/footer.jsp" %>
     </footer>
 
