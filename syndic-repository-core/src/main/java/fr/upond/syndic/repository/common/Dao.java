@@ -49,10 +49,13 @@ public class Dao implements IDao<Object> {
 
 	@Override
 	public void delete(Object obj) {
+		logger.info("===== Delete: "+obj.getClass()+" =====");
+		this.sessionFactory.getCurrentSession().delete(obj);
 	}
 
 	@Override
 	public void upDate(Object obj) {
+
 	}
 
 }

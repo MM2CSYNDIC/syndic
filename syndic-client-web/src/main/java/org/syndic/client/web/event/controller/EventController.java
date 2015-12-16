@@ -53,11 +53,21 @@ public class EventController {
 	
 	@RequestMapping(value = "/listevent", method = RequestMethod.GET)
 	public String listEvent(ModelMap model) {
+
+		String eventFormatJSON = "";
+
 		for (Object event : this.manager.get(new Event()) ) {
 			logger.info("event (name) "+((Event)event).getEventName());
+			if( eventFormatJSON != "" )
+				eventFormatJSON+=',';
+			eventFormatJSON += " { ";
+			eventFormatJSON += " title : `" + ((Event) event).getEventName() + "`,";
+			eventFormatJSON += " start  : `" + ((Event) event).getDateEvent() + "` ";
+			eventFormatJSON += " } ";
 		}
-		
+		System.out.println(eventFormatJSON);
 		model.addAttribute("listevent",this.manager.get(new Event()));
+		model.addAttribute("jsonEvent", eventFormatJSON);
 		return "listEventPage";
 	}
 	

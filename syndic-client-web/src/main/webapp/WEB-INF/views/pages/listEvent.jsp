@@ -10,7 +10,8 @@
     <script src='http://syndicapp.alwaysdata.net/fullcalendar/fullcalendar-2.5.0-beta2/lib/jquery.min.js'></script>
     <script src='http://syndicapp.alwaysdata.net/fullcalendar/fullcalendar-2.5.0-beta2/lib/moment.min.js'></script>
     <script src='http://syndicapp.alwaysdata.net/fullcalendar/fullcalendar-2.5.0-beta2/fullcalendar.js'></script>
-
+    <link rel="stylesheet" href="http://syndicapp.alwaysdata.net/calandarTheme/start/jquery.ui.theme.css"/>
+    <link rel="stylesheet" href="http://syndicapp.alwaysdata.net/calandarTheme/start/jquery-ui.css"/>
 </head>
 
 <style>
@@ -85,22 +86,21 @@
         // page is now ready, initialize the calendar...
 
         $('#calendar').fullCalendar({
-            events: [
+            eventSources: [
+
+                // your event source
                 {
-                    title  : 'event1',
-                    start  : '2010-01-01'
-                },
-                {
-                    title  : 'event2',
-                    start  : '2010-01-05',
-                    end    : '2010-01-07'
-                },
-                {
-                    title  : 'event3',
-                    start  : '2010-01-09T12:30:00',
-                    allDay : false // will make the time show
+                    events: [ // put the array in the `events` property
+                        <c:out value="${jsonEvent}"/>
+                   ],
+                    color: 'black',     // an option!
+                    textColor: 'yellow' // an option!
                 }
+
+                // any other event sources...
+
             ]
+
         });
 
     });
