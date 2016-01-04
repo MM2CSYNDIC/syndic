@@ -1,5 +1,6 @@
 package fr.upond.syndic.service.event;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -15,6 +16,9 @@ import fr.upond.syndic.service.IManager;
  *
  */
 @Transactional
+/**
+ * @deprecated (In Order to Use a generic service)
+ */
 @Deprecated
 public class EventManager implements IManager<Object> {
 	
@@ -29,7 +33,7 @@ public class EventManager implements IManager<Object> {
 
 	@Override
 	public List<Object> get(Object obj) {
-		return null;
+		return new ArrayList<Object>();
 	}
 
 	@Override

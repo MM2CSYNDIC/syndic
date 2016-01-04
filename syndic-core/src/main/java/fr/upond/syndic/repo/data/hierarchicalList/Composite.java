@@ -17,6 +17,7 @@ public class Composite<T extends CompositeDataItem<T>> {
 	private List<Composite<T>> children = new LinkedList<>();
 	
 	public Composite() {
+		// Constructor
 	}
 	
 	public Composite(T data) {

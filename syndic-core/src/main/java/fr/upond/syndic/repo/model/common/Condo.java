@@ -73,7 +73,7 @@ public class Condo extends BaseObject {
 
     @Override
 	public String toString() {
-		return null;
+		return "";
 	}
 
 	@Override

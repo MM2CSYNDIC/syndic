@@ -103,7 +103,7 @@ public class UserData extends BaseObject {
 
 	@Override
 	public String toString() {
-		return null;
+		return "";
 	}
 
 	@Override

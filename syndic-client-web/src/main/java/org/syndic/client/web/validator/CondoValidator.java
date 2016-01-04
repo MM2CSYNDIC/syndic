@@ -22,7 +22,6 @@ public class CondoValidator  implements Validator {
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "name", "required.name", "Field Name is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "numAddressStart", "required.numAddressStart", "Field Address Number is required");
-		//ValidationUtils.rejectIfEmptyOrWhitespace(error, "numAddressEnd", "required.confirmation", "Field confirmation is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "typeAddress", "required.typeAddress", "Field type Address is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "street", "required.street", "Field Street is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "zipcode", "required.zipcode", "Field Zip Code is required");
@@ -37,13 +36,12 @@ public class CondoValidator  implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "areaCondo", "required.areaCondo", "Field area Condo is required");
 		
 		CondoCommand command = (CondoCommand)obj;
-		int i = this.isIntParsable(command.getNumAddressStart(), error);	
-		if (!command.getNumAddressEnd().equals("")) {
+		int i = this.isIntParsable(command.getNumAddressStart(), error);
+		
+		if (!"".equals(command.getNumAddressEnd())) {
 			int j = this.isIntParsable(command.getNumAddressEnd(), error);
-			if (j != -1) {
-				if (j<i) {
-					error.reject("required.numAddressEnd", "End Num Address must be Greater then the start");
-				}
+			if (j != -1 && j<i) {
+				error.reject("required.numAddressEnd", "End Num Address must be Greater then the start");
 			}
 		}
 		this.isIntParsable(command.getCodeLot(), error);

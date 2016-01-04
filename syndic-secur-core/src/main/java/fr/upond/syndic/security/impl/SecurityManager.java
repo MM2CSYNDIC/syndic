@@ -31,7 +31,6 @@ public class SecurityManager implements ISecurityManager {
 	
 	@Autowired
 	private UserDaoImpl userDao;
-	//private IDao<fr.upond.syndic.security.model.User> userDao;
     
 	public void setUserDao(UserDaoImpl userDao) {
 		logger.debug("=== sec ===");

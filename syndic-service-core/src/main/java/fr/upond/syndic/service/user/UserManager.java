@@ -18,6 +18,9 @@ import fr.upond.syndic.service.IManager;
  *
  */
 @Transactional
+/**
+ * @deprecated (In Order to Use a generic service)
+ */
 @Deprecated
 public class UserManager implements IManager<User> {
 	
@@ -34,7 +37,6 @@ public class UserManager implements IManager<User> {
 	@Override
 	public List<User> get(User user) {
 		logger.info("===== IN UserManager get =====");
-		//this.userDao.delete(user);
 		return this.userDao.get(user);
 	}
 

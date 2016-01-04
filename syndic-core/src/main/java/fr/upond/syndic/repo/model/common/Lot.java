@@ -84,7 +84,7 @@ public class Lot extends BaseObject {
 
     @Override
     public String toString() {
-        return null;
+        return "";
     }
 
     @Override

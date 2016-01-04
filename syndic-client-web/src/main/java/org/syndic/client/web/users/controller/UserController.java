@@ -44,14 +44,6 @@ public class UserController {
 	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
 	public String addUser(@ModelAttribute("userCommand") UserCommand userCommand, BindingResult result) {
 		logger.info("== uri: /adduser ==");
-		/*User lyes = new User(userCommand.getUserName(), userCommand.getPassWord(), true);
-		UserRole lyesRole = new UserRole("ROLE_USER");
-		lyesRole.setUser(lyes);
-		Set<UserRole> set = new HashSet<UserRole>();
-		set.add(lyesRole);
-		lyes.setUserRole(set);
-		this.manager.add(lyes);*/
-
 		this.userValidator.validate(userCommand, result);
 		if(result.hasErrors()) {
 			return "addUserPage";

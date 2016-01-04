@@ -42,6 +42,7 @@ public class ANSIConsoleAppender extends ConsoleAppender {
      * Wraps the ANSI control characters around the
      * output from the super-class Appender.
      */
+    @Override
     protected void subAppend(LoggingEvent event)
     {
         this.qw.write(getColour(event.getLevel()));

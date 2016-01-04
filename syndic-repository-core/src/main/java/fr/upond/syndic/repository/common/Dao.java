@@ -31,12 +31,11 @@ public class Dao implements IDao<Object> {
 	@Override
 	public List<Object> get(Object obj) {
 		
-        if(obj.getClass().equals(Event.class)) {
-        	if(((Event)obj).getEventName() != null) {
+        if (obj.getClass().equals(Event.class) && ((Event)obj).getEventName() != null) {
+        	
         		List<Object> list = new ArrayList<Object>();
         		list.add(this.sessionFactory.getCurrentSession().get(Event.class, ((Event)obj).getEventName()));
-        		return list;
-        	} 
+        		return list; 	
         }
     	return	this.sessionFactory.getCurrentSession().createCriteria(obj.getClass()).list();
 	}
@@ -49,10 +48,12 @@ public class Dao implements IDao<Object> {
 
 	@Override
 	public void delete(Object obj) {
+		// to implement
 	}
 
 	@Override
 	public void upDate(Object obj) {
+		// to implement
 	}
 
 }

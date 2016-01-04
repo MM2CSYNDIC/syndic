@@ -29,9 +29,6 @@ public class UserDaoImpl implements IDao<User> {
 
 	@Override
 	public List<User> get(User user) {
-		
-		//Query query = sessionFactory.getCurrentSession().createQuery("from USERS where USERNAME = :username");
-	    //query.setParameter("username", obj.getUserName());
 		logger.info("===== In UserDaoImpl get =====");
 	    List<User> list = new ArrayList<User>();
 	    user = (User) sessionFactory.getCurrentSession().get(User.class, user.getUserName());
@@ -41,7 +38,6 @@ public class UserDaoImpl implements IDao<User> {
 
 	@Override
 	public void put(User obj) {
-		//this.dataSource.getConnection()
 		logger.info("===== Insert User =====");
 		this.sessionFactory.getCurrentSession().save(obj);
 	}
@@ -56,8 +52,7 @@ public class UserDaoImpl implements IDao<User> {
 
 	@Override
 	public void upDate(User obj) {
-		
-		
+		// to implement
 	}
 
 }

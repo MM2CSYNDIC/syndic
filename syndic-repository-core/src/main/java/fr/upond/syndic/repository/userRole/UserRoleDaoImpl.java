@@ -1,5 +1,6 @@
 package fr.upond.syndic.repository.userRole;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -29,7 +30,7 @@ public class UserRoleDaoImpl implements IDao<UserRole> {
 	@Override
 	public List<UserRole> get(UserRole obj) {
 		
-		return null;
+		return new ArrayList<UserRole>();
 	}
 
 	@Override
@@ -40,14 +41,12 @@ public class UserRoleDaoImpl implements IDao<UserRole> {
 
 	@Override
 	public void delete(UserRole obj) {
-		
-		
+		// to implement	
 	}
 
 	@Override
 	public void upDate(UserRole obj) {
-		
-		
+		// to implement	
 	}
 
 }

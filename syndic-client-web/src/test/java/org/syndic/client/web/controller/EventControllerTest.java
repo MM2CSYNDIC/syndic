@@ -73,6 +73,7 @@ public class EventControllerTest {
 			                .andExpect(status().isOk())
 			                //.andExpect(model().attribute("listevent", expectedEvent))
 			                .andExpect(model().attributeDoesNotExist("listevents"))
+			                .andExpect(model().attributeExists("listevent"))
 			                .andExpect(view().name("listEventPage"));
 	}
 

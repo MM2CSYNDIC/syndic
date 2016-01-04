@@ -84,7 +84,7 @@ public class Address extends BaseObject {
 
 	@Override
 	public String toString() {
-		return null;
+		return "";
 	}
 
 	@Override
