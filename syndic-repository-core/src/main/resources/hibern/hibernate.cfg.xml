@@ -16,6 +16,7 @@
         <mapping resource="mapping/address.hbm.xml"/>
         <mapping resource="mapping/lot.hbm.xml"/>
         <mapping resource="mapping/condo.hbm.xml"/>
+        <mapping resource="mapping/userData.hbm.xml"/>
         <mapping resource="mapping/provider.hbm.xml"/>
     </session-factory>
 

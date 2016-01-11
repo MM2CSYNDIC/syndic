@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.syndic.client.web.command.UserCommand;
 import org.syndic.client.web.validator.UserValidator;
 
-import fr.upond.syndic.service.IManager;
-
 
 /**
  *
@@ -28,8 +26,8 @@ public class UserController {
 
 	private static final Log logger = LogFactory.getLog(UserController.class);
 
-	@Autowired
-	private IManager<Object> manager;
+	//@Autowired
+	//private IManager<Object> manager;
 	@Autowired
 	private UserValidator userValidator;
 
@@ -51,5 +49,7 @@ public class UserController {
 			return "welcomePage";
 		}
 	}
+
+
 
 }

@@ -28,6 +28,7 @@ public class UserCommand {
 	private String country;
 	private String placeName;
 
+
 	public UserCommand() {
 		super();
 	}

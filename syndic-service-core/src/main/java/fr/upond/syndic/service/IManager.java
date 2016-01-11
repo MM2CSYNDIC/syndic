@@ -13,5 +13,5 @@ public interface IManager<T> {
 	List<T> get(T obj);
 	
 	void add(T obj);
-
+	
 }
