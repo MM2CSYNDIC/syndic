@@ -18,6 +18,7 @@ public class ProviderCommand
     }
 
     public ProviderCommand() {
+    	// Constructor
     }
 
     public int getId() {

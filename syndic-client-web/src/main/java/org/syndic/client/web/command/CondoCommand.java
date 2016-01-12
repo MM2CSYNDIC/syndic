@@ -1,50 +1,52 @@
 package org.syndic.client.web.command;
 
-import java.lang.reflect.Array;
-import java.util.Set;
-
 /**
  * Created by Manel on 14/12/2015.
  */
 public class CondoCommand {
 
     private String name;
-    private int[] numeroRue;
+    private String numAddressStart;
+    private String numAddressEnd;
     private String typeAddress;
     private String street;
     private String zipcode;
     private String placeName;
     private String city;
     private String country;
-    private int codeLot;
+    private String codeLot;
     private String typeLot;
-    private int floorLot;
-    private double areaLot;
-    private double part;
-    private double area;
+    private String floorLot;
+    private String areaLot;
+    private String part;
+    private String areaCondo;
 
     public CondoCommand(){
         super();
     }
 
-    public CondoCommand(String name, double area, String typeAddress, String street, String zipcode, String placeName, String city, String country, int[] numeroRue, String typeLot, int floorLot, double areaLot, double part, int codeLot) {
-        this.name = name;
-        this.area = area;
-        this.typeAddress = typeAddress;
-        this.street = street;
-        this.zipcode = zipcode;
-        this.placeName = placeName;
-        this.city = city;
-        this.country = country;
-        this.numeroRue = numeroRue;
-        this.typeLot = typeLot;
-        this.floorLot = floorLot;
-        this.areaLot = areaLot;
-        this.part = part;
-        this.codeLot=codeLot;
-    }
+    public CondoCommand(String name, String numAddressStart, String numAddressEnd, String typeAddress, String street,
+			String zipcode, String placeName, String city, String country, String codeLot, String typeLot, String floorLot,
+			String areaLot, String part, String area) {
+		super();
+		this.name = name;
+		this.numAddressStart = numAddressStart;
+		this.numAddressEnd = numAddressEnd;
+		this.typeAddress = typeAddress;
+		this.street = street;
+		this.zipcode = zipcode;
+		this.placeName = placeName;
+		this.city = city;
+		this.country = country;
+		this.codeLot = codeLot;
+		this.typeLot = typeLot;
+		this.floorLot = floorLot;
+		this.areaLot = areaLot;
+		this.part = part;
+		this.areaCondo = area;
+	}
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 
@@ -52,12 +54,28 @@ public class CondoCommand {
         this.name = name;
     }
 
-    public double getArea() {
-        return area;
+    public String getNumAddressStart() {
+		return numAddressStart;
+	}
+
+	public void setNumAddressStart(String numAddressStart) {
+		this.numAddressStart = numAddressStart;
+	}
+
+	public String getNumAddressEnd() {
+		return numAddressEnd;
+	}
+
+	public void setNumAddressEnd(String numAddressEnd) {
+		this.numAddressEnd = numAddressEnd;
+	}
+
+	public String getAreaCondo() {
+        return areaCondo;
     }
 
-    public void setArea(double area) {
-        this.area = area;
+    public void setAreaCondo(String area) {
+        this.areaCondo = area;
     }
 
     public String getTypeAddress() {
@@ -108,14 +126,6 @@ public class CondoCommand {
         this.country = country;
     }
 
-    public int[] getNumeroRue() {
-        return numeroRue;
-    }
-
-    public void setNumeroRue(int[] numeroRue) {
-        this.numeroRue = numeroRue;
-    }
-
     public String getTypeLot() {
         return typeLot;
     }
@@ -124,34 +134,34 @@ public class CondoCommand {
         this.typeLot = typeLot;
     }
 
-    public int getFloorLot() {
+    public String getFloorLot() {
         return floorLot;
     }
 
-    public void setFloorLot(int floorLot) {
+    public void setFloorLot(String floorLot) {
         this.floorLot = floorLot;
     }
 
-    public double getAreaLot() {
+    public String getAreaLot() {
         return areaLot;
     }
 
-    public void setAreaLot(double areaLot) {
+    public void setAreaLot(String areaLot) {
         this.areaLot = areaLot;
     }
 
-    public double getPart() {
+    public String getPart() {
         return part;
     }
 
-    public void setPart(double part) {
+    public void setPart(String part) {
         this.part = part;
     }
-    public int getCodeLot() {
+    public String getCodeLot() {
         return codeLot;
     }
 
-    public void setCodeLot(int codeLot) {
+    public void setCodeLot(String codeLot) {
         this.codeLot = codeLot;
     }
 

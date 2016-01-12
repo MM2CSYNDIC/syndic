@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.EventCommand;
 
 import fr.upond.syndic.repo.model.event.Event;
+import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.service.IManager;
 
@@ -29,9 +30,9 @@ public class EventController {
 	private static final Log logger = LogFactory.getLog(EventController.class);
 
 	@Autowired
-	private IManager<Object> manager;
+	private IManager<BaseObject> manager;
 	
-	public void setManager(IManager<Object> manager) {
+	public void setManager(IManager<BaseObject> manager) {
 		this.manager = manager;
 	}
 	
@@ -53,7 +54,7 @@ public class EventController {
 	
 	@RequestMapping(value = "/listevent", method = RequestMethod.GET)
 	public String listEvent(ModelMap model) {
-
+		logger.info("== URI: /listevent ==");
 		String eventFormatJSON = "";
 
 		for (Object event : this.manager.get(new Event()) ) {
@@ -65,7 +66,6 @@ public class EventController {
 			eventFormatJSON += " start  : `" + ((Event) event).getDateEvent() + "` ";
 			eventFormatJSON += " } ";
 		}
-		System.out.println(eventFormatJSON);
 		model.addAttribute("listevent",this.manager.get(new Event()));
 		model.addAttribute("jsonEvent", eventFormatJSON);
 		return "listEventPage";
@@ -80,6 +80,27 @@ public class EventController {
 		}
 		model.addAttribute("listcondo",this.manager.get(new Condo()));
 		return "affectEventPage";
+	}
+	
+	@RequestMapping(value = "/delevent", method = RequestMethod.GET)
+	public String deleteEvent (@RequestParam String eventId) {
+		logger.info("== URI: /delevent ==");
+		Event event = new Event();
+		event.setEventName(eventId);
+		//this.manager.delete(event);
+		return "listEventPage";
+	}
+	
+	@RequestMapping(value = "/getformpolling", method = RequestMethod.GET)
+	public String getFormPolling () {
+		logger.info("== URI: /getformpolling ==");
+		return "pollingPage";
+	}
+	
+	@RequestMapping(value = "/pollingresult", method = RequestMethod.GET)
+	public String getResultPolling () {
+		logger.info("== URI: /resultpolling ==");
+		return "pollingResultPage";
 	}
 
 }

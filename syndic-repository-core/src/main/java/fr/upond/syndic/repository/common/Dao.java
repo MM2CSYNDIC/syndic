@@ -8,6 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.repository.IDao;
 
@@ -16,7 +17,7 @@ import fr.upond.syndic.repository.IDao;
  * @author LYES KHERBICHE
  *
  */
-public class Dao implements IDao<Object> {
+public class Dao implements IDao<BaseObject> {
 	
 	private static final Log logger = LogFactory.getLog(Dao.class);
 	
@@ -29,33 +30,32 @@ public class Dao implements IDao<Object> {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Object> get(Object obj) {
-		
-        if(obj.getClass().equals(Event.class)) {
-        	if(((Event)obj).getEventName() != null) {
-        		List<Object> list = new ArrayList<Object>();
-        		list.add(this.sessionFactory.getCurrentSession().get(Event.class, ((Event)obj).getEventName()));
-        		return list;
-        	} 
+	public List<BaseObject> get(BaseObject obj) {
+		logger.info("== List: "+obj.getClass()+" ==");
+        if (obj.getClass().equals(Event.class) && ((Event)obj).getEventName() != null) {
+        	
+        		List<BaseObject> list = new ArrayList<BaseObject>();
+        		list.add((BaseObject) this.sessionFactory.getCurrentSession().get(Event.class, ((Event)obj).getEventName()));
+        		return list; 	
         }
     	return	this.sessionFactory.getCurrentSession().createCriteria(obj.getClass()).list();
 	}
 
 	@Override
-	public void put(Object obj) {		
-		logger.info("===== Insert: "+obj.getClass()+" =====");
+	public void put(BaseObject obj) {		
+		logger.info("== Insert: "+obj.getClass()+" ==");
 		this.sessionFactory.getCurrentSession().save(obj);
 	}
 
 	@Override
-	public void delete(Object obj) {
-		logger.info("===== Delete: "+obj.getClass()+" =====");
+	public void delete(BaseObject obj) {
+		logger.info("== Delete: "+obj.getClass()+" ==");
 		this.sessionFactory.getCurrentSession().delete(obj);
 	}
 
 	@Override
-	public void upDate(Object obj) {
-
+	public void upDate(BaseObject obj) {
+		// to implement
 	}
 
 }

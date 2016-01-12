@@ -1,18 +1,16 @@
 
-<%@ page language="java" contentType="text/html;charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/tiles/template/includes.jsp" %>
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel='stylesheet' href='http://syndicapp.alwaysdata.net/fullcalendar/fullcalendar-2.5.0-beta2/fullcalendar.css' />
     <script src='http://syndicapp.alwaysdata.net/fullcalendar/fullcalendar-2.5.0-beta2/lib/jquery.min.js'></script>
     <script src='http://syndicapp.alwaysdata.net/fullcalendar/fullcalendar-2.5.0-beta2/lib/moment.min.js'></script>
     <script src='http://syndicapp.alwaysdata.net/fullcalendar/fullcalendar-2.5.0-beta2/fullcalendar.js'></script>
     <link rel="stylesheet" href="http://syndicapp.alwaysdata.net/calandarTheme/start/jquery.ui.theme.css"/>
     <link rel="stylesheet" href="http://syndicapp.alwaysdata.net/calandarTheme/start/jquery-ui.css"/>
-</head>
+ </head>
 
 <style>
   .table1{
@@ -62,8 +60,8 @@
               <td>${entry.getTypeEvent()}</td>
               <td>${entry.getDateEvent()}</td>
               <td>${entry.getDescEvent()}</td>
-              <td><a href="#" ><img width= 40" height="40" src="<c:url value="http://syndicapp.alwaysdata.net/images/crayon.png" />"></a></td>
-              <td><a href="#" ><img width="40" height="40" src="http://syndicapp.alwaysdata.net/images/erreur.png"/></a></td>
+              <td><a href="#" ><img width="40" height="40" src="<c:url value="http://syndicapp.alwaysdata.net/images/crayon.png" />"></a></td>
+              <td><a href="delevent.ldz?eventId=${entry.getEventName()}" ><img width="40" height="40" src="http://syndicapp.alwaysdata.net/images/erreur.png"/></a></td>
               <td><a href="eventbuilding.ldz?eventId=${entry.getEventName()}">Affect</a></td>
              </tr>
             </c:if>

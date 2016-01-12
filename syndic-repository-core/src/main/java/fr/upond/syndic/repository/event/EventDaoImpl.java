@@ -1,5 +1,6 @@
 package fr.upond.syndic.repository.event;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -12,6 +13,10 @@ import fr.upond.syndic.repository.IDao;
  * 
  * @author LYES KHERBICHE
  *
+ */
+
+/**
+ * @deprecated (In order to use a generic DAO)
  */
 @Deprecated
 public class EventDaoImpl implements IDao<Object> {
@@ -27,7 +32,7 @@ public class EventDaoImpl implements IDao<Object> {
 
 	@Override
 	public List<Object> get(Object obj) {
-		return null;
+		return new ArrayList<Object>();
 	}
 
 	@Override
@@ -38,12 +43,12 @@ public class EventDaoImpl implements IDao<Object> {
 
 	@Override
 	public void delete(Object obj) {
-		
+		// to implement	
 	}
 
 	@Override
 	public void upDate(Object obj) {
-		
+		// to implement
 	}
 
 }

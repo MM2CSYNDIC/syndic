@@ -127,7 +127,6 @@
 	</div>
 
 </body>
-</html>
 
 <script>
 	jQuery(document).ready(function(){
@@ -160,3 +159,7 @@
 	});
 
 </script>
+
+</html>
+
+

@@ -13,7 +13,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.upond.syndic.repository.user.UserDaoImpl;
@@ -32,7 +31,6 @@ public class SecurityManager implements ISecurityManager {
 	
 	@Autowired
 	private UserDaoImpl userDao;
-	//private IDao<fr.upond.syndic.security.model.User> userDao;
     
 	public void setUserDao(UserDaoImpl userDao) {
 		logger.debug("=== sec ===");

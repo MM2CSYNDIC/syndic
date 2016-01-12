@@ -12,7 +12,7 @@ public class PartOwner extends UserData {
 
     private int nombreLot;
 
-    private PartOwner(){
+    public PartOwner(){
         super();
     }
 

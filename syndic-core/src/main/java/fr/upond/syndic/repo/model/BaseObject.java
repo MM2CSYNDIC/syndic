@@ -32,8 +32,11 @@ public abstract class BaseObject implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Override
 	public abstract String toString ();
+	@Override
 	public abstract boolean equals (Object o);
+	@Override
 	public abstract int hashCode ();
 
 }

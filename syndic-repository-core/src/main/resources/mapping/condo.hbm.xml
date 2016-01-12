@@ -10,24 +10,11 @@
         </id>
 		<property name="name" column="NAME" />
         <property name="area" column="AREA" />
-
-       <!--
-		<one-to-one name="address"  column="ADDRESS" class="fr.upond.syndic.repo.model.common.Address" lazy="false" unique="true" not-null="true"/>
-		-->
-
-       <set name="address" table="ADDRESS" inverse="true" lazy="true" fetch="select">
-           <key>
-               <column name="ID" not-null="true" />
-           </key>
-           <one-to-many class="fr.upond.syndic.repo.model.common.Address" />
-       </set>
-
-       <set name="lot" table="LOT" inverse="true" lazy="true" fetch="select">
-           <key>
-               <column name="ID" not-null="true" />
-           </key>
+	    <many-to-one name="address" column="ADDRESS" class="fr.upond.syndic.repo.model.common.Address" cascade="all" lazy="false" unique="true" not-null="true"/>
+        <set name="lot" table="LOT" cascade="all">
+           <key column="IDC" />
            <one-to-many class="fr.upond.syndic.repo.model.common.Lot" />
-       </set>
+        </set>
 
 
    </class>

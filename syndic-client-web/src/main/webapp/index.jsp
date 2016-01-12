@@ -1,6 +1,6 @@
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page session="true"%>
 <%@ include file="/WEB-INF/tiles/template/includes.jsp"%>
@@ -83,6 +83,7 @@
                         <!--li class="dropdown">
                             <!--p class="pull-right" dropdown-toggle><a href="#">Back to top</a></p-->
                             <!--a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion <span class="caret"></span></a>
+
                             <ul class="dropdown-menu">
                                 <li><a href="#">Se Connecter</a></li>
                                 <li><a href="#">S'inscrire</a></li>
@@ -203,10 +204,10 @@
         </div>
         <p class="pull-right"><a href="#"><img src="http://www.cmbfradio.cu/img/back-to-top.png" width="40" height="40"></a></p>
     </div>
-
     <hr class="featurette-divider">
 
     <div id="contact" class="row featurette">
+
         <div class="col-md-7 col-md-push-5">
             <h2 class="featurette-heading" >Syndic'APP vous intéresse ?... <span class="text-muted">Contactez nous au :</span></h2>
             <p class="lead">
