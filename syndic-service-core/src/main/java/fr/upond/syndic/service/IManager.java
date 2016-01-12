@@ -14,4 +14,6 @@ public interface IManager<T> {
 	
 	void add(T obj);
 	
+	void delete(T obj);
+	
 }

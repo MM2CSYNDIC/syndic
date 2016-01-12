@@ -2,6 +2,7 @@ package fr.upond.syndic.service.common;
 
 import java.util.List;
 
+import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Provider;
 import org.apache.commons.logging.Log;
@@ -21,24 +22,24 @@ import fr.upond.syndic.service.IManager;
  *
  */
 @Transactional
-public class Manager implements IManager<Object> {
+public class Manager implements IManager<BaseObject> {
 	
 	private static final Log logger = LogFactory.getLog(Manager.class);
 	
 	@Autowired
-	private IDao<Object> dao;
+	private IDao<BaseObject> dao;
 	
-	public void setDao(IDao<Object> dao) {
+	public void setDao(IDao<BaseObject> dao) {
 		this.dao = dao;
 	}
 
 	@Override
-	public List<Object> get(Object obj) {
+	public List<BaseObject> get(BaseObject obj) {
 		return dao.get(obj);
 	}
 
 	@Override
-	public void add(Object obj) {
+	public void add(BaseObject obj) {
 		
 		logger.info("==== Insert "+obj.getClass()+" ====");
 		
@@ -61,6 +62,12 @@ public class Manager implements IManager<Object> {
 			this.dao.put(obj);
 		}
 		
+	}
+
+	@Override
+	public void delete(BaseObject obj) {
+		logger.info("== Delete "+obj.getClass()+" ==");
+		this.dao.delete(obj);
 	}
 
 }

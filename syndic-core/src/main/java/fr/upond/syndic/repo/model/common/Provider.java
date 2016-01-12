@@ -5,6 +5,7 @@ import fr.upond.syndic.repo.model.BaseObject;
 /**
  * Created by leite_2 on 12/12/2015.
  */
+@SuppressWarnings("serial")
 public class Provider extends BaseObject {
 
     public int getId() {

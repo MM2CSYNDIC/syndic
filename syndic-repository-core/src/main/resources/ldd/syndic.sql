@@ -26,7 +26,7 @@ CREATE TABLE EVENT (
      typeEvent CHAR(45) NOT NULL,
      dateEvent CHAR(10) NOT NULL,
      descEvent CHAR(45) NOT NULL,
-     condo INT,
+     /*condo INT,delete this line; modif*/
      PRIMARY KEY (eventName),
      CONSTRAINT FK_EVENT FOREIGN KEY (condo) REFERENCES CONDO (ID)
 );
@@ -59,6 +59,7 @@ CREATE TABLE CONDO (
    NAME   VARCHAR(45) NOT NULL,
    ADDRESS INT NOT NULL,
    AREA DOUBLE NOT NULL,
+   eventName CHAR(45) default NULL, /*add this line; Modif*/
    CONSTRAINT PK_CONDO PRIMARY KEY (ID),
    CONSTRAINT FK_CONDO FOREIGN KEY (ADDRESS) REFERENCES ADDRESS (ID)
 );

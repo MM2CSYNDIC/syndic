@@ -226,10 +226,10 @@
               </nonFilteredFileExtensions>
             </configuration>
           </plugin>
-          <plugin>
+          <!--plugin>
            <groupId>org.codehaus.mojo</groupId>
            <artifactId>sonar-maven-plugin</artifactId>
-          </plugin>
+          </plugin-->
        </plugins>
     </build>
     

@@ -19,16 +19,6 @@
     
     <import resource="classpath:beans/syndic-data.xml" />
     
-    <bean id="userManager" class="fr.upond.syndic.service.user.UserManager">
-	    <property name="userDao">
-	       <ref bean="userDao"/>
-	    </property>
-	</bean>
-	<bean id="eventManager" class="fr.upond.syndic.service.event.EventManager">
-	    <property name="eventDao">
-	       <ref bean="eventDao"/>
-	    </property>
-	</bean>
 	<bean id="manager" class="fr.upond.syndic.service.common.Manager">
 	    <property name="dao">
 	       <ref bean="dao"/>

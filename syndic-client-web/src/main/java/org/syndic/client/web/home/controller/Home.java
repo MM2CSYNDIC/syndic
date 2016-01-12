@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.CondoCommand;
 import org.syndic.client.web.command.ProviderCommand;
 
+import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Address;
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Lot;
@@ -33,30 +34,30 @@ public class Home {
 	private static final Log logger = LogFactory.getLog(Home.class);
 
 	@Autowired
-	private IManager<Object> manager;
+	private IManager<BaseObject> manager;
 	
 
-	public void setManager(IManager<Object> manager) {
+	public void setManager(IManager<BaseObject> manager) {
 		this.manager = manager;
 	}
 	
 
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String welcome() {
-		logger.info("=========== URI: /welcome ==========");
+		logger.info("== URI: /welcome ==");
 		return "welcomePage";
 	}
 	
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin() {
-		logger.info("=========== URI: /admin ==========");
+		logger.info("== URI: /admin ==");
 		return "adminPage";
 	}
 
 	@RequestMapping(value = "/sign", method = RequestMethod.GET)
 	public String login(ModelMap model,@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout) {
-		logger.info("=========== URI: /login ==========");
+		logger.info("== URI: /login ==");
 		if(error != null) {
 			model.addAttribute("error", "Invalid username and password!");
 		}
@@ -78,7 +79,7 @@ public class Home {
 
 	@RequestMapping(value = "/getformaddprovider", method = RequestMethod.GET)
 	public String getFormAddProvider(Map<String,Object> model) {
-		logger.info("==== Get Form Provider =====");
+		logger.info("== Get Form Provider ==");
 		model.put("providerCommand", new ProviderCommand());
 		return "addProviderPage";
 	}

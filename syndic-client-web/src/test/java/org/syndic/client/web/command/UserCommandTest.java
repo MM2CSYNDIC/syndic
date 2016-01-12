@@ -1,10 +1,5 @@
 package org.syndic.client.web.command;
 
-import  org.syndic.client.web.command.UserCommand;
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 public class UserCommandTest {
 /*
     @Test
