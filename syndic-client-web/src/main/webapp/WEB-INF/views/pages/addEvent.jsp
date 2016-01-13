@@ -25,9 +25,9 @@
 }
 </style>
 
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
 <script>
@@ -113,9 +113,16 @@
 					<spring:message code="event.sp3" var="Sp3Event" />
 					<form:input type="text" class="form-control" path="descEvent" id="descEvent" placeholder="${Sp3Event}" />
 					<form:errors path="descEvent" cssClass="error" />
+					<a href="#" id="addNew">+Question</a>
 				</div>
 			</div>
 			<!-- End specific input -->
+			
+			<div class="form-group row" id="addinput">
+              <p>
+              </p>
+            </div>
+            
 
 			<div class="form-group row">
 				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
@@ -157,6 +164,34 @@
 			}
 		});
 	});
+</script>
+<!--script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script-->
+<script>
+
+	$(function() {
+        var addDiv = $('#addinput');
+        var i = $('#addinput p').size() + 1;
+        
+        $('#addNew').live('click', function() {
+                $('<p>'+
+                		'<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">'+
+					    '<input type="text" name="p_new_' + i +'" class="form-control" placeholder="Question" />'+
+				        '</div></p>').appendTo(addDiv);
+                        //'<input type="text" id="p_new" size="40" name="p_new_' + i +'" value="" placeholder="I am New" />'+
+                        //'<a href="#" id="remNew">Remove</a> </p>').appendTo(addDiv);
+                        i++;
+				
+                return false;
+        });
+        
+        $('#remNew').live('click', function() { 
+                if( i > 2 ) {
+                        $(this).parents('p').remove();
+                        i--;
+                }
+                return false;
+        });
+    });
 
 </script>
 

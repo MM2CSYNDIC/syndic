@@ -4,17 +4,15 @@
 
 <!-- @author LYES KHERBICHE -->
 <hibernate-mapping>
-	<class name="fr.upond.syndic.repo.model.event.Event" table="EVENT">
-		<id name="eventName" column="eventName">
+	<class name = "fr.upond.syndic.repo.model.event.Event"  table = "EVENT">
+		<id name = "eventName"  column = "eventName">
 		</id>
-		<property name="typeEvent" column="typeEvent" />
-		<property name="dateEvent" column="dateEvent" />
-		<property name="descEvent" column="descEvent" />
-		<set name="condo" table="CONDO" lazy="true" fetch="select">
-            <key>
-                <column name="CONDO" not-null="false" />
-            </key>
-            <one-to-many class="fr.upond.syndic.repo.model.common.Condo" />
+		<property name = "typeEvent"  column="typeEvent" />
+		<property name = "dateEvent"  column="dateEvent" />
+		<property name = "descEvent"  column="descEvent" />
+		<set name = "condo" table = "EVENTCONDO"  lazy = "true"  fetch = "select">
+            <key column = "IDEVENT" not-null="false" />
+            <many-to-many  column = "IDCOND"  class = "fr.upond.syndic.repo.model.common.Condo" />
         </set>
 	</class>
 </hibernate-mapping>
