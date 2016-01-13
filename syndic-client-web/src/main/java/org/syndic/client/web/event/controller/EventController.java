@@ -17,6 +17,7 @@ import org.syndic.client.web.command.EventCommand;
 import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Condo;
+import fr.upond.syndic.repo.model.common.Polling;
 import fr.upond.syndic.service.IManager;
 
 /**
@@ -98,8 +99,10 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "/pollingresult", method = RequestMethod.GET)
-	public String getResultPolling () {
+	public String getResultPolling (ModelMap model) {
 		logger.info("== URI: /resultpolling ==");
+		logger.info("+++"+this.manager.get(new Polling()).size());
+		model.addAttribute("resultpolling",this.manager.get(new Polling()));
 		return "pollingResultPage";
 	}
 
