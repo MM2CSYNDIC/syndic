@@ -184,6 +184,13 @@
             </p>
             <p><a class="btn btn-default" href="sign.ldz" role="button">Se connecter &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4"><!--http://kingportfoliostrategies.ca/wp-content/uploads/2013/06/loginButton.jpg-->
+            <img id="bou" class="img-circle" src="http://www.lincolnwoodil.org/wp-content/uploads/2014/11/Poling-Location-Icon.png" alt="" width="140" height="140">
+            <h2>Vote en AG</h2>
+            <p width="240" height="340">Faites vos votes pour les porpositions de l'odre du jour
+            </p>
+            <p><a class="btn btn-default" href="getformpolling.ldz" role="button">Voter &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
 

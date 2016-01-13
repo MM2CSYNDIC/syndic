@@ -18,6 +18,7 @@
         <mapping resource="mapping/condo.hbm.xml"/>
         <mapping resource="mapping/userData.hbm.xml"/>
         <mapping resource="mapping/provider.hbm.xml"/>
+        <mapping resource="mapping/polling.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>
