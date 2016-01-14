@@ -11,6 +11,7 @@ public class Polling extends BaseObject {
 	private int contre;
 	private int abstention;
 	
+	
 	public Polling() {
 		super();
 	}

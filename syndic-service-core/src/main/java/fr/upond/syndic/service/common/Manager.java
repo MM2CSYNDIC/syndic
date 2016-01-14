@@ -41,7 +41,7 @@ public class Manager implements IManager<BaseObject> {
 	@Override
 	public void add(BaseObject obj) {
 		
-		logger.info("==== Insert "+obj.getClass()+" ====");
+		logger.info("== Insert "+obj.getClass()+" ==");
 		
 		if(obj.getClass().equals(User.class)) {
 			this.dao.put(obj);
@@ -68,6 +68,12 @@ public class Manager implements IManager<BaseObject> {
 	public void delete(BaseObject obj) {
 		logger.info("== Delete "+obj.getClass()+" ==");
 		this.dao.delete(obj);
+	}
+
+	@Override
+	public void upDate(BaseObject obj) {
+		logger.info("== UpDate "+obj.getClass()+" ==");
+		this.dao.upDate(obj);
 	}
 
 }

@@ -1,7 +1,8 @@
 package org.syndic.client.web.event.controller;
 
+import java.util.HashSet;
 import java.util.Map;
-
+import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.EventCommand;
 
-import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Polling;
+import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.service.IManager;
 
 /**
@@ -39,17 +40,25 @@ public class EventController {
 	
 	@RequestMapping(value = "/getformaddevent", method = RequestMethod.GET)
 	public String getFormAddUser(Map<String,Object> model) {
-		logger.info("==== Get Form Event =====");
+		logger.info("== URI: /getformaddevent ==");
 		model.put("eventCommand", new EventCommand());
 		return "addEventPage";
 	}
 	
 	@RequestMapping(value = "/addevent", method = RequestMethod.POST)
 	public String addEvent(@ModelAttribute("eventCommand") EventCommand eventCommand) {
-		logger.info("==== Insert Event =====");
-		logger.info("******** "+eventCommand.getEventName());
+		logger.info("== URI: /addevent ==");
 		Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null);
 		this.manager.add(event);
+		
+		Set<Condo> setCondo = new HashSet<Condo>(0);
+		this.manager.get(new Condo());
+		for (BaseObject bo : this.manager.get(new Condo())) {
+			setCondo.add((Condo) bo);
+		}
+		event.setCondo(setCondo);
+		this.manager.upDate(event);
+		
 		return "welcomePage";
 	}
 	
@@ -88,7 +97,7 @@ public class EventController {
 		logger.info("== URI: /delevent ==");
 		Event event = new Event();
 		event.setEventName(eventId);
-		//this.manager.delete(event);
+		this.manager.delete(event);
 		return "listEventPage";
 	}
 	
@@ -101,7 +110,6 @@ public class EventController {
 	@RequestMapping(value = "/pollingresult", method = RequestMethod.GET)
 	public String getResultPolling (ModelMap model) {
 		logger.info("== URI: /resultpolling ==");
-		logger.info("+++"+this.manager.get(new Polling()).size());
 		model.addAttribute("resultpolling",this.manager.get(new Polling()));
 		return "pollingResultPage";
 	}

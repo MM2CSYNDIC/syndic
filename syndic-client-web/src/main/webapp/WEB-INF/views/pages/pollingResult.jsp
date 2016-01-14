@@ -54,8 +54,6 @@
             <th>Question</th><th>Pour</th><th>Contre</th><th>Abstention</th>
           </tr>
 
-
-
           <c:if test="${resultpolling != null}">
            <c:forEach var="entry" items="${resultpolling}">
             <c:if test="${entry != null}">
@@ -73,9 +71,6 @@
       </div>
     </div>
   </div>
-   
-   
-   
    
  </body>
  

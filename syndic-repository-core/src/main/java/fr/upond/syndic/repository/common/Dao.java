@@ -55,7 +55,8 @@ public class Dao implements IDao<BaseObject> {
 
 	@Override
 	public void upDate(BaseObject obj) {
-		// to implement
+		logger.info("== UpDate: "+obj.getClass()+" ==");
+		this.sessionFactory.getCurrentSession().update(obj);
 	}
 
 }
