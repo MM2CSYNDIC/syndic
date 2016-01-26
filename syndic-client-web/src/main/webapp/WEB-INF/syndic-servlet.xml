@@ -33,6 +33,9 @@
                 <value>/WEB-INF/tiles/conf/tiles.xml</value>
             </list>
         </property>
+        <!--property name="tilesInitializer">
+          <bean class="com.ia.system.tiles3.TilesInitializer" />
+        </property-->
     </bean> 
 
 	<!-- INFO : Resolution de la vue -->
@@ -41,7 +44,6 @@
 			<value>/WEB-INF/views/conf/views.xml</value>
 		</property>
 	</bean>
-	
 	
 	
 	<bean id="messageSource"

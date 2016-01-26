@@ -1,4 +1,9 @@
 package org.syndic.client.web.command;
+
+import java.util.List;
+
+import org.springframework.util.AutoPopulatingList;
+
 /**
  * 
  * @author LYES KHERBICHE
@@ -10,6 +15,9 @@ public class EventCommand {
 	private String typeEvent;
 	private String dateEvent;
 	private String descEvent;
+	@SuppressWarnings("rawtypes")
+	private AutoPopulatingList questions = null;
+	private List<String> condoId;
 	
 	public EventCommand() {
 		super();
@@ -53,6 +61,24 @@ public class EventCommand {
 
 	public void setDescEvent(String descEvent) {
 		this.descEvent = descEvent;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public AutoPopulatingList getQuestions() {
+		return questions;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void setQuestions(AutoPopulatingList questions) {
+		this.questions = questions;
+	}
+
+	public List<String> getCondoId() {
+		return condoId;
+	}
+
+	public void setCondoId(List<String> condoId) {
+		this.condoId = condoId;
 	}
 	
 	
