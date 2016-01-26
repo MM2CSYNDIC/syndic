@@ -186,7 +186,7 @@
 <script>
 
 	$(function() {
-        var i = $('#addinput p').size();
+        var i = $('[name^="pp_new_"]').size() + 1;
         $('#addNew').live('click', function() {
         	    i++;
                 $.get("<%=request.getContextPath()%>/appendQuestionView.ldz", { fieldId: i},
@@ -199,7 +199,7 @@
         
         
         $('#remNew').live('click', function () { 
-                if( i > 1 ) {
+                if( i > 0 ) {
                         $('#pp_new_'+i+'').remove();
                         i--;
                 }
@@ -208,7 +208,7 @@
         
         $('#typeEvent').change(function() {
         	$('[name^="pp_new_"]').remove();
-        	i=2;
+        	i=0;
         });
     });
 	

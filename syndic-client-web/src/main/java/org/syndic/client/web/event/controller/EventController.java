@@ -92,7 +92,10 @@ public class EventController {
 	public String addEvent(@ModelAttribute("eventCommand") EventCommand eventCommand) {
 		logger.info("== URI: /addevent ==");
 		Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null);
-		this.manager.add(event);
+		logger.info("size: "+eventCommand.getQuestions().size());
+		//logger.info("size: "+eventCommand.getQuestions());
+		logger.info("Questions: "+((QuestionCommand)eventCommand.getQuestions().get(1)).getQuestionName());
+		//this.manager.add(event);
 		
 		/*Set<Condo> setCondo = new HashSet<Condo>(0);
 		this.manager.get(new Condo());
