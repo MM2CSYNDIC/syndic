@@ -1,5 +1,6 @@
 <%@ include file="/WEB-INF/tiles/template/includes.jsp"%>
 <spring:url value="welcome.ldz" var="homeUrl" htmlEscape="true" />
+<spring:url value="welcomeSyndic.ldz" var="homeSyndicUrl" htmlEscape="true" />
 <spring:url value="getformadduser.ldz" var="adduserUrl" htmlEscape="true" />
 <spring:url value="getformaddevent.ldz" var="addeventUrl" htmlEscape="true" />
 <spring:url value="getformaddprovider.ldz" var="addproviderUrl" htmlEscape="true" />
@@ -11,6 +12,12 @@
   #bou {
     background-color: #101010;
     border-color: #101010;
+    color: #fff;
+    margin-bottom: 0px;
+    border-bottom-width: 0px;
+    border-radius: 0px;
+  }
+  .navbar-default .navbar-nav>li>a {
     color: #fff;
   }
 </STYLE>
@@ -27,32 +34,6 @@
             <a class="navbar-brand" href="${homeUrl}">Syndic</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li id="acc" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
-              <li id="adduser"><a href="${adduserUrl}"><spring:message code="header.add.user"/></a></li>
-              <li id="addevent"><a href="${addeventUrl}"><spring:message code="header.add.event"/></a></li>
-              <li id="addprovider"><a href="${addproviderUrl}"><spring:message code="header.add.provider"/></a></li>
-              <li id="listevent" class="dropdown">
-                <a href="${listeventUrl}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evènement <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">actions</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Action1</a></li>
-                  <li><a href="#">Action2</a></li>
-                </ul>
-              </li>
-              <li id="listprovider" class="dropdown">
-                <a href="${listproviderUrl}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fournisseurs <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">actions</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Action1</a></li>
-                  <li><a href="#">Action2</a></li>
-                </ul>
-              </li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
               <li>
 	            <c:choose>

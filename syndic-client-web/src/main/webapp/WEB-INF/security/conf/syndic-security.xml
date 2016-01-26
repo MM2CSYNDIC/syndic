@@ -13,8 +13,11 @@
 	<import resource="classpath:security/beans/syndic-service-security.xml" />
 	
 	<security:http use-expressions="true">
-		<security:intercept-url pattern="/admin.ldz" access="hasRole('ROLE_USER')"/>
-		<security:form-login login-page="/sign.ldz" default-target-url="/welcome.ldz"
+		<security:intercept-url pattern="/admin.ldz" access="hasRole('ROLE_ADMIN')"/>
+<!--		<security:intercept-url pattern="/adminuser.ldz" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/getformadduser.ldz" access="hasRole('ROLE_ADMIN')"/>
+		<security:intercept-url pattern="/getformadduser.ldz" access="hasRole('ROLE_USER')"/>-->
+		<security:form-login login-page="/sign.ldz" default-target-url="/homeSyndic.ldz"
 			                 authentication-failure-url="/sign.ldz?error"
 			                 username-parameter="j_username" 
 					         password-parameter="j_password" 

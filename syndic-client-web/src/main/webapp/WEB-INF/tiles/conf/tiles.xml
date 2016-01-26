@@ -26,6 +26,12 @@
       <!--put-attribute name="page_description" value="syndic add user"/-->
       <put-attribute name="body" value="/WEB-INF/views/pages/addUser.jsp"/>
     </definition>
+
+    <definition name="WELCOMESYNDICPAGE" extends="defaultTemplate2">
+        <put-attribute name="title"  value="Accueil syndic"/>
+        <!--put-attribute name="page_description" value="syndic add user"/-->
+        <put-attribute name="body" value="/WEB-INF/views/pages/syndic/homeSyndic.jsp"/>
+    </definition>
     
     <definition name="ADDEVENTPAGE" extends="defaultTemplate2">
       <put-attribute name="title"  value="Syndic Event"/>
@@ -43,8 +49,16 @@
     </definition>
 
     <definition name="LISTEVENTPAGE" extends="defaultTemplate2">
+    <put-attribute name="title"  value="Event Syndic"/>
+    <put-attribute name="body" value="/WEB-INF/views/pages/listEvent.jsp"/>
+</definition>
+    <definition name="LISTUSERPAGE" extends="defaultTemplate2">
         <put-attribute name="title"  value="Event Syndic"/>
-        <put-attribute name="body" value="/WEB-INF/views/pages/listEvent.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/listUser.jsp"/>
+    </definition>
+    <definition name="LISTCONDOPAGE" extends="defaultTemplate2">
+        <put-attribute name="title"  value="Condo Syndic"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/listCondo.jsp"/>
     </definition>
     <definition name="LISTPROVIDERPAGE" extends="defaultTemplate2">
         <put-attribute name="title"  value="Provider Syndic"/>
@@ -53,6 +67,10 @@
     <definition name="AFFECTEVENTPAGE" extends="defaultTemplate2">
         <put-attribute name="title"  value="Event Syndic"/>
         <put-attribute name="body" value="/WEB-INF/views/pages/affectEvent.jsp"/>
+    </definition>
+    <definition name="LISTUSERSFORAGPAGE" extends="defaultTemplate2">
+        <put-attribute name="title"  value="Event Syndic"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/listUsersForAG.jsp"/>
     </definition>
     
     <definition name="startPage_def" extends="defaultTemplate">

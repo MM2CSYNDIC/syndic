@@ -29,13 +29,16 @@ public class UserValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "phone", "required.phone", "Field phone is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "mobile", "required.mobile", "Field mobile is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "email", "required.email", "Field email is required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(error, "numAddress", "required.numAddress", "Field numAddress is required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(error, "address", "required.address", "Field address is required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(error, "zipcode", "required.zipcode", "Field zipcode is required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(error, "city", "required.city", "Field city is required");
+	/*	ValidationUtils.rejectIfEmptyOrWhitespace(error, "numAddress", "required.numAddress", "Field numAddress is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "typeAddress", "required.typeAddress", "Field typeAddress is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "street", "required.street", "Field street is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "city", "required.city", "Field city is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "zipCode", "required.zipCode", "Field zipCode is required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "country", "required.country", "Field country is required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(error, "placeName", "required.placeName", "Field placeName is required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(error, "placeName", "required.placeName", "Field placeName is required");*/
 		
 		if(!((UserCommand)obj).getPassWord().equals(((UserCommand)obj).getConfirmation())) {
 			error.reject("required.confirmation", "Confirmation is invalid ");

@@ -27,8 +27,11 @@
         <property name="mobile" column="MOBILE" />
         <property name="email" column="EMAIL" />
         <property name="address" column="ADDRESS" />
+        <property name="zipcode" column="ZIPCODE" />
+        <property name="city" column="CITY" />
 
-        <joined-subclass name="fr.upond.syndic.repo.model.user.PartOwner" table="PARTOWNER">
+
+        <!--<joined-subclass name="fr.upond.syndic.repo.model.user.PartOwner" table="PARTOWNER">
             <key column="id"/>
             <property name="nombreLot" column="NOMBRELOT"/>
         </joined-subclass>
@@ -38,6 +41,6 @@
             <property name="journees" column="JOURNEES"/>
             <property name="horaires" column="HORAIRES"/>
             <property name="taches" column="TACHES"/>
-        </joined-subclass>
+        </joined-subclass>-->
     </class>
 </hibernate-mapping>

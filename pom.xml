@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.upond.syndic</groupId>
@@ -18,21 +18,21 @@
              <post>kerbiche@gmail.com</post>
         </mailingList>
     </mailingLists>
-    
+
     <licenses>
         <license>
             <name>GNU LESSER GENERAL PUBLIC LICENSE</name>
             <url>http://www.gnu.org/licenses/lgpl-3.0.en.html</url>
-            <comments>Copyright (C) 2015-2016 UPOND-SYNDIC. 
-  
-			  UPOND-SYNDIC is free software: you can redistribute it and/or modify 
-			  it under the terms of the GNU Lesser General Public License as published by 
-			  the Free Software Foundation, either version 3 of the License, or 
-			  (at your option) any later version. 
-			   
-			  UPOND-SYNDIC is distributed in the hope that it will be useful, 
-			  but WITHOUT ANY WARRANTY; without even the implied warranty of 
-			  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+            <comments>Copyright (C) 2015-2016 UPOND-SYNDIC.
+
+			  UPOND-SYNDIC is free software: you can redistribute it and/or modify
+			  it under the terms of the GNU Lesser General Public License as published by
+			  the Free Software Foundation, either version 3 of the License, or
+			  (at your option) any later version.
+
+			  UPOND-SYNDIC is distributed in the hope that it will be useful,
+			  but WITHOUT ANY WARRANTY; without even the implied warranty of
+			  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 			  GNU Lesser General Public License for more details.
             </comments>
         </license>
@@ -44,7 +44,7 @@
     <scm>
        <connection>scm:git:git://github.com/MM2CSYNDIC/syndic.git</connection>
     </scm>
-    
+
     <developers>
         <developer>
           <id>lyes.kherbiche</id>
@@ -88,12 +88,11 @@
                 <role>Developer</role>
             </roles>
         </developer>
-    </developers>  
+    </developers>
     <properties>
         <app.log.root.level>WARN</app.log.root.level>
         <env>local</env>
         <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
-        <sonar.language>java</sonar.language>
         <org.springframework.security.version>4.0.2.RELEASE</org.springframework.security.version>
         <org.springframework.version>4.0.2.RELEASE</org.springframework.version>
           <!-- 4.0.2.RELEASE  -->
@@ -145,10 +144,10 @@
 	       <artifactId>junit</artifactId>
 	       <version>${junit.version}</version>
         </dependency>
-        
+
       </dependencies>
     </dependencyManagement>
-    
+
     <build>
        <pluginManagement>
           <plugins>
@@ -160,11 +159,6 @@
                 <source>1.8</source>
                 <target>1.8</target>
                </configuration>
-             </plugin>
-             <plugin>
-               <groupId>org.codehaus.mojo</groupId>
-               <artifactId>sonar-maven-plugin</artifactId>
-               <version>2.5</version>
              </plugin>
           </plugins>
        </pluginManagement>
@@ -207,29 +201,29 @@
           </plugin>
        </plugins>
     </build>
-    
-    <reporting>                                                                              
-      <plugins>                                                                            
-        <plugin>                                                                         
-            <groupId>org.apache.maven.plugins</groupId>                                  
-            <artifactId>maven-javadoc-plugin</artifactId>                                
-            <version>2.9</version>                                                       
-            <configuration>                                                              
-                <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>                         
-                <docletArtifact>                                                         
-                    <groupId>org.umlgraph</groupId>                                      
-                    <artifactId>umlgraph</artifactId>                                    
-                    <version>5.6</version>                                               
-                </docletArtifact>                                                        
-                <additionalparam>-all -constructors</additionalparam>  
+
+    <reporting>
+      <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.9</version>
+            <configuration>
+                <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+                <docletArtifact>
+                    <groupId>org.umlgraph</groupId>
+                    <artifactId>umlgraph</artifactId>
+                    <version>5.6</version>
+                </docletArtifact>
+                <additionalparam>-all -constructors</additionalparam>
                 <destDir>uml</destDir>
-                <show>private</show>                          
-                <useStandardDocletOptions>false</useStandardDocletOptions>              
-            </configuration>                                                         
-        </plugin>                                                                        
-      </plugins>                                                                           
-    </reporting> 
-    
+                <show>private</show>
+                <useStandardDocletOptions>false</useStandardDocletOptions>
+            </configuration>
+        </plugin>
+      </plugins>
+    </reporting>
+
     <modules>
     	<module>syndic-core</module>
     	<module>syndic-secur-core</module>

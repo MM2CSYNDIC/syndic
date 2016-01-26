@@ -38,4 +38,9 @@ public class EventManager implements IManager<Object> {
 		eventDao.put(obj);
 	}
 
+	@Override
+	public void delete(Object obj) {
+
+	}
+
 }

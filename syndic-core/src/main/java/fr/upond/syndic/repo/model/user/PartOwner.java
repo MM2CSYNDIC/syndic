@@ -1,7 +1,6 @@
 package fr.upond.syndic.repo.model.user;
 
 
-import fr.upond.syndic.repo.model.common.Address;
 import fr.upond.syndic.security.model.User;
 
 /**
@@ -10,7 +9,7 @@ import fr.upond.syndic.security.model.User;
 @SuppressWarnings("serial")
 public class PartOwner extends UserData {
 
-    private int nombreLot;
+private int nombreLot;
 
     private PartOwner(){
         super();
@@ -20,8 +19,8 @@ public class PartOwner extends UserData {
         this.nombreLot = nombreLot;
     }
 
-    public PartOwner(String firstName, String lastName, String phone, String mobile, String email, Address address, User users, String type, int nombreLot) {
-        super(firstName, lastName, phone, mobile, email, address, users, type);
+    public PartOwner(String firstName, String lastName, String phone, String mobile, String email, String zipcode, String city, String address, User users, String type, int nombreLot) {
+        super(firstName, lastName, phone, mobile, email, zipcode, city, address, users, type);
         this.nombreLot = nombreLot;
     }
 

@@ -1,5 +1,7 @@
 package fr.upond.syndic.repository;
 
+import fr.upond.syndic.security.model.User;
+
 import java.util.List;
 
 /**

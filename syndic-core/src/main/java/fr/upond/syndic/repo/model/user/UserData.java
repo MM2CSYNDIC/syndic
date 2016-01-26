@@ -1,7 +1,6 @@
 package fr.upond.syndic.repo.model.user;
 
 import fr.upond.syndic.repo.model.BaseObject;
-import fr.upond.syndic.repo.model.common.Address;
 import fr.upond.syndic.security.model.User;
 /**
  * 
@@ -18,14 +17,14 @@ public class UserData extends BaseObject {
 	private String phone;
 	private String mobile;
 	private String email;
-	private Address address;
+	private String address;
+	private String zipcode;
+	private String city;
 	private User users;
     private int id;
 
-
-
-    public UserData(String firstName, String lastName, String phone, String mobile, String email,
-			Address address, User users, String type) {
+	public UserData(String firstName, String lastName, String phone, String mobile, String email,String zipcode,String city,
+			String address, User users, String type) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -35,6 +34,8 @@ public class UserData extends BaseObject {
 		this.address = address;
 		this.users = users;
         this.type=type;
+		this.type=zipcode;
+		this.type=city;
 	}
 
 	public UserData() {
@@ -81,11 +82,11 @@ public class UserData extends BaseObject {
 		this.email = email;
 	}
 
-	public Address getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
@@ -113,7 +114,25 @@ public class UserData extends BaseObject {
     }
 
 
-    @Override
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+
+	@Override
 	public String toString() {
 		return null;
 	}

@@ -20,22 +20,29 @@ public class UserCommand {
 	private String mobile;
 	private String email;
 	/* Adresse */
-	private String numAddress;
+
+	/*private String numAddress;
 	private String typeAddress;
 	private String street;
 	private String city;
 	private String zipCode;
 	private String country;
-	private String placeName;
+	private String placeName;*/
+
+
+	private String address;
+	private String zipCode;
+	private String city;
+
 
 
 	public UserCommand() {
 		super();
 	}
 
+
 	public UserCommand(String userName, String passWord, String confirmation, String typeUser, String firstName, String lastName,
-			String phone, String mobile, String email, String numAddress, String typeAddress, String street,
-			String city, String zipCode, String country, String placeName) {
+			String phone, String mobile, String email, String city, String zipCode) {
 		this.userName = userName;
 		this.passWord = passWord;
 		this.confirmation = confirmation;
@@ -45,13 +52,9 @@ public class UserCommand {
 		this.phone = phone;
 		this.mobile = mobile;
 		this.email = email;
-		this.numAddress = numAddress;
-		this.typeAddress = typeAddress;
-		this.street = street;
 		this.city = city;
 		this.zipCode = zipCode;
-		this.country = country;
-		this.placeName = placeName;
+		this.address = address;
 	}
 
 	public String getUserName() {
@@ -125,30 +128,15 @@ public class UserCommand {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getNumAddress() {
-		return numAddress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setNumAddress(String numAddress) {
-		this.numAddress = numAddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getTypeAddress() {
-		return typeAddress;
-	}
 
-	public void setTypeAddress(String typeAddress) {
-		this.typeAddress = typeAddress;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
 
 	public String getCity() {
 		return city;
@@ -166,19 +154,5 @@ public class UserCommand {
 		this.zipCode = zipCode;
 	}
 
-	public String getCountry() {
-		return country;
-	}
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public String getPlaceName() {
-		return placeName;
-	}
-
-	public void setPlaceName(String placeName) {
-		this.placeName = placeName;
-	}
 }

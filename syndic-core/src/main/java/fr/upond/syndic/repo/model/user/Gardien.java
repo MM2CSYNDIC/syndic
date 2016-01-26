@@ -1,6 +1,5 @@
 package fr.upond.syndic.repo.model.user;
 
-import fr.upond.syndic.repo.model.common.Address;
 import fr.upond.syndic.security.model.User;
 
 /**
@@ -19,8 +18,8 @@ public class Gardien extends UserData {
     }
 
 
-    public Gardien(String firstName, String lastName, String phone, String mobile, String email, Address address, User users, String type, String journees, String horaires, String taches) {
-        super(firstName, lastName, phone, mobile, email, address, users, type);
+    public Gardien(String firstName, String lastName, String phone, String mobile, String email, String zipcode, String city,String address, User users, String type, String journees, String horaires, String taches) {
+        super(firstName, lastName, phone, mobile, email,zipcode, city, address, users, type);
         this.journees = journees;
         this.horaires = horaires;
         this.taches = taches;

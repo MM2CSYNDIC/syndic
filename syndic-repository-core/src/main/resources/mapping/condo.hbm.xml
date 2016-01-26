@@ -1,34 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <!-- @author LYES KHERBICHE -->
 <hibernate-mapping>
-   <class name="fr.upond.syndic.repo.model.common.Condo" table="CONDO">
-		<id name="id" type="int" column="ID">
-         <generator class="native"/>
+    <class name="fr.upond.syndic.repo.model.common.Condo" table="CONDO">
+        <id name="id" type="int" column="ID">
+            <generator class="native"/>
         </id>
-		<property name="name" column="NAME" />
+        <property name="name" column="NAME" />
         <property name="area" column="AREA" />
+        <property name="address" column="ADDRESS" />
+        <property name="zipcode" column="ZIPCODE" />
+        <property name="city" column="CITY" />
 
-       <!--
-		<one-to-one name="address"  column="ADDRESS" class="fr.upond.syndic.repo.model.common.Address" lazy="false" unique="true" not-null="true"/>
-		-->
-
-       <set name="address" table="ADDRESS" inverse="true" lazy="true" fetch="select">
-           <key>
-               <column name="ID" not-null="true" />
-           </key>
-           <one-to-many class="fr.upond.syndic.repo.model.common.Address" />
-       </set>
-
-       <set name="lot" table="LOT" inverse="true" lazy="true" fetch="select">
-           <key>
-               <column name="ID" not-null="true" />
-           </key>
-           <one-to-many class="fr.upond.syndic.repo.model.common.Lot" />
-       </set>
+        <!--
+                <many-to-one name="address" column="ADDRESS" class="fr.upond.syndic.repo.model.common.Address" cascade="all" lazy="false" unique="true" not-null="true"/>
+        -->
+        <set name="lot" table="LOT" cascade="all">
+            <key column="IDC" />
+            <one-to-many class="fr.upond.syndic.repo.model.common.Lot" />
+        </set>
 
 
-   </class>
+    </class>
 </hibernate-mapping>

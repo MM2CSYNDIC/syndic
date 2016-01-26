@@ -2,11 +2,15 @@
 <!DOCTYPE beans SYSTEM "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 
-    
     <bean id="welcomePage" class="org.springframework.web.servlet.view.JstlView">
 		<property name="url">
 			<value>/index.jsp</value>
-	</property>
+		</property>
+	</bean>
+	<bean id="welcomeSyndicPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+		<property name="url">
+			<value>WELCOMESYNDICPAGE</value>
+		</property>
 	</bean>
 	<bean id="adminPage" class="org.springframework.web.servlet.view.JstlView">
 		<property name="url">
@@ -33,6 +37,11 @@
             <value>ADDCONDOPAGE</value>
         </property>
     </bean>
+	<bean id="listCondoPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+		<property name="url">
+			<value>LISTCONDOPAGE</value>
+		</property>
+	</bean>
 	<bean id="addProviderPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
 		<property name="url">
 			<value>ADDPROVIDERPAGE</value>
@@ -43,6 +52,11 @@
 			<value>LISTEVENTPAGE</value>
 		</property>
 	</bean>
+	<bean id="listUserPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+		<property name="url">
+			<value>LISTUSERPAGE</value>
+		</property>
+	</bean>
     <bean id="affectEventPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
 		<property name="url">
 			<value>AFFECTEVENTPAGE</value>
@@ -51,6 +65,11 @@
 	<bean id="listProviderPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
 		<property name="url">
 			<value>LISTPROVIDERPAGE</value>
+		</property>
+	</bean>
+	<bean id="listUsersForAGPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+		<property name="url">
+			<value>LISTUSERSFORAGPAGE</value>
 		</property>
 	</bean>
 </beans>

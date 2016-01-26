@@ -15,11 +15,9 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
     <style>
-
         .error {
             color: #ff0000;
         }
-
         .errorblock {
             color: #000;
             background-color: #ffEEEE;
@@ -27,7 +25,6 @@
             padding: 8px;
             margin: 16px;
         }
-
         .input:focus {
             width: 350px;
         }
@@ -37,8 +34,6 @@
           href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
-
 
 </head>
 <body>
@@ -47,132 +42,95 @@
 
     <div class="row">
         <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-            <h3>Ajout de Copropriete</h3>
+            <h3><spring:message code="condo.H3" /></h3>
         </div>
     </div>
 
-    <form:form method="POST" commandName="condoCommand"
-               action="addcondo.ldz">
+    <form:form method="POST" commandName="condoCommand" action="addcondo.ldz">
         <form:errors path="*" cssClass="errorblock" element="div" />
-
-
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="name"
-                            id="name" placeholder="Libelle" />
+                <spring:message code="condo.libele" var="condolibele" />
+                <form:input type="text" class="form-control" path="name" id="name" placeholder="${condolibele}" />
                 <form:errors path="name" cssClass="error" />
             </div>
         </div>
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="numeroRue"
-                            id="numeroRue" placeholder="Numero de voie" />
-                <form:errors path="numeroRue" cssClass="error" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="typeAddress"
-                            id="typeAddress" placeholder="Type de voie" />
-                <form:errors path="typeAddress" cssClass="error" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="street"
-                            id="street" placeholder="Nom de voie" />
-                <form:errors path="street" cssClass="error" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="zipcode"
-                            id="zipcode" placeholder="Code postal" />
-                <form:errors path="zipcode" cssClass="error" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="placeName"
-                            id="placeName" placeholder="Complement" />
-                <form:errors path="placeName" cssClass="error" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-                <form:input type="text" class="form-control" path="city"
-                            id="city" placeholder="Ville" />
+                <spring:message code="user.city" var="condocity" />
+                <form:input type="text" class="form-control" path="city" id="city" placeholder="${condocity}" />
                 <form:errors path="city" cssClass="error" />
             </div>
         </div>
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="country"
-                            id="country" placeholder="Pays" />
-                <form:errors path="country" cssClass="error" />
+                <spring:message code="user.zipCode" var="condorzipCode" />
+                <form:input type="text" class="form-control" path="zipcode" id="zipcode" placeholder="${condorzipCode}" />
+                <form:errors path="zipcode" cssClass="error" />
             </div>
         </div>
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="codeLot"
-                            id="codeLot" placeholder="Numero de lot" />
+                <spring:message code="condo.numLot" var="condonumLot" />
+                <form:input type="text" class="form-control" path="codeLot" id="codeLot" placeholder="${condonumLot}" />
                 <form:errors path="codeLot" cssClass="error" />
             </div>
         </div>
+
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="typeLot"
-                            id="typeLot" placeholder="Type de lot" />
+                <spring:message code="condo.typeLot" var="condotypeLot" />
+                <form:input type="text" class="form-control" path="typeLot" id="typeLot" placeholder="${condotypeLot}" />
                 <form:errors path="typeLot" cssClass="error" />
             </div>
         </div>
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="floorLot"
-                            id="floorLot" placeholder="Etage" />
+                <form:select class="form-control" path="typeLot" id="typeLot" >
+                    <option value="none" selected><spring:message code="condo.typeLot"/></option>
+                    <option value="studio"><spring:message code="lot.typeLot.studio"/></option>
+                    <option value="apartment"><spring:message code="lot.typeLot.apartment"/></option>
+                    <option value="parking"><spring:message code="lot.typeLot.parking"/></option>
+                    <option value="cave"><spring:message code="lot.typeLot.cave"/></option>
+                    <option value="box"><spring:message code="lot.typeLot.box"/></option>
+                    <option value="shop"><spring:message code="lot.typeLot.shop"/></option>
+                    <option value="house"><spring:message code="lot.typeLot.house"/></option>
+                    <option value="ground"><spring:message code="lot.typeLot.ground"/></option>
+                    <option value="building"><spring:message code="lot.typeLot.building"/></option>
+                    <option value=""><spring:message code="user.typeAddress.boulvard"/></option>
+                </form:select>
+                <form:errors path="typeLot" cssClass="error" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+                <spring:message code="condo.floor" var="condofloor" />
+                <form:input type="text" class="form-control" path="floorLot" id="floorLot" placeholder="${condofloor}" />
                 <form:errors path="floorLot" cssClass="error" />
             </div>
         </div>
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="areaLot"
-                            id="areaLot" placeholder="Surface du lot" />
+                <spring:message code="condor.lotArea" var="condorlotArea" />
+                <form:input type="text" class="form-control" path="areaLot" id="areaLot" placeholder="${condorlotArea}" />
                 <form:errors path="areaLot" cssClass="error" />
             </div>
         </div>
 
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="part"
-                            id="part" placeholder="Part du lot" />
+                <spring:message code="condor.lotPart" var="condorlotPart" />
+                <form:input type="text" class="form-control" path="part" id="part" placeholder="${condorlotPart}" />
                 <form:errors path="part" cssClass="error" />
             </div>
         </div>
-
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-
-                <form:input type="text" class="form-control" path="area"
-                            id="area" placeholder="Surface de la copropriete" />
-                <form:errors path="area" cssClass="error" />
+                <spring:message code="condor.area" var="condorarea" />
+                <form:input type="text" class="form-control" path="areaCondo" id="area" placeholder="${condorarea}" />
+                <form:errors path="areaCondo" cssClass="error" />
             </div>
         </div>
-
-
-           <!-- End specific input -->
-
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
                 <button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
@@ -183,6 +141,6 @@
 </div>
 
 </body>
-</html>
 
+</html>
 

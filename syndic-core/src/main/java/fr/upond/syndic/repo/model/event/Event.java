@@ -7,9 +7,10 @@ import fr.upond.syndic.repo.model.common.Condo;
 
 @SuppressWarnings("serial")
 public class Event extends BaseObject {
+
 	
 	private String eventName;
-	private String typeEvent;
+	private String typeEvent; // "AG" , "Incident", "Intervention"
 	private String dateEvent;
 	private String descEvent;
 	private Set<Condo> condo;

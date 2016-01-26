@@ -38,6 +38,7 @@ public class Dao implements IDao<Object> {
         		return list;
         	} 
         }
+
     	return	this.sessionFactory.getCurrentSession().createCriteria(obj.getClass()).list();
 	}
 

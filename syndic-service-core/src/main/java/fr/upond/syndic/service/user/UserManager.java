@@ -45,8 +45,12 @@ public class UserManager implements IManager<User> {
 		for (UserRole ur : user.getUserRole()) {
 			this.userRoleDao.put(ur);
 		}
-		
-		
 	}
+
+	@Override
+	public void delete(User obj) {
+
+	}
+
 
 }

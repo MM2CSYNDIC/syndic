@@ -18,20 +18,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="author" content="Lyes Kherbiche" />
         <meta name="company" content="UPOND" />
-        
-        <style type="text/css">
-         #id1 {
-             border: none;
-         }
-        </style>
+<style>
+
+    #id1 {
+        border: none;
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+</style>
         
         <title><tiles:insertAttribute name="title" ignore="true" /></title>
     </head>
     <body onload="change_class()">
+
+    <div id="page" style="height:1300px">
      <!--div class="table-responsive"--> 
 	    <table class="table borderless" border="0.0"  align="center" id="id1">
 	     <tbody id="id1">
-            <tr id="id1">
+            <tr id="id1" style="height:1300px">
                 <td height="1%" width="100%" colspan="2" id="id1">
                     <tiles:insertAttribute name="header" />
                 </td>
@@ -42,6 +46,7 @@
                     <tiles:insertAttribute name="menu" />
                 </td>
                 <td width="100%" height="100%" align="center" id="id1">
+
                     <tiles:insertAttribute name="body" />
                 </td>
                </sec:authorize>
@@ -52,7 +57,12 @@
                 </td>
             </tr>
          </tbody>
-        </table>  
-     <!--/div-->
+        </table>
+        <a href="javascript:;" class="menu_btn"></a>
+
+    </div>
+    <!--/div-->
+
     </body>
 </html>
+

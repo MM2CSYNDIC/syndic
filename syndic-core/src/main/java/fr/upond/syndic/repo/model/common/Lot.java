@@ -16,12 +16,11 @@ public class Lot extends BaseObject {
     private String type;
     private int floor;
     private double area;
+    private double part;
 
 
-
-    public Lot(int id,int num,String type,int floor,double area,double part) {
+    public Lot(int num,String type,int floor,double area,double part) {
         super();
-        this.id = id;
         this.num = num;
         this.type = type;
         this.floor = floor;
@@ -77,8 +76,6 @@ public class Lot extends BaseObject {
         this.area = area;
     }
 
-    private double part;
-
     public Lot() {
         super();
     }
@@ -87,7 +84,7 @@ public class Lot extends BaseObject {
 
     @Override
     public String toString() {
-        return null;
+        return "";
     }
 
     @Override

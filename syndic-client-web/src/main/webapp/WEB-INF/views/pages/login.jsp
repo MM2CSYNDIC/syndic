@@ -37,7 +37,7 @@
 	    <form class="form-signin" name='loginForm' action="<c:url value='${request.contextPath}/j_spring_security_check.ldz' />" method='POST'>
 		<!--form class="form-signin" role="form" action="j_spring_security_check" method="post"-->
 		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		    <a href='welcome.ldz'>Accueil </a>
+			<a href='welcome.ldz'>Accueil</a>
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<input type="text" class="form-control" placeholder="Login"
 				required autofocus name="j_username"> <br> <input
@@ -45,8 +45,8 @@
 				name="j_password"> <label class="checkbox"> <input
 				type="checkbox" value="remember-me"> Remember me
 			</label>
-			<button id="bou" class="btn btn-lg btn-primary btn-block"
-				type="submit">
+
+			<button id="bou" class="btn btn-lg btn-primary btn-block" type="submit">
 				<i class="glyphicon glyphicon-user"></i>Sign in
 			</button>
 			
