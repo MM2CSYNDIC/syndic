@@ -10,6 +10,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.upond.syndic.repo.model.event.AgEvent;
 import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.repository.IDao;
 import fr.upond.syndic.security.model.User;
@@ -53,6 +54,9 @@ public class Manager implements IManager<BaseObject> {
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(Event.class)) {
+			this.dao.put(obj);
+		}
+		if(obj.getClass().equals(AgEvent.class)) {
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(Condo.class)) {

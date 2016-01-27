@@ -14,5 +14,12 @@
             <key column = "IDEVENT" not-null="false" />
             <many-to-many  column = "IDCOND"  class = "fr.upond.syndic.repo.model.common.Condo" />
         </set>
+        <joined-subclass name = "fr.upond.syndic.repo.model.event.AgEvent" extends= "fr.upond.syndic.repo.model.event.Event" table = "AGEVENT">
+          <key column = "eventName"/>
+          <set name="questions" table="QUESTION" cascade="all">
+           <key column="IDEVENT" />
+           <one-to-many class="fr.upond.syndic.repo.model.common.Question" />
+          </set>
+        </joined-subclass>
 	</class>
 </hibernate-mapping>

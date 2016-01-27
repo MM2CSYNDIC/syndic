@@ -1,7 +1,9 @@
 package org.syndic.client.web.event.controller;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -19,6 +21,8 @@ import org.syndic.client.web.command.QuestionCommand;
 import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Polling;
+import fr.upond.syndic.repo.model.common.Question;
+import fr.upond.syndic.repo.model.event.AgEvent;
 import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.service.IManager;
 
@@ -90,21 +94,48 @@ public class EventController {
 	 */
 	@RequestMapping(value = "/addevent", method = RequestMethod.POST)
 	public String addEvent(@ModelAttribute("eventCommand") EventCommand eventCommand) {
-		logger.info("== URI: /addevent ==");
-		Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null);
-		logger.info("size: "+eventCommand.getQuestions().size());
-		//logger.info("size: "+eventCommand.getQuestions());
-		logger.info("Questions: "+((QuestionCommand)eventCommand.getQuestions().get(1)).getQuestionName());
-		//this.manager.add(event);
 		
-		/*Set<Condo> setCondo = new HashSet<Condo>(0);
+		logger.info("== URI: /addevent ==");
+		
+		AgEvent agEvent;
+		Set<Question> listQuestion;
+		Set<Condo> setCondo = new HashSet<Condo>(0);
+		
 		this.manager.get(new Condo());
 		for (BaseObject bo : this.manager.get(new Condo())) {
 			setCondo.add((Condo) bo);
 		}
-		event.setCondo(setCondo);
-		this.manager.upDate(event);*/
 		
+		Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null);
+		
+		if(eventCommand.getTypeEvent().equals("AG")) {
+			logger.info("Event Type AG");
+			agEvent = new AgEvent(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null,null);
+			listQuestion = new HashSet<Question>(0);
+			for(Object obj: eventCommand.getQuestions()) {
+				if(((QuestionCommand)obj).getQuestionName() != null) {
+					logger.info("Questions "+((QuestionCommand)obj).getQuestionName());
+					listQuestion.add(new Question(((QuestionCommand)obj).getQuestionName()));
+				}
+			}
+			agEvent.setQuestions(listQuestion);
+			this.manager.add(agEvent);
+			agEvent.setCondo(setCondo);
+			this.manager.upDate(agEvent);
+		} else {
+            if(eventCommand.getTypeEvent().equals("Intervention")) {
+            	logger.info("Event Type Intervention");
+			} else {
+				if(eventCommand.getTypeEvent().equals("Incident")) {
+					logger.info("Event Type Incident");
+					this.manager.add(event);
+					event.setCondo(setCondo);
+					this.manager.upDate(event);
+				}
+			}
+		}
+		//event.setCondo(setCondo);
+		//this.manager.upDate(event);
 		return "welcomePage";
 	}
 	
