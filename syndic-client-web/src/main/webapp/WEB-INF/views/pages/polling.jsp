@@ -37,77 +37,44 @@
  </head>
  
  <body>
-
- <div class="container">
-  <div class="row">
-   <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-    <h3>Description de l'AG</h3>
-    <br>Assemblée Générale Annuelle
-    <br> Lieu : Salle des Fêtes de la ville City
-    <br> Date/Heure : 13 janvier 2015 à 19h00
-    <br>
-   </div>
-   <br>
-  </div>
-  <div id='calendar'></div>
-
-  <div class="form-group row">
-   <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-    <table class="table1">
-     <tr>
-      <th>Questions soumises au vote</th><th>votre vote</th>
-     </tr>
-        <tr>
-         <td>Bilan prévisionnel pour la période jan. 2016 - jan. 2017 </td>
-         <td>
-          <FORM>
-           <SELECT name="reponse" size="1">
-            <OPTION>Pour
-            <OPTION>Contre
-            <OPTION>Abstention
-           </SELECT>
-          </FORM>
-         </td>
-        </tr>
-        <tr>
-         <td>Intervention de la société RavBat pour l'installation des BAL
-          <br> Devis : 5800 euros HT </td>
-         <td>
-          <FORM>
-           <SELECT name="reponse" size="1">
-            <OPTION>Pour
-            <OPTION>Contre
-            <OPTION>Abstention
-           </SELECT>
-          </FORM>
-         </td>
-        </tr>
-        <tr>
-         <td>Election du nouveau Conseil Syndical :
-         <br> M. Bob Sponge
-         <br> Mme. Alice Merveille
-         </td>
-         <td>
-          <FORM>
-           <SELECT name="reponse" size="1">
-            <OPTION>Pour
-            <OPTION>Contre
-            <OPTION>Abstention
-           </SELECT>
-          </FORM>
-         </td>
-        </tr>
-    </table>
-   </div>
-  </div>
- </div>
-      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-       <center>
-        <button type="submit" class="btn btn-secondary">Soumettre vos votes</button>
-       </center>
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+              <h3><fmt:message key="listevent.H3" /></h3>
+          </div>
       </div>
- </div>
+      <div id='calendar'></div>
 
- </body>
+      <div class="form-group row">
+      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+        <table class="table1">
+          <tr>
+            <th>Question</th><th>Vote</th>
+          </tr>
+
+          <c:if test="${polling != null}">
+           <c:forEach var="entry" items="${polling.getQuestions()}">
+            <c:if test="${entry != null}">
+              <tr>
+               <td>${entry.getQuest()}</td>
+               <td><SELECT name="reponse" size="1">
+                    <OPTION>Pour
+                    <OPTION>Contre
+                    <OPTION>Abstention
+                    </SELECT>
+               </td>
+              </tr>
+            </c:if>
+           </c:forEach>
+          </c:if>
+
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
  
 </html>

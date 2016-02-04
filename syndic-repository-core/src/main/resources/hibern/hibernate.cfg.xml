@@ -20,6 +20,7 @@
         <mapping resource="mapping/provider.hbm.xml"/>
         <mapping resource="mapping/polling.hbm.xml"/>
         <mapping resource="mapping/question.hbm.xml"/>
+        <mapping resource="mapping/pollingPartOwner.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

@@ -1,7 +1,5 @@
 package org.syndic.client.web.command;
 
-import java.util.List;
-
 import org.springframework.util.AutoPopulatingList;
 
 /**

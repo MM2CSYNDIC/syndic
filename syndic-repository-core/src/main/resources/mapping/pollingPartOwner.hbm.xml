@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- @author LYES KHERBICHE -->
+<hibernate-mapping>
+	<class name="fr.upond.syndic.repo.model.common.PollingPartOwner" table="POLLINGPARTOWNER">
+		<id name="id" type="int" column="ID">
+         <generator class="native"/>
+        </id>
+		<many-to-one name="polling" class="fr.upond.syndic.repo.model.common.Polling">
+			<column name="POLLINGID" not-null="true" />
+		</many-to-one>
+		<many-to-one name="partOwner" class="fr.upond.syndic.repo.model.user.PartOwner">
+			<column name="PARTOWNERID" not-null="true" />
+		</many-to-one>
+		<property name="isPoll" column="ISPOLL" />
+	</class>
+</hibernate-mapping>

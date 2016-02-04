@@ -100,6 +100,7 @@ public class EventController {
 		AgEvent agEvent;
 		Set<Question> listQuestion;
 		Set<Condo> setCondo = new HashSet<Condo>(0);
+		Polling polling;
 		
 		this.manager.get(new Condo());
 		for (BaseObject bo : this.manager.get(new Condo())) {
@@ -112,6 +113,7 @@ public class EventController {
 			logger.info("Event Type AG");
 			agEvent = new AgEvent(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null,null);
 			listQuestion = new HashSet<Question>(0);
+			polling = new Polling();
 			for(Object obj: eventCommand.getQuestions()) {
 				if(((QuestionCommand)obj).getQuestionName() != null) {
 					logger.info("Questions "+((QuestionCommand)obj).getQuestionName());
@@ -119,6 +121,8 @@ public class EventController {
 				}
 			}
 			agEvent.setQuestions(listQuestion);
+			polling.setQuestions(listQuestion);
+			this.manager.add(polling);
 			this.manager.add(agEvent);
 			agEvent.setCondo(setCondo);
 			this.manager.upDate(agEvent);
@@ -134,8 +138,6 @@ public class EventController {
 				}
 			}
 		}
-		//event.setCondo(setCondo);
-		//this.manager.upDate(event);
 		return "welcomePage";
 	}
 	
@@ -198,8 +200,10 @@ public class EventController {
 	 * @return
 	 */
 	@RequestMapping(value = "/getformpolling", method = RequestMethod.GET)
-	public String getFormPolling () {
+	public String getFormPolling (ModelMap model) {
+		
 		logger.info("== URI: /getformpolling ==");
+		model.addAttribute("polling", this.manager.get(new Polling()));
 		return "pollingPage";
 	}
 	

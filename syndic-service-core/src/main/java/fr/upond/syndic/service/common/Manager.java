@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Condo;
+import fr.upond.syndic.repo.model.common.Polling;
 import fr.upond.syndic.repo.model.common.Provider;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -57,6 +58,9 @@ public class Manager implements IManager<BaseObject> {
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(AgEvent.class)) {
+			this.dao.put(obj);
+		}
+		if(obj.getClass().equals(Polling.class)) {
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(Condo.class)) {

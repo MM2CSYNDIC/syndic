@@ -9,5 +9,8 @@
          <generator class="native"/>
         </id>
 		<property name="quest" column="QUEST" />
+		<property name="toward" column="TOWARD" />
+		<property name="against" column="AGAINST" />
+		<property name="abstention" column="ABSTENTION" />
    </class>
 </hibernate-mapping>
