@@ -29,6 +29,7 @@
 <spring:url value="getformaddprovider.ldz" var="providerUrl" htmlEscape="true" />
 <spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
 <spring:url value="listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
+<spring:url value="getformpolling.ldz" var="pollingUrl" htmlEscape="true" />
 
 <ul onload="change_class()" class="nav nav-pills nav-stacked">
   <li id="ac" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
@@ -36,6 +37,7 @@
   <li id="addeven" class=""><a href="${eventUrl}"><spring:message code="header.add.event"/></a></li>
   <li id="listeven" class=""><a href="${listeventUrl}"><spring:message code="header.list.event"/></a></li>
 	<li id="listprovider" class=""><a href="${listproviderUrl}">Fournissaurs</a></li>
+	<li id="pol" class=""><a href="${pollingUrl}">Vote</a></li>
 </ul>
 
 <script language="javascript">

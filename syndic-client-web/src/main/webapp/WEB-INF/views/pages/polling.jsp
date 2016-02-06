@@ -50,63 +50,115 @@
    <br>
   </div>
   <div id='calendar'></div>
+   <h2>VOTE DES AG</h2>
 
   <div class="form-group row">
-   <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-    <table class="table1">
-     <tr>
-      <th>Questions soumises au vote</th><th>votre vote</th>
-     </tr>
-        <tr>
-         <td>Bilan prévisionnel pour la période jan. 2016 - jan. 2017 </td>
-         <td>
-          <FORM>
-           <SELECT name="reponse" size="1">
-            <OPTION>Pour
-            <OPTION>Contre
-            <OPTION>Abstention
-           </SELECT>
-          </FORM>
-         </td>
-        </tr>
-        <tr>
-         <td>Intervention de la société RavBat pour l'installation des BAL
-          <br> Devis : 5800 euros HT </td>
-         <td>
-          <FORM>
-           <SELECT name="reponse" size="1">
-            <OPTION>Pour
-            <OPTION>Contre
-            <OPTION>Abstention
-           </SELECT>
-          </FORM>
-         </td>
-        </tr>
-        <tr>
-         <td>Election du nouveau Conseil Syndical :
-         <br> M. Bob Sponge
-         <br> Mme. Alice Merveille
-         </td>
-         <td>
-          <FORM>
-           <SELECT name="reponse" size="1">
-            <OPTION>Pour
-            <OPTION>Contre
-            <OPTION>Abstention
-           </SELECT>
-          </FORM>
-         </td>
-        </tr>
-    </table>
+  <div class="form-inline">
+   <div class="form-group">
+    <input type="textarea" class="form-control" id="ouai" placeholder="Vote pour budget travaux Vote pour budget travauxVote pour budget travauxVote pour budget travauxVote pour budget travaux" disabled>
+   </div>
+   <div class="form-group">
+    <SELECT name="reponse" size="1">
+     <OPTION>Pour
+     <OPTION>Contre
+     <OPTION>Abstention
+    </SELECT>
+   </div>
    </div>
   </div>
- </div>
-      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-       <center>
-        <button type="submit" class="btn btn-secondary">Soumettre vos votes</button>
-       </center>
-      </div>
- </div>
+
+  <div class="form-group row">
+  <div class="form-inline">
+   <div class="form-group">
+    <input type="textarea" class="form-control" id="non2" placeholder="Vote pour budget travaux" disabled>
+   </div>
+   <div class="form-group">
+
+    <SELECT name="reponse" size="1">
+     <OPTION>Pour
+     <OPTION>Contre
+     <OPTION>Abstention
+    </SELECT>
+   </div>
+  </div>
+  </div>
+
+
+
+   <button type="submit" class="btn btn-primary">Send invitation</button>
+
+
+
+<!--  <div class="row">
+   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="row">
+         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+         <input type="text" name="firstname" placeholder="Vote pour budget travaux" disabled>
+         </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+           <SELECT name="reponse" size="1">
+            <OPTION>Pour
+            <OPTION>Contre
+            <OPTION>Abstention
+           </SELECT>
+         </div>
+
+
+
+
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+         <input type="text" name="firstname" placeholder="Vote pour augmentation des loyers" disabled>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+         <SELECT name="reponse" size="1">
+          <OPTION>Pour
+          <OPTION>Contre
+          <OPTION>Abstention
+         </SELECT>
+        </div>
+
+
+
+
+         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <input type="text" name="firstname" placeholder="Vote pour le budget" disabled>
+         </div>
+         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+          <SELECT name="reponse" size="1">
+           <OPTION>Pour
+           <OPTION>Contre
+           <OPTION>Abstention
+          </SELECT>
+         </div>
+
+
+
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+         <input type="text" name="firstname" placeholder="Vote pour le décision technique" disabled>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+         <SELECT name="reponse" size="1">
+          <OPTION>Pour
+          <OPTION>Contre
+          <OPTION>Abstention
+         </SELECT>
+        </div>
+
+
+
+
+    </div>
+    </FORM>
+   </div>
+  </div>
+  -->
+  </div><!--container-->
+
+ </div><!--body-->
 
  </body>
  
