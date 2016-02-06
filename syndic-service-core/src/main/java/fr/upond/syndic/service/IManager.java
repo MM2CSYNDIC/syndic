@@ -16,4 +16,6 @@ public interface IManager<T> {
 	
 	void delete(T obj);
 	
+	void upDate(T obj);
+	
 }

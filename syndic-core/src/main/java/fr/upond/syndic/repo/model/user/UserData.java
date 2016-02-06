@@ -11,7 +11,7 @@ import fr.upond.syndic.security.model.User;
 @SuppressWarnings("serial")
 public class UserData extends BaseObject {
 
-
+	private int id;
     private String type;
 	private String firstName;
 	private String lastName;
@@ -20,12 +20,12 @@ public class UserData extends BaseObject {
 	private String email;
 	private Address address;
 	private User users;
-    private int id;
+    
 
 
 
     public UserData(String firstName, String lastName, String phone, String mobile, String email,
-			Address address, User users, String type) {
+			Address address, String type) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -33,7 +33,6 @@ public class UserData extends BaseObject {
 		this.mobile = mobile;
 		this.email = email;
 		this.address = address;
-		this.users = users;
         this.type=type;
 	}
 

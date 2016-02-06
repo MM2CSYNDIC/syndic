@@ -5,18 +5,6 @@
 <!-- @author LYES KHERBICHE -->
 <hibernate-mapping>
     <class name="fr.upond.syndic.repo.model.user.UserData" table="USERDATA">
-        <!--
-        <composite-id>
-            <key-property name="username" column="USERS"/>
-            <key-property name="lastName"  column="LASTNAME"/>
-            <key-property name="birthDay"  column="BIRTHDAY"/>
-        </composite-id >
-        <property name="placeName" column="PHONE" />
-        <property name="placeName" column="MOBILE" />
-        <property name="placeName" column="EMAIL" />
-        <many-to-one name="address"  column="ADDRESS" class="fr.upond.syndic.repo.model.common.Address" unique="true" not-null="true"/>
-        <many-to-one name="users"  column="USERS" class="fr.upond.syndic.security.model.User" unique="true" not-null="true"/>
-        -->
         <id name="id" type="int" column="ID">
             <generator class="native"/>
         </id>
@@ -26,18 +14,15 @@
         <property name="phone" column="PHONE" />
         <property name="mobile" column="MOBILE" />
         <property name="email" column="EMAIL" />
-        <property name="address" column="ADDRESS" />
-
-        <joined-subclass name="fr.upond.syndic.repo.model.user.PartOwner" table="PARTOWNER">
-            <key column="id"/>
-            <property name="nombreLot" column="NOMBRELOT"/>
-        </joined-subclass>
-
-        <joined-subclass name="fr.upond.syndic.repo.model.user.Gardien" table="GARDIEN">
-            <key column="id"/>
-            <property name="journees" column="JOURNEES"/>
-            <property name="horaires" column="HORAIRES"/>
-            <property name="taches" column="TACHES"/>
+        <many-to-one name="address" column="ADDRESS" class="fr.upond.syndic.repo.model.common.Address" cascade="all" lazy="false" unique="true" not-null="true"/>
+        <many-to-one name="users" column="USERS" class="fr.upond.syndic.security.model.User" cascade="all" lazy="false" unique="true" not-null="true"/>
+        <joined-subclass name = "fr.upond.syndic.repo.model.user.PartOwner" extends= "fr.upond.syndic.repo.model.user.UserData" table = "PARTOWNER">
+          <key column = "id"/>
+          <property name="numberOfLot" column="NUMBEROFLOT" />
+          <set name="pollingPartOwner" inverse="true" lazy="true" table="POLLINGPARTOWNER">
+            <key column="PARTOWNERID" not-null="true" />
+            <one-to-many class="fr.upond.syndic.repo.model.common.PollingPartOwner" />
+          </set>
         </joined-subclass>
     </class>
 </hibernate-mapping>

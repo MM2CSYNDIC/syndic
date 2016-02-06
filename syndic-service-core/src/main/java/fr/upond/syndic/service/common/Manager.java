@@ -4,12 +4,14 @@ import java.util.List;
 
 import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Condo;
+import fr.upond.syndic.repo.model.common.Polling;
 import fr.upond.syndic.repo.model.common.Provider;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.upond.syndic.repo.model.event.AgEvent;
 import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.repository.IDao;
 import fr.upond.syndic.security.model.User;
@@ -41,7 +43,7 @@ public class Manager implements IManager<BaseObject> {
 	@Override
 	public void add(BaseObject obj) {
 		
-		logger.info("==== Insert "+obj.getClass()+" ====");
+		logger.info("== Insert "+obj.getClass()+" ==");
 		
 		if(obj.getClass().equals(User.class)) {
 			this.dao.put(obj);
@@ -53,6 +55,12 @@ public class Manager implements IManager<BaseObject> {
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(Event.class)) {
+			this.dao.put(obj);
+		}
+		if(obj.getClass().equals(AgEvent.class)) {
+			this.dao.put(obj);
+		}
+		if(obj.getClass().equals(Polling.class)) {
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(Condo.class)) {
@@ -68,6 +76,12 @@ public class Manager implements IManager<BaseObject> {
 	public void delete(BaseObject obj) {
 		logger.info("== Delete "+obj.getClass()+" ==");
 		this.dao.delete(obj);
+	}
+
+	@Override
+	public void upDate(BaseObject obj) {
+		logger.info("== UpDate "+obj.getClass()+" ==");
+		this.dao.upDate(obj);
 	}
 
 }

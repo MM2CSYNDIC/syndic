@@ -8,9 +8,14 @@
 		<id name="id" type="int" column="ID">
          <generator class="native"/>
         </id>
-		<property name="question" column="QUESTION" />
-        <property name="pour" column="POUR" />
-        <property name="contre" column="CONTRE" />
-        <property name="abstention" column="ABSTENTION" />
+		<set name="questions" table="QUESTION" cascade="all">
+           <key column="IDPOLL" />
+           <one-to-many class="fr.upond.syndic.repo.model.common.Question" />
+        </set>
+        <set name="pollingPartOwner" inverse="true" lazy="true" table="POLLINGPARTOWNER">
+           <key column="POLLINGID" not-null="true" />
+           <one-to-many class="fr.upond.syndic.repo.model.common.PollingPartOwner" />
+        </set>
+        <property name="isClose" column="ISCLOSE" />
    </class>
 </hibernate-mapping>

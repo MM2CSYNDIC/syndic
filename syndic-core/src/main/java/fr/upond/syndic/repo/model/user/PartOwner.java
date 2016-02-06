@@ -1,8 +1,11 @@
 package fr.upond.syndic.repo.model.user;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import fr.upond.syndic.repo.model.common.Address;
-import fr.upond.syndic.security.model.User;
+import fr.upond.syndic.repo.model.common.PollingPartOwner;
 
 /**
  * Created by Manel on 15/12/2015.
@@ -10,28 +13,37 @@ import fr.upond.syndic.security.model.User;
 @SuppressWarnings("serial")
 public class PartOwner extends UserData {
 
-    private int nombreLot;
+    private int numberOfLot;
+    private Set<PollingPartOwner> pollingPartOwner = new HashSet<PollingPartOwner>(0);
 
     public PartOwner(){
         super();
     }
 
     public PartOwner(int nombreLot) {
-        this.nombreLot = nombreLot;
+        this.numberOfLot = nombreLot;
     }
 
-    public PartOwner(String firstName, String lastName, String phone, String mobile, String email, Address address, User users, String type, int nombreLot) {
-        super(firstName, lastName, phone, mobile, email, address, users, type);
-        this.nombreLot = nombreLot;
+    public PartOwner(String firstName, String lastName, String phone, String mobile, String email, Address address, String type, int nombreLot) {
+        super(firstName, lastName, phone, mobile, email, address, type);
+        this.numberOfLot = nombreLot;
     }
 
-    public int getNombreLot() {
-        return nombreLot;
-    }
+	public int getNumberOfLot() {
+		return numberOfLot;
+	}
 
-    public void setNombreLot(int nombreLot) {
-        this.nombreLot = nombreLot;
-    }
+	public void setNumberOfLot(int numberOfLot) {
+		this.numberOfLot = numberOfLot;
+	}
+
+	public Set<PollingPartOwner> getPollingPartOwner() {
+		return pollingPartOwner;
+	}
+
+	public void setPollingPartOwner(Set<PollingPartOwner> pollingPartOwner) {
+		this.pollingPartOwner = pollingPartOwner;
+	}
 
 
 }
