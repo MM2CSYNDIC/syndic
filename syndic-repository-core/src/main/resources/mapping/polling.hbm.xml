@@ -16,6 +16,6 @@
            <key column="POLLINGID" not-null="true" />
            <one-to-many class="fr.upond.syndic.repo.model.common.PollingPartOwner" />
         </set>
-        <property name="isClose" column="ISCLOSE" />
+        <property name="close" column="ISCLOSE" />
    </class>
 </hibernate-mapping>

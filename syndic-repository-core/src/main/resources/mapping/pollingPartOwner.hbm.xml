@@ -14,6 +14,6 @@
 		<many-to-one name="partOwner" class="fr.upond.syndic.repo.model.user.PartOwner">
 			<column name="PARTOWNERID" not-null="true" />
 		</many-to-one>
-		<property name="isPoll" column="ISPOLL" />
+		<property name="poll" column="ISPOLL" />
 	</class>
 </hibernate-mapping>

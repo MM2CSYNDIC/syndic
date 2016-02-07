@@ -14,7 +14,7 @@ public class PollingPartOwner extends BaseObject {
 	private int id;
 	private Polling polling;
 	private PartOwner partOwner;
-	private boolean isPoll;
+	private boolean poll;
 	
 	
 	public PollingPartOwner() {
@@ -53,13 +53,13 @@ public class PollingPartOwner extends BaseObject {
 
 
 	public boolean isPoll() {
-		return isPoll;
+		return poll;
 	}
 
-
-	public void setPoll(boolean isPoll) {
-		this.isPoll = isPoll;
+	public void setPoll(boolean poll) {
+		this.poll = poll;
 	}
+
 
 
 	@Override

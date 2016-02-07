@@ -67,10 +67,12 @@
 				var btn1 = document.getElementById("adduser");
 				btn1.className= "active";
 				break;
+
+
 			case 'getformaddprovider':
-				var btn = document.getElementById("addprovider");
+				var btn = document.getElementById("listprovider");
 				btn.className= "active";
-				var btn1 = document.getElementById("addprovider");
+				var btn1 = document.getElementById("listprovider");
 				btn1.className= "active";
 				break;
 			/*
@@ -84,7 +86,7 @@
 			case 'getformaddevent':
 				var btn = document.getElementById("addeven");
 				btn.className= "active";
-				var btn1 = document.getElementById("addevent");
+				var btn1 = document.getElementById("listevent");
 				btn1.className= "active";
 				break;
 

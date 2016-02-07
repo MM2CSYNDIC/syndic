@@ -37,27 +37,31 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li id="acc" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
-              <li id="adduser"><a href="${adduserUrl}"><spring:message code="header.add.user"/></a></li>
-              <li id="addevent"><a href="${addeventUrl}"><spring:message code="header.add.event"/></a></li>
-              <li id="addprovider"><a href="${addproviderUrl}"><spring:message code="header.add.provider"/></a></li>
-              <li id="listevent" class="dropdown">
-                <a href="${listeventUrl}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evènement <span class="caret"></span></a>
+
+              <li id="adduser" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion Utilisateurs <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">actions</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Action1</a></li>
-                  <li><a href="#">Action2</a></li>
+                  <li><a  href="${adduserUrl}"><spring:message code="header.add.user"/></a></li>
+              <!--    <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>-->
+                </ul>
+              </li>
+
+
+              <li id="listevent" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion Evenements<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="${addeventUrl}"><spring:message code="header.add.event"/></a></li>
+                  <li><a href="${listeventUrl}">Liste evenements</a></li>
+               <!--   <li><a href="#">Action2</a></li>-->
                 </ul>
               </li>
               <li id="listprovider" class="dropdown">
-                <a href="${listproviderUrl}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fournisseurs <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fournisseurs<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">actions</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Action1</a></li>
-                  <li><a href="#">Action2</a></li>
+                  <li><a href="${addproviderUrl}"><spring:message code="header.add.provider"/></a></li>
+                  <li><a href="${listproviderUrl}">Liste fournisseurs</a></li>
+              <!--    <li><a href="#">Action2</a></li>-->
                 </ul>
               </li>
             </ul>

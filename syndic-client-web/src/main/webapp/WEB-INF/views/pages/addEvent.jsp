@@ -39,39 +39,27 @@
 </head>
 <body>
 
-	<div class="container">
+<div class="container">
 
-        <div class="row">
-            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-                <h3><fmt:message key="event.H3" /></h3>
-            </div>
-        </div>
+	<div class="row">
+		<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+			<h3><fmt:message key="event.H3" /></h3>
+		</div>
+	</div>
 
-		<form:form method="POST" modelAttribute="eventCommand" action="addevent.ldz">
-			<form:errors path="*" cssClass="errorblock" element="div" />
-			
-			<!-- W add list (select) -->
-			<div class="form-group row">
-				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-					<form:select class="form-control" path="typeEvent" id="typeEvent" >
-		              <option selected><spring:message code="event.Type"/></option>
-		              <option value="AG"><spring:message code="event.Type.AG"/></option>
-		              <option value="Intervention"><spring:message code="event.Type.Intervention"/></option>
-		              <option value="Incident"><spring:message code="event.Type.Incident"/></option>
-		            </form:select>
-		            <form:errors path="typeEvent" cssClass="error" />
-		        </div>
-		    </div>
-			<!-- End W-->
-			
-			<div class="form-group row">
-				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-					<spring:message code="event.Name" var="eventName" />
-					<form:input type="text" class="form-control" path="eventName"
-						id="eventName" placeholder="${eventName}" />
-					<form:errors path="eventName" cssClass="error" />
-				</div>
+	<form:form method="POST" modelAttribute="eventCommand" action="addevent.ldz">
+		<form:errors path="*" cssClass="errorblock" element="div" />
 
+		<!-- W add list (select) -->
+		<div class="form-group row">
+			<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+				<form:select class="form-control" path="typeEvent" id="typeEvent" >
+					<option selected><spring:message code="event.Type"/></option>
+					<option value="AG"><spring:message code="event.Type.AG"/></option>
+					<option value="Intervention"><spring:message code="event.Type.Intervention"/></option>
+					<option value="Incident"><spring:message code="event.Type.Incident"/></option>
+				</form:select>
+				<form:errors path="typeEvent" cssClass="error" />
 			</div>
 		</div>
 		<!-- End W-->
@@ -109,56 +97,50 @@
 				<form:input type="text" class="form-control" path="descEvent" id="descEvent" placeholder="${Sp1Event}" />
 				<form:errors path="descEvent" cssClass="error" />
 			</div>
-			
-			<!-- End specific input -->
-            
-            <!-- Select Dept -->
-            <div class="form-group row">
-				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-				    <label class="col-sm-2 control-label">ZipCode</label>
-                    <form:select path="" id="zipCode">
-                      <form:option value="NONE" label="Select"/>
-                      <form:options items="${listDept}" />
-                    </form:select>
-		        </div>
-		    </div>
-		    
-		    <!-- Dynamic Condo -->
-            <div class="form-group row">
-             <div class="checkbox" id="checkbox">
-             </div>
-            </div>
-            
-            <div id="AGform" class="form-group row">
-				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-				    <a href="" id="addNew" class="btn btn-info">+Question</a>
-					<a href="" id="remNew" class="btn btn-warning">-Question</a>
-					<br/>
-					<spring:message code="event.question" var="question" />
-					<spring:bind path="eventCommand.questions[0].questionName">
-					  <form:input type="text" class="form-control" path="${status.expression}" id="descEvent" placeholder="${question}" />
-					</spring:bind>
-					<!--form:errors path="eventCommand.questions[0]" cssClass="error" /-->
-				</div>
-			</div>
-
-			<div class="form-group row" id ="submitRow">
-				<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-					<button type="submit" class="btn btn-primary"><spring:message code="button.submit"/></button>
-				</div>
+		</div>
+		<div id="eventform2" class="form-group row">
+			<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+				<spring:message code="event.sp2" var="Sp2Event" />
+				<form:input type="text" class="form-control" path="descEvent" id="descEvent" placeholder="${Sp2Event}" />
+				<form:errors path="descEvent" cssClass="error" />
 			</div>
 		</div>
+
 		<!-- End specific input -->
 
-		<div class="form-group row" id="addinput">
-			<p>
-			</p>
-		</div>
-
-
+		<!-- Select Dept -->
 		<div class="form-group row">
 			<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-				<button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
+				<label class="col-sm-2 control-label">ZipCode</label>
+				<form:select path="" id="zipCode">
+					<form:option value="NONE" label="Select"/>
+					<form:options items="${listDept}" />
+				</form:select>
+			</div>
+		</div>
+
+		<!-- Dynamic Condo -->
+		<div class="form-group row">
+			<div class="checkbox" id="checkbox">
+			</div>
+		</div>
+
+		<div id="AGform" class="form-group row">
+			<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+				<a href="" id="addNew" class="btn btn-info">+Question</a>
+				<a href="" id="remNew" class="btn btn-warning">-Question</a>
+				<br/><br/><br/>
+				<spring:message code="event.question" var="question" />
+				<spring:bind path="eventCommand.questions[0].questionName">
+					<form:input type="text" class="form-control" path="${status.expression}" id="descEvent" placeholder="${question}" />
+				</spring:bind>
+				<!--form:errors path="eventCommand.questions[0]" cssClass="error" /-->
+			</div>
+		</div>
+
+		<div class="form-group row" id ="submitRow">
+			<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+				<button type="submit" class="btn btn-primary"><spring:message code="button.submit"/></button>
 			</div>
 		</div>
 	</form:form>
@@ -250,5 +232,3 @@
 </script>
 
 </html>
-
-

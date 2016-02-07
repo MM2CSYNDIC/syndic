@@ -11,7 +11,7 @@ public class Polling extends BaseObject {
 	private int id;
 	private Set<Question> questions;
 	private Set<PollingPartOwner> pollingPartOwner = new HashSet<PollingPartOwner>(0);
-	private boolean isClose;
+	private boolean close;
 	
 	
 	public Polling() {
@@ -45,11 +45,11 @@ public class Polling extends BaseObject {
 	}
 
 	public boolean isClose() {
-		return isClose;
+		return close;
 	}
 
 	public void setClose(boolean isClose) {
-		this.isClose = isClose;
+		this.close = isClose;
 	}
 
 	@Override
