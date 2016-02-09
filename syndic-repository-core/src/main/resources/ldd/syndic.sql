@@ -149,15 +149,6 @@ CREATE TABLE POLLING (
   CONSTRAINT FK_POLLING FOREIGN KEY (ID) REFERENCES AGEVENT (eventName)
 );
 
-INSERT INTO POLLING (QUESTION,POUR,CONTRE,ABSTENTION)
-VALUES ('Intervention de la société RavBat pour l''installation des BAL Devis : 5800 euros HT',10,7,4);
-
-INSERT INTO POLLING (QUESTION,POUR,CONTRE,ABSTENTION)
-VALUES ('Election du nouveau Conseil Syndical : M. Bob Sponge Mme. Alice Merveille',12,3,6);
-
-INSERT INTO POLLING (QUESTION,POUR,CONTRE,ABSTENTION)
-VALUES ('Bilan prévisionnel pour la période jan. 2016 - jan. 2017',14,2,5);
-
 INSERT INTO USERS(username,password,enabled)
 VALUES ('alex','123456', true);
 
