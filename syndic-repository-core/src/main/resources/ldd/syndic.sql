@@ -154,3 +154,9 @@ VALUES ('alex','123456', true);
 
 INSERT INTO USERROLE (username, role)
 VALUES ('alex', 'ROLE_USER');
+
+INSERT INTO USERS(username,password,enabled)
+VALUES ('lyes','lyes', true);
+
+INSERT INTO USERROLE (username, role)
+VALUES ('lyes', 'ROLE_ADMIN');

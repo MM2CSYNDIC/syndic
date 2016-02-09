@@ -2,19 +2,19 @@ package fr.upond.syndic.service.common;
 
 import java.util.List;
 
-import fr.upond.syndic.repo.model.BaseObject;
-import fr.upond.syndic.repo.model.common.Condo;
-import fr.upond.syndic.repo.model.common.Polling;
-import fr.upond.syndic.repo.model.common.Provider;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.upond.syndic.repo.model.BaseObject;
+import fr.upond.syndic.repo.model.common.Condo;
+import fr.upond.syndic.repo.model.common.Polling;
+import fr.upond.syndic.repo.model.common.Provider;
 import fr.upond.syndic.repo.model.event.AgEvent;
 import fr.upond.syndic.repo.model.event.Event;
+import fr.upond.syndic.repo.model.user.PartOwner;
 import fr.upond.syndic.repository.IDao;
-import fr.upond.syndic.security.model.User;
 import fr.upond.syndic.security.model.UserRole;
 import fr.upond.syndic.service.IManager;
 
@@ -45,9 +45,9 @@ public class Manager implements IManager<BaseObject> {
 		
 		logger.info("== Insert "+obj.getClass()+" ==");
 		
-		if(obj.getClass().equals(User.class)) {
+		if (obj.getClass().equals(PartOwner.class)) {
 			this.dao.put(obj);
-			for(UserRole ur : ((User)obj).getUserRole()) {
+			for(UserRole ur : ((PartOwner)obj).getUsers().getUserRole()) {
 				this.dao.put(ur);
 			}
 		}

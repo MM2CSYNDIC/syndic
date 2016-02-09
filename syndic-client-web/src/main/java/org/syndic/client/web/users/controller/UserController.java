@@ -1,7 +1,9 @@
 
 package org.syndic.client.web.users.controller;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.syndic.client.web.command.UserCommand;
 import org.syndic.client.web.validator.UserValidator;
+
+import fr.upond.syndic.repo.model.common.Address;
+import fr.upond.syndic.repo.model.user.PartOwner;
+import fr.upond.syndic.security.model.User;
+import fr.upond.syndic.security.model.UserRole;
+import fr.upond.syndic.service.IManager;
 
 
 /**
@@ -26,8 +34,8 @@ public class UserController {
 
 	private static final Log logger = LogFactory.getLog(UserController.class);
 
-	//@Autowired
-	//private IManager<Object> manager;
+	@Autowired
+	private IManager<Object> manager;
 	@Autowired
 	private UserValidator userValidator;
 
@@ -46,6 +54,38 @@ public class UserController {
 		if(result.hasErrors()) {
 			return "addUserPage";
 		} else {
+			if(userCommand.getTypeUser().equals("ROLE_OWNER")) {
+				
+				PartOwner partOwner = new PartOwner();
+				Address address = new Address();
+				User user = new User(userCommand.getUserName(), userCommand.getPassWord(), true);
+				UserRole userRole = new UserRole(userCommand.getTypeUser());
+				Set<UserRole> set = new HashSet<UserRole>(0);
+				
+				userRole.setUser(user);
+				set.add(userRole);
+				user.setUserRole(set);
+				
+				
+				address.setNumAdress(userCommand.getNumAddress());
+				address.setTypeAddress(userCommand.getTypeAddress());
+				address.setStreet(userCommand.getStreet());
+				address.setZipCode(userCommand.getZipCode());
+				address.setCity(userCommand.getCity());
+				address.setCountry(userCommand.getCountry());
+				address.setPlaceName(userCommand.getPlaceName());
+				
+				partOwner.setType(userCommand.getTypeUser());
+				partOwner.setFirstName(userCommand.getFirstName());
+				partOwner.setLastName(userCommand.getLastName());
+				partOwner.setPhone(userCommand.getPhone());
+				partOwner.setMobile(userCommand.getMobile());
+				partOwner.setEmail(userCommand.getEmail());
+				partOwner.setAddress(address);
+				partOwner.setUsers(user);
+				
+				this.manager.add(partOwner);
+			}
 			return "welcomePage";
 		}
 	}

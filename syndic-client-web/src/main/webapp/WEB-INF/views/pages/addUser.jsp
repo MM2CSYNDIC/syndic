@@ -63,11 +63,17 @@
      </div>
  </div>
  <div class="form-group row">
-         <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-             <spring:message code="user.typeUser" var="usertypeUser" />
-             <form:input type="text" class="form-control" path="typeUser" id="UserType" placeholder="${usertypeUser}"/>
-             <form:errors path="typeUser" cssClass="error"/>
-         </div>
+			<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+				<form:select class="form-control" path="typeUser" id="UserType" >
+					<option selected><spring:message code="user.typeUser" /></option>
+					<option value="ROLE_USER"><spring:message code="user.roleUser"/></option>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+					  <option value="ROLE_OWNER"><spring:message code="user.roleOwner"/></option>
+					  <option value="ROLE_ADMIN"><spring:message code="user.roleAdmin"/></option>
+					</sec:authorize>
+				</form:select>
+				<form:errors path="typeUser" cssClass="error" />
+			</div>
  </div>
  <div class="form-group row">
          <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">

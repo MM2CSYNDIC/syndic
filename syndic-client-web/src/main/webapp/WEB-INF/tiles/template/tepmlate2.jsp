@@ -37,7 +37,7 @@
                 </td>
             </tr>
             <tr id="id1">
-               <sec:authorize access="hasRole('ROLE_USER')">
+               <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <td width="9%" height="100%" id="id1">
                     <tiles:insertAttribute name="menu" />
                 </td>

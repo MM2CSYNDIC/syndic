@@ -4,7 +4,6 @@ import java.util.Set;
 
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Polling;
-import fr.upond.syndic.repo.model.common.Question;
 
 /**
  * 
