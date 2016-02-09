@@ -5,8 +5,10 @@
 <!-- @author LYES KHERBICHE -->
 <hibernate-mapping>
    <class name="fr.upond.syndic.repo.model.common.Polling" table="POLLING">
-		<id name="id" type="int" column="ID">
-         <generator class="native"/>
+		<id name="id" type="String" column="ID">
+         <generator class="foreign">
+                <param name="property">AGEVENT</param>
+         </generator>
         </id>
 		<set name="questions" table="QUESTION" cascade="all">
            <key column="IDPOLL" />
@@ -16,6 +18,7 @@
            <key column="POLLINGID" not-null="true" />
            <one-to-many class="fr.upond.syndic.repo.model.common.PollingPartOwner" />
         </set>
+        <one-to-one name="agEvent" class="fr.upond.syndic.repo.model.event.AgEvent" constrained="true"></one-to-one>
         <property name="close" column="ISCLOSE" />
    </class>
 </hibernate-mapping>

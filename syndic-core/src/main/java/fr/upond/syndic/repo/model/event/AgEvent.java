@@ -3,6 +3,7 @@ package fr.upond.syndic.repo.model.event;
 import java.util.Set;
 
 import fr.upond.syndic.repo.model.common.Condo;
+import fr.upond.syndic.repo.model.common.Polling;
 import fr.upond.syndic.repo.model.common.Question;
 
 /**
@@ -14,6 +15,7 @@ import fr.upond.syndic.repo.model.common.Question;
 public class AgEvent extends Event {
 	
 	private Set<Question> questions;
+	private Polling polling;
 
 	public AgEvent() {
 	}
@@ -29,6 +31,14 @@ public class AgEvent extends Event {
 
 	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
+	}
+
+	public Polling getPolling() {
+		return polling;
+	}
+
+	public void setPolling(Polling polling) {
+		this.polling = polling;
 	}
 	
 	
