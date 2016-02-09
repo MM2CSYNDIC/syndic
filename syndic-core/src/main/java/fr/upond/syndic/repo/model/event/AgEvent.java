@@ -14,23 +14,14 @@ import fr.upond.syndic.repo.model.common.Question;
 @SuppressWarnings("serial")
 public class AgEvent extends Event {
 	
-	private Set<Question> questions;
+	//private Set<Question> questions;
 	private Polling polling;
 
 	public AgEvent() {
 	}
 
-	public AgEvent(String eventName, String typeEvent, String dateEvent, String descEvent, Set<Condo> condo, Set<Question> questions) {
+	public AgEvent(String eventName, String typeEvent, String dateEvent, String descEvent, Set<Condo> condo) {
 		super(eventName, typeEvent, dateEvent, descEvent, condo);
-		this.questions = questions;
-	}
-
-	public Set<Question> getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(Set<Question> questions) {
-		this.questions = questions;
 	}
 
 	public Polling getPolling() {

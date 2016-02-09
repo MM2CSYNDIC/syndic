@@ -111,7 +111,7 @@ public class EventController {
 		
 		if(eventCommand.getTypeEvent().equals("AG")) {
 			logger.info("Event Type AG");
-			agEvent = new AgEvent(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null,null);
+			agEvent = new AgEvent(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null);
 			listQuestion = new HashSet<Question>(0);
 			polling = new Polling();
 			for(Object obj: eventCommand.getQuestions()) {
@@ -120,7 +120,7 @@ public class EventController {
 					listQuestion.add(new Question(((QuestionCommand)obj).getQuestionName()));
 				}
 			}
-			agEvent.setQuestions(listQuestion);
+			//agEvent.setQuestions(listQuestion);
 			polling.setQuestions(listQuestion);
 			this.manager.add(polling);
 			this.manager.add(agEvent);

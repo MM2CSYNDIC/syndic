@@ -5,7 +5,7 @@
 <!-- @author LYES KHERBICHE -->
 <hibernate-mapping>
    <class name="fr.upond.syndic.repo.model.common.Polling" table="POLLING">
-		<id name="id" type="String" column="ID">
+		<id name="id" column="ID">
          <generator class="foreign">
                 <param name="property">AGEVENT</param>
          </generator>
