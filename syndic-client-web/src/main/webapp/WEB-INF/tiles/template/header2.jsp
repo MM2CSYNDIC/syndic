@@ -38,6 +38,8 @@
             <ul class="nav navbar-nav">
               <li id="acc" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
 
+          <sec:authorize access="hasRole('ROLE_ADMIN')">
+
               <li id="adduser" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion Utilisateurs <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -46,6 +48,19 @@
                   <li><a href="#"></a></li>-->
                 </ul>
               </li>
+          </sec:authorize>
+
+              <sec:authorize access="hasRole('ROLE_OWNER')">
+
+                <li id="adduser" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion Utilisateurs <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a  href="${adduserUrl}"><spring:message code="header.add.user"/></a></li>
+                    <!--    <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>-->
+                  </ul>
+                </li>
+              </sec:authorize>
 
 
               <li id="listevent" class="dropdown">
@@ -56,6 +71,7 @@
                <!--   <li><a href="#">Action2</a></li>-->
                 </ul>
               </li>
+            <sec:authorize access="hasRole('ROLE_ADMIN')">
               <li id="listprovider" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fournisseurs<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -64,6 +80,7 @@
               <!--    <li><a href="#">Action2</a></li>-->
                 </ul>
               </li>
+            </sec:authorize>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li>
