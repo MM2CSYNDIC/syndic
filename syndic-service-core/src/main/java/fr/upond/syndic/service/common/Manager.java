@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Polling;
+import fr.upond.syndic.repo.model.common.PollingPartOwner;
 import fr.upond.syndic.repo.model.common.Provider;
 import fr.upond.syndic.repo.model.event.AgEvent;
 import fr.upond.syndic.repo.model.event.Event;
@@ -67,6 +68,9 @@ public class Manager implements IManager<BaseObject> {
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(Provider.class)) {
+			this.dao.put(obj);
+		}
+		if(obj.getClass().equals(PollingPartOwner.class)) {
 			this.dao.put(obj);
 		}
 		

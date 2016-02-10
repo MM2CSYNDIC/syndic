@@ -7,7 +7,7 @@
    <class name="fr.upond.syndic.repo.model.common.Polling" table="POLLING">
 		<id name="id" column="ID">
          <generator class="foreign">
-                <param name="property">AGEVENT</param>
+                <param name="property">agEvent</param>
          </generator>
         </id>
 		<set name="questions" table="QUESTION" cascade="all">

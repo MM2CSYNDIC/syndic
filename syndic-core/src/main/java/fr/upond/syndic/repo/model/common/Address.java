@@ -1,5 +1,8 @@
 package fr.upond.syndic.repo.model.common;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import fr.upond.syndic.repo.model.BaseObject;
 /**
  * 
@@ -8,6 +11,8 @@ import fr.upond.syndic.repo.model.BaseObject;
  */
 @SuppressWarnings("serial")
 public class Address extends BaseObject {
+	
+	private static final Log logger = LogFactory.getLog(Address.class);
 	
 	private int id;
 	private String numAdress;
@@ -82,13 +87,46 @@ public class Address extends BaseObject {
 		this.placeName = placeName;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		return "";
 	}
 
+	/**
+	 * 
+	 * @param o refers the CONDO Address
+	 * @return
+	 */
 	@Override
 	public boolean equals(Object o) {
+		
+		if (this == o) 
+			return true;
+		
+	    if (o == null || getClass() != o.getClass()) 
+	    	return false;
+	    
+	    Address address = (Address) o;
+	    String str1 = typeAddress.trim()+street.trim()+city.trim()+zipCode.trim()+country.trim();
+	    String str2 = address.getTypeAddress().trim()+address.getStreet().trim()+address.getCity().trim()
+	    		+address.getZipCode().trim()+address.getCountry().trim();
+	    if(str1.equalsIgnoreCase(str2)) {
+	    	if(address.getNumAdress().trim().contains(",")) {
+	    		String[] output = address.getNumAdress().split(",\\s");
+	    		logger.info("output[0] "+output[0]+" output[1] "+output[1]);
+	    		if(Integer.parseInt(numAdress.trim()) >= Integer.parseInt(output[0]) && Integer.parseInt(numAdress.trim()) <= Integer.parseInt(output[1])) {
+	    			return true;
+	    		}
+	    	} else { // Not a composite Num Address
+	    		if(Integer.parseInt(numAdress.trim()) == Integer.parseInt(address.getNumAdress().trim())) {
+	    			return true ;
+	    		}
+	    	}
+	    }
 		return false;
 	}
 

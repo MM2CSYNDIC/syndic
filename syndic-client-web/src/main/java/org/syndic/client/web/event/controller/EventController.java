@@ -19,11 +19,14 @@ import org.syndic.client.web.command.EventCommand;
 import org.syndic.client.web.command.QuestionCommand;
 
 import fr.upond.syndic.repo.model.BaseObject;
+import fr.upond.syndic.repo.model.common.Address;
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Polling;
+import fr.upond.syndic.repo.model.common.PollingPartOwner;
 import fr.upond.syndic.repo.model.common.Question;
 import fr.upond.syndic.repo.model.event.AgEvent;
 import fr.upond.syndic.repo.model.event.Event;
+import fr.upond.syndic.repo.model.user.PartOwner;
 import fr.upond.syndic.service.IManager;
 
 /**
@@ -101,10 +104,29 @@ public class EventController {
 		Set<Question> listQuestion;
 		Set<Condo> setCondo = new HashSet<Condo>(0);
 		Polling polling;
+		Condo testCondo = null;//
+		Address testAddress;//
+		List<PartOwner> listPartOwner = new ArrayList<PartOwner>(); 
+		Set<PollingPartOwner> setPollingPartOwner = new HashSet<PollingPartOwner>(0);
 		
 		this.manager.get(new Condo());
 		for (BaseObject bo : this.manager.get(new Condo())) {
-			setCondo.add((Condo) bo);
+			if (((Condo) bo).getId() == 4 ) {
+				setCondo.add((Condo) bo);
+				testCondo = (Condo) bo;//
+			}
+		}
+		
+		testAddress = testCondo.getAddress();//
+		logger.info("address "+testAddress.getId());//
+		
+		for(BaseObject bo : this.manager.get(new PartOwner())) { //
+			Address ad = ((PartOwner)bo).getAddress();
+			logger.info("Test address id: "+ad.getId());
+			if(ad.equals(testAddress)) {
+				logger.info("Test address: True");
+				listPartOwner.add((PartOwner)bo);
+			} 
 		}
 		
 		Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null);
@@ -120,12 +142,25 @@ public class EventController {
 					listQuestion.add(new Question(((QuestionCommand)obj).getQuestionName()));
 				}
 			}
-			//agEvent.setQuestions(listQuestion);
+			polling.setClose(false);
+			polling.setAgEvent(agEvent);
+			polling.setId(agEvent.getEventName());
 			polling.setQuestions(listQuestion);
-			this.manager.add(polling);
+			PollingPartOwner ppo = new PollingPartOwner ();
+			ppo.setPolling(polling);
+			ppo.setPartOwner(listPartOwner.get(0));
+			ppo.setPoll(false);
+			setPollingPartOwner.add(ppo);
+			polling.setPollingPartOwner(setPollingPartOwner);
+			listPartOwner.get(0).setPollingPartOwner(setPollingPartOwner);
+			
 			this.manager.add(agEvent);
+			this.manager.add(polling);
+			this.manager.upDate(listPartOwner.get(0));
+			this.manager.add(ppo);
 			agEvent.setCondo(setCondo);
 			this.manager.upDate(agEvent);
+			
 		} else {
             if(eventCommand.getTypeEvent().equals("Intervention")) {
             	logger.info("Event Type Intervention");
@@ -138,6 +173,7 @@ public class EventController {
 				}
 			}
 		}
+		
 		return "welcomePage";
 	}
 	
