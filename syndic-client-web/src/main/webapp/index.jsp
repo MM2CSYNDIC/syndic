@@ -164,6 +164,7 @@
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
         <div class="col-lg-4">
             <img id="bou" class="img-circle"
                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Add_user_icon_(blue).svg/895px-Add_user_icon_(blue).svg.png" alt="" width="140" height="140">
@@ -171,6 +172,19 @@
             <p width="240" height="340">Le lien ci-dessous vous permet d'ajouter des utilisateurs (copropriétatire, gardien, locataire)...</p>
             <p><a class="btn btn-default" href="getformadduser.ldz" role="button">Créer un nouvel utilisateur &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
+    </sec:authorize>
+        <!--Ajouter en plus pas sur-->
+        <sec:authorize access="hasRole('ROLE_OWNER')">
+            <div class="col-lg-4">
+                <img id="bou" class="img-circle"
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Add_user_icon_(blue).svg/895px-Add_user_icon_(blue).svg.png" alt="" width="140" height="140">
+                <h2>Add User</h2>
+                <p width="240" height="340">Le lien ci-dessous vous permet d'ajouter des utilisateurs (copropriétatire, gardien, locataire)...</p>
+                <p><a class="btn btn-default" href="getformadduser.ldz" role="button">Créer un nouvel utilisateur &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </sec:authorize>
+
+
         <div class="col-lg-4">
             <img id="bou" class="img-circle" src="https://software.intel.com/sites/all/modules/custom/intel_events/images/icon_add_event.png" alt="" width="140" height="140">
             <h2>Add Event</h2>
@@ -184,13 +198,27 @@
             </p>
             <p><a class="btn btn-default" href="sign.ldz" role="button">Se connecter &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
         <div class="col-lg-4"><!--http://kingportfoliostrategies.ca/wp-content/uploads/2013/06/loginButton.jpg-->
             <img id="bou" class="img-circle" src="http://www.lincolnwoodil.org/wp-content/uploads/2014/11/Poling-Location-Icon.png" alt="" width="140" height="140">
             <h2>Vote en AG</h2>
-            <p width="240" height="340">Faites vos votes pour les porpositions de l'odre du jour
+            <p width="240" height="340">Faites vos votes pour les propositions de l'odre du jour
             </p>
             <p><a class="btn btn-default" href="getformpolling.ldz" role="button">Voter &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
+    </sec:authorize>
+<!--Ajouter en plus pas sur-->
+        <sec:authorize access="hasRole('ROLE_OWNER')">
+            <div class="col-lg-4"><!--http://kingportfoliostrategies.ca/wp-content/uploads/2013/06/loginButton.jpg-->
+                <img id="bou" class="img-circle" src="http://www.lincolnwoodil.org/wp-content/uploads/2014/11/Poling-Location-Icon.png" alt="" width="140" height="140">
+                <h2>Vote en AG</h2>
+                <p width="240" height="340">Faites vos votes pour les porpositions de l'odre du jour
+                </p>
+                <p><a class="btn btn-default" href="getformpolling.ldz" role="button">Voter &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </sec:authorize>
+
+
     </div><!-- /.row -->
 
 
