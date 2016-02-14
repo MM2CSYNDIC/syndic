@@ -60,7 +60,7 @@ public class HomeControllerTest {
 	
 	@Test
 	public void testGetFormAddCondo () throws Exception {
-		mockMvc.perform(get("/getformaddcondo"))
+		mockMvc.perform(get("/condo/add"))
 			                .andExpect(status().isOk())
 			                .andExpect(model().attributeDoesNotExist("condoCommands"))
 			                .andExpect(model().attributeExists("condoCommand"))

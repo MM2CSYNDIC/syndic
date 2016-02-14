@@ -41,17 +41,14 @@
               <h3><fmt:message key="listevent.H3" /></h3>
           </div>
       </div>
-      <div id='calendar'></div>
-
-      <div class="form-group row">
-      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+      <div id='calendarr'></div>
+        
         <table class="table1">
+         <thead>
           <tr>
-            <th>Nom event</th><th>Type event</th><th>Date event</th><th>Description event</th><th>Modifier</th><th>Supprimer</th>
+            <th>Nom event</th><th>Type event</th><th>Date event</th><th>Description event</th><th>Action</th>
           </tr>
-
-
-
+         </thead>
           <c:if test="${listevent != null}">
            <c:forEach var="entry" items="${listevent}">
             <c:if test="${entry != null}">
@@ -60,17 +57,18 @@
               <td>${entry.getTypeEvent()}</td>
               <td>${entry.getDateEvent()}</td>
               <td>${entry.getDescEvent()}</td>
-              <td><a href="#" ><img width="40" height="40" src="<c:url value="http://syndicapp.alwaysdata.net/images/crayon.png" />"></a></td>
-              <td><a href="delevent.ldz?eventId=${entry.getEventName()}" ><img width="40" height="40" src="http://syndicapp.alwaysdata.net/images/erreur.png"/></a></td>
-              <td><a href="eventbuilding.ldz?eventId=${entry.getEventName()}">Affect</a></td>
+              <td>
+			    <spring:url value="/events/${entry.getEventName()}/delete.ldz" var="deleteUrl" /> 
+			    <spring:url value="/events/${entry.getEventName()}/update.ldz" var="updateUrl" />
+			    <button class="btn btn-primary" onclick="location.href='${updateUrl}'">Update</button>
+			    <button class="btn btn-danger" onclick="location.href='${deleteUrl}'">Delete</button>
+			  </td>
              </tr>
             </c:if>
            </c:forEach>
           </c:if>
 
         </table>
-      </div>
-    </div>
   </div>
 
 </body>

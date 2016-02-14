@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.AutoPopulatingList;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,10 +61,10 @@ public class EventController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/getformaddevent", method = RequestMethod.GET)
+	@RequestMapping(value = "/event/add", method = RequestMethod.GET)
 	public String getFormAddUser(ModelMap model) {
 		
-		logger.info("== URI: /getformaddevent ==");
+		logger.info("== URI: /event/add ==");
 		List<BaseObject> listCondo = this.manager.get(new Condo());
 		List<String> listDept = new ArrayList<String>(0);
 		for(BaseObject bo : listCondo) {
@@ -95,10 +96,10 @@ public class EventController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/addevent", method = RequestMethod.POST)
+	@RequestMapping(value = "/event/add", method = RequestMethod.POST)
 	public String addEvent(@ModelAttribute("eventCommand") EventCommand eventCommand) {
 		
-		logger.info("== URI: /addevent ==");
+		logger.info("== URI: /event/add ==");
 		
 		AgEvent agEvent;
 		Set<Question> listQuestion;
@@ -182,9 +183,9 @@ public class EventController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/listevent", method = RequestMethod.GET)
+	@RequestMapping(value = "/event/list", method = RequestMethod.GET)
 	public String listEvent(ModelMap model) {
-		logger.info("== URI: /listevent ==");
+		logger.info("== URI: /event/list ==");
 		String eventFormatJSON = "";
 
 		for (Object event : this.manager.get(new Event()) ) {
@@ -219,17 +220,29 @@ public class EventController {
 	
 	/**
 	 * <p>Called when the user click delete event</p>
-	 * @param eventId
+	 * @param id: The Id of Event
 	 * @return
 	 */
-	@RequestMapping(value = "/delevent", method = RequestMethod.GET)
-	public String deleteEvent (@RequestParam String eventId) {
-		logger.info("== URI: /delevent ==");
-		Event event = new Event();
-		event.setEventName(eventId);
-		this.manager.delete(event);
+	@RequestMapping(value = "/events/{id}/delete", method = RequestMethod.GET)
+	public String deleteEvent (@PathVariable("id") String id) {
+		logger.info("== URI: /events/{id}/delete == "+id);
+		/*Event event = new Event();
+		event.setEventName(id);
+		this.manager.delete(event);*/
 		return "listEventPage";
 	}
+	
+	/**
+	 * 
+	 * @param id: The Id of Event
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/events/{id}/update", method = RequestMethod.GET)
+	public String updateEventForm(@PathVariable("id") String id, ModelMap model) {
+		logger.info("== URI: /events/{id}/update == "+id);
+		return "listEventPage";
+		}
 	
 	/**
 	 * <p>Called when the user click polling</p>

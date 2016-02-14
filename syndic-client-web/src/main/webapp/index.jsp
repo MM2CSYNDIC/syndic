@@ -189,7 +189,7 @@
             <img id="bou" class="img-circle" src="https://software.intel.com/sites/all/modules/custom/intel_events/images/icon_add_event.png" alt="" width="140" height="140">
             <h2>Add Event</h2>
             <p width="240" height="340">Le lien ci-dessous vous permet de créer de nouveaux événements (dont les assemblées géérales)...</p>
-            <p><a class="btn btn-default" href="getformaddevent.ldz" role="button">Créer un nouvel événement &raquo;</a></p>
+            <p><a class="btn btn-default" href="event/add.ldz" role="button">Créer un nouvel événement &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4"><!--http://kingportfoliostrategies.ca/wp-content/uploads/2013/06/loginButton.jpg-->
             <img id="bou" class="img-circle" src="http://www.dsmclub.com/repair/images/password-icon.png.gif?1449705600034" alt="" width="140" height="140">

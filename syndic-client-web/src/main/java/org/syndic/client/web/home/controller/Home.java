@@ -94,14 +94,14 @@ public class Home {
 	}
 
 
-	@RequestMapping(value = "/getformaddcondo", method = RequestMethod.GET)
+	@RequestMapping(value = "/condo/add", method = RequestMethod.GET)
 	public String getFormAddCondo(Map<String,Object> model) {
 		logger.info("== uri: /getformaddcondo ==");
 		model.put("condoCommand", new CondoCommand());
 		return "addCondoPage";
 	}
 	
-	@RequestMapping(value = "/addcondo", method = RequestMethod.POST)
+	@RequestMapping(value = "/condo/add", method = RequestMethod.POST)
 	public String addCondo(@ModelAttribute("condoCommand") CondoCommand condoCommand) {
 		logger.info("== uri: /addcondo ==");
 		

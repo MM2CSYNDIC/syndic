@@ -47,7 +47,7 @@
 		</div>
 	</div>
 
-	<form:form method="POST" modelAttribute="eventCommand" action="addevent.ldz">
+	<form:form method="POST" modelAttribute="eventCommand" action="/event/add.ldz">
 		<form:errors path="*" cssClass="errorblock" element="div" />
 
 		<!-- W add list (select) -->

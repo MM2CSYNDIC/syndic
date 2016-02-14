@@ -37,14 +37,14 @@
                 </td>
             </tr>
             <tr id="id1">
-               <sec:authorize access="hasRole('ROLE_ADMIN')">
+               <!--sec:authorize access="hasRole('ROLE_ADMIN')"-->
                 <td width="9%" height="100%" id="id1">
                     <tiles:insertAttribute name="menu" />
                 </td>
                 <td width="100%" height="100%" align="center" id="id1">
                     <tiles:insertAttribute name="body" />
                 </td>
-               </sec:authorize>
+               <!--/sec:authorize-->
             </tr>
             <tr id="id1">
                 <td height="1%" width="100%" colspan="2" id="id1">

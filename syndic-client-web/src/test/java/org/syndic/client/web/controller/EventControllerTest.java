@@ -59,7 +59,7 @@ public class EventControllerTest {
 	
 	@Test
 	public void testGetFormAddUser () throws Exception {
-		mockMvc.perform(get("/getformaddevent"))
+		mockMvc.perform(get("/event/add"))
 			                .andExpect(status().isOk())
 			                .andExpect(view().name("addEventPage"));
 	}
@@ -69,7 +69,7 @@ public class EventControllerTest {
 		final Event event1 = Mockito.mock(Event.class);
 		List<Object> expectedEvent = Arrays.asList(event1);
 		when(manager.get(new Event())).thenReturn(expectedEvent);
-		mockMvc.perform(get("/listevent"))
+		mockMvc.perform(get("/event/list"))
 			                .andExpect(status().isOk())
 			                //.andExpect(model().attribute("listevent", expectedEvent))
 			                .andExpect(model().attributeDoesNotExist("listevents"))
