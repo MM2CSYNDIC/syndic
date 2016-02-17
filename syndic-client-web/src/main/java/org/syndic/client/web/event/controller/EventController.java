@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.syndic.client.web.command.AddressCommand;
 import org.syndic.client.web.command.EventCommand;
 import org.syndic.client.web.command.QuestionCommand;
 
@@ -53,6 +54,7 @@ public class EventController {
     public EventCommand getEventCommand() {
 		EventCommand eventCommand = new EventCommand();
 	    eventCommand.setQuestions(new AutoPopulatingList(QuestionCommand.class));
+	    eventCommand.setCondoId(new AutoPopulatingList(AddressCommand.class));
 		return eventCommand;
     }
 	
@@ -86,8 +88,31 @@ public class EventController {
 	 */
 	@RequestMapping(method = RequestMethod.GET, value="/appendQuestionView")
 	public String appendQuestionField(@RequestParam Integer fieldId, ModelMap model) {	
+		logger.info("/appendQuestionView");
 		model.addAttribute("questionNumber", fieldId);
 		return "addQuestionPage";
+	}
+	
+	/**
+	 * <p>Called when the user Select Department</p>
+	 * @param fieldId
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(method = RequestMethod.GET, value="/appendAddressView")
+	public String appendAddressField(@RequestParam int fieldId, @RequestParam int fieldIndex, ModelMap model) {
+		logger.info("appendAddressView "+ fieldId +" "+ fieldIndex);
+		List<BaseObject> listCondo = this.manager.get(new Condo());
+		BaseObject condoSelected = null ;
+		for(BaseObject bo : listCondo) {
+			if (((Condo)bo).getId() == fieldId) {
+				condoSelected = bo;
+				logger.info("appendAddressView condoSelected = bo");
+			}
+		}
+		model.addAttribute("number", fieldIndex);
+		model.addAttribute("condoSelected", condoSelected);
+		return "addAddressPage";
 	}
 	
 	/**
@@ -242,7 +267,7 @@ public class EventController {
 	public String updateEventForm(@PathVariable("id") String id, ModelMap model) {
 		logger.info("== URI: /events/{id}/update == "+id);
 		return "listEventPage";
-		}
+	}
 	
 	/**
 	 * <p>Called when the user click polling</p>
