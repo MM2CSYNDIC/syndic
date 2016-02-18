@@ -111,6 +111,9 @@
 				</form:select>
 			</div>
 		</div>
+		
+		<input type="hidden" id="zip" value='${listCondo.get(1).getAddress().getZipCode()}'/>
+		<c:set var="abc" value="${listCondo}"/>
 
 		<!-- Dynamic Condo -->
 		<div class="form-group row">
@@ -172,7 +175,7 @@
 			 </c:if>
 			</c:forEach>
 			</c:if>
-			$('.checkbox').append(htmls);
+			$('.checkbox').append(html);
 		});
 	});
 </script>

@@ -39,8 +39,13 @@
     
 	$(function() {
 		var i = $('[name^="pp_new_"]').size() + 1;
-		var modelAttributeValue = "${listCondo}";
 		$('#addNew').live('click', function() {
+			var something = '${abc}';
+			var jsonBoms = $('#zip');
+			var jsonBom = $('#zip').val();
+			var jsonBomss = jsonBom[0];
+			var json_obj = $.parseJSON(jsonBom);
+		    var person = JSON.parse(jsonBom);
 			i++;
 			$.get("/syndic/appendQuestionView.ldz", { fieldId: i},
 					function(data){
