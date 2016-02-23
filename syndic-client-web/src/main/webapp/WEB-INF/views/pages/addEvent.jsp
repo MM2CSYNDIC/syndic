@@ -40,7 +40,7 @@
 		</div>
 	</div>
 
-	<form:form method="POST" modelAttribute="eventCommand" action="/event/add.ldz">
+	<form:form method="POST" modelAttribute="eventCommand" action="/syndic/event/add.ldz">
 		<form:errors path="*" cssClass="errorblock" element="div" />
 
 		<!-- W add list (select) -->
@@ -113,7 +113,7 @@
 		</div>
 		
 		<input type="hidden" id="zip" value='${listCondo.get(1).getAddress().getZipCode()}'/>
-		<c:set var="abc" value="${listCondo}"/>
+		<input type="hidden" id="condoJson" value='${condoJson}'/>
 
 		<!-- Dynamic Condo -->
 		<div class="form-group row">
@@ -144,40 +144,4 @@
 </div>
 
 </body>
-<script>
-	
-
-
-	$(function() {
-		$('#zipCode').change(function() {
-			var html = '';
-			var htmls = '';
-			var index = 0;
-			var zipCodeElement = document.getElementById("zipCode");
-			var zipCode = zipCodeElement.options[zipCodeElement.selectedIndex].text;
-
-			<c:if test="${listCondo != null}">
-			<c:forEach var="entry" items="${listCondo}">
-			 <c:if test="${entry != null}">
-			  if (${entry.getAddress().getZipCode()} == zipCode ) {
-				  $.get("<%=request.getContextPath()%>/appendAddressView.ldz", { fieldId: ${entry.getId()}, fieldIndex: index },
-							function(data){
-								htmls += data;
-							});
-				  index++;
-				  html += '<label id="checkboxlabel">' +
-					'<input type="checkbox" value="${entry.getId()}"> ${entry.getAddress().getNumAdress()} ${entry.getAddress().getTypeAddress()} ${entry.getAddress().getStreet()}'+
-					'</label>';
-			  }
-			  if (zipCode == 'Select' ) {
-				$('#checkboxlabel').remove();
-			  }
-			 </c:if>
-			</c:forEach>
-			</c:if>
-			$('.checkbox').append(html);
-		});
-	});
-</script>
-
 </html>

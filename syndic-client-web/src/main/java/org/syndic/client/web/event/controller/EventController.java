@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.AddressCommand;
 import org.syndic.client.web.command.EventCommand;
 import org.syndic.client.web.command.QuestionCommand;
+import org.syndic.client.web.helper.EventHelper;
 
 import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Address;
@@ -75,6 +76,7 @@ public class EventController {
 				logger.info("Zip Code: "+((Condo) bo).getAddress().getZipCode());
 			}
 		}
+		model.put("condoJson",EventHelper.condoToJson(listCondo));
 		model.put("listCondo", listCondo);
 		model.put("listDept", listDept);
 		return "addEventPage";
@@ -125,7 +127,13 @@ public class EventController {
 	public String addEvent(@ModelAttribute("eventCommand") EventCommand eventCommand) {
 		
 		logger.info("== URI: /event/add ==");
-		
+		for(Object obj: eventCommand.getCondoId()) {
+			if(((AddressCommand)obj).getId() != null) {
+				logger.info("Condo Id  "+((AddressCommand)obj).getId());
+				
+			}
+		}
+		/*
 		AgEvent agEvent;
 		Set<Question> listQuestion;
 		Set<Condo> setCondo = new HashSet<Condo>(0);
@@ -198,7 +206,7 @@ public class EventController {
 					this.manager.upDate(event);
 				}
 			}
-		}
+		}*/
 		
 		return "welcomePage";
 	}

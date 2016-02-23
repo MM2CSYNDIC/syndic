@@ -36,16 +36,12 @@
 		});
 	});	
     
-    
+    /**
+     * to Append Question Input 
+     */
 	$(function() {
 		var i = $('[name^="pp_new_"]').size() + 1;
 		$('#addNew').live('click', function() {
-			var something = '${abc}';
-			var jsonBoms = $('#zip');
-			var jsonBom = $('#zip').val();
-			var jsonBomss = jsonBom[0];
-			var json_obj = $.parseJSON(jsonBom);
-		    var person = JSON.parse(jsonBom);
 			i++;
 			$.get("/syndic/appendQuestionView.ldz", { fieldId: i},
 					function(data){
@@ -69,4 +65,34 @@
 		});
 	});
 	
+	/**
+	 * to append Address checkBox  
+	 */
+	$(function() {
+		var index = 0;
+		$('#zipCode').change(function() {
+			var zipCodeElement = document.getElementById("zipCode");
+			var zipCode = zipCodeElement.options[zipCodeElement.selectedIndex].text;
+			if ( zipCode != 'Select') {
+				var tree = jQuery.parseJSON($('#condoJson').val());
+				var html = '';
+				if (tree) {
+					for(var i = tree.trees.length-1; i>=0; --i) { 
+						if (zipCode != 'Select' && tree.trees[i].address.zipCode == zipCode) {
+							$.get("/syndic/appendAddressView.ldz", { fieldId: tree.trees[i].id, fieldIndex: index },
+									function(data){
+										html += data;
+									});
+						    index++;
+						}
+					}
+					$('.checkbox').append(html);
+				}
+				
+			} else {
+				$('#checkboxlabel').remove();
+				index = 0;
+			}
+		});
+	});
 	

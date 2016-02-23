@@ -1,5 +1,10 @@
 package org.syndic.client.web.command;
 
+/**
+ * 
+ * @author LYES KHERBICHE
+ *
+ */
 public class AddressCommand {
 	
 	private String id;
