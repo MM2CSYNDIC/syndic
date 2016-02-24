@@ -48,7 +48,7 @@
          <spring:message code="event.Type" var="typeEvent"/>
          <spring:message code="event.Date" var="dateEvent" />
          <spring:message code="event.Descr" var="descrEvent" />
-         <spring:message code="event.Action" var="actionEvent" />
+         <spring:message code="td.Action" var="actionEvent" />
          <thead>
           <tr>
             <th>${eventName}</th><th>${typeEvent}</th><th>${dateEvent}</th><th>${descrEvent}</th><th>${actionEvent}</th>
@@ -65,8 +65,8 @@
               <td>
 			    <spring:url value="/events/${entry.getEventName()}/delete.ldz" var="deleteUrl" /> 
 			    <spring:url value="/events/${entry.getEventName()}/update.ldz" var="updateUrl" />
-			    <button class="btn btn-primary" onclick="location.href='${updateUrl}'">Update</button>
-			    <button class="btn btn-danger" onclick="location.href='${deleteUrl}'">Delete</button>
+			    <button class="btn btn-primary" onclick="location.href='${updateUrl}'"><spring:message code="button.update "/></button>
+			    <button class="btn btn-danger" onclick="location.href='${deleteUrl}'"><spring:message code="button.delete"/></button>
 			  </td>
              </tr>
             </c:if>
