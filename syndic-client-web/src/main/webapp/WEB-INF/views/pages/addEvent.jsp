@@ -104,7 +104,8 @@
 		<!-- Select Dept -->
 		<div class="form-group row">
 			<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-				<label class="col-sm-2 control-label">ZipCode</label>
+			    <spring:message code="user.zipCode" var="zipC" />
+				<label class="col-sm-2 control-label">${zipC}</label>
 				<form:select path="" id="zipCode">
 					<form:option value="NONE" label="Select"/>
 					<form:options items="${listDept}" />
@@ -112,7 +113,6 @@
 			</div>
 		</div>
 		
-		<input type="hidden" id="zip" value='${listCondo.get(1).getAddress().getZipCode()}'/>
 		<input type="hidden" id="condoJson" value='${condoJson}'/>
 
 		<!-- Dynamic Condo -->
@@ -123,10 +123,10 @@
 
 		<div id="AGform" class="form-group row">
 			<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-				<a href="" id="addNew" class="btn btn-info">+Question</a>
-				<a href="" id="remNew" class="btn btn-warning">-Question</a>
+			    <spring:message code="event.question" var="question" />
+				<a href="" id="addNew" class="btn btn-info">+${question}</a>
+				<a href="" id="remNew" class="btn btn-warning">-${question}</a>
 				<br/><br/><br/>
-				<spring:message code="event.question" var="question" />
 				<spring:bind path="eventCommand.questions[0].questionName">
 					<form:input type="text" class="form-control" path="${status.expression}" id="descEvent" placeholder="${question}" />
 				</spring:bind>

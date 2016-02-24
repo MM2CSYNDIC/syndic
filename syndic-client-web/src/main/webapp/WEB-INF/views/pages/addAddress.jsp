@@ -3,6 +3,6 @@
 
    <div class="form-group row" id="checkboxlabel">
     <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-     <form:checkbox path="eventCommand.condoId[${number}].id" value="${condoSelected.getId()}"/>${condoSelected.getAddress().getNumAdress()} ${condoSelected.getAddress().getTypeAddress()}
+     <form:checkbox path="eventCommand.condoId[${number}].id" value="${condoSelected.getId()}"/>${condoSelected.getAddress().getNumAdress()} ${condoSelected.getAddress().getTypeAddress()} ${condoSelected.getAddress().getStreet()}
     </div>
    </div>
