@@ -65,7 +65,7 @@
               <td>
 			    <spring:url value="/events/${entry.getEventName()}/delete.ldz" var="deleteUrl" /> 
 			    <spring:url value="/events/${entry.getEventName()}/update.ldz" var="updateUrl" />
-			    <button class="btn btn-primary" onclick="location.href='${updateUrl}'"><spring:message code="button.update "/></button>
+			    <button class="btn btn-primary" onclick="location.href='${updateUrl}'"><spring:message code="button.update"/></button>
 			    <button class="btn btn-danger" onclick="location.href='${deleteUrl}'"><spring:message code="button.delete"/></button>
 			  </td>
              </tr>
