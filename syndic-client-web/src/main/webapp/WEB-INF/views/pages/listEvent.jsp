@@ -44,9 +44,14 @@
       <div id='calendarr'></div>
         
         <table class="table1">
+         <spring:message code="event.Name" var="eventName" />
+         <spring:message code="event.Type" var="typeEvent"/>
+         <spring:message code="event.Date" var="dateEvent" />
+         <spring:message code="event.Descr" var="descrEvent" />
+         <spring:message code="event.Action" var="actionEvent" />
          <thead>
           <tr>
-            <th>Nom event</th><th>Type event</th><th>Date event</th><th>Description event</th><th>Action</th>
+            <th>${eventName}</th><th>${typeEvent}</th><th>${dateEvent}</th><th>${descrEvent}</th><th>${actionEvent}</th>
           </tr>
          </thead>
           <c:if test="${listevent != null}">

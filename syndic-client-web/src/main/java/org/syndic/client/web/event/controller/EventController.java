@@ -76,7 +76,6 @@ public class EventController {
 			}
 		}
 		model.put("condoJson",EventHelper.condoToJson(listCondo));
-		model.put("listCondo", listCondo);
 		model.put("listDept", listDept);
 		return "addEventPage";
 	}
@@ -256,9 +255,9 @@ public class EventController {
 	@RequestMapping(value = "/events/{id}/delete", method = RequestMethod.GET)
 	public String deleteEvent (@PathVariable("id") String id) {
 		logger.info("== URI: /events/{id}/delete == "+id);
-		/*Event event = new Event();
+		Event event = new Event();
 		event.setEventName(id);
-		this.manager.delete(event);*/
+		this.manager.delete(event);
 		return "listEventPage";
 	}
 	
