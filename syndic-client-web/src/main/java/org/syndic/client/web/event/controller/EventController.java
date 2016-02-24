@@ -22,7 +22,6 @@ import org.syndic.client.web.command.QuestionCommand;
 import org.syndic.client.web.helper.EventHelper;
 
 import fr.upond.syndic.repo.model.BaseObject;
-import fr.upond.syndic.repo.model.common.Address;
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Polling;
 import fr.upond.syndic.repo.model.common.PollingPartOwner;
@@ -127,71 +126,67 @@ public class EventController {
 	public String addEvent(@ModelAttribute("eventCommand") EventCommand eventCommand) {
 		
 		logger.info("== URI: /event/add ==");
-		for(Object obj: eventCommand.getCondoId()) {
-			if(((AddressCommand)obj).getId() != null) {
-				logger.info("Condo Id  "+((AddressCommand)obj).getId());
-				
-			}
-		}
-		/*
+		
 		AgEvent agEvent;
 		Set<Question> listQuestion;
 		Set<Condo> setCondo = new HashSet<Condo>(0);
 		Polling polling;
-		Condo testCondo = null;//
-		Address testAddress;//
-		List<PartOwner> listPartOwner = new ArrayList<PartOwner>(); 
-		Set<PollingPartOwner> setPollingPartOwner = new HashSet<PollingPartOwner>(0);
+		List<PartOwner> listPartOwner; 
+		Set<PollingPartOwner> setPollingPartOwner;
 		
-		this.manager.get(new Condo());
-		for (BaseObject bo : this.manager.get(new Condo())) {
-			if (((Condo) bo).getId() == 4 ) {
-				setCondo.add((Condo) bo);
-				testCondo = (Condo) bo;//
+		
+		for (Object obj: eventCommand.getCondoId()) {
+			for (BaseObject condo : this.manager.get(new Condo())) {
+				if(Integer.parseInt(((AddressCommand)obj).getId()) == ((Condo) condo).getId()) {
+					setCondo.add((Condo)condo);
+				}
 			}
 		}
 		
-		testAddress = testCondo.getAddress();//
-		logger.info("address "+testAddress.getId());//
-		
-		for(BaseObject bo : this.manager.get(new PartOwner())) { //
-			Address ad = ((PartOwner)bo).getAddress();
-			logger.info("Test address id: "+ad.getId());
-			if(ad.equals(testAddress)) {
-				logger.info("Test address: True");
-				listPartOwner.add((PartOwner)bo);
-			} 
-		}
-		
-		Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null);
-		
-		if(eventCommand.getTypeEvent().equals("AG")) {
+		if ( eventCommand.getTypeEvent().equals("AG") ) {
 			logger.info("Event Type AG");
-			agEvent = new AgEvent(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),eventCommand.getDescEvent(),null);
+			agEvent = new AgEvent(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),
+		              eventCommand.getDescEvent(),null);
 			listQuestion = new HashSet<Question>(0);
-			polling = new Polling();
-			for(Object obj: eventCommand.getQuestions()) {
-				if(((QuestionCommand)obj).getQuestionName() != null) {
+			for ( Object obj: eventCommand.getQuestions() ) {
+				if ( ((QuestionCommand)obj).getQuestionName() != null ) {
 					logger.info("Questions "+((QuestionCommand)obj).getQuestionName());
 					listQuestion.add(new Question(((QuestionCommand)obj).getQuestionName()));
 				}
 			}
+			
+			polling = new Polling();
 			polling.setClose(false);
 			polling.setAgEvent(agEvent);
 			polling.setId(agEvent.getEventName());
 			polling.setQuestions(listQuestion);
-			PollingPartOwner ppo = new PollingPartOwner ();
-			ppo.setPolling(polling);
-			ppo.setPartOwner(listPartOwner.get(0));
-			ppo.setPoll(false);
-			setPollingPartOwner.add(ppo);
+			
+			listPartOwner = new ArrayList<PartOwner>(0);
+			setPollingPartOwner = new HashSet<PollingPartOwner>(0);
+			for ( BaseObject po : this.manager.get(new PartOwner()) ) {
+				for (Condo condo : setCondo) {
+					if ( ((PartOwner)po).getAddress().equals(condo.getAddress()) ) {
+						PollingPartOwner ppo = new PollingPartOwner ();
+						ppo.setPartOwner((PartOwner)po);
+						ppo.setPoll(false);
+						ppo.setPolling(polling);
+						setPollingPartOwner.add(ppo);
+						((PartOwner)po).setPollingPartOwner(setPollingPartOwner);
+						listPartOwner.add((PartOwner)po);
+					}
+				}
+			}
+			
 			polling.setPollingPartOwner(setPollingPartOwner);
-			listPartOwner.get(0).setPollingPartOwner(setPollingPartOwner);
 			
 			this.manager.add(agEvent);
 			this.manager.add(polling);
-			this.manager.upDate(listPartOwner.get(0));
-			this.manager.add(ppo);
+			for (PartOwner po : listPartOwner) {
+				this.manager.upDate(po);
+			}
+			for (PollingPartOwner ppo : setPollingPartOwner) {
+				this.manager.add(ppo);
+			}
 			agEvent.setCondo(setCondo);
 			this.manager.upDate(agEvent);
 			
@@ -201,12 +196,14 @@ public class EventController {
 			} else {
 				if(eventCommand.getTypeEvent().equals("Incident")) {
 					logger.info("Event Type Incident");
+					Event event = new Event(eventCommand.getEventName(),eventCommand.getTypeEvent(),eventCommand.getDateEvent(),
+			                eventCommand.getDescEvent(),null);
 					this.manager.add(event);
 					event.setCondo(setCondo);
 					this.manager.upDate(event);
 				}
 			}
-		}*/
+		}
 		
 		return "welcomePage";
 	}
