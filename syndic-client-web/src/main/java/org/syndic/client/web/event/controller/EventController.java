@@ -159,6 +159,7 @@ public class EventController {
 			polling.setAgEvent(agEvent);
 			polling.setId(agEvent.getEventName());
 			polling.setQuestions(listQuestion);
+			agEvent.setPolling(polling);
 			
 			listPartOwner = new ArrayList<PartOwner>(0);
 			setPollingPartOwner = new HashSet<PollingPartOwner>(0);
@@ -179,7 +180,7 @@ public class EventController {
 			polling.setPollingPartOwner(setPollingPartOwner);
 			
 			this.manager.add(agEvent);
-			this.manager.add(polling);
+			//this.manager.add(polling);cascade save-updateS
 			for (PartOwner po : listPartOwner) {
 				this.manager.upDate(po);
 			}
@@ -252,12 +253,17 @@ public class EventController {
 	 * @param id: The Id of Event
 	 * @return
 	 */
-	@RequestMapping(value = "/events/{id}/delete", method = RequestMethod.GET)
-	public String deleteEvent (@PathVariable("id") String id) {
-		logger.info("== URI: /events/{id}/delete == "+id);
-		Event event = new Event();
+	@RequestMapping(value = "/events/{id}/{type}/delete", method = RequestMethod.GET)
+	public String deleteEvent (@PathVariable("id") String id, @PathVariable("type") String type) {
+		logger.info("== URI: /events/{id}/{type}/delete == "+id+ " "+type);
+		if (type.equals("AG")) {
+			AgEvent agEvent = new AgEvent();
+			agEvent.setEventName(id);
+			this.manager.delete(agEvent);
+		}
+		/*Event event = new Event();
 		event.setEventName(id);
-		this.manager.delete(event);
+		this.manager.delete(event);*/
 		return "listEventPage";
 	}
 	

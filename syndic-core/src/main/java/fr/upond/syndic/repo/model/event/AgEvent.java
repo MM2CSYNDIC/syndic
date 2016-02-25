@@ -13,7 +13,6 @@ import fr.upond.syndic.repo.model.common.Polling;
 @SuppressWarnings("serial")
 public class AgEvent extends Event {
 	
-	//private Set<Question> questions;
 	private Polling polling;
 
 	public AgEvent() {
