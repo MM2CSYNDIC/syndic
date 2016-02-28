@@ -9,6 +9,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.upond.syndic.repo.model.BaseObject;
+import fr.upond.syndic.repo.model.common.Polling;
+import fr.upond.syndic.repo.model.event.AgEvent;
 import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.repository.IDao;
 
@@ -37,6 +39,18 @@ public class Dao implements IDao<BaseObject> {
         		List<BaseObject> list = new ArrayList<BaseObject>();
         		list.add((BaseObject) this.sessionFactory.getCurrentSession().get(Event.class, ((Event)obj).getEventName()));
         		return list; 	
+        }
+        if (obj.getClass().equals(AgEvent.class) && ((Event)obj).getEventName() != null) {
+        	
+    		List<BaseObject> list = new ArrayList<BaseObject>();
+    		list.add((BaseObject) this.sessionFactory.getCurrentSession().get(AgEvent.class, ((AgEvent)obj).getEventName()));
+    		return list; 	
+        }
+        if (obj.getClass().equals(Polling.class) && ((Polling)obj).getId() != null) {
+        	
+    		List<BaseObject> list = new ArrayList<BaseObject>();
+    		list.add((BaseObject) this.sessionFactory.getCurrentSession().get(Polling.class, ((Polling)obj).getId()));
+    		return list; 	
         }
     	return	this.sessionFactory.getCurrentSession().createCriteria(obj.getClass()).list();
 	}
