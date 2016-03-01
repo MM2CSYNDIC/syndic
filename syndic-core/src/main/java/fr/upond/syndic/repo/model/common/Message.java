@@ -9,15 +9,13 @@ public class Message extends BaseObject{
     private int id;
     private String userNameDestinataire;
     private String userNameRecepteur;
-    private String String;
     private String content;
     private String object;
 
-    public Message(int id, java.lang.String userNameDestinataire, java.lang.String userNameRecepteur, java.lang.String string, java.lang.String content, java.lang.String object) {
+    public Message( String userNameDestinataire,String userNameRecepteur, String content, String object) {
         super();
         this.userNameDestinataire = userNameDestinataire;
         this.userNameRecepteur = userNameRecepteur;
-        String = string;
         this.content = content;
         this.object = object;
     }
@@ -36,14 +34,6 @@ public class Message extends BaseObject{
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getString() {
-        return String;
-    }
-
-    public void setString(String String) {
-        this.String = String;
     }
 
     public String getUserNameRecepteur() {

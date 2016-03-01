@@ -1,8 +1,5 @@
 package org.syndic.client.web.command;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by leite_2 on 01/03/2016.
  */
@@ -13,7 +10,7 @@ public class MessageCommand {
     private String content;
     private String object;
 
-    public MessageCommand(int id, String userNameDestinataire, String userNameRecepteur, String content, String object) {
+    public MessageCommand( String userNameDestinataire, String userNameRecepteur, String content, String object) {
         super();
         this.userNameDestinataire = userNameDestinataire;
         this.userNameRecepteur = userNameRecepteur;

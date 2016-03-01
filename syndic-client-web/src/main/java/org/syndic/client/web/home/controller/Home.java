@@ -4,25 +4,20 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import fr.upond.syndic.repo.model.common.*;
 import fr.upond.syndic.repo.model.user.UserData;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.syndic.client.web.command.CondoCommand;
 import org.syndic.client.web.command.MessageCommand;
 import org.syndic.client.web.command.ProviderCommand;
 
 import fr.upond.syndic.repo.model.BaseObject;
-import fr.upond.syndic.repo.model.common.Address;
-import fr.upond.syndic.repo.model.common.Condo;
-import fr.upond.syndic.repo.model.common.Lot;
-import fr.upond.syndic.repo.model.common.Provider;
 import fr.upond.syndic.service.IManager;
 
 /**
@@ -131,5 +126,16 @@ public class Home {
 		model.put("listusers", this.manager.get(new UserData()));
 		return "sendMessage";
 	}
+
+	@RequestMapping(value = "/message/sendMessageToDest", method = RequestMethod.POST)
+	public String sendMessageToDest(@RequestBody String data1) {
+		logger.info("==== Insert Provider =====");
+		JSONObject data = new JSONObject(data1);
+		logger.info("******** " + data.getString("userNameDestinataire"));
+		//Message message = new Message(data.getString("userNameDestinataire"), data.getString("userNameDestinataire"), data.getString("object"),data.getString("content"));
+		//this.manager.add(message);
+		return "welcomePage";
+	}
+
 
 }

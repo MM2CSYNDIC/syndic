@@ -46,8 +46,7 @@
     </div>
   </div>
 
-  <form:form method="POST" commandName="messageCommand"
-             action="sendMessageToDest">
+  <form:form id="sendMessageForm" commandName="messageCommand">
     <form:errors path="*" cssClass="errorblock" element="div" />
 
     <div class="form-group row">
@@ -56,7 +55,7 @@
         <c:if test="${listusers != null}">
           <c:forEach var="entry" items="${listusers}">
           <c:if test="${entry != null}">
-            <form:checkbox  class="form-control" path="userNameDestinataire"  value="${entry.getEmail()}"/>
+            <form:checkbox  class="form-control userNameDestinataire" path="userNameDestinataire" value="${entry.getEmail()}"/>
             ${entry.getEmail()}
             <br>
           </c:if>
@@ -87,7 +86,7 @@
 
     <div class="form-group row">
       <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-        <button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
+        <button type="submit" id="sendMessageButton" class="btn btn-default"><spring:message code="button.submit"/></button>
       </div>
     </div>
   </form:form>
@@ -97,3 +96,37 @@
 </body>
 </html>
 
+<script>
+  jQuery(document).ready(function($) {
+    $("#sendMessageButton").click(sendMessage())
+  });
+
+function sendMessage()
+{
+
+
+  var data = {};
+  data["userNameDestinataire"]= $(".userNameDestinataire:checked").val();
+  data["object"]= $("#object").val();
+  data["content"]= $("#content").val();
+
+  $.ajax({
+    type : "POST",
+    contentType : "application/json",
+    url : "http://localhost:8080/syndic/message/sendMessageToDest.ldz",
+    dataType : 'text',
+    data: JSON.stringify(data),
+    success : function(data) {
+      console.log("SUCCESS: ", data);
+      console.log(data);
+    },
+    error : function(e) {
+      console.log("ERROR:*************** ", e);
+      console.log(data);
+    },
+    done : function(e) {
+      console.log("DONEgr*********************");
+    }
+  })
+}
+</script>
