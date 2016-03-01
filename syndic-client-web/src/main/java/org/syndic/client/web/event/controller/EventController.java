@@ -38,7 +38,7 @@ import fr.upond.syndic.service.IManager;
  */
 @Controller
 public class EventController {
-	
+
 	private static final Log logger = LogFactory.getLog(EventController.class);
 
 	@Autowired

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import fr.upond.syndic.repo.model.user.UserData;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.CondoCommand;
+import org.syndic.client.web.command.MessageCommand;
 import org.syndic.client.web.command.ProviderCommand;
 
 import fr.upond.syndic.repo.model.BaseObject;
@@ -121,5 +123,13 @@ public class Home {
 		return "addCondoPage";
 	}
 
+
+	@RequestMapping(value = "/message/send", method = RequestMethod.GET)
+	public String sendMessage(Map<String,Object> model) {
+		logger.info("== uri: /sendMessage ==");
+		model.put("messageCommand", new MessageCommand());
+		model.put("listusers", this.manager.get(new UserData()));
+		return "sendMessage";
+	}
 
 }
