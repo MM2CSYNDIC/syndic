@@ -8,7 +8,7 @@
 		<id name="id" type="int" column="ID">
          <generator class="native"/>
         </id>
-		<many-to-one name="polling" class="fr.upond.syndic.repo.model.common.Polling">
+		<many-to-one name="polling" class="fr.upond.syndic.repo.model.common.Polling" lazy="false">
 			<column name="POLLINGID" not-null="true" />
 		</many-to-one>
 		<many-to-one name="partOwner" class="fr.upond.syndic.repo.model.user.PartOwner">

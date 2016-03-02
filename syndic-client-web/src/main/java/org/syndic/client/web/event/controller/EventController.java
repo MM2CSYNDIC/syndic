@@ -1,5 +1,6 @@
 package org.syndic.client.web.event.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -29,6 +30,7 @@ import fr.upond.syndic.repo.model.common.Question;
 import fr.upond.syndic.repo.model.event.AgEvent;
 import fr.upond.syndic.repo.model.event.Event;
 import fr.upond.syndic.repo.model.user.PartOwner;
+import fr.upond.syndic.security.model.User;
 import fr.upond.syndic.service.IManager;
 
 /**
@@ -157,7 +159,6 @@ public class EventController {
 			polling = new Polling();
 			polling.setClose(false);
 			polling.setAgEvent(agEvent);
-			//polling.setId(agEvent.getEventName());
 			polling.setQuestions(listQuestion);
 			
 			listPartOwner = new ArrayList<PartOwner>(0);
@@ -179,7 +180,6 @@ public class EventController {
 			polling.setPollingPartOwner(setPollingPartOwner);
 			agEvent.setPolling(polling);
 			this.manager.add(agEvent);
-			//this.manager.add(polling);//cascade save-updateS
 			for (PartOwner po : listPartOwner) {
 				this.manager.upDate(po);
 			}
@@ -285,14 +285,18 @@ public class EventController {
 	}
 	
 	/**
-	 * <p>Called when the user click polling</p>
+	 * <p>Called when the user{PartOwner} click polling</p>
 	 * @return
 	 */
-	@RequestMapping(value = "/getformpolling", method = RequestMethod.GET)
-	public String getFormPolling (ModelMap model) {
-		
+	@RequestMapping(value = "/polling/add", method = RequestMethod.GET)
+	public String getFormPolling (ModelMap model, Principal principal) {	
 		logger.info("== URI: /getformpolling ==");
-		model.addAttribute("polling", this.manager.get(new Polling()));
+		PartOwner po = new PartOwner ();
+		User user = new User (principal.getName(), "", false);
+		PollingPartOwner ppo = new PollingPartOwner ();
+		po.setUsers(user);
+		ppo.setPartOwner((PartOwner)this.manager.get(po).get(0));	
+		model.addAttribute("listPpo", this.manager.get(ppo));
 		return "pollingPage";
 	}
 	

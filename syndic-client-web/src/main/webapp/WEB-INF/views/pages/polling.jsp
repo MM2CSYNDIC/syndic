@@ -43,8 +43,7 @@
             <h3><fmt:message key="listevent.H3" /></h3>
         </div>
     </div>
-    <div id='calendar'></div>
-
+    
     <div class="form-group row">
         <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
             <table class="table1">
@@ -52,18 +51,21 @@
                     <th>Question</th><th>Vote</th>
                 </tr>
 
-                <c:if test="${polling != null}">
-                    <c:forEach var="entry" items="${polling.getQuestions()}">
-                        <c:if test="${entry != null}">
+                <c:if test="${listPpo != null}">
+                    <c:forEach var="ppo" items="${listPpo}">
+                        <c:if test="${ppo != null}">
+                          <c:forEach var="entry" items="${ppo.getPolling().getQuestions()}">
                             <tr>
                                 <td>${entry.getQuest()}</td>
-                                <td><SELECT name="reponse" size="1">
-                                    <OPTION>Pour
-                                    <OPTION>Contre
-                                    <OPTION>Abstention
-                                </SELECT>
+                                <td>
+                                  <select name="reponse">
+                                    <option value="1">Pour </option>
+                                    <option value="2">Contre </option>
+                                    <option value="3">Abstention </option>
+                                  </select>
                                 </td>
                             </tr>
+                          </c:forEach>
                         </c:if>
                     </c:forEach>
                 </c:if>
