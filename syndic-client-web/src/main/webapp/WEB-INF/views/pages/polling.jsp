@@ -67,6 +67,10 @@
                             </tr>
                           </c:forEach>
                         </c:if>
+                        <tr>
+                          <td>----</td>
+                          <td>----</td>
+                        </tr>
                     </c:forEach>
                 </c:if>
 
