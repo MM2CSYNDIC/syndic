@@ -7,6 +7,13 @@
 <spring:url value="listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
 <spring:url value="/j_spring_security_logout.ldz" var="logoutUrl" />
 <spring:url value="/sign.ldz" var="loginUrl" />
+
+<spring:url value="getformupload.ldz" var="getformuploadUrl" htmlEscape="true"/>
+<spring:url value="upload.ldz" var="uploadUrl" htmlEscape="true"/>
+<spring:url value="getformdownload.ldz" var="getformdownloadUrl" htmlEscape="true"/>
+<spring:url value="listing.ldz" var="listingUrl" htmlEscape="true"/>
+<spring:url value="download.ldz" var="downloadUrl" htmlEscape="true"/>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,6 +88,17 @@
                 </ul>
               </li>
             </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li id="gestiondefichiers" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion de fichiers<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="${listingUrl}">Mon Cloud</a></li>
+                            <li><a href="${getformuploadUrl}">Upload</a></li>
+                            <li><a href="${getformdownloadUrl}">Telecharger</a></li>
+                            <!--    <li><a href="#">Action2</a></li>-->
+                        </ul>
+                    </li>
+                </sec:authorize>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li>

@@ -30,14 +30,21 @@
 <spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
 <spring:url value="listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
 <spring:url value="getformpolling.ldz" var="pollingUrl" htmlEscape="true" />
+<spring:url value="getformupload.ldz" var="getformuploadUrl" htmlEscape="true"/>
+<spring:url value="upload.ldz" var="uploadUrl" htmlEscape="true"/>
+<spring:url value="getformdownload.ldz" var="getformdownloadUrl" htmlEscape="true"/>
+<spring:url value="listing.ldz" var="listingUrl" htmlEscape="true"/>
+<spring:url value="download.ldz" var="downloadUrl" htmlEscape="true"/>
 
 <ul onload="change_class()" class="nav nav-pills nav-stacked">
   <li id="ac" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
   <li id="adduse" class=""><a href="${userUrl}"><spring:message code="header.add.user"/></a></li>
   <li id="addeven" class=""><a href="${eventUrl}"><spring:message code="header.add.event"/></a></li>
   <li id="listeven" class=""><a href="${listeventUrl}"><spring:message code="header.list.event"/></a></li>
-	<li id="listprovider" class=""><a href="${listproviderUrl}">Fournissaurs</a></li>
+	<li id="listprovider" class=""><a href="${listproviderUrl}">Fournisseurs</a></li>
 	<li id="pol" class=""><a href="${pollingUrl}">Vote</a></li>
+    <li id="getformupload" class=""><a href="${getformuploadUrl}">Upload</a></li>
+    <li id="getformdownload" class=""><a href="${getformdownloadUrl}">Download</a></li>
 </ul>
 
 <script language="javascript">
@@ -62,7 +69,7 @@
 				break;
 
 			case 'getformadduser':
-				var btn = document.getElementById("adduse");
+				var .btn = document.getElementById("adduse");
 				btn.className= "active";
 				var btn1 = document.getElementById("adduser");
 				btn1.className= "active";
@@ -102,6 +109,24 @@
 				var btn1 = document.getElementById("listprovider");
 				btn1.className= "active";
 				break;
+            case 'getformupload':
+                var btn = document.getElementById("getformupload");
+                btn.className= "active";
+                var btn1 = document.getElementById("getformupload");
+                btn1.className= "active";
+                break;
+            case 'getformudownload':
+                var btn = document.getElementById("getformdownload");
+                btn.className= "active";
+                var btn1 = document.getElementById("getformdownload");
+                btn1.className= "active";
+                break;
+            case 'listing':
+                var btn = document.getElementById("listing");
+                btn.className= "active";
+                var btn1 = document.getElementById("listing");
+                btn1.className= "active";
+                break;
 /*
 			case 'secteur':
 				var btn = document.getElementById("sec");
