@@ -3,6 +3,7 @@ package fr.upond.syndic.repository.common;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.upond.syndic.repo.model.user.UserData;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
@@ -52,6 +53,12 @@ public class Dao implements IDao<BaseObject> {
     		list.add((BaseObject) this.sessionFactory.getCurrentSession().get(Polling.class, ((Polling)obj).getId()));
     		return list; 	
         }
+
+		if (obj.getClass().equals(UserData.class) && ((UserData)obj).getLastName() != null) {
+			List<BaseObject> list = new ArrayList<BaseObject>();
+			list.add((BaseObject) this.sessionFactory.getCurrentSession().get(UserData.class, ((UserData)obj).getId()));
+			return list;
+		}
     	return	this.sessionFactory.getCurrentSession().createCriteria(obj.getClass()).list();
 	}
 
