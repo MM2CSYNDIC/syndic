@@ -1,5 +1,6 @@
 package org.syndic.client.web.home.controller;
 
+
 import com.dropbox.core.*;
 import fr.upond.syndic.repo.model.BaseObject;
 import fr.upond.syndic.repo.model.common.Address;
@@ -7,17 +8,25 @@ import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Lot;
 import fr.upond.syndic.repo.model.common.Provider;
 import fr.upond.syndic.service.IManager;
+
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import fr.upond.syndic.repo.model.common.*;
+import fr.upond.syndic.repo.model.user.UserData;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.syndic.client.web.command.CondoCommand;
+import org.syndic.client.web.command.MessageCommand;
 import org.syndic.client.web.command.ProviderCommand;
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,7 +35,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
-
 
 /**
  *
@@ -100,14 +108,15 @@ public class Home {
 	}
 
 
-	@RequestMapping(value = "/getformaddcondo", method = RequestMethod.GET)
+	@RequestMapping(value = "/condo/add", method = RequestMethod.GET)
 	public String getFormAddCondo(Map<String,Object> model) {
 		logger.info("== uri: /getformaddcondo ==");
 		model.put("condoCommand", new CondoCommand());
 		return "addCondoPage";
 	}
 
-	@RequestMapping(value = "/addcondo", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/condo/add", method = RequestMethod.POST)
 	public String addCondo(@ModelAttribute("condoCommand") CondoCommand condoCommand) {
 		logger.info("== uri: /addcondo ==");
 
@@ -137,8 +146,8 @@ public class Home {
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String uploadFile(@RequestParam("file") File file) throws IOException, DbxException {
 
-        final String APP_KEY = "64foz0ixb66kp79";
-        final String APP_SECRET = "kcqmxhagcs764jl";
+        final String APP_KEY = "";
+        final String APP_SECRET = "";
 
         logger.info("==== Je suis connecte =====");
 
@@ -147,17 +156,8 @@ public class Home {
         DbxRequestConfig config = new DbxRequestConfig( "syndic/1.0", Locale.getDefault().toString());
         DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
 
-        //String authorizeUrl = webAuth.start();
-        //System.out.println("1. Go to: " + authorizeUrl);
-        //System.out.println("2. Click \"Allow\" (you might have to log in first)");
-        //System.out.println("3. Copy the authorization code.");
 
-        //String code = new BufferedReader(new InputStreamReader(System.in)).readLine().trim();
-
-        // This will fail if the user enters an invalid authorization code.
-        //DbxAuthFinish authFinish = webAuth.finish("T-_y5JLRqH8AAAAAAAAAal7ZciEe-P6uQXN_JyHRPU8");
-        //String accessToken = authFinish.accessToken;
-        String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
+        String accessToken = "";
 
         DbxClient client = new DbxClient(config, accessToken);
         System.out.println("Linked account: " + client.getAccountInfo().displayName);
@@ -300,6 +300,25 @@ public class Home {
     }
 
 
+
+
+	@RequestMapping(value = "/message/send", method = RequestMethod.GET)
+	public String sendMessage(Map<String,Object> model) {
+		logger.info("== uri: /sendMessage ==");
+		model.put("messageCommand", new MessageCommand());
+		model.put("listusers", this.manager.get(new UserData()));
+		return "sendMessage";
+	}
+
+	@RequestMapping(value = "/message/sendMessageToDest", method = RequestMethod.POST)
+	public String sendMessageToDest(@RequestBody String data1) {
+		logger.info("==== Insert Provider =====");
+		JSONObject data = new JSONObject(data1);
+		logger.info("******** " + data.getString("userNameDestinataire"));
+		//Message message = new Message(data.getString("userNameDestinataire"), data.getString("userNameDestinataire"), data.getString("object"),data.getString("content"));
+		//this.manager.add(message);
+		return "welcomePage";
+	}
 
 
 }

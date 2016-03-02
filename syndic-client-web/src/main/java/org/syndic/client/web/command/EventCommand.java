@@ -15,8 +15,8 @@ public class EventCommand {
 	private String descEvent;
 	@SuppressWarnings("rawtypes")
 	private AutoPopulatingList questions = null;
-	//private List<String> condoId;
-	private String condoId;
+	@SuppressWarnings("rawtypes")
+	private AutoPopulatingList condoId;
 	
 	public EventCommand() {
 		super();
@@ -72,11 +72,13 @@ public class EventCommand {
 		this.questions = questions;
 	}
 
-	public String getCondoId() {
+	@SuppressWarnings("rawtypes")
+	public AutoPopulatingList getCondoId() {
 		return condoId;
 	}
 
-	public void setCondoId(String condoId) {
+	@SuppressWarnings("rawtypes")
+	public void setCondoId(AutoPopulatingList condoId) {
 		this.condoId = condoId;
 	}
 	

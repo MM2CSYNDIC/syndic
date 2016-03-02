@@ -10,7 +10,7 @@
                 <param name="property">agEvent</param>
          </generator>
         </id>
-		<set name="questions" table="QUESTION" cascade="all">
+		<set name="questions" table="QUESTION" cascade="all-delete-orphan" lazy="false">
            <key column="IDPOLL" />
            <one-to-many class="fr.upond.syndic.repo.model.common.Question" />
         </set>

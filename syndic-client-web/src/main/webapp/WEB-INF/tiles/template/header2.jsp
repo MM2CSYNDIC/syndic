@@ -1,10 +1,10 @@
 <%@ include file="/WEB-INF/tiles/template/includes.jsp"%>
-<spring:url value="welcome.ldz" var="homeUrl" htmlEscape="true" />
-<spring:url value="getformadduser.ldz" var="adduserUrl" htmlEscape="true" />
-<spring:url value="getformaddevent.ldz" var="addeventUrl" htmlEscape="true" />
-<spring:url value="getformaddprovider.ldz" var="addproviderUrl" htmlEscape="true" />
-<spring:url value="listevent.ldz" var="listeventUrl" htmlEscape="true" />
-<spring:url value="listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
+<spring:url value="/welcome.ldz" var="homeUrl" htmlEscape="true" />
+<spring:url value="/getformadduser.ldz" var="adduserUrl" htmlEscape="true" />
+<spring:url value="/event/add.ldz" var="addeventUrl" htmlEscape="true" />
+<spring:url value="/getformaddprovider.ldz" var="addproviderUrl" htmlEscape="true" />
+<spring:url value="/event/list.ldz" var="listeventUrl" htmlEscape="true" />
+<spring:url value="/listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
 <spring:url value="/j_spring_security_logout.ldz" var="logoutUrl" />
 <spring:url value="/sign.ldz" var="loginUrl" />
 

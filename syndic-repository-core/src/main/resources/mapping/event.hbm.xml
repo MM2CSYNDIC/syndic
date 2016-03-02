@@ -20,7 +20,7 @@
            <key column="IDEVENT" />
            <one-to-many class="fr.upond.syndic.repo.model.common.Question" />
           </set-->
-          <one-to-one name="polling" class="fr.upond.syndic.repo.model.common.Polling" cascade="save-update"></one-to-one>
+          <one-to-one name="polling" class="fr.upond.syndic.repo.model.common.Polling" cascade="save-update, delete-orphan"></one-to-one>
         </joined-subclass>
 	</class>
 </hibernate-mapping>
