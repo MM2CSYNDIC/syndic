@@ -5,6 +5,7 @@ import fr.upond.syndic.repo.model.BaseObject;
 /**
  * Created by leite_2 on 01/03/2016.
  */
+@SuppressWarnings("serial")
 public class Message extends BaseObject{
     private int id;
     private String userNameDestinataire;
@@ -62,7 +63,7 @@ public class Message extends BaseObject{
 
     @Override
     public String toString() {
-        return null;
+        return "";
     }
 
     @Override
