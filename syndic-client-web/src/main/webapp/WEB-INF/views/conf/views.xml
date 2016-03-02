@@ -74,9 +74,26 @@
 			<value>POLLINGRESULTPAGE</value>
 		</property>
 	</bean>
+    <bean id="uploadPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+        <property name="url">
+            <value>UPLOADPAGE</value>
+        </property>
+    </bean>
+    <bean id="downloadPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+        <property name="url">
+            <value>DOWNLOADPAGE</value>
+        </property>
+    </bean>
+    <bean id="listingPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+        <property name="url">
+            <value>LISTINGPAGE</value>
+        </property>
+    </bean>
+
 	<bean id="sendMessage" class="org.springframework.web.servlet.view.tiles3.TilesView">
 		<property name="url">
 			<value>SENDMESSAGE</value>
 		</property>
 	</bean>
+
 </beans>
