@@ -18,6 +18,7 @@ import fr.upond.syndic.repo.model.user.PartOwner;
 import fr.upond.syndic.repository.IDao;
 import fr.upond.syndic.security.model.UserRole;
 import fr.upond.syndic.service.IManager;
+import fr.upond.syndic.service.helper.MangerMailHelper;
 
 /**
  * 
@@ -59,6 +60,7 @@ public class Manager implements IManager<BaseObject> {
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(AgEvent.class)) {
+			MangerMailHelper.sendMail(((AgEvent)obj).getPolling().getPollingPartOwner());
 			this.dao.put(obj);
 		}
 		if(obj.getClass().equals(Polling.class)) {
