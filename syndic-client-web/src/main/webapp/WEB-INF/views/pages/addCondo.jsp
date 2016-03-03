@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    <form:form method="POST" commandName="condoCommand" action="addcondo.ldz">
+    <form:form method="POST" commandName="condoCommand" action="/syndic/condo/add.ldz">
         <form:errors path="*" cssClass="errorblock" element="div" />
 
         <div class="form-group row">
