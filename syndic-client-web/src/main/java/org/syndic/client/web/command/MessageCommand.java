@@ -6,19 +6,31 @@ package org.syndic.client.web.command;
 public class MessageCommand {
 
     private String userNameDestinataire;
-    private String userNameRecepteur;
+    private String userNameEmetteur;
     private String content;
     private String object;
 
-    public MessageCommand( String userNameDestinataire, String userNameRecepteur, String content, String object) {
+
+
+    private String statut;
+
+    public MessageCommand( String userNameDestinataire, String userNameEmetteur, String content, String object, String statut) {
         super();
-        this.userNameDestinataire = userNameDestinataire;
-        this.userNameRecepteur = userNameRecepteur;
+        this.userNameEmetteur = userNameEmetteur;
         this.content = content;
+        this.userNameDestinataire = userNameDestinataire;
         this.object = object;
+        this.statut = statut;
     }
 
     public MessageCommand() {    }
+
+    public String getStatut() {
+        return statut;
+    }
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
 
     public String getObject() {
         return object;
@@ -36,12 +48,12 @@ public class MessageCommand {
         this.content = content;
     }
 
-    public String getUserNameRecepteur() {
-        return userNameRecepteur;
+    public String getUserNameEmetteur() {
+        return userNameEmetteur;
     }
 
-    public void setUserNameRecepteur(String userNameRecepteur) {
-        this.userNameRecepteur = userNameRecepteur;
+    public void setUserNameEmetteur(String userNameEmetteur) {
+        this.userNameEmetteur = userNameEmetteur;
     }
 
     public String getUserNameDestinataire() {
