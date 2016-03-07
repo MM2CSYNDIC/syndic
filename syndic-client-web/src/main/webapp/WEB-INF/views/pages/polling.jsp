@@ -48,11 +48,12 @@
         <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
             <table class="table1">
                 <tr>
-                    <th>Question</th><th>Vote</th><th>Status</th><th>Action</th>
+                    <th>Question</th><th>Vote</th><th>Status</th>
                 </tr>
 
                 <c:if test="${listPpo != null}">
                     <c:forEach var="ppo" items="${listPpo}">
+                      <form:form method="POST" modelAttribute="" action="">
                         <c:if test="${ppo != null}">
                           <c:forEach var="entry" items="${ppo.getPolling().getQuestions()}">
                             <tr>
@@ -66,9 +67,6 @@
                                     </table> 
                                  </td>
                                  <td>Close</td>
-                                 <td>
-                                   <button class="btn btn-primary" disabled="disabled" onclick="location.href=''"><spring:message code="button.submit"/></button>
-                                 </td>
                                 </c:if>
                                 <c:if test="${not ppo.getPolling().isClose()}">
                                  <td>${entry.getQuest()}</td>
@@ -80,10 +78,6 @@
                                   </select> 
                                  </td>
                                  <td>Open</td>
-                                 <td>
-                                  <spring:url value="/polling/${entry.getId()}/add.ldz" var="pollUrl" />
-                                  <button class="btn btn-primary" onclick="location.href='${pollUrl}'"><spring:message code="button.submit"/></button>
-                                 </td>
                                 </c:if>                       
                             </tr>
                           </c:forEach>
@@ -91,10 +85,17 @@
                         </c:if>
                         <tr>
                           <td>----</td>
-                          <td>----</td>
-                          <td>----</td>
+                          <td>
+                            <c:if test="${ppo.getPolling().isClose()}">
+                              <button class="btn btn-primary" disabled="disabled" onclick="location.href=''"><spring:message code="button.submit"/></button>
+                            </c:if>
+                            <c:if test="${not ppo.getPolling().isClose()}">
+                              <button class="btn btn-primary" onclick="location.href=''"><spring:message code="button.submit"/></button>
+                            </c:if>
+                          </td>
                           <td>----</td>
                         </tr>
+                      </form:form>
                     </c:forEach>
                 </c:if>
 
