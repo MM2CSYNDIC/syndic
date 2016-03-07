@@ -129,11 +129,11 @@ public class Home {
 
 	@RequestMapping(value = "/message/sendMessageToDest", method = RequestMethod.POST)
 	public String sendMessageToDest(@RequestBody String data1) {
-		logger.info("==== Insert Provider =====");
+		logger.info("==== Insert Message =====");
 		JSONObject data = new JSONObject(data1);
-		logger.info("******** " + data.getString("userNameDestinataire"));
-		//Message message = new Message(data.getString("userNameDestinataire"), data.getString("userNameDestinataire"), data.getString("object"),data.getString("content"));
-		//this.manager.add(message);
+		logger.info("******** " +data1);
+	//	Message message = new Message(data.getString("userNameDestinataire"), data.getString("userNameDestinataire"), data.getString("object"),data.getString("content"));
+	//	this.manager.add(message);
 		return "welcomePage";
 	}
 
