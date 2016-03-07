@@ -48,7 +48,7 @@
         <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
             <table class="table1">
                 <tr>
-                    <th>Question</th><th>Vote</th>
+                    <th>Question</th><th>Vote</th><th>Status</th><th>Action</th>
                 </tr>
 
                 <c:if test="${listPpo != null}">
@@ -56,17 +56,44 @@
                         <c:if test="${ppo != null}">
                           <c:forEach var="entry" items="${ppo.getPolling().getQuestions()}">
                             <tr>
-                                <td>${entry.getQuest()}</td>
-                                <td>
+                                <c:if test="${ppo.getPolling().isClose()}">
+                                 <td>${entry.getQuest()}</td>
+                                 <td>
+                                    <table class="table1">
+                                     <td>A:${entry.getAbstention().toString()}</td>
+                                     <td>P:${entry.getToward()}</td>
+                                     <td>C:${entry.getAgainst()}</td>
+                                    </table> 
+                                 </td>
+                                 <td>Close</td>
+                                 <td>
+                                   <button class="btn btn-primary" disabled="disabled" onclick="location.href=''"><spring:message code="button.submit"/></button>
+                                 </td>
+                                </c:if>
+                                <c:if test="${not ppo.getPolling().isClose()}">
+                                 <td>${entry.getQuest()}</td>
+                                 <td>
                                   <select name="reponse">
                                     <option value="1">Pour </option>
                                     <option value="2">Contre </option>
                                     <option value="3">Abstention </option>
-                                  </select>
-                                </td>
+                                  </select> 
+                                 </td>
+                                 <td>Open</td>
+                                 <td>
+                                  <button class="btn btn-primary" onclick="location.href=''"><spring:message code="button.submit"/></button>
+                                 </td>
+                                </c:if>                       
                             </tr>
                           </c:forEach>
+                        
                         </c:if>
+                        <tr>
+                          <td>----</td>
+                          <td>----</td>
+                          <td>----</td>
+                          <td>----</td>
+                        </tr>
                     </c:forEach>
                 </c:if>
 
