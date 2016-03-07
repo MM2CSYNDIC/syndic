@@ -136,14 +136,14 @@ public class Home {
 		return "addCondoPage";
 	}
 
-    @RequestMapping(value = "/getformupload", method = RequestMethod.GET)
+    @RequestMapping(value = "/home/getformupload", method = RequestMethod.GET)
     public String getFormUpload(Map<String,Object> model) {
         logger.info("==== Get Form Upload =====");
 
         return "uploadPage";
     }
 
-    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    @RequestMapping(value = "/home/upload", method = RequestMethod.POST)
     public String uploadFile(@RequestParam("file") File file) throws IOException, DbxException {
 
         final String APP_KEY = "";
@@ -174,14 +174,14 @@ public class Home {
         return "welcomePage";
     }
 
-    @RequestMapping(value = "/getformdownload", method = RequestMethod.GET)
+    @RequestMapping(value = "/home/getformdownload", method = RequestMethod.GET)
     public String getFormDowndload(Map<String,Object> model) {
         logger.info("==== Get Form Download =====");
 
         return "downloadPage";
     }
 
-    @RequestMapping(value = "/listing", method = RequestMethod.GET)
+    @RequestMapping(value = "/home/listing", method = RequestMethod.GET)
     public String listingFolders(ModelMap model) throws IOException, DbxException {
 
         List<String> liste = new ArrayList<>();
@@ -257,7 +257,7 @@ public class Home {
     }
 
 
-    @RequestMapping(value = "/download", method = RequestMethod.GET)
+    @RequestMapping(value = "/home/download", method = RequestMethod.GET)
     public String  downloadFile(String name) throws IOException, DbxException {
 
         final String APP_KEY = "64foz0ixb66kp79";
@@ -298,6 +298,13 @@ public class Home {
 
         return "downloadPage";
     }
+
+    @RequestMapping(value = "/home/about", method = RequestMethod.GET)
+    public String getAbout() {
+        logger.info("== URI: /about ==");
+        return "aboutPage";
+    }
+
 
 
 

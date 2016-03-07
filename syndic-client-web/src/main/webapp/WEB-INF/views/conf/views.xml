@@ -95,5 +95,10 @@
 			<value>SENDMESSAGE</value>
 		</property>
 	</bean>
+    <bean id="aboutPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+        <property name="url">
+            <value>ABOUTPAGE</value>
+        </property>
+    </bean>
 
 </beans>

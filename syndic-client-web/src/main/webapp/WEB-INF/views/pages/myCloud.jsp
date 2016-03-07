@@ -39,7 +39,11 @@
 
 </head>
 <body >
-        <h1> Bienvenue sur votre espace Cloud </h1>
+<div class="row">
+    <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+        <h3><fmt:message key="cloud.H3" /></h3>
+    </div>
+</div>
 
 <form:form method="GET" action="listing.ldz" >
 

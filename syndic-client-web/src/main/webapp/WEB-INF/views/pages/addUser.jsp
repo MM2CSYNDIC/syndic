@@ -110,6 +110,9 @@
 		              <option value="street"><spring:message code="user.typeAddress.street"/></option>
 		              <option value="avenue"><spring:message code="user.typeAddress.avenue"/></option>
 		              <option value="boulvard"><spring:message code="user.typeAddress.boulvard"/></option>
+                      <option value="deadEnd"><spring:message code="user.typeAddress.deadEnd"/></option>
+                      <option value="driveWay"><spring:message code="user.typeAddress.driveWay"/></option>
+                      <option value="plaza"><spring:message code="user.typeAddress.plaza"/></option>
 		            </form:select>
 		            <form:errors path="typeAddress" cssClass="error" />
 		        </div>

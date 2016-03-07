@@ -33,11 +33,11 @@
 
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-        <h3>Liste des fournisseurs</h3>
+      <div class="row">
+          <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+              <h3><fmt:message key="listprovider.H3" /></h3>
+          </div>
       </div>
-    </div> 
     <div class="form-group row">
       <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
         <table class="table1">

@@ -26,7 +26,11 @@
     </style>
 </head>
 <body>
-<h1>Bienvenue sur votre espace de t&eacute;l&eacute;chargement</h1>
+<div class="row">
+    <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+        <h3><fmt:message key="cloud.download" /></h3>
+    </div>
+</div>
 
 <form:form method="GET" enctype="file/form-data" action="download.ldz" >
 
