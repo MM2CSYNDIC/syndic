@@ -15,11 +15,9 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
     <style>
-
         .error {
             color: #ff0000;
         }
-
         .errorblock {
             color: #000;
             background-color: #ffEEEE;
@@ -27,7 +25,6 @@
             padding: 8px;
             margin: 16px;
         }
-
         .input:focus {
             width: 350px;
         }
@@ -49,43 +46,46 @@
         </div>
     </div>
 
-    <form:form method="POST" commandName="condoCommand" action="addcondo.ldz">
+    <form:form method="POST" commandName="condoCommand" action="/syndic/condo/add.ldz">
         <form:errors path="*" cssClass="errorblock" element="div" />
 
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-            <spring:message code="condo.libele" var="condolibele" />
+                <spring:message code="condo.libele" var="condolibele" />
                 <form:input type="text" class="form-control" path="name" id="name" placeholder="${condolibele}" />
                 <form:errors path="name" cssClass="error" />
             </div>
         </div>
         <div class="form-group">
-          <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <spring:message code="condo.startNumAddress" var="condostartNumAddress" />
-                    <form:input type="text" class="form-control" path="numAddressStart" id="numAddressStart" placeholder="${condostartNumAddress}"/>
-                    <form:errors path="numAddressStart" cssClass="error" />
-                </div>
-                <div class="col-md-6">
-                    <spring:message code="condo.endNumAddress" var="condoendNumAddress" />
-                    <form:input type="text" class="form-control" path="numAddressEnd"  id="numAddressEnd" placeholder="${condoendNumAddress}"/>
-                    <form:errors path="numAddressEnd" cssClass="error" />
+            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <spring:message code="condo.startNumAddress" var="condostartNumAddress" />
+                        <form:input type="text" class="form-control" path="numAddressStart" id="numAddressStart" placeholder="${condostartNumAddress}"/>
+                        <form:errors path="numAddressStart" cssClass="error" />
+                    </div>
+                    <div class="col-md-6">
+                        <spring:message code="condo.endNumAddress" var="condoendNumAddress" />
+                        <form:input type="text" class="form-control" path="numAddressEnd"  id="numAddressEnd" placeholder="${condoendNumAddress}"/>
+                        <form:errors path="numAddressEnd" cssClass="error" />
+                    </div>
                 </div>
             </div>
-          </div>
-        </div>        
+        </div>
         <div class="form-group row">
-		  <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-			<form:select class="form-control" path="typeAddress" id="typeAddress" >
-		        <option value="none" selected><spring:message code="user.typeAddress"/></option>
-		        <option value="street"><spring:message code="user.typeAddress.street"/></option>
-		        <option value="avenue"><spring:message code="user.typeAddress.avenue"/></option>
-		        <option value="boulvard"><spring:message code="user.typeAddress.boulvard"/></option>
-		    </form:select>
-		    <form:errors path="typeAddress" cssClass="error" />
-		  </div>
-		</div>
+            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+                <form:select class="form-control" path="typeAddress" id="typeAddress" >
+                    <option value="none" selected><spring:message code="user.typeAddress"/></option>
+                    <option value="street"><spring:message code="user.typeAddress.street"/></option>
+                    <option value="avenue"><spring:message code="user.typeAddress.avenue"/></option>
+                    <option value="boulvard"><spring:message code="user.typeAddress.boulvard"/></option>
+                    <option value="deadEnd"><spring:message code="user.typeAddress.deadEnd"/></option>
+                    <option value="driveWay"><spring:message code="user.typeAddress.driveWay"/></option>
+                    <option value="plaza"><spring:message code="user.typeAddress.plaza"/></option>
+                </form:select>
+                <form:errors path="typeAddress" cssClass="error" />
+            </div>
+        </div>
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
                 <spring:message code="user.street" var="condostreet" />
@@ -128,39 +128,31 @@
                 <form:errors path="codeLot" cssClass="error" />
             </div>
         </div>
-        
-        
-        
-        
+
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-                <spring:message code="condo.typeLot" var="condotypeLot" />
-                <form:input type="text" class="form-control" path="typeLot" id="typeLot" placeholder="${condotypeLot}" />
+                <form:select class="form-control" path="typeLot" id="typeLot" >
+                    <option value="none" selected><spring:message code="condo.typeLot"/></option>
+                    <option value="studio"><spring:message code="lot.typeLot.studio"/></option>
+                    <option value="apartment"><spring:message code="lot.typeLot.apartment"/></option>
+                    <option value="parking"><spring:message code="lot.typeLot.parking"/></option>
+                    <option value="cave"><spring:message code="lot.typeLot.cave"/></option>
+                    <option value="box"><spring:message code="lot.typeLot.box"/></option>
+                    <option value="shop"><spring:message code="lot.typeLot.shop"/></option>
+                    <option value="house"><spring:message code="lot.typeLot.house"/></option>
+                    <option value="ground"><spring:message code="lot.typeLot.ground"/></option>
+                    <option value="lodge"><spring:message code="lot.typeLot.lodge"/></option>
+                    <option value="lumberRoom"><spring:message code="lot.typeLot.lumberRoom"/></option>
+                    <option value="square"><spring:message code="lot.typeLot.square"/></option>
+
+                </form:select>
                 <form:errors path="typeLot" cssClass="error" />
             </div>
         </div>
-        <div class="form-group row">
-		  <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-			<form:select class="form-control" path="typeLot" id="typeLot" >
-		        <option value="none" selected><spring:message code="condo.typeLot"/></option>
-		        <option value="studio"><spring:message code="lot.typeLot.studio"/></option>
-		        <option value="apartment"><spring:message code="lot.typeLot.apartment"/></option>
-		        <option value="parking"><spring:message code="lot.typeLot.parking"/></option>
-		        <option value="cave"><spring:message code="lot.typeLot.cave"/></option>
-		        <option value="box"><spring:message code="lot.typeLot.box"/></option>
-		        <option value="shop"><spring:message code="lot.typeLot.shop"/></option>
-		        <option value="house"><spring:message code="lot.typeLot.house"/></option>
-		        <option value="ground"><spring:message code="lot.typeLot.ground"/></option>
-		        <option value="building"><spring:message code="lot.typeLot.building"/></option>
-		        <option value=""><spring:message code="user.typeAddress.boulvard"/></option>
-		    </form:select>
-		    <form:errors path="typeLot" cssClass="error" />
-		  </div>
-		</div>
-        
-        
-        
-        
+
+
+
+
         <div class="form-group row">
             <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
                 <spring:message code="condo.floor" var="condofloor" />
@@ -204,6 +196,3 @@
 </body>
 
 </html>
-
-
-

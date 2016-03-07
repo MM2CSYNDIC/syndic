@@ -82,17 +82,22 @@
 							$.get("/syndic/appendAddressView.ldz", { fieldId: tree.trees[i].id, fieldIndex: index },
 									function(data){
 										html += data;
+										$('#checkbox').append(data);
 									});
 						    index++;
 						}
 					}
-					$('.checkbox').append(html);
 				}
-				
-			} else {
-				$('#checkboxlabel').remove();
-				index = 0;
-			}
+			} 
+		});
+		
+		$('#reset').click ( function() {
+			index = 0;
+			$('#checkboxlabel').remove();
 		});
 	});
+	
+	app = function (data) {
+		$('.checkbox').append(data);
+	}
 	

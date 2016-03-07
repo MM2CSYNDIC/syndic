@@ -7,6 +7,14 @@
 <spring:url value="/listprovider.ldz" var="listproviderUrl" htmlEscape="true" />
 <spring:url value="/j_spring_security_logout.ldz" var="logoutUrl" />
 <spring:url value="/sign.ldz" var="loginUrl" />
+
+<spring:url value="/home/getformupload.ldz" var="getformuploadUrl" htmlEscape="true"/>
+<spring:url value="/home/upload.ldz" var="uploadUrl" htmlEscape="true"/>
+<spring:url value="/home/getformdownload.ldz" var="getformdownloadUrl" htmlEscape="true"/>
+<spring:url value="/home/listing.ldz" var="listingUrl" htmlEscape="true"/>
+<spring:url value="/home/download.ldz" var="downloadUrl" htmlEscape="true"/>
+<spring:url value="/condo/add.ldz" var="addcondoUrl" htmlEscape="true"/>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,11 +40,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${homeUrl}">Syndic</a>
+            <a class="navbar-brand" href="${homeUrl}">Accueil</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li id="acc" class=""><a href="${homeUrl}"><spring:message code="header.home"/></a></li>
+
 
           <sec:authorize access="hasRole('ROLE_ADMIN')">
 
@@ -81,17 +89,37 @@
                 </ul>
               </li>
             </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li id="gestiondefichiers" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion de fichiers<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="${listingUrl}">Mon Cloud</a></li>
+                            <li><a href="${getformuploadUrl}">Upload</a></li>
+                            <li><a href="${getformdownloadUrl}">Telecharger</a></li>
+                            <!--    <li><a href="#">Action2</a></li>-->
+                        </ul>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li id="gestiondecondo" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion des coproprietes<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="${addcondoUrl}">Ajout copropriete</a></li>
+                        </ul>
+                    </li>
+                </sec:authorize>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li>
 	            <c:choose>
-                 <c:when test="${pageContext.request.userPrincipal.name != null}"><a href="#">${pageContext.request.userPrincipal.name}</a><li><a href="${logoutUrl}"><spring:message code="header.logout"/></a></li></c:when>
+                 <c:when test="${pageContext.request.userPrincipal.name != null}"><a href="#">${pageContext.request.userPrincipal.name}</a></c:when>
                  <c:otherwise><a href="${loginUrl}"><spring:message code="header.login"/></a></c:otherwise>
                 </c:choose>
                 <span class="sr-only">(current)</span>
               </li>
-              <li><a href="#">UPOND</a></li>
-              <li><a href="#"><spring:message code="header.about"/></a></li>
+
+
               <li><a href="?lang=en">En</a></li>
               <li><a href="?lang=fr">Fr</a></li>
             </ul>

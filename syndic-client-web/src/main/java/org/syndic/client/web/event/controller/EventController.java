@@ -285,7 +285,7 @@ public class EventController {
 	}
 	
 	/**
-	 * <p>Called when the user{PartOwner} click polling</p>
+	 * <p>Called when the user{PartOwner} want do polling</p>
 	 * @return
 	 */
 	@RequestMapping(value = "/polling/add", method = RequestMethod.GET)
@@ -298,6 +298,16 @@ public class EventController {
 		ppo.setPartOwner((PartOwner)this.manager.get(po).get(0));	
 		model.addAttribute("listPpo", this.manager.get(ppo));
 		return "pollingPage";
+	}
+	
+	/**
+	 * <p>Called when the user{PartOwner} click polling</p>
+	 */
+	@RequestMapping(value = "/polling/{id}/add", method = RequestMethod.GET)
+	public String addPolling (@PathVariable("id") String id) {
+		logger.info("== URI: /polling/{id}/add ==");
+		logger.info("id "+id);
+		return "redirect:/";
 	}
 	
 	/**

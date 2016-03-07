@@ -23,5 +23,4 @@
         <mapping resource="mapping/pollingPartOwner.hbm.xml"/>
         <mapping resource="mapping/message.hbm.xml"/>
     </session-factory>
-
 </hibernate-configuration>
