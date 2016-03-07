@@ -40,8 +40,7 @@ public class MangerMailHelper {
 			properties = PropertiesLoaderUtils.loadProperties(resource);
 			
 		} catch (IOException e1) {
-			
-            logger.error(e1);
+			logger.error(e1);
 		}
 		
 		Session session = Session.getDefaultInstance(properties,  new Authenticator() {

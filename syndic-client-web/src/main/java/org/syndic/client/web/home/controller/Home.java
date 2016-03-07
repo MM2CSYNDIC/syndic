@@ -160,14 +160,14 @@ public class Home {
         String accessToken = "";
 
         DbxClient client = new DbxClient(config, accessToken);
-        System.out.println("Linked account: " + client.getAccountInfo().displayName);
+
 
         File inputFile = new File("/" + file );
         FileInputStream inputStream = new FileInputStream(inputFile);
 
         try {
             DbxEntry.File uploadedFile = client.uploadFile("/" + file , DbxWriteMode.add(), inputFile.length(), inputStream);
-            System.out.println("Uploaded: " + uploadedFile.toString());
+
         } finally {
             inputStream.close();
         }
@@ -196,20 +196,12 @@ public class Home {
         DbxRequestConfig config = new DbxRequestConfig("syndic/1.0", Locale.getDefault().toString());
         DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
 
-        //String authorizeUrl = webAuth.start();
-        //System.out.println("1. Go to: " + authorizeUrl);
-        //System.out.println("2. Click \"Allow\" (you might have to log in first)");
-        //System.out.println("3. Copy the authorization code.");
 
-        //String code = new BufferedReader(new InputStreamReader(System.in)).readLine().trim();
 
-        // This will fail if the user enters an invalid authorization code.
-        //DbxAuthFinish authFinish = webAuth.finish("T-_y5JLRqH8AAAAAAAAAal7ZciEe-P6uQXN_JyHRPU8");
-        //String accessToken = authFinish.accessToken;
         String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
 
         DbxClient client = new DbxClient(config, accessToken);
-        System.out.println("Linked account: " + client.getAccountInfo().displayName);
+
 
        String cursor = null;
         String path = "/";
@@ -217,18 +209,16 @@ public class Home {
             DbxDelta<DbxEntry> result = client.getDeltaWithPathPrefix(cursor, path);
             cursor = result.cursor;
 
-            if (result.reset) {
-                System.out.println("Reset!");
-            }
+
             for (DbxDelta.Entry entry : result.entries) {
 
                 if (entry.metadata == null) {
 
-                    System.out.println("Deleted: " + entry.lcPath);
+
                     liste.add(entry.lcPath);
                 } else {
 
-                    System.out.println("Added or modified: " + entry.lcPath);
+
                     liste.add(entry.lcPath);
 
                 }
@@ -245,7 +235,7 @@ public class Home {
         s=s/1000;
 
         double espaceRestant = s-s2;
-        BigDecimal bd = new BigDecimal(espaceRestant);
+        BigDecimal bd = BigDecimal.valueOf(espaceRestant);
         bd = bd.setScale(2, RoundingMode.HALF_UP);
 
         dropboxSize.add(bd.doubleValue());
@@ -270,28 +260,17 @@ public class Home {
         DbxRequestConfig config = new DbxRequestConfig( "syndic/1.0", Locale.getDefault().toString());
         DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
 
-        //String authorizeUrl = webAuth.start();
-        //System.out.println("1. Go to: " + authorizeUrl);
-        //System.out.println("2. Click \"Allow\" (you might have to log in first)");
-        //System.out.println("3. Copy the authorization code.");
-
-        //String code = new BufferedReader(new InputStreamReader(System.in)).readLine().trim();
-
-        // This will fail if the user enters an invalid authorization code.
-        //DbxAuthFinish authFinish = webAuth.finish("T-_y5JLRqH8AAAAAAAAAal7ZciEe-P6uQXN_JyHRPU8");
-        //String accessToken = authFinish.accessToken;
         String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
 
         DbxClient client = new DbxClient(config, accessToken);
-        System.out.println("Linked account: " + client.getAccountInfo().displayName);
-        System.out.println("le fichier a telecharger " +name);
+
 
         FileOutputStream outputStream = new FileOutputStream(name);
 
 
         try {
             DbxEntry.File downloadedFile =client.getFile("/" + name, null, outputStream);
-            System.out.println("Metadata: " + downloadedFile.toString());
+
         } finally {
             outputStream.close();
         }

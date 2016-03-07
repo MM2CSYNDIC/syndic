@@ -14,7 +14,8 @@
 <spring:url value="/home/listing.ldz" var="listingUrl" htmlEscape="true"/>
 <spring:url value="/home/download.ldz" var="downloadUrl" htmlEscape="true"/>
 <spring:url value="/condo/add.ldz" var="addcondoUrl" htmlEscape="true"/>
-
+<spring:url value="/polling/add.ldz" var="addpollingUrl" htmlEscape="true"/>
+<spring:url value="/pollingresult.ldz" var="pollingresultURL" htmlEscape="true"/>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,15 +71,28 @@
                 </li>
               </sec:authorize>
 
-
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
               <li id="listevent" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion Evenements<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="${addeventUrl}"><spring:message code="header.add.event"/></a></li>
                   <li><a href="${listeventUrl}">Liste evenements</a></li>
+                  <li><a href="${pollingresultURL}">Resultat des votes</a></li>
                <!--   <li><a href="#">Action2</a></li>-->
                 </ul>
               </li>
+                </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_OWNER')">
+                    <li id="listevent" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion Evenements<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="${addeventUrl}"><spring:message code="header.add.event"/></a></li>
+                            <li><a href="${listeventUrl}">Liste evenements</a></li>
+                            <li><a href="${addpollingUrl}">Vote en ligne</a></li>
+                            <!--   <li><a href="#">Action2</a></li>-->
+                        </ul>
+                    </li>
+                </sec:authorize>
             <sec:authorize access="hasRole('ROLE_ADMIN')">
               <li id="listprovider" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fournisseurs<span class="caret"></span></a>
