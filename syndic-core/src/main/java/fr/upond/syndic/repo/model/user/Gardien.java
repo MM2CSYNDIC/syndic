@@ -55,4 +55,7 @@ public class Gardien extends UserData {
         this.taches = taches;
     }
 
+    @Override
+    public boolean equals(Object o){return false;}
+
 }

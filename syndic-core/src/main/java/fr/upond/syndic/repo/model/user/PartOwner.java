@@ -1,11 +1,11 @@
 package fr.upond.syndic.repo.model.user;
 
 
-import java.util.HashSet;
-import java.util.Set;
-
 import fr.upond.syndic.repo.model.common.Address;
 import fr.upond.syndic.repo.model.common.PollingPartOwner;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Manel on 15/12/2015.
@@ -44,6 +44,11 @@ public class PartOwner extends UserData {
 	public void setPollingPartOwner(Set<PollingPartOwner> pollingPartOwner) {
 		this.pollingPartOwner = pollingPartOwner;
 	}
+
+    @Override
+    public boolean equals(Object o) {
+        return false;
+    }
 
 
 }

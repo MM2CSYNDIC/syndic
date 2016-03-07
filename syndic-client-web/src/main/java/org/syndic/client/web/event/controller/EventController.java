@@ -260,15 +260,13 @@ public class EventController {
 			Polling polling = new Polling ();
 			agEvent.setEventName(id);
 			polling.setId(id);
-			polling = ((Polling) this.manager.get(polling).get(0));
+			polling = (Polling) this.manager.get(polling).get(0);
 			polling.getQuestions().clear();
 			this.manager.upDate(polling);
 			this.manager.delete(polling);
 			this.manager.delete(agEvent);
 		}
-		/*Event event = new Event();
-		event.setEventName(id);
-		this.manager.delete(event);*/
+
 		return "listEventPage";
 	}
 	

@@ -1,10 +1,11 @@
 
 package org.syndic.client.web.users.controller;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
+import fr.upond.syndic.repo.model.common.Address;
+import fr.upond.syndic.repo.model.user.PartOwner;
+import fr.upond.syndic.security.model.User;
+import fr.upond.syndic.security.model.UserRole;
+import fr.upond.syndic.service.IManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.syndic.client.web.command.UserCommand;
 import org.syndic.client.web.validator.UserValidator;
 
-import fr.upond.syndic.repo.model.common.Address;
-import fr.upond.syndic.repo.model.user.PartOwner;
-import fr.upond.syndic.security.model.User;
-import fr.upond.syndic.security.model.UserRole;
-import fr.upond.syndic.service.IManager;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -54,7 +53,7 @@ public class UserController {
 		if(result.hasErrors()) {
 			return "addUserPage";
 		} else {
-			if(userCommand.getTypeUser().equals("ROLE_OWNER")) {
+			if("ROLE_OWNER".equals(userCommand.getTypeUser())) {
 				
 				PartOwner partOwner = new PartOwner();
 				Address address = new Address();

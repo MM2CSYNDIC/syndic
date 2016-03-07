@@ -1,9 +1,9 @@
 package fr.upond.syndic.repo.model.event;
 
-import java.util.Set;
-
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Polling;
+
+import java.util.Set;
 
 /**
  * 
@@ -29,6 +29,11 @@ public class AgEvent extends Event {
 	public void setPolling(Polling polling) {
 		this.polling = polling;
 	}
+
+    @Override
+    public boolean equals(Object o) {
+        return false;
+    }
 	
 	
 }
