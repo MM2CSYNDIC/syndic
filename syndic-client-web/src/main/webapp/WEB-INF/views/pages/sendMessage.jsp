@@ -117,7 +117,7 @@ function sendMessage()
     dataType : 'text',
     data: JSON.stringify(data),
     success : function(data) {
-      console.log("SUCCESS: ", data);
+      window.location.href(data);
       console.log(data);
     },
     error : function(e) {
