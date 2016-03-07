@@ -69,7 +69,7 @@
 				break;
 
 			case 'getformadduser':
-				var .btn = document.getElementById("adduse");
+				var btn = document.getElementById("adduse");
 				btn.className= "active";
 				var btn1 = document.getElementById("adduser");
 				btn1.className= "active";

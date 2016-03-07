@@ -81,7 +81,8 @@
                                  </td>
                                  <td>Open</td>
                                  <td>
-                                  <button class="btn btn-primary" onclick="location.href=''"><spring:message code="button.submit"/></button>
+                                  <spring:url value="/polling/${entry.getId()}/add.ldz" var="pollUrl" />
+                                  <button class="btn btn-primary" onclick="location.href='${pollUrl}'"><spring:message code="button.submit"/></button>
                                  </td>
                                 </c:if>                       
                             </tr>

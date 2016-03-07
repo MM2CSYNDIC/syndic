@@ -110,6 +110,8 @@
 					<form:option value="NONE" label="Select"/>
 					<form:options items="${listDept}" />
 				</form:select>
+				<spring:message code="event.resetAdr" var="reset" />
+				<a href="#" id="reset" class="btn btn-warning">${reset}</a>
 			</div>
 		</div>
 		
