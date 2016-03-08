@@ -103,12 +103,6 @@
 
 </head>
 
-<style>
-    .x_panel{
-        height: 1500px;
-    }
-</style>
-
 <body class="nav-md">
 
 <div class="container body">
