@@ -3,32 +3,23 @@ package org.syndic.client.web.home.controller;
 
 import com.dropbox.core.*;
 import fr.upond.syndic.repo.model.BaseObject;
-import fr.upond.syndic.repo.model.common.Address;
-import fr.upond.syndic.repo.model.common.Condo;
-import fr.upond.syndic.repo.model.common.Lot;
-import fr.upond.syndic.repo.model.common.Provider;
+import fr.upond.syndic.repo.model.common.*;
 import fr.upond.syndic.security.model.User;
 import fr.upond.syndic.service.IManager;
-
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import fr.upond.syndic.repo.model.common.*;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.CondoCommand;
 import org.syndic.client.web.command.MessageCommand;
 import org.syndic.client.web.command.ProviderCommand;
-
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -148,8 +139,8 @@ public class Home {
     @RequestMapping(value = "/home/upload", method = RequestMethod.POST)
     public String uploadFile(@RequestParam("file") File file) throws IOException, DbxException {
 
-        final String APP_KEY = "";
-        final String APP_SECRET = "";
+        final String APP_KEY = "64foz0ixb66kp79";
+        final String APP_SECRET = "kcqmxhagcs764jl";
 
         logger.info("==== Je suis connecte =====");
 
@@ -159,7 +150,7 @@ public class Home {
         DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
 
 
-        String accessToken = "";
+        String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
 
         DbxClient client = new DbxClient(config, accessToken);
 
@@ -282,7 +273,7 @@ public class Home {
 
 
     @RequestMapping(value = "/home/createFolder", method = RequestMethod.POST)
-    public void  createFolder(String name) throws DbxException {
+    public String  createFolder(String name) throws DbxException {
 
         final String APP_KEY = "64foz0ixb66kp79";
         final String APP_SECRET = "kcqmxhagcs764jl";
@@ -299,7 +290,7 @@ public class Home {
         DbxClient client = new DbxClient(config, accessToken);
 
         client.createFolder("/"+name);
-
+        return "listingPage";
 
     }
 
