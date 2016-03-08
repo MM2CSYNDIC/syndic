@@ -278,14 +278,34 @@ public class Home {
         return "downloadPage";
     }
 
+
+    @RequestMapping(value = "/home/createFolder", method = RequestMethod.POST)
+    public void  createFolder(String name) throws DbxException {
+
+        final String APP_KEY = "64foz0ixb66kp79";
+        final String APP_SECRET = "kcqmxhagcs764jl";
+
+        logger.info("==== Je suis connecte =====");
+
+        DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
+
+        DbxRequestConfig config = new DbxRequestConfig( "syndic/1.0", Locale.getDefault().toString());
+        DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
+
+        String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
+
+        DbxClient client = new DbxClient(config, accessToken);
+
+        client.createFolder("/"+name);
+
+
+    }
+
     @RequestMapping(value = "/home/about", method = RequestMethod.GET)
     public String getAbout() {
         logger.info("== URI: /about ==");
         return "aboutPage";
     }
-
-
-
 
 
 	@RequestMapping(value = "/message/send", method = RequestMethod.GET)

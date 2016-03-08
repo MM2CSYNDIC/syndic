@@ -82,6 +82,21 @@
         </c:forEach>
     </c:if>
 
+
+</form:form>
+
+<form:form method="POST" action="createFolder.ldz" >
+
+    <br>
+    <br>
+    Creation d'un dossier: <input type="text" name="name" /> <br>
+
+    <div class="form-group row"> <br>
+        <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10"><br>
+            <button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
+        </div>
+    </div>
+
 </form:form>
 
 </body>
