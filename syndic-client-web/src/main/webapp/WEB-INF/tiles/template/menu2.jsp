@@ -1,5 +1,5 @@
 <%@ include file="/WEB-INF/tiles/template/includes.jsp"%>
-<spring:url value="/welcome.ldz" var="homeUrl" htmlEscape="true" />
+<spring:url value="/admin.ldz" var="homeUrl" htmlEscape="true" />
 <spring:url value="/getformadduser.ldz" var="adduserUrl" htmlEscape="true" />
 <spring:url value="/event/add.ldz" var="addeventUrl" htmlEscape="true" />
 <spring:url value="/getformaddprovider.ldz" var="addproviderUrl" htmlEscape="true" />
@@ -15,6 +15,8 @@
 <spring:url value="/condo/add.ldz" var="addcondoUrl" htmlEscape="true"/>
 <spring:url value="/polling/add.ldz" var="addpollingUrl" htmlEscape="true"/>
 <spring:url value="/pollingresult.ldz" var="pollingresultURL" htmlEscape="true"/>
+<spring:url value="/listuser.ldz" var="listuserUrl" htmlEscape="true"/>
+<spring:url value="/getformadduser.ldz" var="pollingresultURL" htmlEscape="true"/>
 <!--ul style="list-style:none;line-height:28px;">
 
 
@@ -64,6 +66,14 @@
 				<ul class="nav side-menu">
 					<li><a href="${homeUrl}"><i class="fa fa-home"></i> Accueil <span class="fa fa-chevron-down"></span></a></li>
 					<li><a><i class="fa fa-edit"></i> <spring:message code="event.Title"/><span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu" style="display: none">
+							<li><a href="${addeventUrl}">Ajouter</a>
+							</li>
+							<li><a href="${listeventUrl}">Lister</a>
+							</li>
+						</ul>
+					</li>
+					<li><a><i class="fa fa-edit"></i>Utilisateur<span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
 							<li><a href="${addeventUrl}">Ajouter</a>
 							</li>
