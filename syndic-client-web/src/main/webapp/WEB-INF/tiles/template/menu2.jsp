@@ -75,9 +75,9 @@
 					</li>
 					<li><a><i class="fa fa-edit"></i>Utilisateur<span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="${addeventUrl}">Ajouter</a>
+							<li><a href="${adduserUrl}">Ajouter</a>
 							</li>
-							<li><a href="${listeventUrl}">Lister</a>
+							<li><a href="${listuserUrl}">Lister</a>
 							</li>
 						</ul>
 					</li>

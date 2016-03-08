@@ -3,6 +3,7 @@ package org.syndic.client.web.users.controller;
 
 import fr.upond.syndic.repo.model.common.Address;
 import fr.upond.syndic.repo.model.user.PartOwner;
+import fr.upond.syndic.repo.model.user.UserData;
 import fr.upond.syndic.security.model.User;
 import fr.upond.syndic.security.model.UserRole;
 import fr.upond.syndic.service.IManager;
@@ -10,6 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +46,16 @@ public class UserController {
 		logger.info("==== IN UserController =====");
 		model.put("userCommand", new UserCommand());
 		return "addUserPage";
+	}
+
+	@RequestMapping(value = "/listuser", method = RequestMethod.GET)
+	public String listUser(ModelMap model) {
+		for (Object user : this.manager.get(new UserData()) ) {
+			logger.info("user (name) "+((UserData)user).getLastName());
+		}
+		model.addAttribute("listuser", this.manager.get(new UserData()));
+
+		return "listUserPage";
 	}
 
 	@RequestMapping(value = "/adduser", method = RequestMethod.POST)

@@ -64,6 +64,11 @@
 			<value>LISTPROVIDERPAGE</value>
 		</property>
 	</bean>
+	<bean id="listUserPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+		<property name="url">
+			<value>LISTUSERPAGE</value>
+		</property>
+	</bean>
 	<bean id="pollingPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
 		<property name="url">
 			<value>POLLINGPAGE</value>
