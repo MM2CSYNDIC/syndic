@@ -2,6 +2,7 @@
  *@author LYES KHERBICHE
  * 
  */
+
  jQuery(document).ready(function(){
 	 
 		$('#AGform').hide();
@@ -41,7 +42,7 @@
      */
 	$(function() {
 		var i = $('[name^="pp_new_"]').size() + 1;
-		$('#addNew').live('click', function() {
+		$('#addNew').click(function() {
 			i++;
 			$.get("/syndic/appendQuestionView.ldz", { fieldId: i},
 					function(data){
@@ -51,7 +52,7 @@
 			return false;
 		});
 
-		$('#remNew').live('click', function () {
+		$('#remNew').click( function () {
 			if( i > 0 ) {
 				$('#pp_new_'+i+'').remove();
 				i--;
