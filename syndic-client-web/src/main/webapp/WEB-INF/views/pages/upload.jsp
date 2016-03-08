@@ -26,26 +26,28 @@
     </style>
 </head>
 <body>
+<div class="container">
 
-<div class="row">
-    <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-        <h3><fmt:message key="cloud.upload" /></h3>
-    </div>
-</div>
+    <div class="row">
+        <div class="x_panel">
+        <div class="row">
+            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+                <h3><fmt:message key="cloud.upload" /></h3>
+            </div>
+        </div>
 
 
-<form:form method="POST" enctype="file/form-data" action="upload.ldz" >
-    Veuillez choisir un fichier <input type="file" name="file" /> <br>
+        <form:form method="POST" enctype="file/form-data" action="upload.ldz" style="margin : 0 auto; width:630px">
+            Veuillez choisir un fichier <input class="form-control" type="file" name="file" /> <br>
 
-    <div class="form-group row"><br> <br>
-        <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-            <button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
+            <div class="form-group row"><br> <br>
+                <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+                    <button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
+                </div>
+            </div>
+
+        </form:form>
         </div>
     </div>
-
-</form:form>
-
-</body>
-
-</html>
+</div></body></html>
 

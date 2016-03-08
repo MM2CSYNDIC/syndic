@@ -204,7 +204,7 @@ public class EventController {
 			}
 		}
 		
-		return "welcomePage";
+		return "listEventPage";
 	}
 	
 	/**

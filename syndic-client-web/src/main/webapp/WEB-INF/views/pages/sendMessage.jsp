@@ -40,13 +40,15 @@
 
 <div class="container">
 
+    <div class="row">
+      <div class="x_panel">
   <div class="row">
     <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
       <h3><fmt:message key="message.H3" /></h3>
     </div>
   </div>
 
-  <form:form id="sendMessageForm" commandName="messageCommand" action="/syndic/message/sendMessageToDest.ldz">
+  <form:form id="sendMessageForm" commandName="messageCommand" action="/syndic/message/sendMessageToDest.ldz" style="margin : 0 auto; width : 630px">
     <form:errors path="*" cssClass="errorblock" element="div" />
 
     <div class="form-group row">
@@ -90,7 +92,7 @@
     </div>
   </form:form>
 
-</div>
+</div></div></div>
 
 </body>
 </html>

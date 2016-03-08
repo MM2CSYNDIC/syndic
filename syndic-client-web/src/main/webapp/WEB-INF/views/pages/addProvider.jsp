@@ -33,16 +33,17 @@
 </head>
 <body>
 
-<div class="container">
 
+<div class="container">
   <div class="row">
-    <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-      <h3><fmt:message key="provider.H3" /></h3>
-    </div>
-  </div>
+    <div class="x_panel">
+      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+        <h3><fmt:message key="provider.H3" /></h3>
+      </div>
+
 
   <form:form method="POST" commandName="providerCommand"
-             action="addprovider.ldz">
+             action="addprovider.ldz" style="margin: 0 auto; width : 630px">
     <form:errors path="*" cssClass="errorblock" element="div" />
 
     <div class="form-group row">
@@ -70,9 +71,10 @@
       </div>
     </div>
   </form:form>
-
+    </div>
 </div>
-
+</div>
 </body>
 </html>
+
 

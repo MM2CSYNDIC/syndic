@@ -33,34 +33,37 @@
 
 <body>
   <div class="container">
+    <div class="x_panel">
       <div class="row">
           <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
               <h3><fmt:message key="listprovider.H3" /></h3>
           </div>
       </div>
-    <div class="form-group row">
-      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-        <table class="table1">
-          <tr>
-            <th>Fournisseur</th><th>Information</th><th>Date de création</th><th></th><th></th>
-          </tr>
-          <c:if test="${listprovider != null}">
-            <c:forEach var="entry" items="${listprovider}">
-              <c:if test="${entry != null}">
-                <tr>
-                  <td>${entry.getNameProvider()}</td>
-                  <td>${entry.getDescription()}</td>
-                  <td>${entry.getDateCreation()}</td>
-                  <td><a href="#"><img width= 40" height="40" src="<c:url value="http://syndicapp.alwaysdata.net/images/crayon.png"/>"></a></td>
-                  <td><a href="#"><img width= 40" height="40" src="http://syndicapp.alwaysdata.net/images/erreur.png"/></a></td>
-                </tr>
-              </c:if>
-            </c:forEach>
-          </c:if>
+      <div class="form-group row">
+        <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10" style=" margin-left: 52px;">
+          <table class="table table-hover" style="margin: 0 auto; width : 630px ">
+            <tr>
+              <th>Fournisseur</th><th>Information</th><th>Date de création</th><th></th><th></th>
+            </tr>
 
-        </table>
+            <c:if test="${listprovider != null}">
+              <c:forEach var="entry" items="${listprovider}">
+                <c:if test="${entry != null}">
+                  <tr>
+                    <td>${entry.getNameProvider()}</td>
+                    <td>${entry.getDescription()}</td>
+                    <td>${entry.getDateCreation()}</td>
+                    <td><a href="#"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+                    <td><a href="#"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a></td>
+                  </tr>
+                </c:if>
+              </c:forEach>
+            </c:if>
+
+          </table>
+        </div>
+
       </div>
-    </div>
-  </div>
+  </div></div>
 </body>
 </html>

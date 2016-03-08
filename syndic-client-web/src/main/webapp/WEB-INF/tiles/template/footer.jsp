@@ -6,8 +6,10 @@
       collapse: #fff;
   }
 </STYLE>
-<footer class="footer" id="bou">
-      <div class="container">
-       <p class="text-muted"><b>MM2C15 - MIAGE Nanterre</b> ( <spring:message code="footer"/> )</p>
-      </div>
+<footer style="margin:0px">
+    <div class="copyright-info">
+        <p class="pull-right">MM2C15 - MIAGE Nanterre <a href="https://colorlib.com">SyndicAPP</a>
+        </p>
+    </div>
+    <div class="clearfix"></div>
 </footer>
