@@ -40,13 +40,15 @@
 
 <div class="container">
 
+    <div class="row">
+      <div class="x_panel">
   <div class="row">
     <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
       <h3><fmt:message key="message.H3" /></h3>
     </div>
   </div>
 
-  <form:form id="sendMessageForm" commandName="messageCommand">
+  <form:form id="sendMessageForm" commandName="messageCommand" action="/syndic/message/sendMessageToDest.ldz" style="margin : 0 auto; width : 630px">
     <form:errors path="*" cssClass="errorblock" element="div" />
 
     <div class="form-group row">
@@ -55,8 +57,8 @@
         <c:if test="${listusers != null}">
           <c:forEach var="entry" items="${listusers}">
           <c:if test="${entry != null}">
-            <form:checkbox  class="form-control userNameDestinataire" path="userNameDestinataire" value="${entry.getEmail()}"/>
-            ${entry.getEmail()}
+            <form:checkbox  class="form-control userNameDestinataire" path="userNameDestinataire" value="${entry.getUserName()}"/>
+            ${entry.getUserName()}
             <br>
           </c:if>
           </c:forEach>
@@ -81,34 +83,52 @@
       </div>
     </div>
 
-
     <!-- End specific input -->
 
     <div class="form-group row">
       <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-        <button type="submit" id="sendMessageButton" class="btn btn-default"><spring:message code="button.submit"/></button>
+        <button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
       </div>
     </div>
   </form:form>
 
-</div>
+</div></div></div>
 
 </body>
 </html>
 
 <script>
+
+  /*
   jQuery(document).ready(function($) {
     $("#sendMessageButton").click(sendMessage())
   });
 
+
+  $(function() {
+
+    var data = {};
+    data["userNameDestinataire"]= $(".userNameDestinataire:checked").val();
+    data["object"]    = $("#object").val();
+    data["content"]= $("#content").val();
+
+    var i = $('[name^="pp_new_"]').size() + 1;
+    $('#sendMessageButton').live('click', function() {
+      i++;
+      $.get("/syndic/message/sendMessageToDest.ldz", { fieldId: i},
+              function(data){
+                $("#submitRow").before(data);
+              });
+
+      return false;
+    });
+  });
+
 function sendMessage()
 {
+  console.log("Hello");
 
 
-  var data = {};
-  data["userNameDestinataire"]= $(".userNameDestinataire:checked").val();
-  data["object"]= $("#object").val();
-  data["content"]= $("#content").val();
 
   $.ajax({
     type : "POST",
@@ -128,5 +148,5 @@ function sendMessage()
       console.log("DONEgr*********************");
     }
   })
-}
+}*/
 </script>

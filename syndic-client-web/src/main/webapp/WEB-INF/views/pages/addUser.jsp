@@ -18,14 +18,17 @@
     </style>
 </head>
 <body>
-<div class="container">
+<div class="x">
     <div class="row">
         <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
             <h3><fmt:message key="user.H3" /></h3>
         </div>
     </div>
- 
- <form:form  method="POST" commandName="userCommand" action="adduser.ldz">
+    <div class="container">
+
+        <div class="row">
+            <div class="x_panel">
+ <form:form  method="POST" commandName="userCommand" action="adduser.ldz" style="">
   <form:errors path="*" cssClass="errorblock" element="div"/>
   <div class="form-group row">
     <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
@@ -159,9 +162,5 @@
                 <button type="submit" class="btn btn-secondary"><spring:message code="button.submit"/></button>
             </div>
         </div>
-</form:form>
+</form:form></div></div></div></div></body></html>
 
-</div>
-
-</body>
-</html>

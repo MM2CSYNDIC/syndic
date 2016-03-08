@@ -9,9 +9,10 @@
             <generator class="native"/>
         </id>
         <property name="userNameDestinataire" column="USERNAMEDESTINATAIRE" />
-        <property name="userNameRecepteur" column="USERNAMERECEPTEUR" />
+        <property name="userNameEmetteur" column="USERNAMEEMETTEUR" />
         <property name="object" column="OBJECT" />
         <property name="content" column="CONTENT" />
+        <property name="statut" column="STATUT" />
 
     </class>
 </hibernate-mapping>

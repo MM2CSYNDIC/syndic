@@ -7,6 +7,7 @@ import fr.upond.syndic.repo.model.common.Address;
 import fr.upond.syndic.repo.model.common.Condo;
 import fr.upond.syndic.repo.model.common.Lot;
 import fr.upond.syndic.repo.model.common.Provider;
+import fr.upond.syndic.security.model.User;
 import fr.upond.syndic.service.IManager;
 
 import java.util.HashSet;
@@ -14,12 +15,13 @@ import java.util.Map;
 import java.util.Set;
 
 import fr.upond.syndic.repo.model.common.*;
-import fr.upond.syndic.repo.model.user.UserData;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -307,24 +309,24 @@ public class Home {
         return "aboutPage";
     }
 
-
 	@RequestMapping(value = "/message/send", method = RequestMethod.GET)
 	public String sendMessage(Map<String,Object> model) {
 		logger.info("== uri: /sendMessage ==");
 		model.put("messageCommand", new MessageCommand());
-		model.put("listusers", this.manager.get(new UserData()));
+		model.put("listusers", this.manager.get(new User()));
 		return "sendMessage";
 	}
 
 	@RequestMapping(value = "/message/sendMessageToDest", method = RequestMethod.POST)
-	public String sendMessageToDest(@RequestBody String data1) {
-		logger.info("==== Insert Message =====");
-		JSONObject data = new JSONObject(data1);
-		logger.info("******** " +data1);
-	//	Message message = new Message(data.getString("userNameDestinataire"), data.getString("userNameDestinataire"), data.getString("object"),data.getString("content"));
-	//	this.manager.add(message);
-		return "welcomePage";
-	}
+	public String sendMessageToDest(@ModelAttribute("messageCommand") MessageCommand messageCommand) {
+        logger.info("==== Insert Message =====");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName(); //get logged in username
+        Message message = new Message(messageCommand.getUserNameDestinataire(), name,messageCommand.getObject(),messageCommand.getContent(), "non lu");
+        this.manager.add(message);
+        return "welcomePage";
+    }
+
 
 
 }

@@ -19,7 +19,7 @@ public class User extends BaseObject {
 	private Set<UserRole> userRole = new HashSet<UserRole>(0);
 	
 	@SuppressWarnings("unused")
-	private User() {}
+	public User() {}
 	
 	public User(String userName, String passWord, boolean enabled) {
 		super();

@@ -9,16 +9,27 @@ import fr.upond.syndic.repo.model.BaseObject;
 public class Message extends BaseObject{
     private int id;
     private String userNameDestinataire;
-    private String userNameRecepteur;
+    private String userNameEmetteur;
     private String content;
     private String object;
 
-    public Message( String userNameDestinataire,String userNameRecepteur, String content, String object) {
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
+
+    private String statut;
+
+    public Message( String userNameDestinataire,String userNameEmetteur, String content, String object, String statut) {
         super();
         this.userNameDestinataire = userNameDestinataire;
-        this.userNameRecepteur = userNameRecepteur;
+        this.userNameEmetteur = userNameEmetteur;
         this.content = content;
         this.object = object;
+        this.statut = statut;
     }
 
     public String getObject() {
@@ -37,12 +48,12 @@ public class Message extends BaseObject{
         this.content = content;
     }
 
-    public String getUserNameRecepteur() {
-        return userNameRecepteur;
+    public String getUserNameEmetteur() {
+        return userNameEmetteur;
     }
 
-    public void setUserNameRecepteur(String userNameRecepteur) {
-        this.userNameRecepteur = userNameRecepteur;
+    public void setUserNameEmetteur(String userNameEmetteur) {
+        this.userNameEmetteur = userNameEmetteur;
     }
 
     public String getUserNameDestinataire() {

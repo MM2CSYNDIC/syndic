@@ -30,23 +30,17 @@
         }
     </style>
 
-    <link rel="stylesheet"
-          href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
 </head>
 <body>
 
 <div class="container">
-
     <div class="row">
-        <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-            <h3><spring:message code="condo.H3" /></h3>
-        </div>
-    </div>
-
-    <form:form method="POST" commandName="condoCommand" action="/syndic/condo/add.ldz">
+        <div class="x_panel">
+            <div class="row">
+                <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+                    <h3 style="margin : 0 auto"><fmt:message key="condo.H3" /></h3>
+                </div>
+    <form:form method="POST" commandName="condoCommand" action="/syndic/condo/add.ldz" style="margin:0 auto; width : 650px">
         <form:errors path="*" cssClass="errorblock" element="div" />
 
         <div class="form-group row">
@@ -190,9 +184,7 @@
             </div>
         </div>
     </form:form>
+</div></div></div></div></body>
 
-</div>
-
-</body>
 
 </html>
