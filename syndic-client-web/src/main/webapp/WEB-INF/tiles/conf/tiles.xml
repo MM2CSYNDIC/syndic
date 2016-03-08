@@ -50,6 +50,10 @@
         <put-attribute name="title"  value="Provider Syndic"/>
         <put-attribute name="body" value="/WEB-INF/views/pages/listProvider.jsp"/>
     </definition>
+    <definition name="LISTUSERPAGE" extends="defaultTemplate2">
+        <put-attribute name="title"  value="Utilisateurs Syndic"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/listUser.jsp"/>
+    </definition>
     <definition name="AFFECTEVENTPAGE" extends="defaultTemplate2">
         <put-attribute name="title"  value="Event Syndic"/>
         <put-attribute name="body" value="/WEB-INF/views/pages/affectEvent.jsp"/>
