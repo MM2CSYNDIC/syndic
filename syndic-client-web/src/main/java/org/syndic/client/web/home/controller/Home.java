@@ -338,7 +338,19 @@ public class Home {
         String name = auth.getName(); //get logged in username
         Message message = new Message(messageCommand.getUserNameDestinataire().trim(), name,messageCommand.getObject(),messageCommand.getContent(), "non lu");
         this.manager.add(message);
+
+        List<BaseObject> list = this.manager.get(new Message());
+
+        for (Object message1 : this.manager.get(new Message()) ) {
+            if(((Message)message1).getUserNameDestinataire() == name ){
+                list.add((Message)message1);
+            }
+        }
+
+        logger.info("== uri: /sendMessage ==");
         model.put("status", "ok");
+        model.put("messageCommand", new MessageCommand());
+        model.put("listmessage", list);
 
         return "sendMessage";
     }
