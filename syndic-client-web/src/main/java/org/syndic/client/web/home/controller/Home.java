@@ -288,20 +288,32 @@ public class Home {
 
 	@RequestMapping(value = "/message/send", method = RequestMethod.GET)
 	public String sendMessage(Map<String,Object> model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName(); //get logged in username
+
+        List<BaseObject> list = this.manager.get(new Message());
+
+        for (Object message : this.manager.get(new Message()) ) {
+            if(((Message)message).getUserNameDestinataire() == name ){
+                list.add((Message)message);
+            }
+        }
 		logger.info("== uri: /sendMessage ==");
 		model.put("messageCommand", new MessageCommand());
-		model.put("listusers", this.manager.get(new User()));
+		model.put("listmessage", list);
 		return "sendMessage";
 	}
 
 	@RequestMapping(value = "/message/sendMessageToDest", method = RequestMethod.POST)
-	public String sendMessageToDest(@ModelAttribute("messageCommand") MessageCommand messageCommand) {
+	public String sendMessageToDest(@ModelAttribute("messageCommand") MessageCommand messageCommand, Map<String,Object> model) {
         logger.info("==== Insert Message =====");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
-        Message message = new Message(messageCommand.getUserNameDestinataire(), name,messageCommand.getObject(),messageCommand.getContent(), "non lu");
+        Message message = new Message(messageCommand.getUserNameDestinataire().trim(), name,messageCommand.getObject(),messageCommand.getContent(), "non lu");
         this.manager.add(message);
-        return "welcomePage";
+        model.put("status", "ok");
+
+        return "sendMessage";
     }
 
 

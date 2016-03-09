@@ -17,6 +17,8 @@
 <spring:url value="/pollingresult.ldz" var="pollingresultURL" htmlEscape="true"/>
 <spring:url value="/listuser.ldz" var="listuserUrl" htmlEscape="true"/>
 <spring:url value="/getformadduser.ldz" var="pollingresultURL" htmlEscape="true"/>
+<spring:url value="/message/send.ldz" var="sendMessageUrl" htmlEscape="true"/>
+
 <!--ul style="list-style:none;line-height:28px;">
 
 
@@ -95,6 +97,14 @@
 							</li>
 							<li><a href="${listproviderUrl}">Lister</a>
 							</li>
+						</ul>
+					</li>
+					<li><a><i class="fa fa-edit"></i> Notifications <span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu" style="display: none">
+							<li><a href="${sendMessageUrl}">inbox</a>
+							</li>
+
+
 						</ul>
 					</li>
 					<li id="gestiondefichiers" class="dropdown">

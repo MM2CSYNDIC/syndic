@@ -48,51 +48,146 @@
     </div>
   </div>
 
+<%--
   <form:form id="sendMessageForm" commandName="messageCommand" action="/syndic/message/sendMessageToDest.ldz" style="margin : 0 auto; width : 630px">
     <form:errors path="*" cssClass="errorblock" element="div" />
 
     <div class="form-group row">
       <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-        <spring:message code="message.Dest" var="userNameDestinataire" />
-        <c:if test="${listusers != null}">
-          <c:forEach var="entry" items="${listusers}">
-          <c:if test="${entry != null}">
-            <form:checkbox  class="form-control userNameDestinataire" path="userNameDestinataire" value="${entry.getUserName()}"/>
-            ${entry.getUserName()}
-            <br>
-          </c:if>
-          </c:forEach>
-        </c:if>
-        <form:errors path="userNameDestinataire" cssClass="error" />
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-        <spring:message code="message.Object" var="object" />
-        <form:input type="text" class="form-control" path="object"
-                    id="object" placeholder="${object}" />
-        <form:errors path="object" cssClass="error" />
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-        <spring:message code="message.Content" var="content" />
-        <form:textarea  class="form-control" path="content"
-                    id="content" placeholder="${content}" />
-        <form:errors path="content" cssClass="error" />
-      </div>
-    </div>
+            <spring:message code="message.Dest" var="userNameDestinataire" />
+            <c:if test="${listusers != null}">
+              <c:forEach var="entry" items="${listusers}">
+              <c:if test="${entry != null}">
+                <form:checkbox  class="form-control userNameDestinataire" path="userNameDestinataire" value="${entry.getUserName()}"/>
+                ${entry.getUserName()}
+                <br>
+              </c:if>
+              </c:forEach>
+            </c:if>
+            <form:errors path="userNameDestinataire" cssClass="error" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+              <spring:message code="message.Object" var="object" />
+              <form:input type="text" class="form-control" path="object"
+                          id="object" placeholder="${object}" />
+              <form:errors path="object" cssClass="error" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+              <spring:message code="message.Content" var="content" />
+              <form:textarea  class="form-control" path="content"
+                          id="content" placeholder="${content}" />
+              <form:errors path="content" cssClass="error" />
+            </div>
+          </div>
 
-    <!-- End specific input -->
+            <!-- End specific input -->
 
-    <div class="form-group row">
-      <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-        <button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
+            <div class="form-group row">
+              <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+                <button type="submit" class="btn btn-default"><spring:message code="button.submit"/></button>
+              </div>
+            </div>
+       </form:form>
+--%>
+
+<form:form id="sendMessageForm" commandName="messageCommand" action="/syndic/message/sendMessageToDest.ldz" style="margin : 0 auto; ">
+  <form:errors path="*" cssClass="errorblock" element="div" />
+
+
+  <div class="x_content">
+          <div class="row">
+
+            <div class="col-sm-3 mail_list_column">
+
+            <c:if test="${listmessage != null}">
+
+            <c:forEach var="entry" items="${listmessage}">
+              <c:if test="${entry != null}">
+                      <div class="mail_list">
+                        <div class="left">
+                          <i class="fa fa-circle"></i> <i class="fa fa-edit"></i>
+                        </div>
+                        <div class="right">
+                          <h3>${entry.getUserNameDestinataire()}<small>3.00 PM</small></h3>
+                          <p>${entry.getObject()}</p>
+                        </div>
+                      </div>
+            </c:if>
+            </c:forEach>
+            </c:if>
+            </div>
+            <!-- /MAIL LIST -->
+
+            <!-- CONTENT MAIL -->
+            <div class="col-sm-9 mail_view">
+              <div class="inbox-body">
+                <div class="mail_heading row">
+
+                  <div class="col-md-12">
+                    <h4> Nouveau message</h4>
+                  </div>
+
+                <br>
+                  <div class="sender-info">
+                    <div class="row">
+                      <div class="col-md-12">
+                  <spring:message code="message.Object" var="object" />
+                  <form:input type="text" class="form-control" path="object"
+                              id="object" placeholder="${object}" />
+                  <form:errors path="object" cssClass="error" />
+                </div>
+                    </div></div>
+                <br>
+                <div class="sender-info">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <spring:message code="message.userNameDestinataire" var="userNameDestinataire" />
+                      <form:input type="text" class="form-control" path="userNameDestinataire"
+                                  id="userNameDestinataire" placeholder="${userNameDestinataire}" />
+                      <form:errors path="userNameDestinataire" cssClass="error" />
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="view-mail">
+                    <spring:message code="message.Content" var="content" />
+                    <form:textarea  class="form-control" path="content"
+                                    id="content" placeholder="${content}" />
+                    <form:errors path="content" cssClass="error" />
+                </div>
+
+                <div class="compose-btn pull-left">
+                    <button type="submit" class="btn btn-sm btn-primary"><spring:message code="button.submit"/></button>
+                </div>
+              </div>
+              </form:form>
+            </div></div>
+
+
+
+  </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
       </div>
+      <!-- /CONTENT MAIL -->
     </div>
-  </form:form>
-
-</div></div></div>
+</div>
 
 </body>
 </html>
