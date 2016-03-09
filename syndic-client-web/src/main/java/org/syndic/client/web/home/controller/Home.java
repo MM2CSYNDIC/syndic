@@ -173,6 +173,12 @@ public class Home {
 
         return "downloadPage";
     }
+    @RequestMapping(value = "/home/getformdownloadForPartowners", method = RequestMethod.GET)
+    public String getFormDowndloadForPartowners(Map<String,Object> model) {
+        logger.info("==== Get Form Download =====");
+
+        return "downloadForPartownerPage";
+    }
 
     @RequestMapping(value = "/home/listing", method = RequestMethod.GET)
     public String listingFolders(ModelMap model) throws IOException, DbxException {
@@ -239,6 +245,55 @@ public class Home {
 
     }
 
+    @RequestMapping(value = "/home/listingForPartowner", method = RequestMethod.GET)
+    public String listingFoldersForPartowner(ModelMap model) throws IOException, DbxException {
+
+        List<String> liste = new ArrayList<>();
+        final String APP_KEY = "64foz0ixb66kp79";
+        final String APP_SECRET = "kcqmxhagcs764jl";
+
+        logger.info("==== Je suis connecte =====");
+
+        DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
+
+        DbxRequestConfig config = new DbxRequestConfig("syndic/1.0", Locale.getDefault().toString());
+        DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
+
+
+
+        String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
+
+        DbxClient client = new DbxClient(config, accessToken);
+
+
+        String cursor = null;
+        String path = "/Partowners";
+
+        DbxDelta<DbxEntry> result = client.getDeltaWithPathPrefix(cursor, path);
+        cursor = result.cursor;
+
+
+        for (DbxDelta.Entry entry : result.entries) {
+
+            if (entry.metadata == null) {
+
+
+                liste.add(entry.lcPath);
+            } else {
+
+
+                liste.add(entry.lcPath);
+
+            }
+
+        }
+
+        model.put("liste",liste);
+        return "listingForPartownerPage";
+
+
+    }
+
 
     @RequestMapping(value = "/home/download", method = RequestMethod.GET)
     public String  downloadFile(String name) throws IOException, DbxException {
@@ -271,9 +326,40 @@ public class Home {
         return "downloadPage";
     }
 
+    @RequestMapping(value = "/home/downloadForPartowner", method = RequestMethod.GET)
+    public void   downloadFileForPartowner(String name,ModelMap model) throws IOException, DbxException {
+
+        final String APP_KEY = "64foz0ixb66kp79";
+        final String APP_SECRET = "kcqmxhagcs764jl";
+
+        logger.info("==== Je suis connecte =====");
+
+        DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
+
+        DbxRequestConfig config = new DbxRequestConfig( "syndic/1.0", Locale.getDefault().toString());
+        DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
+
+        String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
+
+        DbxClient client = new DbxClient(config, accessToken);
+
+
+        FileOutputStream outputStream = new FileOutputStream(name);
+
+
+        try {
+            DbxEntry.File downloadedFile =client.getFile("/Partowners/" + name, null, outputStream);
+
+        } finally {
+            outputStream.close();
+        }
+
+        listingFoldersForPartowner(model);
+    }
+
 
     @RequestMapping(value = "/home/createFolder", method = RequestMethod.POST)
-    public String  createFolder(String name) throws DbxException {
+    public String  createFolder(String name,ModelMap model) throws IOException, DbxException {
 
         final String APP_KEY = "64foz0ixb66kp79";
         final String APP_SECRET = "kcqmxhagcs764jl";
@@ -290,7 +376,7 @@ public class Home {
         DbxClient client = new DbxClient(config, accessToken);
 
         client.createFolder("/"+name);
-        return "listingPage";
+        return listingFolders(model);
 
     }
 

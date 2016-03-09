@@ -10,8 +10,11 @@
 <spring:url value="/home/getformupload.ldz" var="getformuploadUrl" htmlEscape="true"/>
 <spring:url value="/home/upload.ldz" var="uploadUrl" htmlEscape="true"/>
 <spring:url value="/home/getformdownload.ldz" var="getformdownloadUrl" htmlEscape="true"/>
+<spring:url value="/home/getformdownloadForPartowner.ldz" var="getformdownloadForPartownerUrl" htmlEscape="true"/>
 <spring:url value="/home/listing.ldz" var="listingUrl" htmlEscape="true"/>
+<spring:url value="/home/listingForPartowner.ldz" var="listingForPartownerUrl" htmlEscape="true"/>
 <spring:url value="/home/download.ldz" var="downloadUrl" htmlEscape="true"/>
+<spring:url value="/home/downloadForPartowner.ldz" var="downloadForPartownerUrl" htmlEscape="true"/>
 <spring:url value="/condo/add.ldz" var="addcondoUrl" htmlEscape="true"/>
 <spring:url value="/polling/add.ldz" var="addpollingUrl" htmlEscape="true"/>
 <spring:url value="/pollingresult.ldz" var="pollingresultURL" htmlEscape="true"/>
@@ -65,6 +68,7 @@
 				<h3>General</h3>
 				<ul class="nav side-menu">
 					<li><a href="${homeUrl}"><i class="fa fa-home"></i> Accueil <span class="fa fa-chevron-down"></span></a></li>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a><i class="fa fa-edit"></i> <spring:message code="event.Title"/><span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
 							<li><a href="${addeventUrl}">Ajouter</a>
@@ -73,14 +77,24 @@
 							</li>
 						</ul>
 					</li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_OWNER')">
+                        <li><a><i class="fa fa-edit"></i> <spring:message code="event.Title"/><span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu" style="display: none">
+                                <li><a href="${listeventUrl}">Lister</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_OWNER')">
 					<li><a><i class="fa fa-edit"></i>Utilisateur<span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="${adduserUrl}">Ajouter</a>
-							</li>
 							<li><a href="${listuserUrl}">Lister</a>
 							</li>
 						</ul>
 					</li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a ><i class="fa fa-edit"></i> <spring:message code="condo.Title"/><span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
 							<li><a href="${addcondoUrl}">Ajouter</a>
@@ -89,6 +103,8 @@
 							</li>
 						</ul>
 					</li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a><i class="fa fa-edit"></i> <spring:message code="provider.Title"/><span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
 							<li><a href="${addproviderUrl}">Ajouter</a>
@@ -97,6 +113,16 @@
 							</li>
 						</ul>
 					</li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_OWNER')">
+                        <li><a><i class="fa fa-edit"></i> <spring:message code="provider.Title"/><span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu" style="display: none">
+                                <li><a href="${listproviderUrl}">Lister</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li id="gestiondefichiers" class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-edit"></i>Gestion de fichiers<span class="caret"></span></a>
 						<ul class="nav child_menu" style="display: none">
@@ -106,6 +132,16 @@
 							<!--    <li><a href="#">Action2</a></li>-->
 						</ul>
 					</li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_OWNER')">
+                        <li id="gestiondefichiers" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-edit"></i>Gestion de fichiers<span class="caret"></span></a>
+                            <ul class="nav child_menu" style="display: none">
+                                <li><a href="${listingForPartownerUrl}">Mon Cloud</a></li>
+                                <!--    <li><a href="#">Action2</a></li>-->
+                            </ul>
+                        </li>
+                    </sec:authorize>
 				</ul>
 			</div>
 
