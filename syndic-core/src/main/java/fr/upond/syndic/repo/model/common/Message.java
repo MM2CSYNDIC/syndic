@@ -23,6 +23,9 @@ public class Message extends BaseObject{
 
     private String statut;
 
+    public Message() {
+    }
+
     public Message( String userNameDestinataire,String userNameEmetteur, String content, String object, String statut) {
         super();
         this.userNameDestinataire = userNameDestinataire;
