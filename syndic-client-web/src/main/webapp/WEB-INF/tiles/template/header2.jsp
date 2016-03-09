@@ -17,6 +17,7 @@
 <spring:url value="/condo/add.ldz" var="addcondoUrl" htmlEscape="true"/>
 <spring:url value="/polling/add.ldz" var="addpollingUrl" htmlEscape="true"/>
 <spring:url value="/pollingresult.ldz" var="pollingresultURL" htmlEscape="true"/>
+<spring:url value="/home/createFolder.ldz" var="createFolderURL" htmlEscape="true"/>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

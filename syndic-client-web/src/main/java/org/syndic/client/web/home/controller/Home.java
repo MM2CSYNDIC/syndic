@@ -3,32 +3,22 @@ package org.syndic.client.web.home.controller;
 
 import com.dropbox.core.*;
 import fr.upond.syndic.repo.model.BaseObject;
-import fr.upond.syndic.repo.model.common.Address;
-import fr.upond.syndic.repo.model.common.Condo;
-import fr.upond.syndic.repo.model.common.Lot;
-import fr.upond.syndic.repo.model.common.Provider;
-import fr.upond.syndic.security.model.User;
-import fr.upond.syndic.service.IManager;
-
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 import fr.upond.syndic.repo.model.common.*;
-
+import fr.upond.syndic.service.IManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.syndic.client.web.command.CondoCommand;
 import org.syndic.client.web.command.MessageCommand;
 import org.syndic.client.web.command.ProviderCommand;
-
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -148,8 +138,8 @@ public class Home {
     @RequestMapping(value = "/home/upload", method = RequestMethod.POST)
     public String uploadFile(@RequestParam("file") File file) throws IOException, DbxException {
 
-        final String APP_KEY = "";
-        final String APP_SECRET = "";
+        final String APP_KEY = "64foz0ixb66kp79";
+        final String APP_SECRET = "kcqmxhagcs764jl";
 
         logger.info("==== Je suis connecte =====");
 
@@ -159,7 +149,7 @@ public class Home {
         DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
 
 
-        String accessToken = "";
+        String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
 
         DbxClient client = new DbxClient(config, accessToken);
 
@@ -181,6 +171,12 @@ public class Home {
         logger.info("==== Get Form Download =====");
 
         return "downloadPage";
+    }
+    @RequestMapping(value = "/home/getformdownloadForPartowners", method = RequestMethod.GET)
+    public String getFormDowndloadForPartowners(Map<String,Object> model) {
+        logger.info("==== Get Form Download =====");
+
+        return "downloadForPartownerPage";
     }
 
     @RequestMapping(value = "/home/listing", method = RequestMethod.GET)
@@ -248,6 +244,55 @@ public class Home {
 
     }
 
+    @RequestMapping(value = "/home/listingForPartowner", method = RequestMethod.GET)
+    public String listingFoldersForPartowner(ModelMap model) throws IOException, DbxException {
+
+        List<String> liste = new ArrayList<>();
+        final String APP_KEY = "64foz0ixb66kp79";
+        final String APP_SECRET = "kcqmxhagcs764jl";
+
+        logger.info("==== Je suis connecte =====");
+
+        DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
+
+        DbxRequestConfig config = new DbxRequestConfig("syndic/1.0", Locale.getDefault().toString());
+        DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
+
+
+
+        String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
+
+        DbxClient client = new DbxClient(config, accessToken);
+
+
+        String cursor = null;
+        String path = "/Partowners";
+
+        DbxDelta<DbxEntry> result = client.getDeltaWithPathPrefix(cursor, path);
+        cursor = result.cursor;
+
+
+        for (DbxDelta.Entry entry : result.entries) {
+
+            if (entry.metadata == null) {
+
+
+                liste.add(entry.lcPath);
+            } else {
+
+
+                liste.add(entry.lcPath);
+
+            }
+
+        }
+
+        model.put("liste",liste);
+        return "listingForPartownerPage";
+
+
+    }
+
 
     @RequestMapping(value = "/home/download", method = RequestMethod.GET)
     public String  downloadFile(String name) throws IOException, DbxException {
@@ -279,6 +324,7 @@ public class Home {
 
         return "downloadPage";
     }
+
 
     @RequestMapping(value = "/home/media", method = RequestMethod.GET)
     public String  listingFile(String name) throws IOException, DbxException {
@@ -312,9 +358,62 @@ public class Home {
         logger.info("== URI: /about ==");
         return "aboutPage";
     }
+    @RequestMapping(value = "/home/downloadForPartowner", method = RequestMethod.GET)
+    public void   downloadFileForPartowner(String name,ModelMap model) throws IOException, DbxException {
 
-	@RequestMapping(value = "/message/send", method = RequestMethod.GET)
-	public String sendMessage(Map<String,Object> model) {
+        final String APP_KEY = "64foz0ixb66kp79";
+        final String APP_SECRET = "kcqmxhagcs764jl";
+
+        logger.info("==== Je suis connecte =====");
+
+        DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
+
+        DbxRequestConfig config = new DbxRequestConfig( "syndic/1.0", Locale.getDefault().toString());
+        DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
+
+        String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
+
+        DbxClient client = new DbxClient(config, accessToken);
+
+
+        FileOutputStream outputStream = new FileOutputStream(name);
+
+
+        try {
+            DbxEntry.File downloadedFile =client.getFile("/Partowners/" + name, null, outputStream);
+
+        } finally {
+            outputStream.close();
+        }
+
+        listingFoldersForPartowner(model);
+    }
+
+
+    @RequestMapping(value = "/home/createFolder", method = RequestMethod.POST)
+    public String  createFolder(String name,ModelMap model) throws IOException, DbxException {
+
+        final String APP_KEY = "64foz0ixb66kp79";
+        final String APP_SECRET = "kcqmxhagcs764jl";
+
+        logger.info("==== Je suis connecte =====");
+
+        DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
+
+        DbxRequestConfig config = new DbxRequestConfig( "syndic/1.0", Locale.getDefault().toString());
+        DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
+
+        String accessToken = "T-_y5JLRqH8AAAAAAAAAPUTJyXzKamAx5HFHk55jwREQQ60G_eHPNZ6uEXaXPfgI";
+
+        DbxClient client = new DbxClient(config, accessToken);
+
+        client.createFolder("/"+name);
+        return listingFolders(model);
+
+    }
+
+    @RequestMapping(value = "/message/send", method = RequestMethod.GET)
+    public String sendMessage(Map<String,Object> model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
 
@@ -325,14 +424,14 @@ public class Home {
                 list.add((Message)message);
             }
         }
-		logger.info("== uri: /sendMessage ==");
-		model.put("messageCommand", new MessageCommand());
-		model.put("listmessage", list);
-		return "sendMessage";
-	}
+        logger.info("== uri: /sendMessage ==");
+        model.put("messageCommand", new MessageCommand());
+        model.put("listmessage", list);
+        return "sendMessage";
+    }
 
-	@RequestMapping(value = "/message/sendMessageToDest", method = RequestMethod.POST)
-	public String sendMessageToDest(@ModelAttribute("messageCommand") MessageCommand messageCommand, Map<String,Object> model) {
+    @RequestMapping(value = "/message/sendMessageToDest", method = RequestMethod.POST)
+    public String sendMessageToDest(@ModelAttribute("messageCommand") MessageCommand messageCommand, Map<String,Object> model) {
         logger.info("==== Insert Message =====");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
@@ -354,6 +453,9 @@ public class Home {
 
         return "sendMessage";
     }
+
+
+
 
 
 

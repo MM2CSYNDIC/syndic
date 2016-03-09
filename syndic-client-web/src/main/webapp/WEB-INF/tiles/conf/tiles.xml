@@ -90,6 +90,10 @@
         <!--put-attribute name="page_description" value="syndic add user"/-->
         <put-attribute name="body" value="/WEB-INF/views/pages/about.jsp"/>
     </definition>
+    <definition name="LISTINGFORPARTOWNERPAGE" extends="defaultTemplate2">
+        <put-attribute name="title"  value="Listing for partowner"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/myCloudForPartowner.jsp"/>
+    </definition>
 
     <definition name="startPage_def" extends="defaultTemplate">
 		<put-attribute name="title" value="Syndic" />

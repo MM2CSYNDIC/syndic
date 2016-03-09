@@ -38,7 +38,7 @@
 
 
         <form:form method="POST" enctype="file/form-data" action="upload.ldz" style="margin : 0 auto; width:630px">
-            Veuillez choisir un fichier <input class="form-control" type="file" name="file" /> <br>
+            Veuillez choisir un fichier <input class="form-control" type="file" name="file" /> <br><br><br>
 
             <div class="form-group row"><br> <br>
                 <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">

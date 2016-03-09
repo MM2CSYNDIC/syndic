@@ -1,11 +1,10 @@
 <%--
   Created by IntelliJ IDEA.
   User: Manel
-  Date: 16/02/2016
-  Time: 19:37
+  Date: 09/03/2016
+  Time: 00:30
   To change this template use File | Settings | File Templates.
 --%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 
@@ -45,21 +44,11 @@
     </div>
 </div>
 
-<form:form method="GET" action="listing.ldz" >
+<form:form method="GET" action="listingForPartowner.ldz" >
 
 
     <br>
     <br>
-    <div style="text-align:right"> <span style="border:1px solid black;padding:1%">
-    <c:forEach var="entry2" items="${dropboxSize}" >
-        <c:if test="${entry2 != null}">
-            Il vous reste  ${entry2} Go d'espace disponible
-
-        </c:if>
-    </c:forEach>
-    </span> </div>
-
-<br>
 
 
     <c:if test="${liste != null}" >
@@ -73,7 +62,7 @@
                     </c:when>
                     <c:otherwise>
                         <c:set var="entry" value="${fn:replace(entry,'/', '')}" />
-                       <b> ${entry} </b> <br>
+                        <b> ${entry} </b> <br>
 
                     </c:otherwise>
                 </c:choose>
@@ -85,11 +74,10 @@
 
 </form:form>
 
-<form:form method="POST" action="createFolder.ldz" >
+<form:form method="GET" enctype="file/form-data" action="downloadForPartowner.ldz" >
 
-    <br>
-    <br>
-    Creation d'un dossier: <input type="text" name="name" /> <br>
+    Veuillez choisir un fichier <br>
+    <input type="text" name="name" /> <br>
 
     <div class="form-group row"> <br>
         <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10"><br>
@@ -102,4 +90,3 @@
 </body>
 
 </html>
-

@@ -105,5 +105,10 @@
             <value>ABOUTPAGE</value>
         </property>
     </bean>
+    <bean id="listingForPartownerPage" class="org.springframework.web.servlet.view.tiles3.TilesView">
+        <property name="url">
+            <value>LISTINGFORPARTOWNERPAGE</value>
+        </property>
+    </bean>
 
 </beans>
