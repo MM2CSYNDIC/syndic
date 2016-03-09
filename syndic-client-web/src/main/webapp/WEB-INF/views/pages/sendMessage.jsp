@@ -47,6 +47,7 @@
       <h3><fmt:message key="message.H3" /></h3>
     </div>
   </div>
+        <br><br><br>
 
 <%--
   <form:form id="sendMessageForm" commandName="messageCommand" action="/syndic/message/sendMessageToDest.ldz" style="margin : 0 auto; width : 630px">

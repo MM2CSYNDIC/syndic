@@ -204,7 +204,7 @@ public class EventController {
 			}
 		}
 		
-		return "listEventPage";
+		return "welcomePage";
 	}
 	
 	/**
@@ -224,6 +224,10 @@ public class EventController {
 			eventFormatJSON += " { ";
 			eventFormatJSON += " title : `" + ((Event) event).getEventName() + "`,";
 			eventFormatJSON += " start  : `" + ((Event) event).getDateEvent() + "` ";
+			if(((Event)event).getTypeEvent().equals("AG")){
+				eventFormatJSON += ", backgroundColor  : `" + "#CD0655"+ "` ";
+			}
+
 			eventFormatJSON += " } ";
 		}
 		model.addAttribute("listevent",this.manager.get(new Event()));
