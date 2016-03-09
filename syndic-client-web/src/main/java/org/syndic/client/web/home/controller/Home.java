@@ -386,23 +386,7 @@ public class Home {
         return "aboutPage";
     }
 
-	@RequestMapping(value = "/message/send", method = RequestMethod.GET)
-	public String sendMessage(Map<String,Object> model) {
-		logger.info("== uri: /sendMessage ==");
-		model.put("messageCommand", new MessageCommand());
-		model.put("listusers", this.manager.get(new User()));
-		return "sendMessage";
-	}
-
-	@RequestMapping(value = "/message/sendMessageToDest", method = RequestMethod.POST)
-	public String sendMessageToDest(@ModelAttribute("messageCommand") MessageCommand messageCommand) {
-        logger.info("==== Insert Message =====");
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String name = auth.getName(); //get logged in username
-        Message message = new Message(messageCommand.getUserNameDestinataire(), name,messageCommand.getObject(),messageCommand.getContent(), "non lu");
-        this.manager.add(message);
-        return "welcomePage";
-    }
+   
 
 
 
