@@ -100,10 +100,7 @@
 					<li>
 						<a ><i class="fa fa-edit"></i> <spring:message code="condo.Title"/><span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="${addcondoUrl}">Ajouter</a>
-							</li>
-							<li><a href="${listuserUrl}">Lister</a>
-							</li>
+							<li><a href="${addcondoUrl}">Ajouter</a></li>
 						</ul>
 					</li>
                     </sec:authorize>
@@ -113,7 +110,7 @@
 							<ul class="nav child_menu" style="display: none">
 								<li><a href="${adduserUrl}">Ajouter</a>
 								</li>
-								<li><a href="${listproviderUrl}">Lister</a>
+								<li><a href="${listuserUrl}">Lister</a>
 								</li>
 							</ul>
 						</li>
