@@ -66,12 +66,47 @@
                 <c:choose>
                     <c:when test="${entry.contains('.')}">
                         <c:set var="entry" value="${fn:replace(entry,'/', '')}" />
-                        <i>${entry}</i>  <br>
+                        <%--<i>${entry}</i>  <br>--%>
+                        <div class="col-md-55">
+                            <div class="thumbnail">
+                                <div class="image view view-first">
+                                    <img style="width: 100%; display: block;" src="/syndic/resources/images/4.jpg" alt="image" />
+                                    <div class="mask">
+                                        <p>Your Text</p>
+                                        <div class="tools tools-bottom">
+                                            <a href="#"><i class="fa fa-link"></i></a>
+                                            <a href="#"><i class="fa fa-pencil"></i></a>
+                                            <a href="#"><i class="fa fa-times"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="caption">
+                                    <p>${entry}</p>
+                                </div>
+                            </div>
+                        </div>
                     </c:when>
                     <c:otherwise>
                         <c:set var="entry" value="${fn:replace(entry,'/', '')}" />
-                       <b> ${entry} </b> <br>
-
+                       <%--<b> ${entry} </b> <br>--%>
+                        <div class="col-md-55">
+                            <div class="thumbnail">
+                                <div class="image view view-first">
+                                    <img style="width: 100%; display: block;" src="/syndic/resources/images/4.jpg" alt="image" />
+                                    <div class="mask">
+                                        <p>Your Text</p>
+                                        <div class="tools tools-bottom">
+                                            <a href="#"><i class="fa fa-link"></i></a>
+                                            <a href="#"><i class="fa fa-pencil"></i></a>
+                                            <a href="#"><i class="fa fa-times"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="caption">
+                                    <p>${entry}</p>
+                                </div>
+                            </div>
+                        </div>
                     </c:otherwise>
                 </c:choose>
 
