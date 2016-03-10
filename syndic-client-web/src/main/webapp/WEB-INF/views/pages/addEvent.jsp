@@ -209,7 +209,9 @@
 							<div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
 								<form:select class="form-control" path="typeEvent" id="typeEvent" >
 									<option selected><spring:message code="event.Type"/></option>
-									<option value="AG"><spring:message code="event.Type.AG"/></option>
+									<sec:authorize access="hasRole('ROLE_ADMIN')">
+										<option value="AG"><spring:message code="event.Type.AG"/></option>
+									</sec:authorize>
 									<option value="Intervention"><spring:message code="event.Type.Intervention"/></option>
 									<option value="Incident"><spring:message code="event.Type.Incident"/></option>
 								</form:select>

@@ -83,8 +83,10 @@
                     <sec:authorize access="hasRole('ROLE_OWNER')">
                         <li><a><i class="fa fa-edit"></i> <spring:message code="event.Title"/><span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu" style="display: none">
-                                <li><a href="${listeventUrl}">Lister</a>
-                                </li>
+								<li><a href="${addeventUrl}">Ajouter</a>
+								</li>
+								<li><a href="${listeventUrl}">Lister</a>
+								</li>
                             </ul>
                         </li>
                     </sec:authorize>
